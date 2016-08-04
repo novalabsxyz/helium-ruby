@@ -8,8 +8,9 @@ module Helium
         request.run()
         # puts "GET #{url} #{request.response.code} #{request.response.total_time}"
         # puts request.response.body
-        # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)
-        return User.new(request.response.body)
+        # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)\
+        user_data = JSON.parse(request.response.body)["data"]
+        return User.new(user_data)
       end
     end
   end

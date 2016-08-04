@@ -2,14 +2,12 @@ module Helium
   class User
     attr_accessor :id, :name, :email, :created_at, :updated_at
 
-    def initialize(json)
-      json_data = JSON.parse(json)["data"]
-
-      @id         = json_data["id"]
-      @name       = json_data["attributes"]["name"]
-      @email      = json_data["meta"]["email"]
-      @created_at = json_data["meta"]["created"]
-      @updated_at = json_data["meta"]["updated"]
+    def initialize(user_data)
+      @id         = user_data["id"]
+      @name       = user_data["attributes"]["name"]
+      @email      = user_data["meta"]["email"]
+      @created_at = user_data["meta"]["created"]
+      @updated_at = user_data["meta"]["updated"]
     end
 
     def created_at

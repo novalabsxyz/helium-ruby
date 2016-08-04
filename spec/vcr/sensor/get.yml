@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor/aba370be-837d-4b41-bee5-686b0069d874
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - <API KEY>
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 04 Aug 2016 23:13:37 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - 'WARNING: ulimit -n is 1024'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"SF Office Brick1 1 (on Marc''s desk)"},"relationships":{"metadata":{"data":{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"metadata"}},"element":{"data":null},"label":{"data":[{"id":"d81df823-a7a9-4476-b624-888f9fc56390","type":"label"},{"id":"968cc881-737e-4bff-bdd6-2af45992fe86","type":"label"},{"id":"247a4890-953e-4ac0-ba10-e6395dfb8e34","type":"label"},{"id":"58329ba4-a868-4ef2-b227-4b0bb69c9803","type":"label"}]}},"id":"aba370be-837d-4b41-bee5-686b0069d874","meta":{"card":{"id":5},"mac":"6081f9fffe000478","created":"2016-03-30T20:52:26.314159Z","versions":{"sensor-script":[{"version":"32245382e6cfd8f2"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050900","sensor-config":"4b90039b34373ad2","sensor-library":"d0a5d98a434729a3","sensor":"4020100"},"last-seen":"2016-08-04T23:10:34.209701Z","ports":["_se","lr","l","p","h","m","_e.info","t","b"],"updated":"2016-04-08T23:33:05.719843Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/aba370be-837d-4b41-bee5-686b0069d874
+  recorded_at: Thu, 04 Aug 2016 23:13:38 GMT
+recorded_with: VCR 3.0.3

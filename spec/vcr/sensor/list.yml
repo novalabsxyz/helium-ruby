@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - <API KEY>
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Thu, 04 Aug 2016 22:59:05 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - never breaks eye contact
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"Marc''s Isotope"},"id":"08bab58b-d095-4c7c-912c-1f8024d91d95","meta":{"card":null,"mac":"6081f9fffe00019b","created":"2015-08-06T17:28:11.614107Z","versions":null,"last-seen":"2015-08-11T18:50:04Z","ports":["t","b"],"updated":"2016-05-30T22:36:50.810716Z"},"type":"sensor"},{"attributes":{"name":"John
+        Isotope"},"id":"51f3564d-bfb9-4b77-b868-fa83f1de2f39","meta":{"card":null,"mac":"6081f9fffe000177","created":"2015-08-06T23:39:35.05194Z","versions":null,"last-seen":"2015-10-07T17:15:04Z","ports":["t","b"],"updated":"2015-08-06T23:39:35.05201Z"},"type":"sensor"},{"attributes":{"name":"RF''s
+        Isotope"},"id":"66ae4160-64a2-41d9-bbe0-891b70e71b1e","meta":{"card":{"id":255},"mac":"6081f9fffe000675","created":"2015-11-03T17:00:10.135173Z","versions":{"sensor-script":[{"version":"37d26a13e081ace2"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"a01bd416372f4982","sensor-library":"5deb1dc079f5e352","sensor":"4020200"},"last-seen":"2016-06-01T16:56:17.297082Z","ports":["t","_se","d","b"],"updated":"2015-11-03T17:00:10.114371Z"},"type":"sensor"},{"attributes":{"name":"CS008B"},"id":"0d0a87ff-84c3-473c-b349-4af6122c1644","meta":{"card":{"id":255},"mac":"6081f9fffe00008b","created":"2015-08-05T19:10:25.606784Z","versions":{"sensor-script":[],"atom":"2050900","sensor-config":"507e8d0ed4dbff31","sensor-library":"0","sensor":"4010700"},"last-seen":"2016-05-26T15:56:14.898989Z","ports":["t","_se","d","b"],"updated":"2015-08-05T19:10:25.605618Z"},"type":"sensor"},{"attributes":{"name":"John''s
+        Development Isotope with a Brick1"},"id":"01d53511-228d-4530-8eaf-74d43c17baa8","meta":{"card":{"id":2},"mac":"6081f9fffe000790","created":"2016-03-29T23:41:29.994176Z","versions":{"sensor-script":[{"version":"e7a8956314c3f5e5"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050900","sensor-config":"3857a69a1f6104b3","sensor":"4020200"},"last-seen":"2016-05-17T00:08:57.716681Z","ports":["_b","p","h","l","_se","d","m","t","b"],"updated":"2016-03-29T23:41:29.994404Z"},"type":"sensor"},{"attributes":{"name":"Pat''s
+        Dev Isotope"},"id":"c292f553-a72b-4582-951a-b900510f02d9","meta":{"card":null,"mac":"6081f9fffe000746","created":"2016-05-24T16:38:17.491067Z","versions":null,"last-seen":"2016-05-31T21:54:06.159268Z","ports":["l2","l","_se","m","l1","p","_b","t","b","h"],"updated":"2016-05-24T16:38:17.491258Z"},"type":"sensor"},{"attributes":{"name":"SF
+        Freezer Internal"},"id":"b427abef-ef0e-4429-9128-b919faea0bd4","meta":{"card":null,"mac":"6081f9fffe0007a4","created":"2016-02-24T21:17:20.619754Z","versions":null,"last-seen":"2016-04-14T17:25:22.699038Z","ports":["d","t","b"],"updated":"2016-02-24T21:17:20.618869Z"},"type":"sensor"},{"attributes":{"name":"Andrew''s
+        Brick-1"},"id":"f928df8f-9cda-4313-9cf7-cffee5d57050","meta":{"card":{"id":5},"mac":"6081f9fffe0007fa","created":"2016-03-30T21:13:50.785417Z","versions":{"sensor-script":[{"version":"7232c31fff3581a4"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"4b90039b34373ad2","sensor-library":"d0a5d98a434729a3","sensor":"4020100"},"last-seen":"2016-07-07T21:39:45.948839Z","ports":["l","_se","h","b","t","m","p"],"updated":"2016-03-30T21:13:50.785624Z"},"type":"sensor"},{"attributes":{"name":"Andrew''s
+        SP-02"},"id":"492759da-afb0-4d66-a83c-bb001d20c280","meta":{"card":{"id":2},"mac":"6081f9fffe0001a8","created":"2016-03-31T19:40:51.624362Z","versions":{"sensor-script":[{"version":"c20a8a66f586861e"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"c0e0315e1e7e205b","sensor-library":"2d08523b16fca24a","sensor":"4020100"},"last-seen":"2016-07-07T21:48:12.973376Z","ports":["_se","d","b","t"],"updated":"2016-04-11T15:36:09.553438Z"},"type":"sensor"},{"attributes":{"name":"SF
+        Office Brick1 2"},"id":"c7b11d08-8534-46e4-a14d-0a9306c899b7","meta":{"card":{"id":5},"mac":"6081f9fffe00076f","created":"2016-03-30T20:52:52.807071Z","versions":{"sensor-script":[{"version":"32245382e6cfd8f2"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050900","sensor-config":"4b90039b34373ad2","sensor-library":"d0a5d98a434729a3","sensor":"4020100"},"last-seen":"2016-08-04T22:56:04.205143Z","ports":["p","lr","h","b","m","l","_se","_e.info","t"],"updated":"2016-03-30T20:52:52.807256Z"},"type":"sensor"},{"attributes":{"name":"SF
+        Office Brick1 1 (on Marc''s desk)"},"id":"aba370be-837d-4b41-bee5-686b0069d874","meta":{"card":{"id":5},"mac":"6081f9fffe000478","created":"2016-03-30T20:52:26.314159Z","versions":{"sensor-script":[{"version":"32245382e6cfd8f2"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050900","sensor-config":"4b90039b34373ad2","sensor-library":"d0a5d98a434729a3","sensor":"4020100"},"last-seen":"2016-08-04T22:56:03.852042Z","ports":["_se","lr","l","p","h","m","_e.info","t","b"],"updated":"2016-04-08T23:33:05.719843Z"},"type":"sensor"},{"attributes":{"name":"weather-80526"},"id":"1f80532a-2c17-48d5-a4ee-f8e27394a3c8","meta":{"card":null,"mac":null,"created":"2016-04-15T20:24:40.679165Z","versions":null,"last-seen":"2016-07-28T04:03:15.211815Z","ports":["p","h","t"],"updated":"2016-04-15T20:24:40.679165Z"},"type":"sensor"},{"attributes":{"name":"weather-94945"},"id":"b13e543c-05a4-49c9-9e35-c091fe34283f","meta":{"card":null,"mac":null,"created":"2016-04-15T20:21:54.641143Z","versions":null,"last-seen":"2016-07-28T04:03:15.07638Z","ports":["t","p","h"],"updated":"2016-04-15T20:21:54.641143Z"},"type":"sensor"},{"attributes":{"name":"weather-94158"},"id":"b3bb7dcb-8829-4146-920a-7ae0994a1f03","meta":{"card":null,"mac":null,"created":"2016-04-14T23:37:02.04786Z","versions":null,"last-seen":"2016-07-28T04:03:15.123055Z","ports":["t","h","p"],"updated":"2016-04-15T18:59:47.266835Z"},"type":"sensor"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor
+  recorded_at: Thu, 04 Aug 2016 22:59:05 GMT
+recorded_with: VCR 3.0.3

@@ -1,8 +1,10 @@
 require 'helium/client/users'
+require 'helium/client/sensors'
 
 module Helium
   class Client
     include Helium::Client::Users
+    include Helium::Client::Sensors
 
     API_VERSION = 1
     HOST        = 'api.helium.com'

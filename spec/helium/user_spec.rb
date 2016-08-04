@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Helium::User do
-  let(:client) { Helium::Client.new(api_key: "not_a_real_api_key") }
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
 
   context 'Client#user' do
     let(:user) { client.user }
 
     around(:each) do |spec|
-      VCR.use_cassette 'user/get_response' do
+      VCR.use_cassette 'user/get' do
         spec.run
       end
     end
