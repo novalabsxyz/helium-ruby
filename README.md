@@ -24,7 +24,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Setup
+
+```ruby
+require 'helium'
+
+client = Helium::Client.new(api_key: '<Your API Key>')
+```
+
+### Users
+
+```ruby
+client.user
+# => #<Helium::User:0x007fd58198d9e8 @id="dev-accounts@helium.co", @name="HeliumDevAccount Demo", @email="dev-accounts@helium.co", @created_at="2014-10-29T21:38:52Z", @updated_at="2015-08-06T18:21:32.186374Z">
+```
 
 ## Development
 
