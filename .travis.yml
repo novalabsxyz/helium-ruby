@@ -1,5 +1,16 @@
 sudo: false
 language: ruby
+
 rvm:
   - 2.3.1
+
 before_install: gem install bundler -v 1.12.5
+
+script: 'bundle exec rake'
+
+notifications:
+  email:
+    recipients:
+      - allenan@helium.com
+    on_failure: change
+    on_success: never

@@ -1,5 +1,9 @@
 # helium-ruby
 
+[![Build Status](https://travis-ci.org/helium/helium-ruby.svg?branch=master)](https://travis-ci.org/helium/helium-ruby)
+[![Coverage Status](https://coveralls.io/repos/github/helium/helium-ruby/badge.svg)](https://coveralls.io/github/helium/helium-ruby)
+[![Code Climate](https://codeclimate.com/github/helium/helium-ruby/badges/gpa.svg)](https://codeclimate.com/github/helium/helium-ruby)
+
 A Ruby gem for building applications with the Helium API. [Helium](https://www.helium.com/) is an integrated platform of smart sensors, communication, edge and cloud compute that enables numerous sensing applications. For more information about the underlying REST API, check out [the Helium docs](https://docs.helium.com/).
 
 ## Installation
