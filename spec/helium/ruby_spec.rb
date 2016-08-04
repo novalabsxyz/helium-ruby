@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Helium::Ruby do
+describe Helium do
   it 'has a version number' do
-    expect(Helium::Ruby::VERSION).not_to be nil
+    expect(Helium::VERSION).not_to be nil
   end
 
   it 'does something useful' do
