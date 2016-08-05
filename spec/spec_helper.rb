@@ -6,6 +6,6 @@ require 'helium'
 require 'vcr'
 require 'pry'
 
-API_KEY = ENV['HELIUM_API_KEY'] || 'not_a_real_api_key'
+API_KEY = (ENV['HELIUM_API_KEY'] || 'not_a_real_api_key').freeze
 
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }

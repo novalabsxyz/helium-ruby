@@ -1,9 +1,11 @@
 require 'helium/client/users'
+require 'helium/client/organizations'
 require 'helium/client/sensors'
 
 module Helium
   class Client
     include Helium::Client::Users
+    include Helium::Client::Organizations
     include Helium::Client::Sensors
 
     API_VERSION = 1
