@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/organization
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Sat, 06 Aug 2016 16:37:59 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - "$300,000 worth of cows"
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"dev-accounts@helium.co","timezone":"UTC"},"relationships":{"user":{"data":[{"id":"tom@helium.com","type":"user"},{"id":"dev-accounts@helium.co","type":"user"}]},"metadata":{"data":{"id":"dev-accounts@helium.co","type":"metadata"}}},"id":"dev-accounts@helium.co","meta":{"created":"2015-09-10T20:50:18.183896Z","updated":"2015-09-10T20:50:18.183896Z"},"type":"organization"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/organization
+  recorded_at: Sat, 06 Aug 2016 16:38:02 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/organization/user
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Sat, 06 Aug 2016 16:37:59 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - 'WARNING: ulimit -n is 1024'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"Tom Santero"},"id":"tom@helium.com","meta":{"email":"tom@helium.com","created":"2015-01-21T16:39:31.397048Z","updated":"2015-02-12T20:42:22.674452Z"},"type":"user"},{"attributes":{"name":"HeliumDevAccount
+        Demo"},"id":"dev-accounts@helium.co","meta":{"email":"dev-accounts@helium.co","created":"2014-10-29T21:38:52Z","updated":"2015-08-06T18:21:32.186374Z"},"type":"user"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/organization/user
+  recorded_at: Sat, 06 Aug 2016 16:38:02 GMT
+recorded_with: VCR 3.0.3

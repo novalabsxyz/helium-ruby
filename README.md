@@ -39,6 +39,20 @@ client.user
 # => #<Helium::User:0x007fd58198d9e8 @id="dev-accounts@helium.co", @name="HeliumDevAccount Demo", @email="dev-accounts@helium.co", @created_at="2014-10-29T21:38:52Z", @updated_at="2015-08-06T18:21:32.186374Z">
 ```
 
+### Organizations
+
+#### Get the current organization
+
+```ruby
+client.organization
+```
+
+#### Get all users associated with the current organization
+
+```ruby
+client.organization.users
+```
+
 ### Sensors
 
 #### Get all Sensors

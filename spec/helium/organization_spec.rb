@@ -36,4 +36,26 @@ describe Helium::Organization do
       expect(organization.updated_at).to eq(DateTime.parse("2015-09-10T20:50:18.183896Z"))
     end
   end
+
+  context 'Organization#users' do
+    let(:organization) { client.organization }
+
+    around(:each) do |spec|
+      VCR.use_cassette 'organization/users' do
+        spec.run
+      end
+    end
+
+    it 'returns the Users associated with the organization' do
+      users = organization.users
+      expect(users).to be_an(Array)
+      expect(users.first).to be_a(Helium::User)
+    end
+
+    it 'returns proper Users' do
+      user = organization.users.last
+      expect(user.name).to eq("HeliumDevAccount Demo")
+      expect(user.id).to eq('dev-accounts@helium.co')
+    end
+  end
 end

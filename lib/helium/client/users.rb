@@ -10,7 +10,7 @@ module Helium
         # puts request.response.body
         # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)\
         user_data = JSON.parse(request.response.body)["data"]
-        return User.new(user_data)
+        return User.new(client: self, params: user_data)
       end
     end
   end
