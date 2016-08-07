@@ -19,5 +19,14 @@ module Helium
     def updated_at
       DateTime.parse(@updated_at)
     end
+
+    def timeseries(size: 1000, port: nil, start_time: nil, end_time: nil)
+      @client.sensor_timeseries(self,
+        size:       size,
+        port:       port,
+        start_time: start_time,
+        end_time:   end_time
+      )
+    end
   end
 end

@@ -49,7 +49,7 @@ describe Helium::Organization do
     it 'returns the Users associated with the organization' do
       users = organization.users
       expect(users).to be_an(Array)
-      expect(users.first).to be_a(Helium::User)
+      expect(users).to all( be_a(Helium::User) )
     end
 
     it 'returns proper Users' do

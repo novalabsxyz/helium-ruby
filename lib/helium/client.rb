@@ -4,6 +4,7 @@ require 'helium/client/sensors'
 
 module Helium
   class Client
+    include Helium::Utils
     include Helium::Client::Users
     include Helium::Client::Organizations
     include Helium::Client::Sensors

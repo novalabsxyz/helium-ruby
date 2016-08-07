@@ -23,13 +23,13 @@ describe Helium::Sensor do
   end
 
   context 'Client#sensor' do
+    let(:sensor) { client.sensor("aba370be-837d-4b41-bee5-686b0069d874") }
+
     around(:each) do |spec|
       VCR.use_cassette 'sensor/get' do
         spec.run
       end
     end
-
-    let(:sensor) { client.sensor("aba370be-837d-4b41-bee5-686b0069d874") }
 
     it 'is a Sensor' do
       expect(sensor).to be_a(Helium::Sensor)
