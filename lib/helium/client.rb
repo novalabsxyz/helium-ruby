@@ -21,8 +21,13 @@ module Helium
 
     attr_accessor :api_key
 
-    def initialize(api_key:)
+    def initialize(api_key:, debug: false)
       @api_key = api_key
+      @debug = debug
+    end
+
+    def debug?
+      @debug == true
     end
 
     def http_headers

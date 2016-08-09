@@ -83,7 +83,24 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
   end
 
   context 'paging' do
-    # TODO Helium::Timeseries#next
+    around(:each) do |spec|
+      VCR.use_cassette 'sensor/timeseries_paging' do
+        spec.run
+      end
+    end
+
+    it 'returns a new Timeseries object' do
+      expect(data_points.previous).to be_a(Helium::Timeseries)
+    end
+
+    it 'returns data_points older than those in the current timeseries' do
+      expect(data_points.last.timestamp).to be > data_points.previous.first.timestamp
+    end
+
+    it 'returns false if there are no previous data points' do
+      data_points.previous_link = nil
+      expect(data_points.previous).to eq(false)
+    end
   end
 
   context 'when setting size' do

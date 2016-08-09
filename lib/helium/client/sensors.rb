@@ -6,7 +6,7 @@ module Helium
         url = "#{PROTOCOL}://#{HOST}/v#{API_VERSION}/sensor"
         request = Typhoeus::Request.new(url, headers: http_headers)
         request.run()
-        # puts "GET #{url} #{request.response.code} #{request.response.total_time}"
+        puts "GET #{url} #{request.response.code} #{request.response.total_time}" if debug?
         # puts request.response.body
         # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)
         sensors_data = JSON.parse(request.response.body)["data"]
@@ -23,7 +23,7 @@ module Helium
         url = "#{PROTOCOL}://#{HOST}/v#{API_VERSION}/sensor/#{id}"
         request = Typhoeus::Request.new(url, headers: http_headers)
         request.run()
-        # puts "GET #{url} #{request.response.code} #{request.response.total_time}"
+        puts "GET #{url} #{request.response.code} #{request.response.total_time}" if debug?
         # puts request.response.body
         # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)
         sensor_data = JSON.parse(request.response.body)["data"]
@@ -44,12 +44,37 @@ module Helium
 
         request = Typhoeus::Request.new(url, {params: options, headers: http_headers})
         request.run()
-        # puts "GET #{url} #{request.response.code} #{request.response.total_time}"
+        puts "GET #{url} #{request.response.code} #{request.response.total_time}" if debug?
         # puts request.response.body
         # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)
-        timeseries_data = JSON.parse(request.response.body)["data"]
+        json_results = JSON.parse(request.response.body)
+        timeseries_data = json_results["data"]
+        timeseries_links = json_results["links"]
 
-        return Timeseries.new(client: self, params: timeseries_data)
+        return Timeseries.new(
+          client: self,
+          params: timeseries_data,
+          links: timeseries_links
+        )
+      end
+
+      def sensor_timeseries_by_link(url)
+        # TODO request logic will be extracted
+
+        request = Typhoeus::Request.new(url, {headers: http_headers})
+        request.run()
+        puts "GET #{url} #{request.response.code} #{request.response.total_time}" if debug?
+        # puts request.response.body
+        # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)
+        json_results = JSON.parse(request.response.body)
+        timeseries_data = json_results["data"]
+        timeseries_links = json_results["links"]
+
+        return Timeseries.new(
+          client: self,
+          params: timeseries_data,
+          links: timeseries_links
+        )
       end
     end
   end

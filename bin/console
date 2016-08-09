@@ -3,12 +3,14 @@
 require "bundler/setup"
 require "helium"
 
-# You can add fixtures and/or initialization code here to make experimenting
-# with your gem easier. You can also use a different console, if you like.
+class Object
+  API_KEY = ENV['HELIUM_API_KEY'].freeze
 
-# (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+  def client
+    return nil if API_KEY.nil?
+    @client ||= Helium::Client.new(api_key: API_KEY, debug: true)
+  end
+end
 
-require "irb"
-IRB.start
+require "pry"
+Pry.start
