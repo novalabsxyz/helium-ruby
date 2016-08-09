@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Helium::DataPoint, 'Sensor#timeseries' do
+describe Helium::Timeseries, 'Sensor#timeseries' do
   let(:client)      { Helium::Client.new(api_key: API_KEY) }
   let(:sensor)      { client.sensor("aba370be-837d-4b41-bee5-686b0069d874") }
   let(:data_points) { sensor.timeseries }
@@ -10,6 +10,10 @@ describe Helium::DataPoint, 'Sensor#timeseries' do
     VCR.use_cassette 'sensor/timeseries' do
       spec.run
     end
+  end
+
+  it 'is a Timeseries' do
+    expect(data_points).to be_a(Helium::Timeseries)
   end
 
   it 'has an id' do
@@ -29,8 +33,7 @@ describe Helium::DataPoint, 'Sensor#timeseries' do
   end
 
   context 'when not filtering' do
-    it 'returns an array of DataPoints' do
-      expect(data_points).to be_an(Array)
+    it 'returns DataPoints' do
       expect(data_points).to all( be_a(Helium::DataPoint) )
     end
 

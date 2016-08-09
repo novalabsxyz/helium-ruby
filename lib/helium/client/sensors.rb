@@ -49,11 +49,7 @@ module Helium
         # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)
         timeseries_data = JSON.parse(request.response.body)["data"]
 
-        data_points = timeseries_data.map do |data_point_data|
-          DataPoint.new(client: self, params: data_point_data)
-        end
-
-        return data_points
+        return Timeseries.new(client: self, params: timeseries_data)
       end
     end
   end
