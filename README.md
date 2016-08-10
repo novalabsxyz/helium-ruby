@@ -45,12 +45,17 @@ client.user
 
 ```ruby
 client.organization
+# => #<Helium::Organization:0x007fd3d94b1b08 @client=<Helium::Client @debug=true>, @id="dev-accounts@helium.co", @name="dev-accounts@helium.co", @timezone="UTC", @created_at="2015-09-10T20:50:18.183896Z", @updated_at="2015-09-10T20:50:18.183896Z">
 ```
 
 #### Get all users associated with the current organization
 
 ```ruby
 client.organization.users
+# => [
+#   [0] #<Helium::User:0x007fd3d9449490 @client=<Helium::Client @debug=true>, @id="tom@helium.com", @name="Tom Santero", @email="tom@helium.com", @created_at="2015-01-21T16:39:31.397048Z", @updated_at="2015-02-12T20:42:22.674452Z">,
+#   [1] #<Helium::User:0x007fd3d94492d8 @client=<Helium::Client @debug=true>, @id="dev-accounts@helium.co", @name="HeliumDevAccount Demo", @email="dev-accounts@helium.co", @created_at="2014-10-29T21:38:52Z", @updated_at="2015-08-06T18:21:32.186374Z">
+# ]
 ```
 
 ### Sensors
