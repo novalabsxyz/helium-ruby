@@ -26,6 +26,10 @@ module Helium
       @debug = debug
     end
 
+    def inspect
+      "<Helium::Client @debug=#{@debug}>"
+    end
+
     def debug?
       @debug == true
     end
