@@ -4,11 +4,7 @@ describe Helium::Sensor do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
 
   context 'Client#sensors' do
-    around(:each) do |spec|
-      VCR.use_cassette 'sensor/list' do
-        spec.run
-      end
-    end
+    use_cassette 'sensor/list'
 
     it 'is an array of Sensors' do
       sensors = client.sensors
@@ -25,11 +21,7 @@ describe Helium::Sensor do
   context 'Client#sensor' do
     let(:sensor) { client.sensor("aba370be-837d-4b41-bee5-686b0069d874") }
 
-    around(:each) do |spec|
-      VCR.use_cassette 'sensor/get' do
-        spec.run
-      end
-    end
+    use_cassette 'sensor/get'
 
     it 'is a Sensor' do
       expect(sensor).to be_a(Helium::Sensor)

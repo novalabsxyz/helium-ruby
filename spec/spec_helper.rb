@@ -9,3 +9,7 @@ require 'pry'
 API_KEY = (ENV['HELIUM_API_KEY'] || 'not_a_real_api_key').freeze
 
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
+
+RSpec.configure do |c|
+  c.extend Helpers
+end

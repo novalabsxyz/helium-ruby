@@ -6,11 +6,7 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
   let(:data_points) { sensor.timeseries }
   let(:data_point)  { data_points.first }
 
-  around(:each) do |spec|
-    VCR.use_cassette 'sensor/timeseries' do
-      spec.run
-    end
-  end
+  use_cassette 'sensor/timeseries'
 
   it 'is a Timeseries' do
     expect(data_points).to be_a(Helium::Timeseries)
@@ -50,11 +46,7 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
   context 'when filtering by Port' do
     let(:data_points) { sensor.timeseries(port: 't') }
 
-    around(:each) do |spec|
-      VCR.use_cassette 'sensor/timeseries_by_port' do
-        spec.run
-      end
-    end
+    use_cassette 'sensor/timeseries_by_port'
 
     it 'returns DataPoints of the given port' do
       expect(data_points.collect(&:port)).to all(eq('t'))
@@ -67,11 +59,7 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
     let(:data_points) { sensor.timeseries(start_time: start_time, end_time: end_time) }
     let(:timestamps)  { data_points.collect(&:timestamp) }
 
-    around(:each) do |spec|
-      VCR.use_cassette 'sensor/timeseries_by_time' do
-        spec.run
-      end
-    end
+    use_cassette 'sensor/timeseries_by_time'
 
     it 'returns DataPoints after the start time' do
       expect(timestamps).to all(be >= start_time)
@@ -83,11 +71,7 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
   end
 
   context 'paging' do
-    around(:each) do |spec|
-      VCR.use_cassette 'sensor/timeseries_paging' do
-        spec.run
-      end
-    end
+    use_cassette 'sensor/timeseries_paging'
 
     it 'returns a new Timeseries object' do
       expect(data_points.previous).to be_a(Helium::Timeseries)
@@ -106,11 +90,7 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
   context 'when setting size' do
     let(:data_points) { sensor.timeseries(size: 100) }
 
-    around(:each) do |spec|
-      VCR.use_cassette 'sensor/timeseries_by_size' do
-        spec.run
-      end
-    end
+    use_cassette 'sensor/timeseries_by_size'
 
     it 'returns the requested number of DataPoints' do
       expect(data_points.length).to eq(100)

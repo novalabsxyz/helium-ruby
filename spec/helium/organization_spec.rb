@@ -6,11 +6,7 @@ describe Helium::Organization do
   context 'Client#organization' do
     let(:organization) { client.organization }
 
-    around(:each) do |spec|
-      VCR.use_cassette 'organization/get' do
-        spec.run
-      end
-    end
+    use_cassette 'organization/get'
 
     it 'is an Organization' do
       expect(organization).to be_a(Helium::Organization)
@@ -40,11 +36,7 @@ describe Helium::Organization do
   context 'Organization#users' do
     let(:organization) { client.organization }
 
-    around(:each) do |spec|
-      VCR.use_cassette 'organization/users' do
-        spec.run
-      end
-    end
+    use_cassette 'organization/users'
 
     it 'returns the Users associated with the organization' do
       users = organization.users

@@ -6,11 +6,7 @@ describe Helium::User do
   context 'Client#user' do
     let(:user) { client.user }
 
-    around(:each) do |spec|
-      VCR.use_cassette 'user/get' do
-        spec.run
-      end
-    end
+    use_cassette 'user/get'
 
     it 'returns a user object' do
       expect(user).to be_a(Helium::User)
