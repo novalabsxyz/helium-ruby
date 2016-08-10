@@ -36,4 +36,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "coveralls", "~> 0.8.2"
   spec.add_development_dependency "pry", "~> 0.10.4"
   spec.add_development_dependency "awesome_print", "~> 1.7.0"
+  spec.add_development_dependency "guard", "~> 2.14.0"
+  spec.add_development_dependency "guard-rspec", "~> 4.7.3"
+  spec.add_development_dependency "terminal-notifier-guard", "~> 1.7.0"
+  spec.add_development_dependency "simplecov", "~> 0.12.0"
 end

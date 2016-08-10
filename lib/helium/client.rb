@@ -1,3 +1,4 @@
+require 'helium/client/http'
 require 'helium/client/users'
 require 'helium/client/organizations'
 require 'helium/client/sensors'
@@ -5,6 +6,7 @@ require 'helium/client/sensors'
 module Helium
   class Client
     include Helium::Utils
+    include Helium::Client::Http
     include Helium::Client::Users
     include Helium::Client::Organizations
     include Helium::Client::Sensors

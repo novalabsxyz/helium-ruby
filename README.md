@@ -165,6 +165,19 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/helium/helium-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+### Running specs with Guard
+
+To receive system notifications of test status, install `terminal-notifier`:
+```
+$ brew install terminal-notifier
+```
+
+Then run Guard with:
+```
+$ bundle exec guard
+```
+
+When you modify any of the files in `lib/`, all specs will run. When you modify a spec file, just that file will be run. You can press `Enter` at the guard prompt to run all tests as well.
 
 ## License
 
