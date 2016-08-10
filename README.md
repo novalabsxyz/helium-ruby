@@ -88,6 +88,35 @@ sensor.timeseries.each do |data_point|
 end
 ```
 
+#### Filtering Timeseries data
+Timeseries data can be filtered by port type and start/end time:
+
+```ruby
+sensor.timeseries.collect(&:port).uniq
+# => [
+#  [0] "b",
+#  [1] "l",
+#  [2] "h",
+#  [3] "p",
+#  [4] "t",
+#  [5] "_se",
+#  [6] "m"
+# ]
+
+sensor.timeseries(port: 't').collect(&:port).uniq
+# => [
+#   [0] "t"
+# ]
+
+sensor.timeseries(start_time: DateTime.parse("2016-08-01"), end_time: DateTime.parse("2016-08-02")).collect(&:timestamp)
+# => [
+#  [0] #<DateTime: 2016-08-01T23:55:29+00:00 ((2457602j,86129s,802000000n),+0s,2299161j)>,
+#  [1] #<DateTime: 2016-08-01T23:55:29+00:00 ((2457602j,86129s,61000000n),+0s,2299161j)>,
+#  [2] #<DateTime: 2016-08-01T23:55:29+00:00 ((2457602j,86129s,60000000n),+0s,2299161j)>,
+#  [3] #<DateTime: 2016-08-01T23:55:29+00:00 ((2457602j,86129s,59000000n),+0s,2299161j)>,
+#  [4] #<DateTime: 2016-08-01T23:54:45+00:00 ((2457602j,86085s,544000000n),+0s,2299161j)>,
+```
+
 #### Paging through Timeseries data
 Timeseries data is paginated at the API level. By default, 1000 data points are returned. This amount can be increased up to 10,000:
 
