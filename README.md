@@ -67,6 +67,53 @@ client.sensor("08bab58b-d095-4c7c-912c-1f8024d91d95")
 # => #<Helium::Sensor:0x007f89acdb1b58 @id="08bab58b-d095-4c7c-912c-1f8024d91d95", @name="Marc's Isotope", @mac="6081f9fffe00019b", @ports=["t", "b"], @created_at="2015-08-06T17:28:11.614107Z", @updated_at="2016-05-30T22:36:50.810716Z">
 ```
 
+### Timeseries
+
+#### Get Timeseries data for a sensor
+```ruby
+sensor = client.sensor("08bab58b-d095-4c7c-912c-1f8024d91d95")
+sensor.timeseries
+# => #<Helium::Timeseries:0x007ff9dd92efa8 @data_points=[#<Helium::DataPoint:0x007ff9dd92ee18 @id="a4107e78-f15e-4c31-aab3-497bbfe3e33c", @timestamp="2015-08-11T18:50:04Z", @value=-40.125, @port="t">, ...
+```
+
+#### Working with data points
+A `Helium::Timeseries` is a collection of `Helium::DataPoint`s which can be accessed by calling `.data_points`, or iterated over using the usual `Object#Enumerable` methods:
+
+```ruby
+sensor.timeseries.each do |data_point|
+  puts data_point.id
+  puts data_point.timestamp
+  puts data_point.value
+  puts data_point.port
+end
+```
+
+#### Paging through Timeseries data
+Timeseries data is paginated at the API level. By default, 1000 data points are returned. This amount can be increased up to 10,000:
+
+```ruby
+sensor.timeseries(size: 10_000).length
+# => 10000
+```
+
+The data points are sorted from most recent, to least recent. The `.previous` method on a `Helium::Timeseries` object will return a new `Helium::Timeseries` object with the next page of Timeseries data:
+
+```ruby
+timeseries = sensor.timeseries
+# => #<Helium::Timeseries:0x007ff9e10d2c48 @data_points=[#<Helium::DataPoint:0x007ff9e10d2568 @id="3595e562-c065-442e-a3af-c6f43ddb1500", @timestamp="2016-08-10T13:21:49.866Z", @value=27, @port="l">, ...
+
+timeseries.previous
+# => #<Helium::Timeseries:0x007ff9dc141008 @data_points=[#<Helium::DataPoint:0x007ff9dc140f68 @id="1e4062cf-361d-415e-8c05-cd04954424d1", @timestamp="2016-08-10T13:11:49.353Z", @value=99804.15, @port="p">, ...
+```
+
+If no previous data exists, the `.previous` method will return `false`.
+
+```ruby
+sensor.timeseries.previous
+# => false
+```
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
