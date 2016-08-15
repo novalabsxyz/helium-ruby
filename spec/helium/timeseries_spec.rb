@@ -70,7 +70,7 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
     end
   end
 
-  context 'paging' do
+  context 'paging to previous' do
     use_cassette 'sensor/timeseries_paging'
 
     it 'returns a new Timeseries object' do
@@ -82,8 +82,21 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
     end
 
     it 'returns false if there are no previous data points' do
-      data_points.previous_link = nil
+      data_points = Helium::Timeseries.new(client: nil)
       expect(data_points.previous).to eq(false)
+    end
+  end
+
+  context 'paging to next' do
+    use_cassette 'sensor/timeseries_paging_next'
+
+    it 'returns data points newer than those in the current timeseries' do
+      previous_data_points = data_points.previous
+      expect(previous_data_points.next.first.timestamp).to be > previous_data_points.first.timestamp
+    end
+
+    it 'returns false if there are no next data points' do
+      expect(data_points.next).to eq(false)
     end
   end
 

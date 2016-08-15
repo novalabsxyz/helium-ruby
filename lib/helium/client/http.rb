@@ -19,7 +19,8 @@ module Helium
         request.run()
 
         if debug?
-          puts "GET #{url} #{request.response.code} #{request.response.total_time}"
+          # TODO print request method dynamically, won't always be GET
+          puts "GET #{request.url} #{request.response.code} #{request.response.total_time}"
           # puts request.response.body
         end
 

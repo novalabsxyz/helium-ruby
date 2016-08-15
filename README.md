@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/helium/helium-ruby.svg?branch=master)](https://travis-ci.org/helium/helium-ruby)
 [![Coverage Status](https://coveralls.io/repos/github/helium/helium-ruby/badge.svg?branch=master)](https://coveralls.io/github/helium/helium-ruby?branch=master)
 [![Code Climate](https://codeclimate.com/github/helium/helium-ruby/badges/gpa.svg)](https://codeclimate.com/github/helium/helium-ruby)
+[![Gem Version](https://badge.fury.io/rb/helium-ruby.svg)](https://badge.fury.io/rb/helium-ruby)
 
 A Ruby gem for building applications with the Helium API. [Helium](https://www.helium.com/) is an integrated platform of smart sensors, communication, edge and cloud compute that enables numerous sensing applications. For more information about the underlying REST API, check out [the Helium docs](https://docs.helium.com/).
 
@@ -130,14 +131,17 @@ sensor.timeseries(size: 10_000).length
 # => 10000
 ```
 
-The data points are sorted from most recent, to least recent. The `.previous` method on a `Helium::Timeseries` object will return a new `Helium::Timeseries` object with the next page of Timeseries data:
+The data points are sorted from most recent, to least recent. The `.previous` method on a `Helium::Timeseries` object will return a new `Helium::Timeseries` object with the previous page of Timeseries data. Similarly, the `.next` method on a `Helium::Timeseries` object will return the next page of timeseries data, if it exists. If not, it will return `false`.
 
 ```ruby
 timeseries = sensor.timeseries
 # => #<Helium::Timeseries:0x007ff9e10d2c48 @data_points=[#<Helium::DataPoint:0x007ff9e10d2568 @id="3595e562-c065-442e-a3af-c6f43ddb1500", @timestamp="2016-08-10T13:21:49.866Z", @value=27, @port="l">, ...
 
-timeseries.previous
+previous_timeseries = timeseries.previous
 # => #<Helium::Timeseries:0x007ff9dc141008 @data_points=[#<Helium::DataPoint:0x007ff9dc140f68 @id="1e4062cf-361d-415e-8c05-cd04954424d1", @timestamp="2016-08-10T13:11:49.353Z", @value=99804.15, @port="p">, ...
+
+previous_timeseries.next
+# =>
 ```
 
 If no previous data exists, the `.previous` method will return `false`.
@@ -146,6 +150,8 @@ If no previous data exists, the `.previous` method will return `false`.
 sensor.timeseries.previous
 # => false
 ```
+
+
 
 
 ## Development
