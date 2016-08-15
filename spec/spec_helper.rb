@@ -12,6 +12,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'helium'
 require 'vcr'
 require 'pry'
+require 'human_time/rspec_matchers'
 
 API_KEY = (ENV['HELIUM_API_KEY'] || 'not_a_real_api_key').freeze
 

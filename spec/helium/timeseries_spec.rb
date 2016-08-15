@@ -62,11 +62,11 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
     use_cassette 'sensor/timeseries_by_time'
 
     it 'returns DataPoints after the start time' do
-      expect(timestamps).to all(be >= start_time)
+      expect(timestamps).to all(be_after start_time)
     end
 
     it 'returns DataPoints before the end time' do
-      expect(timestamps).to all(be < end_time)
+      expect(timestamps).to all(be_before end_time)
     end
   end
 
@@ -78,7 +78,7 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
     end
 
     it 'returns data_points older than those in the current timeseries' do
-      expect(data_points.last.timestamp).to be > data_points.previous.first.timestamp
+      expect(data_points.last.timestamp).to be_more_recent_than data_points.previous.first.timestamp
     end
 
     it 'returns false if there are no previous data points' do
@@ -91,8 +91,10 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
     use_cassette 'sensor/timeseries_paging_next'
 
     it 'returns data points newer than those in the current timeseries' do
-      previous_data_points = data_points.previous
-      expect(previous_data_points.next.first.timestamp).to be > previous_data_points.first.timestamp
+      previous_data_points  = data_points.previous
+      next_timestamp        = previous_data_points.next.first.timestamp
+      previous_timestamp    = previous_data_points.first.timestamp
+      expect(next_timestamp).to be_more_recent_than(previous_timestamp)
     end
 
     it 'returns false if there are no next data points' do
