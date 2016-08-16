@@ -208,4 +208,4 @@ When you modify any of the files in `lib/`, all specs will run. When you modify 
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [BSD License](https://github.com/helium/helium-ruby/LICENCE.txt).
