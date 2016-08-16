@@ -172,6 +172,8 @@ data_points.first.avg
 # => 22.1155383392857
 ```
 
+A full list of aggregation types and sizes can be found here: https://docs.helium.com/docs/timeseries#aggregations.
+
 
 ## Development
 
