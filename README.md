@@ -151,7 +151,26 @@ sensor.timeseries.previous
 # => false
 ```
 
+#### Timeseries Aggregations
 
+In addition to returning the raw data points, Helium can return timeseries data aggregated into buckets.
+
+
+For example, if you wanted to display a graph of a sensor's temperature min, max and average readings grouped by day, you could do the following:
+
+```ruby
+data_points = sensor.timeseries(port: 't', aggtype: 'min,max,avg', aggsize: '1d')
+# => #<Helium::Timeseries:0x007fe7038c2d18 @data_points=[#<Helium::DataPoint:0x007fe7038c2c00 @client=<Helium::Client @debug=true>, @id="a93e47f4-2fb2-4336-84c0-20f83ee2988e", @timestamp="2016-08-16T00:00:00Z", @value={"max"=>22.579952, "avg"=>22.1155383392857, "min"=>21.774511}, @port="agg(t)">, ...
+
+data_points.first.min
+# => 21.774511
+
+data_points.first.max
+# => 22.579952
+
+data_points.first.avg
+# => 22.1155383392857
+```
 
 
 ## Development
@@ -161,7 +180,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ### Roadmap
-- [ ] Timeseries Aggregations
+- [X] Timeseries Aggregations
 - [ ] POST/PUT/DELETE users, orgs, sensors, timeseries
 - [ ] Ports
 - [ ] Labels

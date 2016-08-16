@@ -17,5 +17,17 @@ module Helium
     def ==(other)
       self.id == other.id
     end
+
+    def max
+      @value["max"]
+    end
+
+    def min
+      @value["min"]
+    end
+
+    def avg
+      @value["avg"]
+    end
   end
 end

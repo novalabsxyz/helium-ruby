@@ -19,12 +19,14 @@ module Helium
         return Sensor.new(client: self, params: sensor_data)
       end
 
-      def sensor_timeseries(sensor, size: 1000, port: nil, start_time: nil, end_time: nil)
+      def sensor_timeseries(sensor, size: 1000, port: nil, start_time: nil, end_time: nil, aggtype: nil, aggsize: nil)
         options = {
-          "page[size]" => size,
-          "filter[port]" => port,
+          "page[size]"    => size,
+          "filter[port]"  => port,
           "filter[start]" => datetime_to_iso(start_time),
-          "filter[end]" => datetime_to_iso(end_time)
+          "filter[end]"   => datetime_to_iso(end_time),
+          "agg[type]"     => aggtype,
+          "agg[size]"     => aggsize
         }.delete_if { |key, value| value.to_s.empty? }
 
         response = get("/sensor/#{sensor.id}/timeseries", options: options)

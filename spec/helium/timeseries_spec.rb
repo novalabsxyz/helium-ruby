@@ -111,4 +111,18 @@ describe Helium::Timeseries, 'Sensor#timeseries' do
       expect(data_points.length).to eq(100)
     end
   end
+
+  context 'aggregations' do
+    let(:data_points) { sensor.timeseries(aggtype: 'min,max,avg', aggsize: '1d') }
+
+    use_cassette 'sensor/timeseries_aggregations'
+
+    it 'returns aggregated data points with min, max and avg' do
+      data_point = data_points.first
+      expect(data_point.max).to eq(45)
+      expect(data_point.min).to eq(18)
+      expect(data_point.avg).to eq(30.8214285714286)
+    end
+
+  end
 end
