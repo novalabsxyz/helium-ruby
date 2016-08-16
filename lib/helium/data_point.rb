@@ -5,9 +5,9 @@ module Helium
     def initialize(client:, params:)
       @client     = client
       @id         = params["id"]
-      @timestamp  = params["attributes"]["timestamp"]
-      @value      = params["attributes"]["value"]
-      @port       = params["attributes"]["port"]
+      @timestamp  = params.dig("attributes", "timestamp")
+      @value      = params.dig("attributes", "value")
+      @port       = params.dig("attributes", "port")
     end
 
     def timestamp
