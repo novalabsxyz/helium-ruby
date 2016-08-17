@@ -30,16 +30,5 @@ module Helium
         aggsize:    aggsize
       )
     end
-
-    # def all_timeseries(size: 1000, port: nil, start_time: nil, end_time: nil, aggtype: nil, aggsize: nil)
-    #   @client.paginated_get(self, {
-    #     size:       size,
-    #     port:       port,
-    #     start_time: start_time,
-    #     end_time:   end_time,
-    #     aggtype:    aggtype,
-    #     aggsize:    aggsize
-    #   })
-    # end
   end
 end
