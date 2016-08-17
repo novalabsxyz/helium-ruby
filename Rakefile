@@ -11,7 +11,7 @@ namespace :doc do
     require 'yard'
     YARD::Rake::YardocTask.new do |task|
       task.options = [
-        '--output-dir', 'doc',
+        '--output-dir', 'docs',
         '--markup', 'markdown',
       ]
     end
