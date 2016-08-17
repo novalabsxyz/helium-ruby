@@ -2,11 +2,11 @@ module Helium
   class Cursor
     include Enumerable
 
-    def initialize(client:, path:, klass:, options: {})
+    def initialize(client:, path:, klass:, params: {})
       @client = client
       @path   = path
       @klass  = klass
-      @options = options
+      @params = params
 
       @collection = []
       @next_link  = nil
@@ -35,7 +35,7 @@ module Helium
       if @next_link
         response = @client.get(url: @next_link)
       else
-        response = @client.get(@path, options: @options)
+        response = @client.get(@path, params: @params)
       end
 
       json_results  = JSON.parse(response.body)

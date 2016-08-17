@@ -22,7 +22,7 @@ module Helium
       def sensor_timeseries(sensor, opts = {})
         path = "/sensor/#{sensor.id}/timeseries"
 
-        options = {
+        params = {
           "page[size]"    => opts.fetch(:size, nil),
           "filter[port]"  => opts.fetch(:port, nil),
           "filter[start]" => datetime_to_iso(opts.fetch(:start_time, nil)),
@@ -31,7 +31,30 @@ module Helium
           "agg[size]"     => opts.fetch(:aggsize)
         }.delete_if { |key, value| value.to_s.empty? }
 
-        paginated_get(path, klass: Helium::DataPoint, options: options)
+        paginated_get(path, klass: Helium::DataPoint, params: params)
+      end
+
+      def new_sensor(name:)
+        path = "/sensor"
+
+        body = {
+          data: {
+            attributes: {
+              name: name
+            },
+            type: "sensor"
+          }
+        }
+
+        response = post(path, body: body)
+        sensor_data = JSON.parse(response.body)["data"]
+
+        return Sensor.new(client: self, params: sensor_data)
+      end
+
+      def delete_sensor(sensor)
+        path = "/sensor/#{sensor.id}"
+        delete(path)
       end
 
     end

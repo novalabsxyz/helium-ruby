@@ -11,16 +11,6 @@ module Helium
     include Helium::Client::Organizations
     include Helium::Client::Sensors
 
-    API_VERSION = 1
-    HOST        = 'api.helium.com'
-    PROTOCOL    = 'https'
-
-    BASE_HTTP_HEADERS = {
-      'Accept'        => 'application/json',
-      'Content-Type'  => 'application/json',
-      'User-Agent'    => 'helium-ruby'
-    }
-
     attr_accessor :api_key
 
     def initialize(api_key:, debug: false)
@@ -34,12 +24,6 @@ module Helium
 
     def debug?
       @debug == true
-    end
-
-    def http_headers
-      BASE_HTTP_HEADERS.merge({
-        'Authorization' => api_key
-      })
     end
   end
 end

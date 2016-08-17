@@ -52,4 +52,40 @@ describe Helium::Sensor do
       expect(sensor.updated_at).to eq(DateTime.parse("2016-04-08T23:33:05.719843Z"))
     end
   end
+
+  context 'Client#new_sensor' do
+    use_cassette 'sensor/post'
+
+    it 'creates a new virtual sensor' do
+      new_sensor = client.new_sensor(name: "A Test Sensor")
+      expect(new_sensor).to be_a(Helium::Sensor)
+      expect(new_sensor.name).to eq("A Test Sensor")
+
+      # verify it's now in the org's sensors
+      all_sensors = client.sensors
+      new_sensors = all_sensors.select{ |s| s.name == "A Test Sensor" }
+      expect(new_sensors.count).to eq(1)
+    end
+  end
+
+  context 'Client#delete_sensor' do
+    use_cassette 'sensor/delete'
+
+    it 'destroys a virtual sensor' do
+      # make sure it's in the org sensors first
+      all_sensors = client.sensors
+      new_sensors = all_sensors.select{ |s| s.name == "A Test Sensor" }
+
+      expect(new_sensors.count).to eq(1)
+      sensor = new_sensors.first
+
+      # deleting should return 204 code
+      expect(client.delete_sensor(sensor)).to eq(true)
+
+      # verify it's no longer in the org's sensors
+      all_sensors = client.sensors
+      new_sensors = all_sensors.select{ |s| s.name == "A Test Sensor" }
+      expect(new_sensors.count).to eq(0)
+    end
+  end
 end
