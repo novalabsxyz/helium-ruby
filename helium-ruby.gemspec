@@ -42,4 +42,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "terminal-notifier-guard", "~> 1.7.0"
   spec.add_development_dependency "simplecov", "~> 0.12.0"
   spec.add_development_dependency "human_time", "~> 0.2.0"
+  spec.add_development_dependency "yard", "~> 0.9.3"
 end
