@@ -163,15 +163,22 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ### Roadmap
-- [X] Timeseries Aggregations
-- [ ] POST/PUT/DELETE users, orgs, sensors, timeseries
-- [ ] Ports
-- [ ] Labels
-- [ ] Elements
+
+We're working toward a v1.0.0 release, which will represent a feature-complete implementation of the Helium API. You can check the progress here: https://github.com/helium/helium-ruby/milestone/1.
+
+Until the v1.0.0 release, the functionality of this gem is subject to change. To prevent breaking changes, you should use the pessimistic version constraint operator (`~>`) in your Gemfile to lock your helium-ruby version to the current minor release. This will allow updates to patch versions.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/helium/helium-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+We value contributions from the community and will do everything we can go get them reviewed in a timely fashion. If you have code to send our way or a bug to report:
+
+* Contributing Code: If you have new code or a bug fix, fork this repo, create a logically-named branch, and submit a PR against this repo. Include a write up of the PR with details on what it does.
+
+* Reporting Bugs: Open an issue against this repo with as much detail as you can. At the very least you'll include steps to reproduce the problem.
+
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant](http://contributor-covenant.org) Code of Conduct.
+
+Above all, thank you for taking the time to be a part of the Helium community.
 
 ### Running specs with Guard
 
