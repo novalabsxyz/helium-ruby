@@ -22,9 +22,10 @@ Above all, thank you for taking the time to be a part of the Helium community.
 8. Run `open coverage/index.html`. If your changes are not completely covered
    by your tests, return to step 4.
 9. Add documentation for your feature or bug fix.
-10. Add, commit, and push your changes. For documentation-only fixes, please
+10. Run bundle exec rake doc:yard. If your changes are not 100% documented, go back to step 9.
+11. Add, commit, and push your changes. For documentation-only fixes, please
     add "[ci skip]" to your commit message to avoid needless CI builds.
-11. [Submit a pull request.][pr]
+12. [Submit a pull request.][pr]
 
 [development]: https://github.com/helium/helium-ruby#development
 [fork]: https://help.github.com/articles/fork-a-repo
