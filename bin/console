@@ -10,6 +10,14 @@ class Object
     return nil if API_KEY.nil?
     @client ||= Helium::Client.new(api_key: API_KEY, debug: true)
   end
+
+  def sensor
+    client.sensor("aba370be-837d-4b41-bee5-686b0069d874")
+  end
+
+  def timeseries
+    sensor.timeseries(port: 't', start_time: DateTime.parse('2016-08-01'), end_time: DateTime.parse('2016-08-16'))
+  end
 end
 
 require "pry"

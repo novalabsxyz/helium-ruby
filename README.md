@@ -76,29 +76,39 @@ client.sensor("08bab58b-d095-4c7c-912c-1f8024d91d95")
 ### Timeseries
 
 #### Get Timeseries data for a sensor
+
+Timeseries data is paginated by the Helium API which by default, returns pages of 1000 data points. When you call `.timeseries` on a sensor, you get back a `Helium::Cursor` object, which is an `Enumerable` object that handles paging through this data automatically.
+
 ```ruby
 sensor = client.sensor("08bab58b-d095-4c7c-912c-1f8024d91d95")
-sensor.timeseries
-# => #<Helium::Timeseries:0x007ff9dd92efa8 @data_points=[#<Helium::DataPoint:0x007ff9dd92ee18 @id="a4107e78-f15e-4c31-aab3-497bbfe3e33c", @timestamp="2015-08-11T18:50:04Z", @value=-40.125, @port="t">, ...
+timeseries = sensor.timeseries(port: 't', start_time: DateTime.parse('2016-08-01'), end_time: DateTime.parse('2016-08-16'))
+# => #<Helium::Cursor:0x007f9b02a25798 @path="/sensor/aba370be-837d-4b41-bee5-686b0069d874/timeseries", @klass=Helium::DataPoint, @options={"page[size]"=>1000, "filter[port]"=>"t", "filter[start]"=>"2016-08-01T00:00:00Z", "filter[end]"=>"2016-08-16T00:00:00Z"}, @collection=[], @next_link=nil, @is_last=false>
 ```
 
 #### Working with data points
-A `Helium::Timeseries` is a collection of `Helium::DataPoint`s which can be accessed by calling `.data_points`, or iterated over using the usual `Object#Enumerable` methods:
+A `Helium::Cursor` is a collection of `Helium::DataPoint`s which can iterated over using the usual `Object#Enumerable` methods:
 
 ```ruby
-sensor.timeseries.each do |data_point|
+sensor = client.sensor("08bab58b-d095-4c7c-912c-1f8024d91d95")
+
+sensor.timeseries.take(1000).each do |data_point|
   puts data_point.id
   puts data_point.timestamp
   puts data_point.value
   puts data_point.port
 end
+
+sensor.timeseries.first
+# => #<Helium::DataPoint:0x007f9b0407f340 @id="6c115c10-323e-4756-ae1c-fc69982eb397", @timestamp="2016-08-15T23:55:42.2Z", @value=22.590084, @port="t">
 ```
+
+Since pagination happens automatically, **it's strongly recommended to define a start and end time,** otherwise enumerating over the collection may take a very long time.
 
 #### Filtering Timeseries data
 Timeseries data can be filtered by port type and start/end time:
 
 ```ruby
-sensor.timeseries.collect(&:port).uniq
+sensor.timeseries.take(1000).collect(&:port).uniq
 # => [
 #  [0] "b",
 #  [1] "l",
@@ -109,12 +119,12 @@ sensor.timeseries.collect(&:port).uniq
 #  [6] "m"
 # ]
 
-sensor.timeseries(port: 't').collect(&:port).uniq
+sensor.timeseries(port: 't').take(1000).collect(&:port).uniq
 # => [
 #   [0] "t"
 # ]
 
-sensor.timeseries(start_time: DateTime.parse("2016-08-01"), end_time: DateTime.parse("2016-08-02")).collect(&:timestamp)
+sensor.timeseries(start_time: DateTime.parse("2016-08-01"), end_time: DateTime.parse("2016-08-02")).take(1000).collect(&:timestamp)
 # => [
 #  [0] #<DateTime: 2016-08-01T23:55:29+00:00 ((2457602j,86129s,802000000n),+0s,2299161j)>,
 #  [1] #<DateTime: 2016-08-01T23:55:29+00:00 ((2457602j,86129s,61000000n),+0s,2299161j)>,
@@ -123,53 +133,24 @@ sensor.timeseries(start_time: DateTime.parse("2016-08-01"), end_time: DateTime.p
 #  [4] #<DateTime: 2016-08-01T23:54:45+00:00 ((2457602j,86085s,544000000n),+0s,2299161j)>,
 ```
 
-#### Paging through Timeseries data
-Timeseries data is paginated at the API level. By default, 1000 data points are returned. This amount can be increased up to 10,000:
-
-```ruby
-sensor.timeseries(size: 10_000).length
-# => 10000
-```
-
-The data points are sorted from most recent, to least recent. The `.previous` method on a `Helium::Timeseries` object will return a new `Helium::Timeseries` object with the previous page of Timeseries data. Similarly, the `.next` method on a `Helium::Timeseries` object will return the next page of timeseries data, if it exists. If not, it will return `false`.
-
-```ruby
-timeseries = sensor.timeseries
-# => #<Helium::Timeseries:0x007ff9e10d2c48 @data_points=[#<Helium::DataPoint:0x007ff9e10d2568 @id="3595e562-c065-442e-a3af-c6f43ddb1500", @timestamp="2016-08-10T13:21:49.866Z", @value=27, @port="l">, ...
-
-previous_timeseries = timeseries.previous
-# => #<Helium::Timeseries:0x007ff9dc141008 @data_points=[#<Helium::DataPoint:0x007ff9dc140f68 @id="1e4062cf-361d-415e-8c05-cd04954424d1", @timestamp="2016-08-10T13:11:49.353Z", @value=99804.15, @port="p">, ...
-
-previous_timeseries.next
-# =>
-```
-
-If no previous data exists, the `.previous` method will return `false`.
-
-```ruby
-sensor.timeseries.previous
-# => false
-```
-
 #### Timeseries Aggregations
 
 In addition to returning the raw data points, Helium can return timeseries data aggregated into buckets.
-
 
 For example, if you wanted to display a graph of a sensor's temperature min, max and average readings grouped by day, you could do the following:
 
 ```ruby
 data_points = sensor.timeseries(port: 't', aggtype: 'min,max,avg', aggsize: '1d')
-# => #<Helium::Timeseries:0x007fe7038c2d18 @data_points=[#<Helium::DataPoint:0x007fe7038c2c00 @client=<Helium::Client @debug=true>, @id="a93e47f4-2fb2-4336-84c0-20f83ee2988e", @timestamp="2016-08-16T00:00:00Z", @value={"max"=>22.579952, "avg"=>22.1155383392857, "min"=>21.774511}, @port="agg(t)">, ...
+# => #<Helium::Cursor:0x007f9b0413a708 @path="/sensor/aba370be-837d-4b41-bee5-686b0069d874/timeseries", @klass=Helium::DataPoint, @options={"page[size]"=>1000, "filter[port]"=>"t", "agg[type]"=>"min,max,avg", "agg[size]"=>"1d"}, @collection=[], @next_link=nil, @is_last=false>
 
 data_points.first.min
-# => 21.774511
+# => 21.47564
 
 data_points.first.max
-# => 22.579952
+# => 24.145264
 
 data_points.first.avg
-# => 22.1155383392857
+# => 22.2916633036437
 ```
 
 A full list of aggregation types and sizes can be found here: https://docs.helium.com/docs/timeseries#aggregations.

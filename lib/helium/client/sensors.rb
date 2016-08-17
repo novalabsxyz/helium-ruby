@@ -19,40 +19,21 @@ module Helium
         return Sensor.new(client: self, params: sensor_data)
       end
 
-      def sensor_timeseries(sensor, size: 1000, port: nil, start_time: nil, end_time: nil, aggtype: nil, aggsize: nil)
+      def sensor_timeseries(sensor, opts = {})
+        path = "/sensor/#{sensor.id}/timeseries"
+
         options = {
-          "page[size]"    => size,
-          "filter[port]"  => port,
-          "filter[start]" => datetime_to_iso(start_time),
-          "filter[end]"   => datetime_to_iso(end_time),
-          "agg[type]"     => aggtype,
-          "agg[size]"     => aggsize
+          "page[size]"    => opts.fetch(:size, nil),
+          "filter[port]"  => opts.fetch(:port, nil),
+          "filter[start]" => datetime_to_iso(opts.fetch(:start_time, nil)),
+          "filter[end]"   => datetime_to_iso(opts.fetch(:end_time, nil)),
+          "agg[type]"     => opts.fetch(:aggtype),
+          "agg[size]"     => opts.fetch(:aggsize)
         }.delete_if { |key, value| value.to_s.empty? }
 
-        response = get("/sensor/#{sensor.id}/timeseries", options: options)
-        json_results = JSON.parse(response.body)
-        timeseries_data = json_results["data"]
-        timeseries_links = json_results["links"]
-
-        return Timeseries.new(
-          client: self,
-          params: timeseries_data,
-          links: timeseries_links
-        )
+        paginated_get(path, klass: Helium::DataPoint, options: options)
       end
 
-      def sensor_timeseries_by_link(url)
-        response = get(url: url)
-        json_results = JSON.parse(response.body)
-        timeseries_data = json_results["data"]
-        timeseries_links = json_results["links"]
-
-        return Timeseries.new(
-          client: self,
-          params: timeseries_data,
-          links: timeseries_links
-        )
-      end
     end
   end
 end

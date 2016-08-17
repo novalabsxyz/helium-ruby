@@ -13,6 +13,10 @@ module Helium
         run(request)
       end
 
+      def paginated_get(path, klass:, options: {})
+        Cursor.new(client: self, path: path, klass: klass, options: options)
+      end
+
       private
 
       def run(request)
