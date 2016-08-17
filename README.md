@@ -176,7 +176,7 @@ We value contributions from the community and will do everything we can go get t
 
 * Reporting Bugs: Open an issue against this repo with as much detail as you can. At the very least you'll include steps to reproduce the problem.
 
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant](http://contributor-covenant.org) Code of Conduct.
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) Code of Conduct.
 
 Above all, thank you for taking the time to be a part of the Helium community.
 
