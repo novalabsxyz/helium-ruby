@@ -73,6 +73,24 @@ client.sensor("08bab58b-d095-4c7c-912c-1f8024d91d95")
 # => #<Helium::Sensor:0x007f89acdb1b58 @id="08bab58b-d095-4c7c-912c-1f8024d91d95", @name="Marc's Isotope", @mac="6081f9fffe00019b", @ports=["t", "b"], @created_at="2015-08-06T17:28:11.614107Z", @updated_at="2016-05-30T22:36:50.810716Z">
 ```
 
+#### Create a Virtual Sensor
+```ruby
+sensor = client.new_sensor(name: "A New Sensor")
+# => #<Helium::Sensor:0x007f89acdb1b58 @id="08bab58b-d095-4c7c-912c-1f8024d91d95", @name="A New Sensor", @mac="6081f9fffe00019b", @ports=["t", "b"], @created_at="2015-08-06T17:28:11.614107Z", @updated_at="2016-05-30T22:36:50.810716Z">
+```
+
+#### Update a Sensor
+```ruby
+sensor.update(name: "An Updated Sensor")
+# => #<Helium::Sensor:0x007f89acdb1b58 @id="08bab58b-d095-4c7c-912c-1f8024d91d95", @name="A New Sensor", @mac="6081f9fffe00019b", @ports=["t", "b"], @created_at="2015-08-06T17:28:11.614107Z", @updated_at="2016-05-30T22:36:50.810716Z">
+```
+
+#### Delete a Sensor
+```ruby
+sensor.destroy
+# => true
+```
+
 ### Timeseries
 
 #### Get Timeseries data for a sensor
