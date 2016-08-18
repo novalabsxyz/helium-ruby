@@ -173,6 +173,9 @@ data_points.first.avg
 
 A full list of aggregation types and sizes can be found here: https://docs.helium.com/docs/timeseries#aggregations.
 
+## Source Documentation
+Documentation for the gem's source can be found here: https://helium.github.io/helium-ruby/
+
 
 ## Development
 
