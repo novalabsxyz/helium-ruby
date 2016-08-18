@@ -30,5 +30,14 @@ module Helium
         aggsize:    aggsize
       )
     end
+
+    # TODO these kinds of methods should be generalized into a Resource object
+    def update(name:)
+      @client.update_sensor(self, name: name)
+    end
+
+    def destroy
+      @client.delete_sensor(self)
+    end
   end
 end

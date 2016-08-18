@@ -68,10 +68,29 @@ describe Helium::Sensor do
     end
   end
 
+  context 'Client#update_sensor' do
+    use_cassette 'sensor/patch'
+
+    it 'updates a virtual sensor' do
+      # create a new sensor to update
+      new_sensor = client.new_sensor(name: "A Test Sensor")
+
+      updated_sensor = new_sensor.update(name: "An Updated Sensor")
+      expect(updated_sensor.name).to eq("An Updated Sensor")
+
+      # fetch it again just to make sure
+      fetched_sensor = client.sensor(new_sensor.id)
+      expect(fetched_sensor.name).to eq("An Updated Sensor")
+    end
+  end
+
   context 'Client#delete_sensor' do
     use_cassette 'sensor/delete'
 
     it 'destroys a virtual sensor' do
+      # create a new sensor to destroy
+      new_sensor = client.new_sensor(name: "A Test Sensor")
+
       # make sure it's in the org sensors first
       all_sensors = client.sensors
       new_sensors = all_sensors.select{ |s| s.name == "A Test Sensor" }
@@ -80,7 +99,7 @@ describe Helium::Sensor do
       sensor = new_sensors.first
 
       # deleting should return 204 code
-      expect(client.delete_sensor(sensor)).to eq(true)
+      expect(sensor.destroy).to eq(true)
 
       # verify it's no longer in the org's sensors
       all_sensors = client.sensors

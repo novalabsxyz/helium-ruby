@@ -1,0 +1,140 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/sensor
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Sensor"},"type":"sensor"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 17 Aug 2016 23:58:06 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Airship-Quip:
+      - never breaks eye contact
+      Content-Type:
+      - application/json
+      Location:
+      - "/v1/sensor/4dad1180-251f-41c0-8042-ab0a82f96ea4"
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Sensor"},"relationships":{"metadata":{"data":{"id":"4dad1180-251f-41c0-8042-ab0a82f96ea4","type":"metadata"}},"element":{"data":null},"label":{"data":[]}},"id":"4dad1180-251f-41c0-8042-ab0a82f96ea4","meta":{"card":null,"mac":null,"created":"2016-08-17T23:58:06.707122Z","versions":null,"last-seen":null,"ports":[],"updated":"2016-08-17T23:58:06.707122Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor
+  recorded_at: Wed, 17 Aug 2016 23:58:06 GMT
+- request:
+    method: patch
+    uri: https://api.helium.com/v1/sensor/4dad1180-251f-41c0-8042-ab0a82f96ea4
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"An Updated Sensor"},"id":"4dad1180-251f-41c0-8042-ab0a82f96ea4","type":"sensor"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 17 Aug 2016 23:58:06 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o20,o18
+      Airship-Quip:
+      - RB_GC_GUARD
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"An Updated Sensor"},"relationships":{"metadata":{"data":{"id":"4dad1180-251f-41c0-8042-ab0a82f96ea4","type":"metadata"}},"element":{"data":null},"label":{"data":[]}},"id":"4dad1180-251f-41c0-8042-ab0a82f96ea4","meta":{"card":null,"mac":null,"created":"2016-08-17T23:58:06.707122Z","versions":null,"last-seen":null,"ports":[],"updated":"2016-08-17T23:58:06.820252Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/4dad1180-251f-41c0-8042-ab0a82f96ea4
+  recorded_at: Wed, 17 Aug 2016 23:58:06 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor/4dad1180-251f-41c0-8042-ab0a82f96ea4
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 17 Aug 2016 23:58:06 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - never breaks eye contact
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"An Updated Sensor"},"relationships":{"metadata":{"data":{"id":"4dad1180-251f-41c0-8042-ab0a82f96ea4","type":"metadata"}},"element":{"data":null},"label":{"data":[]}},"id":"4dad1180-251f-41c0-8042-ab0a82f96ea4","meta":{"card":null,"mac":null,"created":"2016-08-17T23:58:06.707122Z","versions":null,"last-seen":null,"ports":[],"updated":"2016-08-17T23:58:06.820252Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/4dad1180-251f-41c0-8042-ab0a82f96ea4
+  recorded_at: Wed, 17 Aug 2016 23:58:06 GMT
+recorded_with: VCR 3.0.3

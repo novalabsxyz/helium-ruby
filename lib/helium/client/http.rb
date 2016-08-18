@@ -25,6 +25,11 @@ module Helium
         run(request)
       end
 
+      def patch(path, body: {})
+        request = generate_request(path, method: :patch, body: body)
+        run(request)
+      end
+
       def delete(path)
         request = generate_request(path, method: :delete)
         response = run(request)
