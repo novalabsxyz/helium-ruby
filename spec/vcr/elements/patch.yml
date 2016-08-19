@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/element/19d493bc-7599-4b95-ac68-31e01d97c345
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Aug 2016 23:09:03 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - never breaks eye contact
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Another Element"},"relationships":{"metadata":{"data":{"id":"19d493bc-7599-4b95-ac68-31e01d97c345","type":"metadata"}},"organization":{"data":{"id":"88","type":"organization"}},"sensor":{"data":[]}},"id":"19d493bc-7599-4b95-ac68-31e01d97c345","meta":{"mac":"6081f9fffe0000d3","created":"2015-08-17T14:20:31.632469Z","versions":null,"updated":"2015-08-17T14:20:31.631827Z"},"type":"element"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/element/19d493bc-7599-4b95-ac68-31e01d97c345
+  recorded_at: Fri, 19 Aug 2016 23:09:03 GMT
+- request:
+    method: patch
+    uri: https://api.helium.com/v1/element/19d493bc-7599-4b95-ac68-31e01d97c345
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Updated Element"},"id":"19d493bc-7599-4b95-ac68-31e01d97c345","type":"element"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Aug 2016 23:09:03 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o20,o18
+      Airship-Quip:
+      - blame me if inappropriate
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Updated Element"},"relationships":{"metadata":{"data":{"id":"19d493bc-7599-4b95-ac68-31e01d97c345","type":"metadata"}},"organization":{"data":{"id":"88","type":"organization"}},"sensor":{"data":[]}},"id":"19d493bc-7599-4b95-ac68-31e01d97c345","meta":{"mac":"6081f9fffe0000d3","created":"2015-08-17T14:20:31.632469Z","versions":null,"updated":"2016-08-19T23:09:03.602652Z"},"type":"element"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/element/19d493bc-7599-4b95-ac68-31e01d97c345
+  recorded_at: Fri, 19 Aug 2016 23:09:03 GMT
+recorded_with: VCR 3.0.3

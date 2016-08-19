@@ -13,11 +13,11 @@ module Helium
     end
 
     def created_at
-      DateTime.parse(@created_at)
+      @_created_at ||= DateTime.parse(@created_at)
     end
 
     def updated_at
-      DateTime.parse(@updated_at)
+      @_updated_at ||= DateTime.parse(@updated_at)
     end
 
     def timeseries(size: 1000, port: nil, start_time: nil, end_time: nil, aggtype: nil, aggsize: nil)

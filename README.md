@@ -173,6 +173,27 @@ data_points.first.avg
 
 A full list of aggregation types and sizes can be found here: https://docs.helium.com/docs/timeseries#aggregations.
 
+### Elements
+
+#### Get all Elements
+
+```ruby
+client.elements
+# => [#<Helium::Element:0x007faf732c11e8 @id="78b6a9f4-9c39-4673-9946-72a16c35a422", @name="SF Office", @mac="6081f9fffe0002a8", @created_at="2015-08-12T23:10:40.537762Z", @updated_at="2015-08-12T23:10:40.536644Z", @versions={"element"=>"3050900"}>,...]
+```
+
+#### Get an Element by id
+```ruby
+client.element("1b686e82-bd4a-4aac-9d7b-9bdbe1e9a7de")
+# => #<Helium::Element:0x007faf732c2548 @id="1b686e82-bd4a-4aac-9d7b-9bdbe1e9a7de", @name="SF Office", @mac="6081f9fffe00033f", @created_at="2015-08-12T23:19:34.175932Z", @updated_at="2015-08-12T23:19:34.174828Z", @versions=nil>
+```
+
+#### Update an Element
+```ruby
+element.update(name: "A New Name")
+# => #<Helium::Element:0x007faf732c2548 @id="1b686e82-bd4a-4aac-9d7b-9bdbe1e9a7de", @name="A New Name", @mac="6081f9fffe00033f", @created_at="2015-08-12T23:19:34.175932Z", @updated_at="2015-08-12T23:19:34.174828Z", @versions=nil>
+```
+
 ## Source Documentation
 Documentation for the gem's source can be found here: https://helium.github.io/helium-ruby/
 
