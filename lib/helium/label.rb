@@ -17,5 +17,13 @@ module Helium
     def updated_at
       @_updated_at ||= DateTime.parse(@updated_at)
     end
+
+    def update(name:)
+      @client.update_label(self, name: name)
+    end
+
+    def destroy
+      @client.delete_label(self)
+    end
   end
 end

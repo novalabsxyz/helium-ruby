@@ -1,0 +1,196 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/label
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Label"},"type":"label"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 22 Aug 2016 17:09:07 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Airship-Quip:
+      - evacuation not done in time
+      Content-Type:
+      - application/json
+      Location:
+      - "/v1/label/ddbe6555-00bf-4241-a09f-1548b9e4738d"
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Label"},"relationships":{"metadata":{"data":{"id":"ddbe6555-00bf-4241-a09f-1548b9e4738d","type":"metadata"}},"sensor":{"data":[]}},"id":"ddbe6555-00bf-4241-a09f-1548b9e4738d","meta":{"created":"2016-08-22T17:09:07.058162Z","updated":"2016-08-22T17:09:07.058162Z"},"type":"label"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label
+  recorded_at: Mon, 22 Aug 2016 17:09:08 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/label
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 22 Aug 2016 17:09:07 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - 'WARNING: ulimit -n is 1024'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"The Isotopes"},"id":"d85ae875-1d02-4ed1-84f3-c5949bcda1d9","meta":{"created":"2016-03-04T16:14:16.090864Z","updated":"2016-03-04T16:14:16.090864Z"},"type":"label"},{"attributes":{"name":"SF
+        Sensors"},"id":"d81df823-a7a9-4476-b624-888f9fc56390","meta":{"created":"2016-03-04T17:45:08.084425Z","updated":"2016-06-20T15:14:29.327186Z"},"type":"label"},{"attributes":{"name":"SF
+        Freezer"},"id":"d1e5ee93-14fd-44de-8a0e-77e49f451c5a","meta":{"created":"2016-03-24T23:45:04.049993Z","updated":"2016-06-20T15:15:55.980414Z"},"type":"label"},{"attributes":{"name":"C''mon
+        in."},"id":"bfd8e8ff-e4b7-4561-ac7e-81178b9868d5","meta":{"created":"2016-03-25T18:26:01.066572Z","updated":"2016-03-25T18:26:11.618124Z"},"type":"label"},{"attributes":{"name":"New
+        Label"},"id":"22c53f67-2c60-41ba-b5b6-ec36362ed1a6","meta":{"created":"2016-03-28T22:37:54.143687Z","updated":"2016-06-20T15:15:39.432433Z"},"type":"label"},{"attributes":{"name":"Bricks"},"id":"968cc881-737e-4bff-bdd6-2af45992fe86","meta":{"created":"2016-03-30T21:42:22.654635Z","updated":"2016-03-30T21:42:24.772556Z"},"type":"label"},{"attributes":{"name":"Andrew''s
+        stuff"},"id":"415e6377-2bc1-46c6-a76c-782e5e7c652d","meta":{"created":"2016-04-11T15:40:33.011466Z","updated":"2016-06-28T13:49:14.065837Z"},"type":"label"},{"attributes":{"name":"Weather
+        Label"},"id":"b5315d04-7bae-4184-8a7a-4f324dd11c8f","meta":{"created":"2016-04-20T17:12:27.433813Z","updated":"2016-06-20T15:14:07.393642Z"},"type":"label"},{"attributes":{"name":"Jared
+        Testing #435"},"id":"da7412f3-1493-4d35-9534-b49e48eb0fe7","meta":{"created":"2016-07-14T21:53:51.269855Z","updated":"2016-07-14T21:54:12.57611Z"},"type":"label"},{"attributes":{"name":"A
+        Test Label"},"id":"ddbe6555-00bf-4241-a09f-1548b9e4738d","meta":{"created":"2016-08-22T17:09:07.058162Z","updated":"2016-08-22T17:09:07.058162Z"},"type":"label"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label
+  recorded_at: Mon, 22 Aug 2016 17:09:08 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/label/ddbe6555-00bf-4241-a09f-1548b9e4738d
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Mon, 22 Aug 2016 17:09:07 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Airship-Quip:
+      - never breaks eye contact
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/ddbe6555-00bf-4241-a09f-1548b9e4738d
+  recorded_at: Mon, 22 Aug 2016 17:09:08 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/label
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 22 Aug 2016 17:09:07 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - evacuation not done in time
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"The Isotopes"},"id":"d85ae875-1d02-4ed1-84f3-c5949bcda1d9","meta":{"created":"2016-03-04T16:14:16.090864Z","updated":"2016-03-04T16:14:16.090864Z"},"type":"label"},{"attributes":{"name":"SF
+        Sensors"},"id":"d81df823-a7a9-4476-b624-888f9fc56390","meta":{"created":"2016-03-04T17:45:08.084425Z","updated":"2016-06-20T15:14:29.327186Z"},"type":"label"},{"attributes":{"name":"SF
+        Freezer"},"id":"d1e5ee93-14fd-44de-8a0e-77e49f451c5a","meta":{"created":"2016-03-24T23:45:04.049993Z","updated":"2016-06-20T15:15:55.980414Z"},"type":"label"},{"attributes":{"name":"C''mon
+        in."},"id":"bfd8e8ff-e4b7-4561-ac7e-81178b9868d5","meta":{"created":"2016-03-25T18:26:01.066572Z","updated":"2016-03-25T18:26:11.618124Z"},"type":"label"},{"attributes":{"name":"New
+        Label"},"id":"22c53f67-2c60-41ba-b5b6-ec36362ed1a6","meta":{"created":"2016-03-28T22:37:54.143687Z","updated":"2016-06-20T15:15:39.432433Z"},"type":"label"},{"attributes":{"name":"Bricks"},"id":"968cc881-737e-4bff-bdd6-2af45992fe86","meta":{"created":"2016-03-30T21:42:22.654635Z","updated":"2016-03-30T21:42:24.772556Z"},"type":"label"},{"attributes":{"name":"Andrew''s
+        stuff"},"id":"415e6377-2bc1-46c6-a76c-782e5e7c652d","meta":{"created":"2016-04-11T15:40:33.011466Z","updated":"2016-06-28T13:49:14.065837Z"},"type":"label"},{"attributes":{"name":"Weather
+        Label"},"id":"b5315d04-7bae-4184-8a7a-4f324dd11c8f","meta":{"created":"2016-04-20T17:12:27.433813Z","updated":"2016-06-20T15:14:07.393642Z"},"type":"label"},{"attributes":{"name":"Jared
+        Testing #435"},"id":"da7412f3-1493-4d35-9534-b49e48eb0fe7","meta":{"created":"2016-07-14T21:53:51.269855Z","updated":"2016-07-14T21:54:12.57611Z"},"type":"label"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label
+  recorded_at: Mon, 22 Aug 2016 17:09:08 GMT
+recorded_with: VCR 3.0.3
