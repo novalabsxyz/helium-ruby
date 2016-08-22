@@ -8,7 +8,6 @@ module Helium
       @name       = params.dig("attributes", "name")
       @created_at = params.dig("meta", "created")
       @updated_at = params.dig("meta", "updated")
-      puts params
     end
 
     def created_at
