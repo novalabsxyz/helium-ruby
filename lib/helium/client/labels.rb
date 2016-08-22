@@ -60,6 +60,44 @@ module Helium
         path = "/label/#{label.id}"
         delete(path)
       end
+
+      def label_sensors(label)
+        path = "/label/#{label.id}/sensor"
+        response = get(path)
+        sensors_data = JSON.parse(response.body)["data"]
+
+        sensors = sensors_data.map do |sensor_data|
+          Sensor.new(client: self, params: sensor_data)
+        end
+
+        return sensors
+      end
+
+      def update_label_sensors(label, sensors: [])
+        path = "/label/#{label.id}/relationships/sensor"
+
+        sensors = Array(sensors)
+
+        new_sensor_data = sensors.map do |sensor|
+          {
+            id: sensor.id,
+            type: 'sensor'
+          }
+        end
+
+        body = {
+          data: new_sensor_data
+        }
+
+        response = patch(path, body: body)
+        sensors_data = JSON.parse(response.body)["data"]
+
+        sensors = sensors_data.map do |sensor_data|
+          Sensor.new(client: self, params: sensor_data)
+        end
+
+        return sensors
+      end
     end
   end
 end
