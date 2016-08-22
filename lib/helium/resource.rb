@@ -36,8 +36,23 @@ module Helium
 
     # @return [DateTime, nil] when the resource was last updated
     def updated_at
-      return nil if @created_at.nil?
+      return nil if @updated_at.nil?
       @_updated_at ||= DateTime.parse(@updated_at)
+    end
+
+    # Inheriting resources should implement this with super
+    # @return [Hash] a Hash of the object's attributes for JSON
+    def as_json
+      {
+        id: id,
+        created_at: created_at,
+        updated_at: updated_at
+      }
+    end
+
+    # @return [String] a JSON-encoded String representing the resource
+    def to_json(*options)
+      as_json.to_json(*options)
     end
   end
 end

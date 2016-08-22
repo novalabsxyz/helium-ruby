@@ -14,5 +14,14 @@ module Helium
     def update(name:)
       @client.update_element(self, name: name)
     end
+
+    # TODO can probably generalize this a bit more
+    def as_json
+      super.merge({
+        name: name,
+        mac: mac,
+        versions: versions
+      })
+    end
   end
 end

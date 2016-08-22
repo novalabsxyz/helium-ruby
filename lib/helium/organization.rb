@@ -13,5 +13,12 @@ module Helium
     def users
       @client.organization_users
     end
+
+    def as_json
+      super.merge({
+        name: name,
+        timezone: timezone
+      })
+    end
   end
 end

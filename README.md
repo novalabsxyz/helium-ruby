@@ -250,6 +250,14 @@ label.destroy
 # => true
 ```
 
+### JSON
+All objects and collections of objects have a JSON representation. Simply call `.to_json`:
+
+```ruby
+client.sensors.first.to_json
+# => "{\"id\":\"08bab58b-d095-4c7c-912c-1f8024d91d95\",\"created_at\":\"2015-08-06T17:28:11+00:00\",\"updated_at\":\"2016-05-30T22:36:50+00:00\",\"name\":\"Marc's Isotope\",\"mac\":\"6081f9fffe00019b\",\"ports\":[\"b\",\"t\"]}"
+```
+
 ## Source Documentation
 Documentation for the gem's source can be found here: https://helium.github.io/helium-ruby/
 

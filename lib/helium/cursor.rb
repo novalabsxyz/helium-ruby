@@ -29,6 +29,10 @@ module Helium
       end
     end
 
+    def to_json(*options)
+      self.map(&:as_json).to_json(*options)
+    end
+
     private
 
     def fetch_next_page

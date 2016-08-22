@@ -1,39 +1,5 @@
 require 'spec_helper'
 
-describe Helium::Client, '#labels' do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-  let(:labels) { client.labels }
-
-  use_cassette 'labels/index'
-
-  it 'is an Array' do
-    expect(labels).to be_an(Array)
-  end
-
-  it 'returns all labels associated with the current org' do
-    expect(labels.count).to eq(9)
-  end
-end
-
-describe Helium::Client, "#label" do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-  let(:label) { client.label("d85ae875-1d02-4ed1-84f3-c5949bcda1d9") }
-
-  use_cassette 'labels/show'
-
-  it 'is a Label' do
-    expect(label).to be_a(Helium::Label)
-  end
-
-  it 'has an id' do
-    expect(label.id).to eq("d85ae875-1d02-4ed1-84f3-c5949bcda1d9")
-  end
-
-  it 'has a name' do
-    expect(label.name).to eq("The Isotopes")
-  end
-end
-
 describe Helium::Label do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:label) { client.labels.first }
@@ -57,64 +23,6 @@ describe Helium::Label do
   end
 end
 
-describe Helium::Client, '#new_label' do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-  use_cassette 'labels/create'
-
-  it 'creates a new label' do
-    new_label = client.new_label(name: "A Test Label")
-    expect(new_label).to be_a(Helium::Label)
-    expect(new_label.name).to eq("A Test Label")
-
-    # verify it's now in the org's labels
-    all_labels = client.labels
-    new_labels = all_labels.select{ |s| s.name == "A Test Label" }
-    expect(new_labels.count).to eq(1)
-  end
-end
-
-describe Helium::Client, '#update_label' do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-  use_cassette 'labels/update'
-
-  it 'updates a label' do
-    # create a new label to update
-    new_label = client.new_label(name: "A Test Label")
-
-    updated_label = new_label.update(name: "An Updated Label")
-    expect(updated_label.name).to eq("An Updated Label")
-
-    # fetch it again just to make sure
-    fetched_label = client.label(new_label.id)
-    expect(fetched_label.name).to eq("An Updated Label")
-  end
-end
-
-describe Helium::Client, '#delete_label' do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-  use_cassette 'labels/destroy'
-
-  it 'destroys a label' do
-    # create a new label to destroy
-    new_label = client.new_label(name: "A Test Label")
-
-    # make sure it's in the org labels first
-    all_labels = client.labels
-    new_labels = all_labels.select{ |s| s.name == "A Test Label" }
-
-    expect(new_labels.count).to eq(1)
-    label = new_labels.first
-
-    # deleting should return 204 code
-    expect(label.destroy).to eq(true)
-
-    # verify it's no longer in the org's labels
-    all_labels = client.labels
-    new_labels = all_labels.select{ |s| s.name == "A Test Label" }
-    expect(new_labels.count).to eq(0)
-  end
-end
-
 describe Helium::Label, '#sensors' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:label) { client.labels.first }
@@ -132,33 +40,6 @@ describe Helium::Label, '#sensors' do
     expect(sensor.name).to eq("Marc's Isotope")
     expect(sensor.mac).to eq("6081f9fffe00019b")
     expect(sensor.ports).to eq(["b", "t"])
-  end
-end
-
-describe Helium::Client, '#update_label_sensors' do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-
-  use_cassette 'labels/sensors_update'
-
-  it "updates the label's sensor relationship" do
-    # create a new label
-    new_label = client.new_label(name: "A Test Label")
-
-    # create a new sensor
-    new_sensor = client.new_sensor(name: "A Test Sensor")
-
-    # add sensor to label
-    response = client.update_label_sensors(new_label, sensors: new_sensor)
-
-    # response should include new sensor
-    expect(response.map(&:id)).to include(new_sensor.id)
-
-    # verify sensor is present in label's relationships
-    expect(new_label.sensors.map(&:id)).to include(new_sensor.id)
-
-    # clean up
-    new_label.destroy
-    new_sensor.destroy
   end
 end
 
@@ -272,5 +153,15 @@ describe Helium::Label, '#remove_sensors' do
       [new_label, new_sensor_a, new_sensor_b, new_sensor_c].each(&:destroy)
     end
   end
+end
 
+describe Helium::Label, '#to_json' do
+  let(:client) { instance_double(Helium::Client) }
+  let(:label) { described_class.new(client: client, params: LABEL_PARAMS) }
+
+  it 'is a JSON-encoded string representing the user' do
+    decoded_json = JSON.parse(label.to_json)
+    expect(decoded_json["id"]).to eq(label.id)
+    expect(decoded_json["name"]).to eq(label.name)
+  end
 end
