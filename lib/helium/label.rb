@@ -1,21 +1,11 @@
 module Helium
-  class Label
-    attr_accessor :id, :name, :created_at, :updated_at
+  class Label < Resource
+    attr_reader :name
 
     def initialize(client:, params:)
-      @client     = client
-      @id         = params["id"]
-      @name       = params.dig("attributes", "name")
-      @created_at = params.dig("meta", "created")
-      @updated_at = params.dig("meta", "updated")
-    end
+      super(client: client, params: params)
 
-    def created_at
-      @_created_at ||= DateTime.parse(@created_at)
-    end
-
-    def updated_at
-      @_updated_at ||= DateTime.parse(@updated_at)
+      @name = params.dig("attributes", "name")
     end
 
     def update(name:)

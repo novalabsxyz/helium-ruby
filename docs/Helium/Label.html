@@ -71,10 +71,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Object</span>
+      <span class="inheritName"><span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span></li>
           
             <li class="next">Helium::Label</li>
           
@@ -111,58 +113,6 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#created_at-instance_method" title="#created_at (instance method)">#<strong>created_at</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute created_at.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute id.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; Object </a>
     
 
@@ -171,6 +121,8 @@
   
   
   
+    
+      <span class="note title readonly">readonly</span>
     
     
   
@@ -186,35 +138,14 @@
 </li>
 
     
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#updated_at-instance_method" title="#updated_at (instance method)">#<strong>updated_at</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute updated_at.</p>
-</div></span>
-  
-</li>
-
-    
   </ul>
 
 
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Resource.html#id-instance_method" title="Helium::Resource#id (method)">#id</a></span></p>
 
 
   
@@ -364,6 +295,17 @@
     </ul>
   
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Resource.html#%3D%3D-instance_method" title="Helium::Resource#== (method)">#==</a></span>, <span class='object_link'><a href="Resource.html#created_at-instance_method" title="Helium::Resource#created_at (method)">#created_at</a></span>, <span class='object_link'><a href="Resource.html#eql%3F-instance_method" title="Helium::Resource#eql? (method)">#eql?</a></span>, <span class='object_link'><a href="Resource.html#hash-instance_method" title="Helium::Resource#hash (method)">#hash</a></span>, <span class='object_link'><a href="Resource.html#updated_at-instance_method" title="Helium::Resource#updated_at (method)">#updated_at</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -396,19 +338,15 @@
 6
 7
 8
-9
-10
-11</pre>
+9</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='comma'>,</span> <span class='label'>params:</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span>     <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
-  <span class='ivar'>@id</span>         <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@name</span>       <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@updated_at</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>updated</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -421,95 +359,11 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id="created_at=-instance_method"></span>
+      <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="created_at-instance_method">
+  <h3 class="signature first" id="name-instance_method">
   
-    #<strong>created_at</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the value of attribute created_at</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-3
-4
-5</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 3</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
-  <span class='ivar'>@created_at</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="id=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="id-instance_method">
-  
-    #<strong>id</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the value of attribute id</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-3
-4
-5</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 3</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
-  <span class='ivar'>@id</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="name=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="name-instance_method">
-  
-    #<strong>name</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>name</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -546,48 +400,6 @@
 </table>
 </div>
     
-      
-      <span id="updated_at=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="updated_at-instance_method">
-  
-    #<strong>updated_at</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>Returns the value of attribute updated_at</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-3
-4
-5</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 3</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_updated_at'>updated_at</span>
-  <span class='ivar'>@updated_at</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 
@@ -610,14 +422,14 @@
       <pre class="lines">
 
 
-35
-36
-37
-38
-39</pre>
+25
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_sensors'>add_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span><span class='rparen'>)</span>
@@ -644,12 +456,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete_label'>delete_label</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -674,14 +486,14 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
-45</pre>
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_sensors'>remove_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span><span class='rparen'>)</span>
@@ -719,12 +531,12 @@ we could do something like label.sensors &lt;&lt; new_sensor</p>
       <pre class="lines">
 
 
-31
-32
-33</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sensors'>sensors</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_label_sensors'>label_sensors</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -749,12 +561,12 @@ we could do something like label.sensors &lt;&lt; new_sensor</p>
       <pre class="lines">
 
 
-21
-22
-23</pre>
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>name:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_update_label'>update_label</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='label'>name:</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -769,7 +581,7 @@ we could do something like label.sensors &lt;&lt; new_sensor</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Aug 22 12:07:25 2016 by
+  Generated on Mon Aug 22 13:30:22 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.3 (ruby-2.3.1).
 </div>
