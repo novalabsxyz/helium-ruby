@@ -9,6 +9,7 @@ require "helium/cursor"
 require "helium/user"
 require "helium/organization"
 require "helium/sensor"
+require "helium/label"
 require "helium/data_point"
 require "helium/element"
 

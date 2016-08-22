@@ -5,11 +5,23 @@ module Helium
     def initialize(client:, params:)
       @client     = client
       @id         = params["id"]
-      @name       = params["attributes"]["name"]
-      @mac        = params["meta"]["mac"]
-      @ports      = params["meta"]["ports"]
-      @created_at = params["meta"]["created"]
-      @updated_at = params["meta"]["updated"]
+      @name       = params.dig('attributes', 'name')
+      @mac        = params.dig('meta', 'mac')
+      @ports      = params.dig('meta', 'ports')
+      @created_at = params.dig('meta', 'created')
+      @updated_at = params.dig('meta', 'updated')
+    end
+
+    def ==(other)
+      self.id == other.id
+    end
+
+    def eql?(other)
+      self == other
+    end
+
+    def hash
+      id.hash
     end
 
     def created_at

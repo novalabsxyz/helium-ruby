@@ -1,0 +1,269 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/label
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Label"},"type":"label"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 22 Aug 2016 18:05:50 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Airship-Quip:
+      - evacuation not done in time
+      Content-Type:
+      - application/json
+      Location:
+      - "/v1/label/19f0d42d-e673-403a-a72f-cdb2eb968c16"
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Label"},"relationships":{"metadata":{"data":{"id":"19f0d42d-e673-403a-a72f-cdb2eb968c16","type":"metadata"}},"sensor":{"data":[]}},"id":"19f0d42d-e673-403a-a72f-cdb2eb968c16","meta":{"created":"2016-08-22T18:05:51.346808Z","updated":"2016-08-22T18:05:51.346808Z"},"type":"label"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label
+  recorded_at: Mon, 22 Aug 2016 18:05:52 GMT
+- request:
+    method: post
+    uri: https://api.helium.com/v1/sensor
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Sensor"},"type":"sensor"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 22 Aug 2016 18:05:50 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Airship-Quip:
+      - RB_GC_GUARD
+      Content-Type:
+      - application/json
+      Location:
+      - "/v1/sensor/44a14d45-ce7b-4bce-a5e9-4d81373a7ab8"
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Sensor"},"relationships":{"metadata":{"data":{"id":"44a14d45-ce7b-4bce-a5e9-4d81373a7ab8","type":"metadata"}},"element":{"data":null},"label":{"data":[]}},"id":"44a14d45-ce7b-4bce-a5e9-4d81373a7ab8","meta":{"card":null,"mac":null,"created":"2016-08-22T18:05:51.44874Z","versions":null,"last-seen":null,"ports":[],"updated":"2016-08-22T18:05:51.44874Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor
+  recorded_at: Mon, 22 Aug 2016 18:05:52 GMT
+- request:
+    method: patch
+    uri: https://api.helium.com/v1/label/19f0d42d-e673-403a-a72f-cdb2eb968c16/relationships/sensor
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"44a14d45-ce7b-4bce-a5e9-4d81373a7ab8","type":"sensor"}]}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 22 Aug 2016 18:05:50 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o20,o18
+      Airship-Quip:
+      - 'WARNING: ulimit -n is 1024'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"44a14d45-ce7b-4bce-a5e9-4d81373a7ab8","type":"sensor"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/19f0d42d-e673-403a-a72f-cdb2eb968c16/relationships/sensor
+  recorded_at: Mon, 22 Aug 2016 18:05:52 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/label/19f0d42d-e673-403a-a72f-cdb2eb968c16/sensor
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 22 Aug 2016 18:05:50 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - RB_GC_GUARD
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"A Test Sensor"},"id":"44a14d45-ce7b-4bce-a5e9-4d81373a7ab8","meta":{"card":null,"mac":null,"created":"2016-08-22T18:05:51.44874Z","versions":null,"last-seen":null,"ports":[],"updated":"2016-08-22T18:05:51.44874Z"},"type":"sensor"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/19f0d42d-e673-403a-a72f-cdb2eb968c16/sensor
+  recorded_at: Mon, 22 Aug 2016 18:05:52 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/label/19f0d42d-e673-403a-a72f-cdb2eb968c16
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Mon, 22 Aug 2016 18:05:51 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Airship-Quip:
+      - sharkfed
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/19f0d42d-e673-403a-a72f-cdb2eb968c16
+  recorded_at: Mon, 22 Aug 2016 18:05:52 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/sensor/44a14d45-ce7b-4bce-a5e9-4d81373a7ab8
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Date:
+      - Mon, 22 Aug 2016 18:05:51 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Airship-Quip:
+      - shut it down
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/44a14d45-ce7b-4bce-a5e9-4d81373a7ab8
+  recorded_at: Mon, 22 Aug 2016 18:05:52 GMT
+recorded_with: VCR 3.0.3
