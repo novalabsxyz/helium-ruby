@@ -1,35 +1,13 @@
 module Helium
-  class Sensor
-    attr_accessor :id, :name, :mac, :ports, :created_at, :updated_at
+  class Sensor < Resource
+    attr_reader :name, :mac, :ports
 
     def initialize(client:, params:)
-      @client     = client
-      @id         = params["id"]
-      @name       = params.dig('attributes', 'name')
-      @mac        = params.dig('meta', 'mac')
-      @ports      = params.dig('meta', 'ports')
-      @created_at = params.dig('meta', 'created')
-      @updated_at = params.dig('meta', 'updated')
-    end
+      super(client: client, params: params)
 
-    def ==(other)
-      self.id == other.id
-    end
-
-    def eql?(other)
-      self == other
-    end
-
-    def hash
-      id.hash
-    end
-
-    def created_at
-      @_created_at ||= DateTime.parse(@created_at)
-    end
-
-    def updated_at
-      @_updated_at ||= DateTime.parse(@updated_at)
+      @name  = params.dig('attributes', 'name')
+      @mac   = params.dig('meta', 'mac')
+      @ports = params.dig('meta', 'ports')
     end
 
     def timeseries(size: 1000, port: nil, start_time: nil, end_time: nil, aggtype: nil, aggsize: nil)

@@ -1,22 +1,13 @@
 module Helium
-  class Element
-    attr_accessor :id, :name, :mac, :created_at, :updated_at, :versions
+  class Element < Resource
+    attr_reader :name, :mac, :versions
+
     def initialize(client:, params:)
-      @client     = client
-      @id         = params["id"]
-      @name       = params.dig("attributes", "name")
-      @mac        = params.dig("meta", "mac")
-      @created_at = params.dig("meta", "created")
-      @updated_at = params.dig("meta", "updated")
-      @versions   = params.dig("meta", "versions")
-    end
+      super(client: client, params: params)
 
-    def created_at
-      @_created_at ||= DateTime.parse(@created_at)
-    end
-
-    def updated_at
-      @_updated_at ||= DateTime.parse(@updated_at)
+      @name     = params.dig("attributes", "name")
+      @mac      = params.dig("meta", "mac")
+      @versions = params.dig("meta", "versions")
     end
 
     # TODO these kinds of methods should be generalized into a Resource object

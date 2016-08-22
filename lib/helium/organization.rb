@@ -1,22 +1,12 @@
 module Helium
-  class Organization
-    attr_accessor :id, :name, :timezone, :created_at, :updated_at
+  class Organization < Resource
+    attr_reader :name, :timezone
 
     def initialize(client:, params:)
-      @client     = client
-      @id         = params["id"]
-      @name       = params["attributes"]["name"]
-      @timezone   = params["attributes"]["timezone"]
-      @created_at = params["meta"]["created"]
-      @updated_at = params["meta"]["updated"]
-    end
+      super(client: client, params: params)
 
-    def created_at
-      DateTime.parse(@created_at)
-    end
-
-    def updated_at
-      DateTime.parse(@updated_at)
+      @name     = params.dig('attributes', 'name')
+      @timezone = params.dig('attributes', 'timezone')
     end
 
     # TODO refactor into relationships

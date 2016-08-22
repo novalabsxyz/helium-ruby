@@ -1,10 +1,10 @@
 module Helium
-  class DataPoint
-    attr_accessor :id, :timestamp, :value, :port
+  class DataPoint < Resource
+    attr_reader :timestamp, :value, :port
 
     def initialize(client:, params:)
-      @client     = client
-      @id         = params["id"]
+      super(client: client, params: params)
+
       @timestamp  = params.dig("attributes", "timestamp")
       @value      = params.dig("attributes", "value")
       @port       = params.dig("attributes", "port")
@@ -12,10 +12,6 @@ module Helium
 
     def timestamp
       DateTime.parse(@timestamp)
-    end
-
-    def ==(other)
-      self.id == other.id
     end
 
     def max
