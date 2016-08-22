@@ -92,6 +92,8 @@ module Helium
         response = patch(path, body: body)
         sensors_data = JSON.parse(response.body)["data"]
 
+        # TODO: these come back deflated. need to either inflate at this point or
+        # when needed
         sensors = sensors_data.map do |sensor_data|
           Sensor.new(client: self, params: sensor_data)
         end

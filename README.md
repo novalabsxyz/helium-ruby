@@ -194,6 +194,62 @@ element.update(name: "A New Name")
 # => #<Helium::Element:0x007faf732c2548 @id="1b686e82-bd4a-4aac-9d7b-9bdbe1e9a7de", @name="A New Name", @mac="6081f9fffe00033f", @created_at="2015-08-12T23:19:34.175932Z", @updated_at="2015-08-12T23:19:34.174828Z", @versions=nil>
 ```
 
+### Labels
+
+Sensors can be grouped together under a named label.
+
+#### Create a Label
+```ruby
+client.new_label(name: 'A New Label')
+# => #<Helium::Label:0x007ffd80f2be28 @id="409d9394-60d5-436a-b8cb-7160d466fc5a", @name="A New Label", @created_at="2016-08-22T18:58:34.415862Z", @updated_at="2016-08-22T18:58:34.415862Z">
+```
+
+#### List all Labels
+```ruby
+client.labels
+# => [#<Helium::Label:0x007ffd80f2be28 @id="409d9394-60d5-436a-b8cb-7160d466fc5a", @name="A New Label", @created_at="2016-08-22T18:58:34.415862Z", @updated_at="2016-08-22T18:58:34.415862Z">, ...]
+```
+
+#### Find a Label by id
+```ruby
+label = client.label("409d9394-60d5-436a-b8cb-7160d466fc5a")
+# => #<Helium::Label:0x007ffd80f2be28 @id="409d9394-60d5-436a-b8cb-7160d466fc5a", @name="A New Label", @created_at="2016-08-22T18:58:34.415862Z", @updated_at="2016-08-22T18:58:34.415862Z">
+```
+
+#### Update a Label
+```ruby
+label.update(name: 'An Updated Label')
+# => #<Helium::Label:0x007ffd80d41680 @id="409d9394-60d5-436a-b8cb-7160d466fc5a", @name="An Updated Label", @created_at="2016-08-22T18:58:34.415862Z", @updated_at="2016-08-22T18:58:34.415862Z">
+```
+
+#### Add Sensors to a Label
+```ruby
+label.add_sensors(a_sensor)
+# Or
+label.add_sensors([sensor_1, sensor_2])
+```
+
+#### View a Label's Sensors
+```ruby
+label.sensors
+# => [
+#  [0] #<Helium::Sensor:0x007ffd81147450 @id="08bab58b-d095-4c7c-912c-1f8024d91d95", @name="Marc's Isotope", @mac="6081f9fffe00019b", @ports=["b", "t"], @created_at="2015-08-06T17:28:11.614107Z", @updated_at="2016-05-30T22:36:50.810716Z">
+# ]
+```
+
+#### Remove Sensors from a Label
+```ruby
+label.remove_sensors(a_sensor)
+# Or
+label.remove_sensors([sensor_1, sensor_2])
+```
+
+#### Destroy a Label
+```ruby
+label.destroy
+# => true
+```
+
 ## Source Documentation
 Documentation for the gem's source can be found here: https://helium.github.io/helium-ruby/
 
