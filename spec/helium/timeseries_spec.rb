@@ -84,6 +84,22 @@ describe 'Sensor#timeseries' do
     it 'returns aggregated data points with avg' do
       expect(data_point.avg).to eq(22.6003919791667)
     end
+  end
 
+  context '#to_json' do
+    let(:start_time)  { DateTime.parse('2016-08-02') }
+    let(:end_time)    { DateTime.parse('2016-08-04') }
+    let(:data_points) { sensor.timeseries(start_time: start_time, end_time: end_time) }
+
+    use_cassette 'sensor/timeseries_by_time'
+
+    it 'returns a JSON-encoded string representing the Timeseries' do
+      decoded_json = JSON.parse(data_points.to_json)
+      expect(decoded_json.count).to eq(2480)
+
+      decoded_point = decoded_json.first
+      expect(decoded_point["id"]).to eq(data_points.first.id)
+      expect(decoded_point["value"]).to eq(data_points.first.value)
+    end
   end
 end

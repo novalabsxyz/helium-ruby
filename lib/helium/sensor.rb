@@ -21,13 +21,22 @@ module Helium
       )
     end
 
-    # TODO these kinds of methods should be generalized into a Resource object
+    # TODO CRUD methods will be generalized into the Resource object
     def update(name:)
       @client.update_sensor(self, name: name)
     end
 
     def destroy
       @client.delete_sensor(self)
+    end
+
+    # TODO can probably generalize this a bit more
+    def as_json
+      super.merge({
+        name: name,
+        mac: mac,
+        ports: ports
+      })
     end
   end
 end

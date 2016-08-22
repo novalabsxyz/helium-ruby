@@ -33,5 +33,12 @@ module Helium
 
       @client.update_label_sensors(self, sensors: sensors - sensors_to_remove)
     end
+
+    # TODO can probably generalize this a bit more
+    def as_json
+      super.merge({
+        name: name
+      })
+    end
   end
 end
