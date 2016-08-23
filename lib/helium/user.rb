@@ -2,7 +2,10 @@ module Helium
   class User < Resource
     attr_reader :name, :email
 
-    def initialize(client:, params:)
+    def initialize(opts = {})
+      client = opts.fetch(:client)
+      params = opts.fetch(:params)
+
       super(client: client, params: params)
 
       @name  = params.dig('attributes', 'name')

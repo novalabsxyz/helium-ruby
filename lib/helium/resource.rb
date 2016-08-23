@@ -3,7 +3,10 @@ module Helium
   class Resource
     attr_reader :id
 
-    def initialize(client:, params:)
+    def initialize(opts = {})
+      client = opts.fetch(:client)
+      params = opts.fetch(:params)
+
       @client     = client
       @id         = params["id"]
       @created_at = params.dig('meta', 'created')
@@ -18,7 +21,7 @@ module Helium
       # Returns all resources
       # @option opts [Client] :client A Helium::Client
       # @return [Array<Resource>] an Array of all of the inheriting Resource
-      def all(opts)
+      def all(opts = {})
         client = opts.fetch(:client)
 
         response = client.get("/#{resource_name}")
@@ -35,7 +38,7 @@ module Helium
       # @param id [String] An id to find the Resource
       # @option opts [Client] :client A Helium::Client
       # @return [Resource]
-      def find(id, opts)
+      def find(id, opts = {})
         client = opts.fetch(:client)
 
         response = client.get("/#{resource_name}/#{id}")
@@ -48,7 +51,7 @@ module Helium
       # @param attributes [Hash] The attributes for the new Resource
       # @option opts [Client] :client A Helium::Client
       # @return [Resource]
-      def create(attributes, opts)
+      def create(attributes, opts = {})
         client = opts.fetch(:client)
 
         path = "/#{resource_name}"

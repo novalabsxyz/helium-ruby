@@ -2,11 +2,11 @@ module Helium
   class Cursor
     include Enumerable
 
-    def initialize(client:, path:, klass:, params: {})
-      @client = client
-      @path   = path
-      @klass  = klass
-      @params = params
+    def initialize(opts = {})
+      @client = opts.fetch(:client)
+      @path   = opts.fetch(:path)
+      @klass  = opts.fetch(:klass)
+      @params = opts.fetch(:params, {})
 
       @collection = []
       @next_link  = nil
@@ -37,7 +37,7 @@ module Helium
 
     def fetch_next_page
       if @next_link
-        response = @client.get(url: @next_link)
+        response = @client.get(@next_link)
       else
         response = @client.get(@path, params: @params)
       end

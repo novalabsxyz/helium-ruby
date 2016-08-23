@@ -2,7 +2,10 @@ module Helium
   class Sensor < Resource
     attr_reader :name, :mac, :ports
 
-    def initialize(client:, params:)
+    def initialize(opts = {})
+      client = opts.fetch(:client)
+      params = opts.fetch(:params)
+
       super(client: client, params: params)
 
       @name  = params.dig('attributes', 'name')
@@ -10,7 +13,14 @@ module Helium
       @ports = params.dig('meta', 'ports')
     end
 
-    def timeseries(size: 1000, port: nil, start_time: nil, end_time: nil, aggtype: nil, aggsize: nil)
+    def timeseries(opts = {})
+      size        = opts.fetch(:size, 1000)
+      port        = opts.fetch(:port, nil)
+      start_time  = opts.fetch(:start_time, nil)
+      end_time    = opts.fetch(:end_time, nil)
+      aggtype     = opts.fetch(:aggtype, nil)
+      aggsize     = opts.fetch(:aggsize, nil)
+
       @client.sensor_timeseries(self,
         size:       size,
         port:       port,

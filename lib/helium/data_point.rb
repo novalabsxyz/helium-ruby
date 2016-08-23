@@ -2,7 +2,10 @@ module Helium
   class DataPoint < Resource
     attr_reader :timestamp, :value, :port
 
-    def initialize(client:, params:)
+    def initialize(opts = {})
+      client = opts.fetch(:client)
+      params = opts.fetch(:params)
+
       super(client: client, params: params)
 
       @timestamp  = params.dig("attributes", "timestamp")

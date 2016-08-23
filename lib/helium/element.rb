@@ -2,7 +2,10 @@ module Helium
   class Element < Resource
     attr_reader :name, :mac, :versions
 
-    def initialize(client:, params:)
+    def initialize(opts = {})
+      client = opts.fetch(:client)
+      params = opts.fetch(:params)
+      
       super(client: client, params: params)
 
       @name     = params.dig("attributes", "name")

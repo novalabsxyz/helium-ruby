@@ -11,21 +11,30 @@ module Helium
         'User-Agent'    => 'helium-ruby'
       }
 
-      def get(path = nil, url: nil, params: {})
-        request = generate_request(path, url: url, method: :get, params: params)
+      def get(path, opts = {})
+        params = opts.fetch(:params, {})
+
+        request = generate_request(path, method: :get, params: params)
         run(request)
       end
 
-      def paginated_get(path, klass:, params: {})
+      def paginated_get(path, opts = {})
+        klass  = opts.fetch(:klass)
+        params = opts.fetch(:params, {})
+
         Cursor.new(client: self, path: path, klass: klass, params: params)
       end
 
-      def post(path, body: {})
+      def post(path, opts = {})
+        body = opts.fetch(:body, {})
+
         request = generate_request(path, method: :post, body: body)
         run(request)
       end
 
-      def patch(path, body: {})
+      def patch(path, opts = {})
+        body = opts.fetch(:body, {})
+
         request = generate_request(path, method: :patch, body: body)
         run(request)
       end
@@ -44,9 +53,18 @@ module Helium
         })
       end
 
-      def generate_request(path = nil, url: nil, method:, params: {}, body: {})
-        path = path.gsub(/^\//, '') if path
-        url ||= "#{PROTOCOL}://#{HOST}/v#{API_VERSION}/#{path}"
+      def generate_request(path, opts = {})
+        method = opts.fetch(:method)
+        params = opts.fetch(:params, {})
+        body   = opts.fetch(:body, {})
+
+
+        url = if path =~ /^http/
+          path
+        else
+          path = path.gsub(/^\//, '')
+          "#{PROTOCOL}://#{HOST}/v#{API_VERSION}/#{path}"
+        end
 
         Typhoeus::Request.new(url, {
           method:   method,
