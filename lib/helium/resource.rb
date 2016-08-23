@@ -11,7 +11,7 @@ module Helium
     end
 
     class << self
-      # TODO seems a bit out of place to be doing client work here, but it
+      # NOTE seems a bit out of place to be doing client work here, but it
       # makes sense for the Eigenclass to be responsable for constructing
       # instances of its inheriting class.
 

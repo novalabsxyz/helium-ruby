@@ -19,7 +19,7 @@ module Helium
           "filter[end]"   => datetime_to_iso(opts.fetch(:end_time, nil)),
           "agg[type]"     => opts.fetch(:aggtype),
           "agg[size]"     => opts.fetch(:aggsize)
-        }.delete_if { |key, value| value.to_s.empty? }
+        }.delete_if { |_key, value| value.to_s.empty? }
 
         paginated_get(path, klass: Helium::DataPoint, params: params)
       end
