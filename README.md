@@ -75,7 +75,7 @@ client.sensor("08bab58b-d095-4c7c-912c-1f8024d91d95")
 
 #### Create a Virtual Sensor
 ```ruby
-sensor = client.new_sensor(name: "A New Sensor")
+sensor = client.create_sensor(name: "A New Sensor")
 # => #<Helium::Sensor:0x007f89acdb1b58 @id="08bab58b-d095-4c7c-912c-1f8024d91d95", @name="A New Sensor", @mac="6081f9fffe00019b", @ports=["t", "b"], @created_at="2015-08-06T17:28:11.614107Z", @updated_at="2016-05-30T22:36:50.810716Z">
 ```
 
@@ -200,7 +200,7 @@ Sensors can be grouped together under a named label.
 
 #### Create a Label
 ```ruby
-client.new_label(name: 'A New Label')
+client.create_label(name: 'A New Label')
 # => #<Helium::Label:0x007ffd80f2be28 @id="409d9394-60d5-436a-b8cb-7160d466fc5a", @name="A New Label", @created_at="2016-08-22T18:58:34.415862Z", @updated_at="2016-08-22T18:58:34.415862Z">
 ```
 

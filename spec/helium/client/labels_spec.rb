@@ -39,7 +39,7 @@ describe Helium::Client, '#new_label' do
   use_cassette 'labels/create'
 
   it 'creates a new label' do
-    new_label = client.new_label(name: "A Test Label")
+    new_label = client.create_label(name: "A Test Label")
     expect(new_label).to be_a(Helium::Label)
     expect(new_label.name).to eq("A Test Label")
 
@@ -56,7 +56,7 @@ describe Helium::Client, '#update_label' do
 
   it 'updates a label' do
     # create a new label to update
-    new_label = client.new_label(name: "A Test Label")
+    new_label = client.create_label(name: "A Test Label")
 
     updated_label = new_label.update(name: "An Updated Label")
     expect(updated_label.name).to eq("An Updated Label")
@@ -73,7 +73,7 @@ describe Helium::Client, '#delete_label' do
 
   it 'destroys a label' do
     # create a new label to destroy
-    new_label = client.new_label(name: "A Test Label")
+    new_label = client.create_label(name: "A Test Label")
 
     # make sure it's in the org labels first
     all_labels = client.labels
@@ -99,10 +99,10 @@ describe Helium::Client, '#update_label_sensors' do
 
   it "updates the label's sensor relationship" do
     # create a new label
-    new_label = client.new_label(name: "A Test Label")
+    new_label = client.create_label(name: "A Test Label")
 
     # create a new sensor
-    new_sensor = client.new_sensor(name: "A Test Sensor")
+    new_sensor = client.create_sensor(name: "A Test Sensor")
 
     # add sensor to label
     response = client.update_label_sensors(new_label, sensors: new_sensor)

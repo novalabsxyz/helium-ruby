@@ -8,14 +8,6 @@ module Helium
       @name = params.dig("attributes", "name")
     end
 
-    def update(name:)
-      @client.update_label(self, name: name)
-    end
-
-    def destroy
-      @client.delete_label(self)
-    end
-
     # TODO: would be nice to wrap this in a proxy collection, that way
     # we could do something like label.sensors << new_sensor
     def sensors

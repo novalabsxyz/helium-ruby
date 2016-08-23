@@ -30,13 +30,15 @@ describe Helium::Element do
 end
 
 describe Helium::Element, '#update' do
-  let(:client) { instance_double(Helium::Client) }
-  let(:element) { described_class.new(client: client, params: ELEMENT_PARAMS) }
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:element) { client.element("19d493bc-7599-4b95-ac68-31e01d97c345") }
+
+  use_cassette 'elements/patch'
 
   it "updates the element's name" do
-    allow(client).to receive(:update_element)
-    element.update(name: "Updated Element")
-    expect(client).to have_received(:update_element).with(element, name: "Updated Element")
+    expect(element.name).to eq("Another Element")
+    updated_element = element.update(name: "Updated Element")
+    expect(updated_element.name).to eq("Updated Element")
   end
 end
 

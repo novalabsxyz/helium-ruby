@@ -59,7 +59,7 @@ describe Helium::Client, '#new_sensor' do
   use_cassette 'sensor/post'
 
   it 'creates a new virtual sensor' do
-    new_sensor = client.new_sensor(name: "A Test Sensor")
+    new_sensor = client.create_sensor(name: "A Test Sensor")
     expect(new_sensor).to be_a(Helium::Sensor)
     expect(new_sensor.name).to eq("A Test Sensor")
 
@@ -77,7 +77,7 @@ describe Helium::Client, '#update_sensor' do
 
   it 'updates a virtual sensor' do
     # create a new sensor to update
-    new_sensor = client.new_sensor(name: "A Test Sensor")
+    new_sensor = client.create_sensor(name: "A Test Sensor")
 
     updated_sensor = new_sensor.update(name: "An Updated Sensor")
     expect(updated_sensor.name).to eq("An Updated Sensor")
@@ -95,7 +95,7 @@ describe Helium::Client, '#delete_sensor' do
 
   it 'destroys a virtual sensor' do
     # create a new sensor to destroy
-    new_sensor = client.new_sensor(name: "A Test Sensor")
+    new_sensor = client.create_sensor(name: "A Test Sensor")
 
     # make sure it's in the org sensors first
     all_sensors = client.sensors
