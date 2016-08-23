@@ -67,6 +67,28 @@ module Helium
       end
     end # << self
 
+    # Updates a Resource
+    # @param attributes [Hash] The attributes to update
+    # @return [Resource] The updated resource
+    def update(attributes)
+      path = "/#{resource_name}/#{self.id}"
+
+      body = {
+        data: {
+          attributes: attributes,
+          id: self.id,
+          type: resource_name
+        }
+      }
+
+      response = @client.patch(path, body: body)
+      resource_data = JSON.parse(response.body)["data"]
+
+      return self.class.new(client: self, params: resource_data)
+    end
+
+    # Deletes the Resource
+    # @return [Boolean] Whether the operation was successful
     def destroy
       path = "/#{resource_name}/#{self.id}"
       @client.delete(path)

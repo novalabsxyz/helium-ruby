@@ -37,16 +37,3 @@ describe Helium::Client, "#element" do
     expect(element.versions).to eq({"element"=>"3050900"})
   end
 end
-
-describe Helium::Client, '#update_element' do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-  let(:element) { client.element("19d493bc-7599-4b95-ac68-31e01d97c345") }
-
-  use_cassette 'elements/patch'
-
-  it "updates the element's name" do
-    expect(element.name).to eq("Another Element")
-    updated_element = client.update_element(element, name: "Updated Element")
-    expect(updated_element.name).to eq("Updated Element")
-  end
-end

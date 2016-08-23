@@ -204,28 +204,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#destroy-instance_method" title="#destroy (instance method)">#<strong>destroy</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client:, params:)  &#x21d2; Label </a>
     
 
@@ -293,28 +271,6 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(name:)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -328,7 +284,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Resource.html#%3D%3D-instance_method" title="Helium::Resource#== (method)">#==</a></span>, <span class='object_link'><a href="Resource.html#all-class_method" title="Helium::Resource.all (method)">all</a></span>, <span class='object_link'><a href="Resource.html#create-class_method" title="Helium::Resource.create (method)">create</a></span>, <span class='object_link'><a href="Resource.html#created_at-instance_method" title="Helium::Resource#created_at (method)">#created_at</a></span>, <span class='object_link'><a href="Resource.html#eql%3F-instance_method" title="Helium::Resource#eql? (method)">#eql?</a></span>, <span class='object_link'><a href="Resource.html#find-class_method" title="Helium::Resource.find (method)">find</a></span>, <span class='object_link'><a href="Resource.html#hash-instance_method" title="Helium::Resource#hash (method)">#hash</a></span>, <span class='object_link'><a href="Resource.html#to_json-instance_method" title="Helium::Resource#to_json (method)">#to_json</a></span>, <span class='object_link'><a href="Resource.html#updated_at-instance_method" title="Helium::Resource#updated_at (method)">#updated_at</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Resource.html#%3D%3D-instance_method" title="Helium::Resource#== (method)">#==</a></span>, <span class='object_link'><a href="Resource.html#all-class_method" title="Helium::Resource.all (method)">all</a></span>, <span class='object_link'><a href="Resource.html#create-class_method" title="Helium::Resource.create (method)">create</a></span>, <span class='object_link'><a href="Resource.html#created_at-instance_method" title="Helium::Resource#created_at (method)">#created_at</a></span>, <span class='object_link'><a href="Resource.html#destroy-instance_method" title="Helium::Resource#destroy (method)">#destroy</a></span>, <span class='object_link'><a href="Resource.html#eql%3F-instance_method" title="Helium::Resource#eql? (method)">#eql?</a></span>, <span class='object_link'><a href="Resource.html#find-class_method" title="Helium::Resource.find (method)">find</a></span>, <span class='object_link'><a href="Resource.html#hash-instance_method" title="Helium::Resource#hash (method)">#hash</a></span>, <span class='object_link'><a href="Resource.html#to_json-instance_method" title="Helium::Resource#to_json (method)">#to_json</a></span>, <span class='object_link'><a href="Resource.html#update-instance_method" title="Helium::Resource#update (method)">#update</a></span>, <span class='object_link'><a href="Resource.html#updated_at-instance_method" title="Helium::Resource#updated_at (method)">#updated_at</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -445,14 +401,14 @@
       <pre class="lines">
 
 
-25
-26
-27
-28
-29</pre>
+17
+18
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_sensors'>add_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span><span class='rparen'>)</span>
@@ -489,49 +445,19 @@
       <pre class="lines">
 
 
-38
-39
-40
-41
-42</pre>
+30
+31
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
     <span class='label'>name:</span> <span class='id identifier rubyid_name'>name</span>
   <span class='rbrace'>}</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="destroy-instance_method">
-  
-    #<strong>destroy</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-15
-16
-17</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 15</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete_label'>delete_label</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -553,14 +479,14 @@
       <pre class="lines">
 
 
-31
-32
-33
-34
-35</pre>
+23
+24
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_sensors'>remove_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span><span class='rparen'>)</span>
@@ -598,45 +524,15 @@ we could do something like label.sensors &lt;&lt; new_sensor</p>
       <pre class="lines">
 
 
-21
-22
-23</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sensors'>sensors</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_label_sensors'>label_sensors</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update-instance_method">
-  
-    #<strong>update</strong>(name:)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-11
-12
-13</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 11</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>name:</span><span class='rparen'>)</span>
-  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_update_label'>update_label</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='label'>name:</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -648,7 +544,7 @@ we could do something like label.sensors &lt;&lt; new_sensor</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 23 13:57:36 2016 by
+  Generated on Tue Aug 23 14:11:04 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.3 (ruby-2.3.1).
 </div>

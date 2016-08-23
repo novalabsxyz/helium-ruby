@@ -27,28 +27,6 @@ module Helium
       def create_sensor(attributes)
         Sensor.create(attributes, client: self)
       end
-
-      def update_sensor(sensor, name:)
-        path = "/sensor/#{sensor.id}"
-
-        body = {
-          data: {
-            attributes: {
-              name: name
-            },
-            id: sensor.id,
-            type: "sensor"
-          }
-        }
-
-        response = patch(path, body: body)
-        sensor_data = JSON.parse(response.body)["data"]
-
-        return Sensor.new(client: self, params: sensor_data)
-      end
-
-      
-
     end
   end
 end

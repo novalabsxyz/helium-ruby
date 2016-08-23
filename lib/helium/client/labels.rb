@@ -13,25 +13,6 @@ module Helium
         Label.create(attributes, client: self)
       end
 
-      def update_label(label, name:)
-        path = "/label/#{label.id}"
-
-        body = {
-          data: {
-            attributes: {
-              name: name
-            },
-            id: label.id,
-            type: "label"
-          }
-        }
-
-        response = patch(path, body: body)
-        label_data = JSON.parse(response.body)["data"]
-
-        return Label.new(client: self, params: label_data)
-      end
-
       def label_sensors(label)
         path = "/label/#{label.id}/sensor"
         response = get(path)
