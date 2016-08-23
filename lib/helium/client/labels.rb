@@ -32,11 +32,6 @@ module Helium
         return Label.new(client: self, params: label_data)
       end
 
-      def delete_label(label)
-        path = "/label/#{label.id}"
-        delete(path)
-      end
-
       def label_sensors(label)
         path = "/label/#{label.id}/sensor"
         response = get(path)

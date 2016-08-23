@@ -108,6 +108,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#create_label-instance_method" title="#create_label (instance method)">#<strong>create_label</strong>(attributes)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#delete_label-instance_method" title="#delete_label (instance method)">#<strong>delete_label</strong>(label)  &#x21d2; Object </a>
     
 
@@ -196,28 +218,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#new_label-instance_method" title="#new_label (instance method)">#<strong>new_label</strong>(name:)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#update_label-instance_method" title="#update_label (instance method)">#<strong>update_label</strong>(label, name:)  &#x21d2; Object </a>
     
 
@@ -269,7 +269,37 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="delete_label-instance_method">
+  <h3 class="signature first" id="create_label-instance_method">
+  
+    #<strong>create_label</strong>(attributes)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_label'>create_label</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='rparen'>)</span>
+  <span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='label'>client:</span> <span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_label-instance_method">
   
     #<strong>delete_label</strong>(label)  &#x21d2; <tt>Object</tt> 
   
@@ -283,13 +313,13 @@
       <pre class="lines">
 
 
-59
-60
-61
-62</pre>
+35
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_label'>delete_label</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/label/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -315,21 +345,15 @@
       <pre class="lines">
 
 
-15
-16
-17
-18
-19
-20</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_label'>label</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/label/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_label_data'>label_data</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-
-  <span class='kw'>return</span> <span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_label_data'>label_data</span><span class='rparen'>)</span>
+  <span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='label'>client:</span> <span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -351,20 +375,20 @@
       <pre class="lines">
 
 
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74</pre>
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_label_sensors'>label_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/label/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/sensor</span><span class='tstring_end'>&quot;</span></span>
@@ -399,85 +423,13 @@
 
 4
 5
-6
-7
-8
-9
-10
-11
-12
-13</pre>
+6</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 4</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/label</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_labels_data'>labels_data</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-
-  <span class='id identifier rubyid_labels'>labels</span> <span class='op'>=</span> <span class='id identifier rubyid_labels_data'>labels_data</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_label_data'>label_data</span><span class='op'>|</span>
-    <span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_label_data'>label_data</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-
-  <span class='kw'>return</span> <span class='id identifier rubyid_labels'>labels</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="new_label-instance_method">
-  
-    #<strong>new_label</strong>(name:)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 22</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_new_label'>new_label</span><span class='lparen'>(</span><span class='label'>name:</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/label</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='label'>data:</span> <span class='lbrace'>{</span>
-      <span class='label'>attributes:</span> <span class='lbrace'>{</span>
-        <span class='label'>name:</span> <span class='id identifier rubyid_name'>name</span>
-      <span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>label</span><span class='tstring_end'>&quot;</span></span>
-    <span class='rbrace'>}</span>
-  <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>body:</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_label_data'>label_data</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-
-  <span class='kw'>return</span> <span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_label_data'>label_data</span><span class='rparen'>)</span>
+  <span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -499,27 +451,27 @@
       <pre class="lines">
 
 
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57</pre>
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_label'>update_label</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='label'>name:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/label/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -559,36 +511,36 @@
       <pre class="lines">
 
 
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
 76
 77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102</pre>
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_label_sensors'>update_label_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='label'>sensors:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/label/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/relationships/sensor</span><span class='tstring_end'>&quot;</span></span>
@@ -627,7 +579,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Aug 22 15:52:20 2016 by
+  Generated on Tue Aug 23 13:57:36 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.3 (ruby-2.3.1).
 </div>

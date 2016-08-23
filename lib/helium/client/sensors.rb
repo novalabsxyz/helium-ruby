@@ -47,10 +47,7 @@ module Helium
         return Sensor.new(client: self, params: sensor_data)
       end
 
-      def delete_sensor(sensor)
-        path = "/sensor/#{sensor.id}"
-        delete(path)
-      end
+      
 
     end
   end

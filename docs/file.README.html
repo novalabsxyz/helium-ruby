@@ -72,7 +72,7 @@
 
 <p>Add this line to your application&#39;s Gemfile:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>helium-ruby</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>helium-ruby</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>require:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>helium</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
 <p>And then execute:</p>
@@ -133,7 +133,7 @@
 
 <h4>Create a Virtual Sensor</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sensor'>sensor</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_new_sensor'>new_sensor</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A New Sensor</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sensor'>sensor</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_sensor'>create_sensor</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A New Sensor</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='comment'># =&gt; #&lt;Helium::Sensor:0x007f89acdb1b58 @id=&quot;08bab58b-d095-4c7c-912c-1f8024d91d95&quot;, @name=&quot;A New Sensor&quot;, @mac=&quot;6081f9fffe00019b&quot;, @ports=[&quot;t&quot;, &quot;b&quot;], @created_at=&quot;2015-08-06T17:28:11.614107Z&quot;, @updated_at=&quot;2016-05-30T22:36:50.810716Z&quot;&gt;
 </span></code></pre>
 
@@ -255,7 +255,7 @@
 
 <h4>Create a Label</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_new_label'>new_label</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>A New Label</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_label'>create_label</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>A New Label</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='comment'># =&gt; #&lt;Helium::Label:0x007ffd80f2be28 @id=&quot;409d9394-60d5-436a-b8cb-7160d466fc5a&quot;, @name=&quot;A New Label&quot;, @created_at=&quot;2016-08-22T18:58:34.415862Z&quot;, @updated_at=&quot;2016-08-22T18:58:34.415862Z&quot;&gt;
 </span></code></pre>
 
@@ -362,7 +362,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Mon Aug 22 15:52:19 2016 by
+  Generated on Tue Aug 23 13:57:36 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.3 (ruby-2.3.1).
 </div>

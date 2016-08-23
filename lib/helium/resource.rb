@@ -11,15 +11,12 @@ module Helium
     end
 
     class << self
-      def resource_name
-        self.name.split('::').last.downcase
-      end
-
       # TODO seems a bit out of place to be doing client work here, but it
       # makes sense for the Eigenclass to be responsable for constructing
       # instances of its inheriting class.
 
       # Returns all resources
+      # @param client [Client] A Helium::Client
       # @return [Array<Resource>] an Array of all of the inheriting Resource
       def all(client:)
         response = client.get("/#{resource_name}")
@@ -33,6 +30,8 @@ module Helium
       end
 
       # Finds a single Resource by id
+      # @param id [String] An id to find the Resource
+      # @param client [Client] A Helium::Client
       # @return [Resource]
       def find(id, client:)
         response = client.get("/#{resource_name}/#{id}")
@@ -41,6 +40,10 @@ module Helium
         return self.new(client: client, params: resource_data)
       end
 
+      # Creates a new resource with given attributes
+      # @param attributes [Hash] The attributes for the new Resource
+      # @param client [Client] A Helium::Client
+      # @return [Resource]
       def create(attributes, client:)
         path = "/#{resource_name}"
 
@@ -56,7 +59,18 @@ module Helium
 
         return self.new(client: client, params: resource_data)
       end
+
+      private
+
+      def resource_name
+        self.name.split('::').last.downcase
+      end
     end # << self
+
+    def destroy
+      path = "/#{resource_name}/#{self.id}"
+      @client.delete(path)
+    end
 
     # Override equality to use id for comparisons
     # @return [Boolean]
@@ -101,6 +115,12 @@ module Helium
     # @return [String] a JSON-encoded String representing the resource
     def to_json(*options)
       as_json.to_json(*options)
+    end
+
+    private
+
+    def resource_name
+      self.class.name.split('::').last.downcase
     end
   end
 end

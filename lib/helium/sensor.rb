@@ -26,10 +26,6 @@ module Helium
       @client.update_sensor(self, name: name)
     end
 
-    def destroy
-      @client.delete_sensor(self)
-    end
-
     # TODO can probably generalize this a bit more
     def as_json
       super.merge({
