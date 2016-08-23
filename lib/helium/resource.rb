@@ -16,9 +16,11 @@ module Helium
       # instances of its inheriting class.
 
       # Returns all resources
-      # @param client [Client] A Helium::Client
+      # @option opts [Client] :client A Helium::Client
       # @return [Array<Resource>] an Array of all of the inheriting Resource
-      def all(client:)
+      def all(opts)
+        client = opts.fetch(:client)
+
         response = client.get("/#{resource_name}")
         resources_data = JSON.parse(response.body)["data"]
 
@@ -31,9 +33,11 @@ module Helium
 
       # Finds a single Resource by id
       # @param id [String] An id to find the Resource
-      # @param client [Client] A Helium::Client
+      # @option opts [Client] :client A Helium::Client
       # @return [Resource]
-      def find(id, client:)
+      def find(id, opts)
+        client = opts.fetch(:client)
+
         response = client.get("/#{resource_name}/#{id}")
         resource_data = JSON.parse(response.body)["data"]
 
@@ -42,9 +46,11 @@ module Helium
 
       # Creates a new resource with given attributes
       # @param attributes [Hash] The attributes for the new Resource
-      # @param client [Client] A Helium::Client
+      # @option opts [Client] :client A Helium::Client
       # @return [Resource]
-      def create(attributes, client:)
+      def create(attributes, opts)
+        client = opts.fetch(:client)
+
         path = "/#{resource_name}"
 
         body = {
