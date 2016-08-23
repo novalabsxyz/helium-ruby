@@ -3,14 +3,11 @@ module Helium
     attr_reader :name, :mac, :ports
 
     def initialize(opts = {})
-      client = opts.fetch(:client)
-      params = opts.fetch(:params)
+      super(opts)
 
-      super(client: client, params: params)
-
-      @name  = params.dig('attributes', 'name')
-      @mac   = params.dig('meta', 'mac')
-      @ports = params.dig('meta', 'ports')
+      @name  = @params.dig('attributes', 'name')
+      @mac   = @params.dig('meta', 'mac')
+      @ports = @params.dig('meta', 'ports')
     end
 
     def timeseries(opts = {})

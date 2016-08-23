@@ -317,21 +317,15 @@
 6
 7
 8
-9
-10
-11
-12</pre>
+9</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:client</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:params</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
 
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-
-  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -407,14 +401,14 @@
       <pre class="lines">
 
 
+17
+18
+19
 20
-21
-22
-23
-24</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_sensors'>add_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_add'>sensors_to_add</span><span class='rparen'>)</span>
@@ -451,14 +445,14 @@
       <pre class="lines">
 
 
+30
+31
+32
 33
-34
-35
-36
-37</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
@@ -485,14 +479,14 @@
       <pre class="lines">
 
 
+23
+24
+25
 26
-27
-28
-29
-30</pre>
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_sensors'>remove_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors_to_remove'>sensors_to_remove</span><span class='rparen'>)</span>
@@ -530,12 +524,12 @@ we could do something like label.sensors &lt;&lt; new_sensor</p>
       <pre class="lines">
 
 
-16
-17
-18</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/label.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sensors'>sensors</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_label_sensors'>label_sensors</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -550,7 +544,7 @@ we could do something like label.sensors &lt;&lt; new_sensor</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Aug 23 15:14:48 2016 by
+  Generated on Tue Aug 23 15:32:35 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.3 (ruby-2.3.1).
 </div>

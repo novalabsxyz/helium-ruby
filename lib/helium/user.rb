@@ -3,13 +3,10 @@ module Helium
     attr_reader :name, :email
 
     def initialize(opts = {})
-      client = opts.fetch(:client)
-      params = opts.fetch(:params)
+      super(opts)
 
-      super(client: client, params: params)
-
-      @name  = params.dig('attributes', 'name')
-      @email = params.dig('meta', 'email')
+      @name  = @params.dig('attributes', 'name')
+      @email = @params.dig('meta', 'email')
     end
 
     # TODO can probably generalize this a bit more

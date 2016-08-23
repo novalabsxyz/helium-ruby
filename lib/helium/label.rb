@@ -3,12 +3,9 @@ module Helium
     attr_reader :name
 
     def initialize(opts = {})
-      client = opts.fetch(:client)
-      params = opts.fetch(:params)
+      super(opts)
 
-      super(client: client, params: params)
-
-      @name = params.dig("attributes", "name")
+      @name = @params.dig("attributes", "name")
     end
 
     # TODO: would be nice to wrap this in a proxy collection, that way

@@ -12,10 +12,7 @@ module Helium
       }
 
       def get(path, opts = {})
-        params = opts.fetch(:params, {})
-
-        request = generate_request(path, method: :get, params: params)
-        run(request)
+        run(path, :get, opts)
       end
 
       def paginated_get(path, opts = {})
@@ -26,22 +23,15 @@ module Helium
       end
 
       def post(path, opts = {})
-        body = opts.fetch(:body, {})
-
-        request = generate_request(path, method: :post, body: body)
-        run(request)
+        run(path, :post, opts)
       end
 
       def patch(path, opts = {})
-        body = opts.fetch(:body, {})
-
-        request = generate_request(path, method: :patch, body: body)
-        run(request)
+        run(path, :patch, opts)
       end
 
       def delete(path)
-        request = generate_request(path, method: :delete)
-        response = run(request)
+        response = run(path, :delete)
         response.code == 204
       end
 
@@ -51,6 +41,12 @@ module Helium
         BASE_HTTP_HEADERS.merge({
           'Authorization' => api_key
         })
+      end
+
+      def run(path, method, opts = {})
+        request = generate_request(path, opts.merge(method: method))
+        response = run_request(request)
+        return response
       end
 
       def generate_request(path, opts = {})
@@ -74,7 +70,7 @@ module Helium
         })
       end
 
-      def run(request)
+      def run_request(request)
         request.run()
 
         if debug?

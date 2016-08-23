@@ -3,14 +3,11 @@ module Helium
     attr_reader :timestamp, :value, :port
 
     def initialize(opts = {})
-      client = opts.fetch(:client)
-      params = opts.fetch(:params)
+      super(opts)
 
-      super(client: client, params: params)
-
-      @timestamp  = params.dig("attributes", "timestamp")
-      @value      = params.dig("attributes", "value")
-      @port       = params.dig("attributes", "port")
+      @timestamp  = @params.dig("attributes", "timestamp")
+      @value      = @params.dig("attributes", "value")
+      @port       = @params.dig("attributes", "port")
     end
 
     def timestamp

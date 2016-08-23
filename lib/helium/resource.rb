@@ -4,13 +4,12 @@ module Helium
     attr_reader :id
 
     def initialize(opts = {})
-      client = opts.fetch(:client)
-      params = opts.fetch(:params)
+      @client = opts.fetch(:client)
+      @params = opts.fetch(:params)
 
-      @client     = client
-      @id         = params["id"]
-      @created_at = params.dig('meta', 'created')
-      @updated_at = params.dig('meta', 'updated')
+      @id         = @params["id"]
+      @created_at = @params.dig('meta', 'created')
+      @updated_at = @params.dig('meta', 'updated')
     end
 
     class << self
