@@ -51,11 +51,11 @@ describe Helium::Label, '#add_sensors' do
 
     it "adds a sensor to a label without overriding existing relationships" do
       # create a new label
-      new_label = client.new_label(name: "A Test Label")
+      new_label = client.create_label(name: "A Test Label")
 
       # create some sensors
-      new_sensor_a = client.new_sensor(name: "Test Sensor A")
-      new_sensor_b = client.new_sensor(name: "Test Sensor B")
+      new_sensor_a = client.create_sensor(name: "Test Sensor A")
+      new_sensor_b = client.create_sensor(name: "Test Sensor B")
 
       # add both sensors to label
       new_label.add_sensors(new_sensor_a)
@@ -75,12 +75,12 @@ describe Helium::Label, '#add_sensors' do
 
     it "adds mulitple sensors to a label" do
       # create a new label
-      new_label = client.new_label(name: "A Test Label")
+      new_label = client.create_label(name: "A Test Label")
 
       # create some sensors
-      new_sensor_a = client.new_sensor(name: "Test Sensor A")
-      new_sensor_b = client.new_sensor(name: "Test Sensor B")
-      new_sensor_c = client.new_sensor(name: "Test Sensor C")
+      new_sensor_a = client.create_sensor(name: "Test Sensor A")
+      new_sensor_b = client.create_sensor(name: "Test Sensor B")
+      new_sensor_c = client.create_sensor(name: "Test Sensor C")
 
       # add one sensor to label
       new_label.add_sensors(new_sensor_a)
@@ -106,11 +106,11 @@ describe Helium::Label, '#remove_sensors' do
 
     it "removes a sensor from a label without overriding existing relationships" do
       # create a new label
-      new_label = client.new_label(name: "A Test Label")
+      new_label = client.create_label(name: "A Test Label")
 
       # create some sensors
-      new_sensor_a = client.new_sensor(name: "Test Sensor A")
-      new_sensor_b = client.new_sensor(name: "Test Sensor B")
+      new_sensor_a = client.create_sensor(name: "Test Sensor A")
+      new_sensor_b = client.create_sensor(name: "Test Sensor B")
 
       # add both sensors to label
       new_label.add_sensors([new_sensor_a, new_sensor_b])
@@ -132,12 +132,12 @@ describe Helium::Label, '#remove_sensors' do
 
     it "removes sensors from a label without overriding existing relationships" do
       # create a new label
-      new_label = client.new_label(name: "A Test Label")
+      new_label = client.create_label(name: "A Test Label")
 
       # create some sensors
-      new_sensor_a = client.new_sensor(name: "Test Sensor A")
-      new_sensor_b = client.new_sensor(name: "Test Sensor B")
-      new_sensor_c = client.new_sensor(name: "Test Sensor C")
+      new_sensor_a = client.create_sensor(name: "Test Sensor A")
+      new_sensor_b = client.create_sensor(name: "Test Sensor B")
+      new_sensor_c = client.create_sensor(name: "Test Sensor C")
 
       # add all sensors to label
       new_label.add_sensors([new_sensor_a, new_sensor_b, new_sensor_c])

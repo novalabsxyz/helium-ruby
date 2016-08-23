@@ -2,21 +2,11 @@ module Helium
   class Client
     module Sensors
       def sensors
-        response = get('/sensor')
-        sensors_data = JSON.parse(response.body)["data"]
-
-        sensors = sensors_data.map do |sensor_data|
-          Sensor.new(client: self, params: sensor_data)
-        end
-
-        return sensors
+        Sensor.all(client: self)
       end
 
       def sensor(id)
-        response = get("/sensor/#{id}")
-        sensor_data = JSON.parse(response.body)["data"]
-
-        return Sensor.new(client: self, params: sensor_data)
+        Sensor.find(id, client: self)
       end
 
       def sensor_timeseries(sensor, opts = {})
@@ -34,22 +24,8 @@ module Helium
         paginated_get(path, klass: Helium::DataPoint, params: params)
       end
 
-      def new_sensor(name:)
-        path = "/sensor"
-
-        body = {
-          data: {
-            attributes: {
-              name: name
-            },
-            type: "sensor"
-          }
-        }
-
-        response = post(path, body: body)
-        sensor_data = JSON.parse(response.body)["data"]
-
-        return Sensor.new(client: self, params: sensor_data)
+      def create_sensor(attributes)
+        Sensor.create(attributes, client: self)
       end
 
       def update_sensor(sensor, name:)

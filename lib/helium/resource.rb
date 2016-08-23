@@ -10,6 +10,54 @@ module Helium
       @updated_at = params.dig('meta', 'updated')
     end
 
+    class << self
+      def resource_name
+        self.name.split('::').last.downcase
+      end
+
+      # TODO seems a bit out of place to be doing client work here, but it
+      # makes sense for the Eigenclass to be responsable for constructing
+      # instances of its inheriting class.
+
+      # Returns all resources
+      # @return [Array<Resource>] an Array of all of the inheriting Resource
+      def all(client:)
+        response = client.get("/#{resource_name}")
+        resources_data = JSON.parse(response.body)["data"]
+
+        resources = resources_data.map do |resource_data|
+          self.new(client: client, params: resource_data)
+        end
+
+        return resources
+      end
+
+      # Finds a single Resource by id
+      # @return [Resource]
+      def find(id, client:)
+        response = client.get("/#{resource_name}/#{id}")
+        resource_data = JSON.parse(response.body)["data"]
+
+        return self.new(client: client, params: resource_data)
+      end
+
+      def create(attributes, client:)
+        path = "/#{resource_name}"
+
+        body = {
+          data: {
+            attributes: attributes,
+            type: resource_name
+          }
+        }
+
+        response = client.post(path, body: body)
+        resource_data = JSON.parse(response.body)["data"]
+
+        return self.new(client: client, params: resource_data)
+      end
+    end # << self
+
     # Override equality to use id for comparisons
     # @return [Boolean]
     def ==(other)
