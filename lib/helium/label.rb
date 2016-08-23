@@ -2,10 +2,10 @@ module Helium
   class Label < Resource
     attr_reader :name
 
-    def initialize(client:, params:)
-      super(client: client, params: params)
+    def initialize(opts = {})
+      super(opts)
 
-      @name = params.dig("attributes", "name")
+      @name = @params.dig("attributes", "name")
     end
 
     # TODO: would be nice to wrap this in a proxy collection, that way

@@ -2,12 +2,12 @@ module Helium
   class Element < Resource
     attr_reader :name, :mac, :versions
 
-    def initialize(client:, params:)
-      super(client: client, params: params)
+    def initialize(opts = {})
+      super(opts)
 
-      @name     = params.dig("attributes", "name")
-      @mac      = params.dig("meta", "mac")
-      @versions = params.dig("meta", "versions")
+      @name     = @params.dig("attributes", "name")
+      @mac      = @params.dig("meta", "mac")
+      @versions = @params.dig("meta", "versions")
     end
 
     # TODO can probably generalize this a bit more

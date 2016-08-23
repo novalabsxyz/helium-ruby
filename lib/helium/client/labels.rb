@@ -25,7 +25,9 @@ module Helium
         return sensors
       end
 
-      def update_label_sensors(label, sensors: [])
+      def update_label_sensors(label, opts = {})
+        sensors = opts.fetch(:sensors, [])
+
         path = "/label/#{label.id}/relationships/sensor"
 
         sensors = Array(sensors)

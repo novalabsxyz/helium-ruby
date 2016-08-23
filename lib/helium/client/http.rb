@@ -11,28 +11,27 @@ module Helium
         'User-Agent'    => 'helium-ruby'
       }
 
-      def get(path = nil, url: nil, params: {})
-        request = generate_request(path, url: url, method: :get, params: params)
-        run(request)
+      def get(path, opts = {})
+        run(path, :get, opts)
       end
 
-      def paginated_get(path, klass:, params: {})
+      def paginated_get(path, opts = {})
+        klass  = opts.fetch(:klass)
+        params = opts.fetch(:params, {})
+
         Cursor.new(client: self, path: path, klass: klass, params: params)
       end
 
-      def post(path, body: {})
-        request = generate_request(path, method: :post, body: body)
-        run(request)
+      def post(path, opts = {})
+        run(path, :post, opts)
       end
 
-      def patch(path, body: {})
-        request = generate_request(path, method: :patch, body: body)
-        run(request)
+      def patch(path, opts = {})
+        run(path, :patch, opts)
       end
 
       def delete(path)
-        request = generate_request(path, method: :delete)
-        response = run(request)
+        response = run(path, :delete)
         response.code == 204
       end
 
@@ -44,9 +43,24 @@ module Helium
         })
       end
 
-      def generate_request(path = nil, url: nil, method:, params: {}, body: {})
-        path = path.gsub(/^\//, '') if path
-        url ||= "#{PROTOCOL}://#{HOST}/v#{API_VERSION}/#{path}"
+      def run(path, method, opts = {})
+        request = generate_request(path, opts.merge(method: method))
+        response = run_request(request)
+        return response
+      end
+
+      def generate_request(path, opts = {})
+        method = opts.fetch(:method)
+        params = opts.fetch(:params, {})
+        body   = opts.fetch(:body, {})
+
+
+        url = if path =~ /^http/
+          path
+        else
+          path = path.gsub(/^\//, '')
+          "#{PROTOCOL}://#{HOST}/v#{API_VERSION}/#{path}"
+        end
 
         Typhoeus::Request.new(url, {
           method:   method,
@@ -56,7 +70,7 @@ module Helium
         })
       end
 
-      def run(request)
+      def run_request(request)
         request.run()
 
         if debug?
