@@ -12,7 +12,7 @@ A Ruby gem for building applications with the Helium API. [Helium](https://www.h
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'helium-ruby'
+gem 'helium-ruby', require: 'helium'
 ```
 
 And then execute:
