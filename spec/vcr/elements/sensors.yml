@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 24 Aug 2016 21:04:02 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - RB_GC_GUARD
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"SF Office"},"relationships":{"metadata":{"data":{"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","type":"metadata"}},"organization":{"data":{"id":"134","type":"organization"}},"sensor":{"data":[{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"}]}},"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","meta":{"mac":"6081f9fffe0001f1","created":"2015-08-12T22:38:53.724511Z","versions":{"element":"3050900"},"updated":"2015-12-09T19:35:11.675927Z"},"type":"element"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2
+  recorded_at: Wed, 24 Aug 2016 21:04:02 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2/relationships/sensor
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Wed, 24 Aug 2016 21:04:02 GMT
+      Server:
+      - Warp/3.2.7
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Airship-Quip:
+      - 'WARNING: ulimit -n is 1024'
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2/relationships/sensor
+  recorded_at: Wed, 24 Aug 2016 21:04:02 GMT
+recorded_with: VCR 3.0.3

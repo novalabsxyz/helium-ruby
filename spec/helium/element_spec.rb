@@ -42,6 +42,23 @@ describe Helium::Element, '#update' do
   end
 end
 
+describe Helium::Element, '#sensors' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:element) { client.element("3482ce9f-599c-4982-bcb9-e94df65b1cb2") }
+  let(:sensors) { element.sensors }
+
+  use_cassette 'elements/sensors'
+
+  it 'returns all sensors attached to a element' do
+    expect(sensors.length).to eq(2)
+  end
+
+  it 'returns fully formed sensors' do
+    sensor = sensors.first
+    expect(sensor.id).to eq("94683401-4959-42c7-a38a-92c39a25f34c")
+  end
+end
+
 describe Helium::Element, '#to_json' do
   let(:client) { instance_double(Helium::Client) }
   let(:element) { described_class.new(client: client, params: ELEMENT_PARAMS) }
