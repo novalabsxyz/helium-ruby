@@ -11,13 +11,12 @@ module Helium
       status  = response.code
       message = JSON.parse(response.body)["errors"].first["detail"]
 
-      if klass =  case status
-                  when 401  then Helium::InvalidApiKey
-                  else self
-                  end
+      klass =  case status
+               when 401   then Helium::InvalidApiKey
+               else self
+               end
 
-        klass.new(message)
-      end
+      klass.new(message)
     end
   end
 
