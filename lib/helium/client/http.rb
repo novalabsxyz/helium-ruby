@@ -73,16 +73,21 @@ module Helium
       def run_request(request)
         request.run()
 
+        response = request.response
+
         if debug?
           method = request.options[:method]
           puts "#{method.upcase} #{request.url} #{request.response.code} #{request.response.total_time}"
           # puts request.response.body
         end
 
-        # TODO error handling
-        # halt(request.response.code, "Helium Get Failed: #{request.response.code.to_s}") unless request.response.code.between?(200,399)\
+        halt(response) unless response.code.between?(200,399)
 
-        return request.response
+        return response
+      end
+
+      def halt(response)
+        raise Helium::Error.from_response(response)
       end
     end
   end
