@@ -28,7 +28,7 @@ Or install it yourself as:
 ### Setup
 
 ```ruby
-require 'Helium'
+require 'helium'
 
 client = Helium::Client.new(api_key: '<Your API Key>')
 ```
