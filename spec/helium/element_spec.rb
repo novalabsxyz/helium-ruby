@@ -56,6 +56,9 @@ describe Helium::Element, '#sensors' do
   it 'returns fully formed sensors' do
     sensor = sensors.first
     expect(sensor.id).to eq("94683401-4959-42c7-a38a-92c39a25f34c")
+    expect(sensor.mac).to eq("6081f9fffe000665")
+    expect(sensor.name).to eq("Mobile Demo Green 3")
+    expect(sensor.ports).to eq(["_b", "_se", "b", "h", "l", "m", "p", "t"])
   end
 end
 

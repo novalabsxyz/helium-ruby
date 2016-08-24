@@ -10,9 +10,9 @@ module Helium
       end
 
       def element_sensors(element)
-        path = "/element/#{element.id}/relationships/sensor"
+        path = "/element/#{element.id}?include=sensor"
         response = get(path)
-        sensors_data = JSON.parse(response.body)["data"]
+        sensors_data = JSON.parse(response.body)["included"]
 
         sensors = sensors_data.map do |sensor|
           Sensor.new(client: self, params: sensor)

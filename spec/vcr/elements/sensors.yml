@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 24 Aug 2016 21:04:02 GMT
+      - Wed, 24 Aug 2016 21:40:12 GMT
       Server:
       - Warp/3.2.7
       Access-Control-Allow-Origin:
@@ -35,7 +35,7 @@ http_interactions:
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
       Airship-Quip:
-      - RB_GC_GUARD
+      - 'WARNING: ulimit -n is 1024'
       Content-Type:
       - application/json
     body:
@@ -44,10 +44,10 @@ http_interactions:
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2
-  recorded_at: Wed, 24 Aug 2016 21:04:02 GMT
+  recorded_at: Wed, 24 Aug 2016 21:40:12 GMT
 - request:
     method: get
-    uri: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2/relationships/sensor
+    uri: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2?include=sensor
     body:
       encoding: UTF-8
       string: "{}"
@@ -70,7 +70,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 24 Aug 2016 21:04:02 GMT
+      - Wed, 24 Aug 2016 21:40:12 GMT
       Server:
       - Warp/3.2.7
       Access-Control-Allow-Origin:
@@ -80,14 +80,17 @@ http_interactions:
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
       Airship-Quip:
-      - 'WARNING: ulimit -n is 1024'
+      - RB_GC_GUARD
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"data":[{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"}]}'
+      string: '{"data":{"attributes":{"name":"SF Office"},"relationships":{"metadata":{"data":{"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","type":"metadata"}},"organization":{"data":{"id":"134","type":"organization"}},"sensor":{"data":[{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"}]}},"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","meta":{"mac":"6081f9fffe0001f1","created":"2015-08-12T22:38:53.724511Z","versions":{"element":"3050900"},"updated":"2015-12-09T19:35:11.675927Z"},"type":"element"},"included":[{"attributes":{"name":"Mobile
+        Demo Green 3"},"id":"94683401-4959-42c7-a38a-92c39a25f34c","meta":{"card":{"id":5},"mac":"6081f9fffe000665","created":"2016-05-25T00:03:38.059788Z","versions":{"sensor-script":[{"version":"32245382e6cfd8f2"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"4b90039b34373ad2","sensor-library":"c8a1ae32682196c4","sensor":"4020300"},"last-seen":"2016-06-24T00:07:02.391306Z","ports":["_b","_se","b","h","l","m","p","t"],"updated":"2016-05-25T00:03:38.059975Z"},"type":"sensor"},{"attributes":{"name":"Mini
+        Fridge 1.1"},"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","meta":{"card":{"id":2},"mac":"6081f9fffe0006aa","created":"2016-06-14T00:07:58.761507Z","versions":{"sensor-script":[{"version":"aa1066c4526acd91"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"c0e0315e1e7e205b","sensor-library":"d63a73ed260381af","sensor":"4020300"},"last-seen":"2016-06-29T18:21:04.302722Z","ports":["_b","_se","b","d","Glowfish
+        Alert Level","t"],"updated":"2016-08-03T11:10:33.436857Z"},"type":"sensor"}]}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2/relationships/sensor
-  recorded_at: Wed, 24 Aug 2016 21:04:02 GMT
+      effective_url: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2?include=sensor
+  recorded_at: Wed, 24 Aug 2016 21:40:12 GMT
 recorded_with: VCR 3.0.3
