@@ -10,6 +10,10 @@ module Helium
       @versions = @params.dig("meta", "versions")
     end
 
+    def sensors
+      @client.element_sensors(self)
+    end
+
     # TODO can probably generalize this a bit more
     def as_json
       super.merge({

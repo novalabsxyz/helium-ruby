@@ -8,6 +8,18 @@ module Helium
       def element(id)
         Element.find(id, client: self)
       end
+
+      def element_sensors(element)
+        path = "/element/#{element.id}?include=sensor"
+        response = get(path)
+        sensors_data = JSON.parse(response.body)["included"]
+
+        sensors = sensors_data.map do |sensor|
+          Sensor.new(client: self, params: sensor)
+        end
+
+        return sensors
+      end
     end
   end
 end
