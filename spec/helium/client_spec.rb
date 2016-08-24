@@ -21,4 +21,17 @@ describe Helium::Client do
       client.sensors
     end
   end
+
+  context 'when api key is invalid' do
+    let(:client) { Helium::Client.new(api_key: 'an invalid key') }
+
+    use_cassette 'client/invalid_api_key'
+
+    it 'raises an InvalidApiKey error' do
+      expect {
+        client.sensors
+      }.to raise_error(Helium::InvalidApiKey)
+
+    end
+  end
 end

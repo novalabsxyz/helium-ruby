@@ -3,6 +3,7 @@ require 'json'
 require 'date'
 
 require "helium/version"
+require "helium/error"
 require "helium/utils"
 require "helium/client"
 require "helium/cursor"
