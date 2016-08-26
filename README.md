@@ -7,6 +7,17 @@
 
 A Ruby gem for building applications with the Helium API. [Helium](https://www.helium.com/) is an integrated platform of smart sensors, communication, edge and cloud compute that enables numerous sensing applications. For more information about the underlying REST API, check out [the Helium docs](https://docs.helium.com/).
 
+
+##  Helium Documentation and Community Support 
+
+
+* **helium-ruby docs** - Documentation for the gem's source can be found [here](https://helium.github.io/helium-ruby/): 
+
+* **Helium Docs** Complete documenation for all parts of Helium can be found at [docs.helium.com](https://docs/helium.com). 
+
+* **chat.helium.com** - If you have questions or ideas about how to use this code - or any part of Helium - head over the [chat.helium.com](https://chat.helium.com). We're standing by to help. 
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -24,6 +35,7 @@ Or install it yourself as:
     $ gem install helium-ruby
 
 ## Usage
+
 
 ### Setup
 
@@ -258,9 +270,6 @@ client.sensors.first.to_json
 # => "{\"id\":\"08bab58b-d095-4c7c-912c-1f8024d91d95\",\"created_at\":\"2015-08-06T17:28:11+00:00\",\"updated_at\":\"2016-05-30T22:36:50+00:00\",\"name\":\"Marc's Isotope\",\"mac\":\"6081f9fffe00019b\",\"ports\":[\"b\",\"t\"]}"
 ```
 
-## Source Documentation
-Documentation for the gem's source can be found here: https://helium.github.io/helium-ruby/
-
 
 ## Development
 
@@ -273,18 +282,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 We're working toward a v1.0.0 release, which will represent a feature-complete implementation of the Helium API. You can check the progress here: https://github.com/helium/helium-ruby/milestone/1.
 
 Until the v1.0.0 release, the functionality of this gem is subject to change. To prevent breaking changes, you should use the pessimistic version constraint operator (`~>`) in your Gemfile to lock your helium-ruby version to the current minor release. This will allow updates to patch versions.
-
-## Contributing
-
-We value contributions from the community and will do everything we can go get them reviewed in a timely fashion. If you have code to send our way or a bug to report:
-
-* Contributing Code: If you have new code or a bug fix, fork this repo, create a logically-named branch, and submit a PR against this repo. Include a write up of the PR with details on what it does.
-
-* Reporting Bugs: Open an issue against this repo with as much detail as you can. At the very least you'll include steps to reproduce the problem.
-
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) Code of Conduct.
-
-Above all, thank you for taking the time to be a part of the Helium community.
 
 ### Running specs with Guard
 
@@ -299,7 +296,3 @@ $ bundle exec guard
 ```
 
 When you modify any of the files in `lib/`, all specs will run. When you modify a spec file, just that file will be run. You can press `Enter` at the guard prompt to run all tests as well.
-
-## License
-
-The gem is available as open source under the terms of the [BSD License](https://github.com/helium/helium-ruby/blob/master/LICENSE.txt).
