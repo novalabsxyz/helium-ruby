@@ -31,6 +31,10 @@ describe Helium::Client, '#sensor' do
     expect(sensor.id).to eq("aba370be-837d-4b41-bee5-686b0069d874")
   end
 
+  it 'has a type' do
+    expect(sensor.type).to eq("sensor")
+  end
+
   it 'has a name' do
     expect(sensor.name).to eq("SF Office Brick1 1 (on Marc's desk)")
   end
@@ -39,9 +43,13 @@ describe Helium::Client, '#sensor' do
     expect(sensor.mac).to eq("6081f9fffe000478")
   end
 
+  it 'has a firmware version' do
+    expect(sensor.firmware).to eq("4020100")
+  end
+
   it 'has ports' do
     # TODO Port will be an object
-    expect(sensor.ports).to eq(["_se","lr","l","p","h","m","_e.info","t","b"])
+    expect(sensor.ports.sort).to eq(["_se","lr","l","p","h","m","_e.info","t","b"].sort)
   end
 
   it 'has a created_at datetime' do
@@ -50,6 +58,10 @@ describe Helium::Client, '#sensor' do
 
   it 'has an updated_at datetime' do
     expect(sensor.updated_at).to eq(DateTime.parse("2016-04-08T23:33:05.719843Z"))
+  end
+
+  it 'has a last_seen datetime' do
+    expect(sensor.last_seen).to eq(DateTime.parse("2016-08-26T22:11:02.198295Z"))
   end
 end
 
