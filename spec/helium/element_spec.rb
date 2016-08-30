@@ -16,6 +16,10 @@ describe Helium::Element do
     expect(element.mac).to eq("6081f9fffe0002a8")
   end
 
+  it 'has a type' do
+    expect(element.type).to eq("element")
+  end
+
   it 'has a created_at timestamp' do
     expect(element.created_at).to eq(DateTime.parse("2015-08-12T23:10:40.537762Z"))
   end

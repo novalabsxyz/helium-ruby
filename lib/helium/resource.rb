@@ -1,13 +1,14 @@
 module Helium
   # Abstract base class for Helium Resources returned by the API
   class Resource
-    attr_reader :id
+    attr_reader :id, :type
 
     def initialize(opts = {})
       @client = opts.fetch(:client)
       @params = opts.fetch(:params)
 
       @id         = @params["id"]
+      @type       = @params.dig('type')
       @created_at = @params.dig('meta', 'created')
       @updated_at = @params.dig('meta', 'updated')
     end
@@ -137,6 +138,7 @@ module Helium
     def as_json
       {
         id: id,
+        type: type,
         created_at: created_at,
         updated_at: updated_at
       }

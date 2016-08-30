@@ -7,6 +7,7 @@ describe Helium::Organization, '#to_json' do
   it 'is a JSON-encoded string representing the user' do
     decoded_json = JSON.parse(org.to_json)
     expect(decoded_json["id"]).to eq(org.id)
+    expect(decoded_json["type"]).to eq(org.type)
     expect(decoded_json["name"]).to eq(org.name)
   end
 end

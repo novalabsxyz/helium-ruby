@@ -14,6 +14,10 @@ describe Helium::Label do
     expect(label.name).to eq("The Isotopes")
   end
 
+  it 'has a type' do
+    expect(label.type).to eq("label")
+  end
+
   it 'has a created_at timestamp' do
     expect(label.created_at).to eq(DateTime.parse("2016-03-04T16:14:16.090864Z"))
   end
