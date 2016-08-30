@@ -8,6 +8,7 @@ describe Helium::User, '#to_json' do
     decoded_json = JSON.parse(user.to_json)
     expect(decoded_json["id"]).to eq(user.id)
     expect(decoded_json["name"]).to eq(user.name)
+    expect(decoded_json["type"]).to eq(user.type)
     expect(decoded_json["email"]).to eq(user.email)
   end
 end
