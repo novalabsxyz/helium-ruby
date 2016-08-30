@@ -6,8 +6,8 @@ require 'helium/version'
 Gem::Specification.new do |spec|
   spec.name          = "helium-ruby"
   spec.version       = Helium::VERSION
-  spec.authors       = ["Andrew Allen"]
-  spec.email         = ["allenan@helium.com"]
+  spec.authors       = ["Andrew Allen", "Jared Morrow"]
+  spec.email         = ["allenan@helium.com", "jared@helium.com"]
 
   spec.summary       = %q{A Ruby gem for building applications with the Helium API}
   spec.description   = %q{A Ruby gem for building applications with the Helium API}
