@@ -150,6 +150,34 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#type-instance_method" title="#type (instance method)">#<strong>type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute type.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -511,7 +539,8 @@
 10
 11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 6</span>
@@ -521,6 +550,7 @@
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:params</span><span class='rparen'>)</span>
 
   <span class='ivar'>@id</span>         <span class='op'>=</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@type</span>       <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>type</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>created</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='ivar'>@updated_at</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>updated</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -570,6 +600,48 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="type-instance_method">
+  
+    #<strong>type</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 4</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
+  <span class='ivar'>@type</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -667,7 +739,6 @@
       <pre class="lines">
 
 
-23
 24
 25
 26
@@ -678,10 +749,11 @@
 31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_all'>all</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:client</span><span class='rparen'>)</span>
@@ -797,7 +869,6 @@
       <pre class="lines">
 
 
-53
 54
 55
 56
@@ -813,10 +884,11 @@
 66
 67
 68
-69</pre>
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:client</span><span class='rparen'>)</span>
@@ -937,17 +1009,17 @@
       <pre class="lines">
 
 
-40
 41
 42
 43
 44
 45
 46
-47</pre>
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:client</span><span class='rparen'>)</span>
@@ -1006,12 +1078,12 @@
       <pre class="lines">
 
 
-107
 108
-109</pre>
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
@@ -1063,20 +1135,22 @@
       <pre class="lines">
 
 
-137
 138
 139
 140
 141
 142
-143</pre>
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span>
   <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+    <span class='label'>type:</span> <span class='id identifier rubyid_type'>type</span><span class='comma'>,</span>
     <span class='label'>created_at:</span> <span class='id identifier rubyid_created_at'>created_at</span><span class='comma'>,</span>
     <span class='label'>updated_at:</span> <span class='id identifier rubyid_updated_at'>updated_at</span>
   <span class='rbrace'>}</span>
@@ -1128,13 +1202,13 @@
       <pre class="lines">
 
 
-124
 125
 126
-127</pre>
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='ivar'>@created_at</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1187,13 +1261,13 @@
       <pre class="lines">
 
 
-100
 101
 102
-103</pre>
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resource_name'>resource_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1242,12 +1316,12 @@
       <pre class="lines">
 
 
-113
 114
-115</pre>
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 114</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
   <span class='kw'>self</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span>
@@ -1295,12 +1369,12 @@
       <pre class="lines">
 
 
-119
 120
-121</pre>
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hash'>hash</span>
   <span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_hash'>hash</span>
@@ -1352,12 +1426,12 @@
       <pre class="lines">
 
 
-146
-147
-148</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_json'>to_json</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_as_json'>as_json</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
@@ -1428,7 +1502,6 @@
       <pre class="lines">
 
 
-81
 82
 83
 84
@@ -1443,10 +1516,11 @@
 93
 94
 95
-96</pre>
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='id identifier rubyid_attributes'>attributes</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_resource_name'>resource_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -1511,13 +1585,13 @@
       <pre class="lines">
 
 
-130
 131
 132
-133</pre>
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/resource.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_updated_at'>updated_at</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='ivar'>@updated_at</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1533,7 +1607,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 24 13:22:51 2016 by
+  Generated on Tue Aug 30 08:16:47 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.3 (ruby-2.3.1).
 </div>
