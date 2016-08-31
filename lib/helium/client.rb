@@ -15,11 +15,15 @@ module Helium
     include Helium::Client::Labels
     include Helium::Client::Elements
 
+    API_VERSION = 1
+    HOST        = 'api.helium.com'
+    PROTOCOL    = 'https'
+
     attr_accessor :api_key
 
     def initialize(opts = {})
       @api_key  = opts.fetch(:api_key)
-      @api_host = opts.fetch(:host, nil)
+      @api_host = opts.fetch(:host, HOST)
       @debug    = opts.fetch(:debug, false)
     end
 

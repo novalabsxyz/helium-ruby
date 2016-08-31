@@ -1,10 +1,6 @@
 module Helium
   class Client
     module Http
-      API_VERSION = 1
-      HOST        = 'api.helium.com'
-      PROTOCOL    = 'https'
-
       BASE_HTTP_HEADERS = {
         'Accept'        => 'application/json',
         'Content-Type'  => 'application/json',
@@ -36,8 +32,7 @@ module Helium
       end
 
       def base_url
-        host = @api_host || HOST
-        "#{PROTOCOL}://#{host}/v#{API_VERSION}"
+        "#{PROTOCOL}://#{@api_host}/v#{API_VERSION}"
       end
 
       # Contructs a proper url given a path. If the path is already a full url
