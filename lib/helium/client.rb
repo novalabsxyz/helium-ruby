@@ -18,8 +18,9 @@ module Helium
     attr_accessor :api_key
 
     def initialize(opts = {})
-      @api_key = opts.fetch(:api_key)
-      @debug   = opts.fetch(:debug, false)
+      @api_key  = opts.fetch(:api_key)
+      @api_host = opts.fetch(:host, nil)
+      @debug    = opts.fetch(:debug, false)
     end
 
     def inspect

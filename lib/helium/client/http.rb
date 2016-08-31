@@ -35,6 +35,20 @@ module Helium
         response.code == 204
       end
 
+      def base_url
+        host = @api_host || HOST
+        "#{PROTOCOL}://#{host}/v#{API_VERSION}"
+      end
+
+      # Contructs a proper url given a path. If the path is already a full url
+      # it will simply pass through
+      def url_for(path)
+        return path if path =~ /^http/
+
+        path = path.gsub(/^\//, '')
+        "#{base_url}/#{path}"
+      end
+
       private
 
       def http_headers
@@ -53,14 +67,7 @@ module Helium
         method = opts.fetch(:method)
         params = opts.fetch(:params, {})
         body   = opts.fetch(:body, {})
-
-
-        url = if path =~ /^http/
-          path
-        else
-          path = path.gsub(/^\//, '')
-          "#{PROTOCOL}://#{HOST}/v#{API_VERSION}/#{path}"
-        end
+        url    = url_for(path)
 
         Typhoeus::Request.new(url, {
           method:   method,

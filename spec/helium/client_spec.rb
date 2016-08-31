@@ -34,4 +34,17 @@ describe Helium::Client do
 
     end
   end
+
+  context 'when providing a custom api host' do
+    let(:client) { Helium::Client.new(api_key: API_KEY, host: 'new.helium.com') }
+    it 'uses the custom host option for base_url' do
+      expect(client.base_url).to eq("https://new.helium.com/v1")
+    end
+  end
+
+  context 'when not providing a custom api host' do
+    it 'uses the default options for base_url' do
+      expect(client.base_url).to eq("https://api.helium.com/v1")
+    end
+  end
 end
