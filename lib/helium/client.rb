@@ -22,9 +22,10 @@ module Helium
     attr_accessor :api_key
 
     def initialize(opts = {})
-      @api_key  = opts.fetch(:api_key)
-      @api_host = opts.fetch(:host, HOST)
-      @debug    = opts.fetch(:debug, false)
+      @api_key     = opts.fetch(:api_key)
+      @api_host    = opts.fetch(:host, HOST)
+      @verify_peer = opts.fetch(:verify_peer, true)
+      @debug       = opts.fetch(:debug, false)
     end
 
     def inspect

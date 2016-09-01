@@ -1,7 +1,7 @@
 module Helium
   # Abstract base class for Helium Resources returned by the API
   class Resource
-    attr_reader :id, :type
+    attr_reader :id, :type, :params
 
     def initialize(opts = {})
       @client = opts.fetch(:client)
@@ -24,7 +24,7 @@ module Helium
       def all(opts = {})
         client = opts.fetch(:client)
 
-        response = client.get("/#{resource_name}")
+        response = client.get(all_path)
         resources_data = JSON.parse(response.body)["data"]
 
         resources = resources_data.map do |resource_data|
@@ -32,6 +32,10 @@ module Helium
         end
 
         return resources
+      end
+
+      def all_path
+        "/#{resource_name}"
       end
 
       # Finds a single Resource by id

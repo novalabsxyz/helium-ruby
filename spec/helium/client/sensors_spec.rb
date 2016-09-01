@@ -13,7 +13,7 @@ describe Helium::Client, '#sensors' do
 
   it 'returns correctly instantiated sensors' do
     sensor = client.sensors.first
-    expect(sensor.id).to eq("08bab58b-d095-4c7c-912c-1f8024d91d95")
+    expect(sensor.id).to eq("01d53511-228d-4530-8eaf-74d43c17baa8")
   end
 end
 
@@ -79,6 +79,9 @@ describe Helium::Client, '#new_sensor' do
     all_sensors = client.sensors
     new_sensors = all_sensors.select{ |s| s.name == "A Test Sensor" }
     expect(new_sensors.count).to eq(1)
+
+    # clean up
+    new_sensor.destroy
   end
 end
 

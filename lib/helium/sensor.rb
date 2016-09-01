@@ -10,7 +10,20 @@ module Helium
       @ports     = @params.dig('meta', 'ports')
       @last_seen = @params.dig('meta', 'last-seen')
       @firmware  = @params.dig('meta', 'versions', 'sensor')
+    end
 
+    def self.all_path
+      "/sensor?include=label"
+    end
+
+    # NOTE: currently this just returns the ids of labels. Once core returns
+    # all label info via includes=label, we can get rid of the
+    # label_relationships stuff
+    def labels
+      labels_params = Array(@params.dig('relationships', 'label', 'data'))
+      @labels ||= labels_params.map{ |label_params|
+         Label.new(client: @client, params: label_params)
+      }
     end
 
     def timeseries(opts = {})
@@ -44,7 +57,8 @@ module Helium
         mac: mac,
         ports: ports,
         last_seen: last_seen,
-        firmware: firmware
+        firmware: firmware,
+        labels: labels
       })
     end
   end

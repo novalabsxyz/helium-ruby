@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.helium.com/v1/sensor
+    uri: https://api.helium.com/v1/sensor?include=label
     body:
       encoding: UTF-8
       string: "{}"
@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 24 Aug 2016 18:32:25 GMT
+      - Thu, 01 Sep 2016 23:14:33 GMT
       Server:
       - Warp/3.2.7
       Access-Control-Allow-Origin:
@@ -35,7 +35,7 @@ http_interactions:
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
       Airship-Quip:
-      - sharkfed
+      - firm pat on the back
       Content-Type:
       - application/json
     body:
@@ -44,6 +44,6 @@ http_interactions:
         header"}]}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/sensor
-  recorded_at: Wed, 24 Aug 2016 18:32:24 GMT
+      effective_url: https://api.helium.com/v1/sensor?include=label
+  recorded_at: Thu, 01 Sep 2016 23:14:34 GMT
 recorded_with: VCR 3.0.3

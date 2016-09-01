@@ -65,10 +65,11 @@ module Helium
         url    = url_for(path)
 
         Typhoeus::Request.new(url, {
-          method:   method,
-          params:   params,
-          headers:  http_headers,
-          body:     JSON.generate(body)
+          method:         method,
+          params:         params,
+          headers:        http_headers,
+          ssl_verifypeer: @verify_peer,
+          body:           JSON.generate(body)
         })
       end
 
