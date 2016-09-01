@@ -17,7 +17,7 @@ describe Helium::Client do
     use_cassette 'client/debug'
 
     it 'prints all external api calls' do
-      expect(STDOUT).to receive(:puts).with("GET https://api.helium.com/v1/sensor 200 ")
+      expect(STDOUT).to receive(:puts).with("GET https://api.helium.com/v1/sensor?include=label 200 ")
       client.sensors
     end
   end
