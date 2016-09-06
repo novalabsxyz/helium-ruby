@@ -25,7 +25,7 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 19 Aug 2016 23:00:01 GMT
+      - Tue, 06 Sep 2016 19:44:49 GMT
       Server:
       - Warp/3.2.7
       Access-Control-Allow-Origin:
@@ -35,14 +35,14 @@ http_interactions:
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
       Airship-Quip:
-      - javascript doesn't have integers
+      - firm pat on the back
       Content-Type:
       - application/json
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"SF Office"},"relationships":{"metadata":{"data":{"id":"78b6a9f4-9c39-4673-9946-72a16c35a422","type":"metadata"}},"organization":{"data":{"id":"88","type":"organization"}},"sensor":{"data":[]}},"id":"78b6a9f4-9c39-4673-9946-72a16c35a422","meta":{"mac":"6081f9fffe0002a8","created":"2015-08-12T23:10:40.537762Z","versions":{"element":"3050900"},"updated":"2015-08-12T23:10:40.536644Z"},"type":"element"}}'
+      string: '{"data":{"attributes":{"name":"SF Office"},"relationships":{"metadata":{"data":{"id":"78b6a9f4-9c39-4673-9946-72a16c35a422","type":"metadata"}},"organization":{"data":{"id":"dev-accounts@helium.co","type":"organization"}},"sensor":{"data":[]}},"id":"78b6a9f4-9c39-4673-9946-72a16c35a422","meta":{"mac":"6081f9fffe0002a8","created":"2015-08-12T23:10:40.537762Z","last-seen":"2016-07-28T04:50:08.413857Z","updated":"2015-08-12T23:10:40.536644Z"},"type":"element"}}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/element/78b6a9f4-9c39-4673-9946-72a16c35a422
-  recorded_at: Fri, 19 Aug 2016 23:00:02 GMT
+  recorded_at: Tue, 06 Sep 2016 19:44:49 GMT
 recorded_with: VCR 3.0.3

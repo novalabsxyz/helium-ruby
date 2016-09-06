@@ -33,7 +33,23 @@ describe Helium::Client, "#element" do
     expect(element.name).to eq("SF Office")
   end
 
-  it 'has versions' do
-    expect(element.versions).to eq({"element"=>"3050900"})
+  it 'has a mac' do
+    expect(element.mac).to eq("6081f9fffe0002a8")
+  end
+
+  it 'has a type' do
+    expect(element.type).to eq("element")
+  end
+
+  it 'has a created_at timestamp' do
+    expect(element.created_at).to eq(DateTime.parse("2015-08-12T23:10:40.537762Z"))
+  end
+
+  it 'has an updated_at timestamp' do
+    expect(element.updated_at).to eq(DateTime.parse("2015-08-12T23:10:40.536644Z"))
+  end
+
+  it 'has a last_seen timestamp' do
+    expect(element.last_seen).to eq(DateTime.parse("2016-07-28T04:50:08.413857Z"))
   end
 end

@@ -28,9 +28,6 @@ describe Helium::Element do
     expect(element.updated_at).to eq(DateTime.parse("2015-08-12T23:10:40.536644Z"))
   end
 
-  it 'has versions' do
-    expect(element.versions).to eq({"element"=>"3050900"})
-  end
 end
 
 describe Helium::Element, '#update' do
