@@ -1,6 +1,6 @@
 module Helium
   class Sensor < Resource
-    attr_reader :name, :mac, :ports, :last_seen, :firmware
+    attr_reader :name, :mac, :ports, :last_seen
 
     def initialize(opts = {})
       super(opts)
@@ -9,7 +9,6 @@ module Helium
       @mac       = @params.dig('meta', 'mac')
       @ports     = @params.dig('meta', 'ports')
       @last_seen = @params.dig('meta', 'last-seen')
-      @firmware  = @params.dig('meta', 'versions', 'sensor')
     end
 
     def self.all_path
@@ -57,7 +56,6 @@ module Helium
         mac: mac,
         ports: ports,
         last_seen: last_seen,
-        firmware: firmware,
         labels: labels
       })
     end

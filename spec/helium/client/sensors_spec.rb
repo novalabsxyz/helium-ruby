@@ -43,10 +43,6 @@ describe Helium::Client, '#sensor' do
     expect(sensor.mac).to eq("6081f9fffe000478")
   end
 
-  it 'has a firmware version' do
-    expect(sensor.firmware).to eq("4020100")
-  end
-
   it 'has ports' do
     # TODO Port will be an object
     expect(sensor.ports.sort).to eq(["_se","lr","l","p","h","m","_e.info","t","b"].sort)
