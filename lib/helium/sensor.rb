@@ -43,6 +43,23 @@ module Helium
       )
     end
 
+    # Creates a new timeseries data point for this sensor
+    # @option opts [String] :port A port for the data point
+    # @option opts [String] :value A value for the data point
+    # @option opts [DateTime] :timestamp A timestamp for the data point
+    # @return [DataPoint]
+    def create_timeseries(opts = {})
+      port      = opts.fetch(:port)
+      value     = opts.fetch(:value)
+      timestamp = opts.fetch(:timestamp)
+
+      @client.sensor_create_timeseries(self,
+        port:       port,
+        value:      value,
+        timestamp:  timestamp
+      )
+    end
+
     # @return [DateTime, nil] when the resource was last seen
     def last_seen
       return nil if @last_seen.nil?

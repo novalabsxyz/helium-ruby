@@ -24,6 +24,30 @@ module Helium
         paginated_get(path, klass: Helium::DataPoint, params: params)
       end
 
+      # TODO refactor data points/timeseries to be proper resources
+      def sensor_create_timeseries(sensor, opts= {})
+        path = "/sensor/#{sensor.id}/timeseries"
+        resource_name = 'data-point'
+
+        attributes = {
+          port: opts.fetch(:port),
+          value: opts.fetch(:value),
+          timestamp: datetime_to_iso(opts.fetch(:timestamp))
+        }
+
+        body = {
+          data: {
+            attributes: attributes,
+            type: resource_name
+          }
+        }
+
+        response = post(path, body: body)
+        resource_data = JSON.parse(response.body)["data"]
+
+        return DataPoint.new(client: self, params: resource_data)
+      end
+
       def create_sensor(attributes)
         Sensor.create(attributes, client: self)
       end

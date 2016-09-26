@@ -103,3 +103,35 @@ describe 'Sensor#timeseries' do
     end
   end
 end
+
+describe 'sensor#create_timeseries' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:sensor) { client.create_sensor(name: "A Test Sensor") }
+  let(:a_time) { DateTime.parse('2016-09-01') }
+
+  use_cassette 'sensor/create_timeseries'
+
+  after { sensor.destroy }
+
+  it 'creates a new data point' do
+    data_point = sensor.create_timeseries(
+      port: "power level",
+      value: "over 9000",
+      timestamp: a_time
+    )
+
+    expect(data_point).to be_a(Helium::DataPoint)
+    expect(data_point.port).to eq("power level")
+    expect(data_point.value).to eq("over 9000")
+    expect(data_point.timestamp).to eq(a_time)
+
+    # grab it out of timeseries just to be sure
+    data_point = sensor.timeseries.first
+
+    expect(data_point).to be_a(Helium::DataPoint)
+    expect(data_point.port).to eq("power level")
+    expect(data_point.value).to eq("over 9000")
+    expect(data_point.timestamp).to eq(a_time)
+  end
+
+end
