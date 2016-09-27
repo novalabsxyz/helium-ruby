@@ -15,7 +15,7 @@ A Ruby gem for building applications with the Helium API. [Helium](https://www.h
 
 * **Helium Docs** Complete documenation for all parts of Helium can be found at [docs.helium.com](https://docs/helium.com).
 
-* **chat.helium.com** - If you have questions or ideas about how to use this code - or any part of Helium - head over the [chat.helium.com](https://chat.helium.com). We're standing by to help.
+* **chat.helium.com** - If you have questions or ideas about how to use this code - or any part of Helium - head over the [chat.helium.com](http://chat.helium.com). We're standing by to help.
 
 
 ## Installation
