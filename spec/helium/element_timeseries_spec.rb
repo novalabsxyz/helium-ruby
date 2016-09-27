@@ -42,7 +42,7 @@ describe 'Element#timeseries' do
   end
 end
 
-describe 'Element#create_timeseries' do
+describe 'Timeseries#create' do
   let(:client)  { Helium::Client.new(api_key: API_KEY) }
   let(:element) { client.element("78b6a9f4-9c39-4673-9946-72a16c35a422") }
   let(:a_time)  { DateTime.parse('2016-09-01') }
@@ -50,7 +50,7 @@ describe 'Element#create_timeseries' do
   use_cassette 'element/create_timeseries'
 
   it 'creates a data point' do
-    data_point = element.create_timeseries(
+    data_point = element.timeseries.create(
       port: "power level",
       value: "over 9000",
       timestamp: a_time

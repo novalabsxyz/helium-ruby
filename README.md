@@ -190,7 +190,7 @@ A full list of aggregation types and sizes can be found here: https://docs.heliu
 Data points can be written to a sensor's timeseries data.
 
 ```ruby
-sensor.create_timeseries(port: "power level", value: "over 9000", timestamp: DateTime.now)
+sensor.timeseries.create(port: "power level", value: "over 9000", timestamp: DateTime.now)
 # => #<Helium::DataPoint:0x007f88634b9e50 @params={"attributes"=>{"value"=>"over 9000", "timestamp"=>"2016-09-26T23:19:01Z", "port"=>"power level"}, "relationships"=>{"sensor"=>{"data"=>{"id"=>"071488bb-3050-4849-8984-ca9e683cfc91", "type"=>"sensor"}}}, "id"=>"fd557521-8f59-457f-a75e-d0ce2c58dc1a", "meta"=>{"created"=>"2016-09-26T23:19:06.695036Z"}, "type"=>"data-point"}, @id="fd557521-8f59-457f-a75e-d0ce2c58dc1a", @type="data-point", @created_at="2016-09-26T23:19:06.695036Z", @updated_at=nil, @timestamp="2016-09-26T23:19:01Z", @value="over 9000", @port="power level">
 ```
 
@@ -220,7 +220,7 @@ element.update(name: "A New Name")
 Data points can be written to an element's timeseries data.
 
 ```ruby
-element.create_timeseries(port: "power level", value: "over 9000", timestamp: DateTime.now)
+element.timeseries.create(port: "power level", value: "over 9000", timestamp: DateTime.now)
 # => #<Helium::DataPoint:0x007f88634b9e50 @params={"attributes"=>{"value"=>"over 9000", "timestamp"=>"2016-09-26T23:19:01Z", "port"=>"power level"}, "relationships"=>{"sensor"=>{"data"=>{"id"=>"071488bb-3050-4849-8984-ca9e683cfc91", "type"=>"sensor"}}}, "id"=>"fd557521-8f59-457f-a75e-d0ce2c58dc1a", "meta"=>{"created"=>"2016-09-26T23:19:06.695036Z"}, "type"=>"data-point"}, @id="fd557521-8f59-457f-a75e-d0ce2c58dc1a", @type="data-point", @created_at="2016-09-26T23:19:06.695036Z", @updated_at=nil, @timestamp="2016-09-26T23:19:01Z", @value="over 9000", @port="power level">
 ```
 
