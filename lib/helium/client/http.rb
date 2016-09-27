@@ -13,9 +13,10 @@ module Helium
 
       def paginated_get(path, opts = {})
         klass  = opts.fetch(:klass)
+        cursor_klass  = opts.fetch(:cursor_klass, Helium::Cursor)
         params = opts.fetch(:params, {})
 
-        Cursor.new(client: self, path: path, klass: klass, params: params)
+        cursor_klass.new(client: self, path: path, klass: klass, params: params)
       end
 
       def post(path, opts = {})

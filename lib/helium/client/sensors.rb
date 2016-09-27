@@ -21,7 +21,11 @@ module Helium
           "agg[size]"     => opts.fetch(:aggsize)
         }.delete_if { |_key, value| value.to_s.empty? }
 
-        paginated_get(path, klass: Helium::DataPoint, params: params)
+        paginated_get(path,
+          klass:        Helium::DataPoint,
+          cursor_klass: Helium::Timeseries,
+          params:       params
+        )
       end
 
       def create_sensor(attributes)
