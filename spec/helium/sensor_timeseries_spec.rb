@@ -104,7 +104,7 @@ describe 'Sensor#timeseries' do
   end
 end
 
-describe 'sensor#create_timeseries' do
+describe 'Sensor#create_timeseries' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:sensor) { client.create_sensor(name: "A Test Sensor") }
   let(:a_time) { DateTime.parse('2016-09-01') }

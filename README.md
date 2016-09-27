@@ -185,7 +185,7 @@ data_points.first.avg
 
 A full list of aggregation types and sizes can be found here: https://docs.helium.com/docs/timeseries#aggregations.
 
-#### Creating timeseries data
+#### Creating Timeseries data
 
 Data points can be written to a sensor's timeseries data.
 
@@ -213,6 +213,15 @@ client.element("1b686e82-bd4a-4aac-9d7b-9bdbe1e9a7de")
 ```ruby
 element.update(name: "A New Name")
 # => #<Helium::Element:0x007faf732c2548 @id="1b686e82-bd4a-4aac-9d7b-9bdbe1e9a7de", @name="A New Name", @mac="6081f9fffe00033f", @created_at="2015-08-12T23:19:34.175932Z", @updated_at="2015-08-12T23:19:34.174828Z", @versions=nil>
+```
+
+#### Creating Timeseries data
+
+Data points can be written to an element's timeseries data.
+
+```ruby
+element.create_timeseries(port: "power level", value: "over 9000", timestamp: DateTime.now)
+# => #<Helium::DataPoint:0x007f88634b9e50 @params={"attributes"=>{"value"=>"over 9000", "timestamp"=>"2016-09-26T23:19:01Z", "port"=>"power level"}, "relationships"=>{"sensor"=>{"data"=>{"id"=>"071488bb-3050-4849-8984-ca9e683cfc91", "type"=>"sensor"}}}, "id"=>"fd557521-8f59-457f-a75e-d0ce2c58dc1a", "meta"=>{"created"=>"2016-09-26T23:19:06.695036Z"}, "type"=>"data-point"}, @id="fd557521-8f59-457f-a75e-d0ce2c58dc1a", @type="data-point", @created_at="2016-09-26T23:19:06.695036Z", @updated_at=nil, @timestamp="2016-09-26T23:19:01Z", @value="over 9000", @port="power level">
 ```
 
 ### Labels

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Element#timeseries' do
   let(:client)      { Helium::Client.new(api_key: API_KEY) }
-  let(:element)      { client.element("78b6a9f4-9c39-4673-9946-72a16c35a422") }
+  let(:element)     { client.element("78b6a9f4-9c39-4673-9946-72a16c35a422") }
   let(:data_points) { element.timeseries }
   let(:data_point)  { data_points.first }
 
@@ -39,5 +39,34 @@ describe 'Element#timeseries' do
     it 'returns DataPoints before the end time' do
       expect(timestamps).to all(be_before end_time)
     end
+  end
+end
+
+describe 'Element#create_timeseries' do
+  let(:client)  { Helium::Client.new(api_key: API_KEY) }
+  let(:element) { client.element("78b6a9f4-9c39-4673-9946-72a16c35a422") }
+  let(:a_time)  { DateTime.parse('2016-09-01') }
+
+  use_cassette 'element/create_timeseries'
+
+  it 'creates a data point' do
+    data_point = element.create_timeseries(
+      port: "power level",
+      value: "over 9000",
+      timestamp: a_time
+    )
+
+    expect(data_point).to be_a(Helium::DataPoint)
+    expect(data_point.port).to eq("power level")
+    expect(data_point.value).to eq("over 9000")
+    expect(data_point.timestamp).to eq(a_time)
+
+    # grab it out of timeseries just to be sure
+    data_point = element.timeseries.first
+
+    expect(data_point).to be_a(Helium::DataPoint)
+    expect(data_point.port).to eq("power level")
+    expect(data_point.value).to eq("over 9000")
+    expect(data_point.timestamp).to eq(a_time)
   end
 end

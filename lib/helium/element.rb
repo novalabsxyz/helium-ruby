@@ -46,5 +46,22 @@ module Helium
         aggsize:    aggsize
       )
     end
+
+    # Creates a new timeseries data point for this element
+    # @option opts [String] :port A port for the data point
+    # @option opts [String] :value A value for the data point
+    # @option opts [DateTime] :timestamp A timestamp for the data point
+    # @return [DataPoint]
+    def create_timeseries(opts = {})
+      port      = opts.fetch(:port)
+      value     = opts.fetch(:value)
+      timestamp = opts.fetch(:timestamp)
+
+      @client.element_create_timeseries(self,
+        port:       port,
+        value:      value,
+        timestamp:  timestamp
+      )
+    end
   end
 end
