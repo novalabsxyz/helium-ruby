@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2
+    uri: https://api.helium.com/v1/element/2c59f726-5316-49a7-857a-33ae63b126a4
     body:
       encoding: UTF-8
       string: "{}"
@@ -22,32 +22,34 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Wed, 24 Aug 2016 21:40:12 GMT
-      Server:
-      - Warp/3.2.7
-      Access-Control-Allow-Origin:
-      - "*"
       Access-Control-Allow-Headers:
       - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - evacuation not done in time
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
-      Airship-Quip:
-      - 'WARNING: ulimit -n is 1024'
       Content-Type:
       - application/json
+      Date:
+      - Wed, 12 Oct 2016 21:52:26 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '569'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"SF Office"},"relationships":{"metadata":{"data":{"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","type":"metadata"}},"organization":{"data":{"id":"134","type":"organization"}},"sensor":{"data":[{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"}]}},"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","meta":{"mac":"6081f9fffe0001f1","created":"2015-08-12T22:38:53.724511Z","versions":{"element":"3050900"},"updated":"2015-12-09T19:35:11.675927Z"},"type":"element"}}'
+      string: '{"data":{"attributes":{"name":"Element 2"},"relationships":{"metadata":{"data":{"id":"2c59f726-5316-49a7-857a-33ae63b126a4","type":"metadata"}},"sensor":{"data":[{"id":"47da7cef-f0c5-43fb-85e0-b4b23d3ddb05","type":"sensor"},{"id":"1daa7686-0c97-401a-8186-eb3344f0bf63","type":"sensor"},{"id":"ec247d87-4e17-418b-8236-cd7b138cde75","type":"sensor"}]}},"id":"2c59f726-5316-49a7-857a-33ae63b126a4","meta":{"mac":"6081f9fffe0002c9","created":"2016-06-29T22:55:40.512098Z","last-seen":"2016-10-11T10:28:56.686616Z","updated":"2016-06-29T22:55:40.512098Z"},"type":"element"}}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2
-  recorded_at: Wed, 24 Aug 2016 21:40:12 GMT
+      effective_url: https://api.helium.com/v1/element/2c59f726-5316-49a7-857a-33ae63b126a4
+  recorded_at: Wed, 12 Oct 2016 21:52:26 GMT
 - request:
     method: get
-    uri: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2?include=sensor
+    uri: https://api.helium.com/v1/element/2c59f726-5316-49a7-857a-33ae63b126a4/sensor
     body:
       encoding: UTF-8
       string: "{}"
@@ -67,30 +69,31 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Wed, 24 Aug 2016 21:40:12 GMT
-      Server:
-      - Warp/3.2.7
-      Access-Control-Allow-Origin:
-      - "*"
       Access-Control-Allow-Headers:
       - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - sharkfed
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
-      Airship-Quip:
-      - RB_GC_GUARD
       Content-Type:
       - application/json
+      Date:
+      - Wed, 12 Oct 2016 21:52:26 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '946'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"SF Office"},"relationships":{"metadata":{"data":{"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","type":"metadata"}},"organization":{"data":{"id":"134","type":"organization"}},"sensor":{"data":[{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"}]}},"id":"3482ce9f-599c-4982-bcb9-e94df65b1cb2","meta":{"mac":"6081f9fffe0001f1","created":"2015-08-12T22:38:53.724511Z","versions":{"element":"3050900"},"updated":"2015-12-09T19:35:11.675927Z"},"type":"element"},"included":[{"attributes":{"name":"Mobile
-        Demo Green 3"},"id":"94683401-4959-42c7-a38a-92c39a25f34c","meta":{"card":{"id":5},"mac":"6081f9fffe000665","created":"2016-05-25T00:03:38.059788Z","versions":{"sensor-script":[{"version":"32245382e6cfd8f2"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"4b90039b34373ad2","sensor-library":"c8a1ae32682196c4","sensor":"4020300"},"last-seen":"2016-06-24T00:07:02.391306Z","ports":["_b","_se","b","h","l","m","p","t"],"updated":"2016-05-25T00:03:38.059975Z"},"type":"sensor"},{"attributes":{"name":"Mini
-        Fridge 1.1"},"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","meta":{"card":{"id":2},"mac":"6081f9fffe0006aa","created":"2016-06-14T00:07:58.761507Z","versions":{"sensor-script":[{"version":"aa1066c4526acd91"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"c0e0315e1e7e205b","sensor-library":"d63a73ed260381af","sensor":"4020300"},"last-seen":"2016-06-29T18:21:04.302722Z","ports":["_b","_se","b","d","Glowfish
-        Alert Level","t"],"updated":"2016-08-03T11:10:33.436857Z"},"type":"sensor"}]}'
+      string: '{"data":[{"attributes":{"name":"TC Suite"},"id":"47da7cef-f0c5-43fb-85e0-b4b23d3ddb05","meta":{"card":{"id":5},"mac":"6081f9fffe00068d","created":"2016-07-12T21:10:37.879131Z","last-seen":"2016-10-12T21:51:02.33652Z","ports":["_se","_b","b","m","l","p","h","t"],"updated":"2016-07-18T18:16:36.803118Z"},"type":"sensor"},{"attributes":{"name":"Main
+        Lab"},"id":"1daa7686-0c97-401a-8186-eb3344f0bf63","meta":{"card":{"id":5},"mac":"6081f9fffe00063b","created":"2016-07-12T21:09:56.894341Z","last-seen":"2016-10-12T21:48:45.221913Z","ports":["_se","m","_b","b","p","h","t","l"],"updated":"2016-07-18T17:39:27.750782Z"},"type":"sensor"},{"attributes":{"name":"4
+        Degree - Right Side"},"id":"ec247d87-4e17-418b-8236-cd7b138cde75","meta":{"card":{"id":2},"mac":"6081f9fffe00042a","created":"2016-07-12T21:08:42.548113Z","last-seen":"2016-10-12T21:51:02.355265Z","ports":["_se","_b","b","d","t"],"updated":"2016-07-18T18:37:42.617094Z"},"type":"sensor"}]}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/element/3482ce9f-599c-4982-bcb9-e94df65b1cb2?include=sensor
-  recorded_at: Wed, 24 Aug 2016 21:40:12 GMT
+      effective_url: https://api.helium.com/v1/element/2c59f726-5316-49a7-857a-33ae63b126a4/sensor
+  recorded_at: Wed, 12 Oct 2016 21:52:26 GMT
 recorded_with: VCR 3.0.3
