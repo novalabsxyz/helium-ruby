@@ -4,8 +4,8 @@ http_interactions:
     method: get
     uri: https://api.helium.com/v1/organization
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: "{}"
     headers:
       User-Agent:
       - helium-ruby
@@ -22,35 +22,37 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Sat, 06 Aug 2016 16:37:59 GMT
-      Server:
-      - Warp/3.2.7
-      Access-Control-Allow-Origin:
-      - "*"
       Access-Control-Allow-Headers:
       - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - evacuation not done in time
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
-      Airship-Quip:
-      - "$300,000 worth of cows"
       Content-Type:
       - application/json
+      Date:
+      - Wed, 12 Oct 2016 17:30:32 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '3547'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"dev-accounts@helium.co","timezone":"UTC"},"relationships":{"user":{"data":[{"id":"tom@helium.com","type":"user"},{"id":"dev-accounts@helium.co","type":"user"}]},"metadata":{"data":{"id":"dev-accounts@helium.co","type":"metadata"}}},"id":"dev-accounts@helium.co","meta":{"created":"2015-09-10T20:50:18.183896Z","updated":"2015-09-10T20:50:18.183896Z"},"type":"organization"}}'
+      string: '{"data":{"attributes":{"name":"dev-accounts","timezone":"UTC"},"relationships":{"user":{"data":[{"id":"tom@helium.com","type":"user"},{"id":"dev-accounts@helium.co","type":"user"}]},"metadata":{"data":{"id":"dev-accounts","type":"metadata"}},"sensor":{"data":[{"id":"f928df8f-9cda-4313-9cf7-cffee5d57050","type":"sensor"},{"id":"01d53511-228d-4530-8eaf-74d43c17baa8","type":"sensor"},{"id":"c7b11d08-8534-46e4-a14d-0a9306c899b7","type":"sensor"},{"id":"c292f553-a72b-4582-951a-b900510f02d9","type":"sensor"},{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"sensor"},{"id":"66ae4160-64a2-41d9-bbe0-891b70e71b1e","type":"sensor"},{"id":"b427abef-ef0e-4429-9128-b919faea0bd4","type":"sensor"},{"id":"492759da-afb0-4d66-a83c-bb001d20c280","type":"sensor"},{"id":"08bab58b-d095-4c7c-912c-1f8024d91d95","type":"sensor"},{"id":"0d0a87ff-84c3-473c-b349-4af6122c1644","type":"sensor"},{"id":"51f3564d-bfb9-4b77-b868-fa83f1de2f39","type":"sensor"},{"id":"1e8bac50-4b6f-41cf-ac4c-619b73bf3593","type":"sensor"},{"id":"cbd3f1f5-5c9a-4b45-9f17-7f0b8d19b801","type":"sensor"},{"id":"b13e543c-05a4-49c9-9e35-c091fe34283f","type":"sensor"},{"id":"b3bb7dcb-8829-4146-920a-7ae0994a1f03","type":"sensor"},{"id":"1f80532a-2c17-48d5-a4ee-f8e27394a3c8","type":"sensor"},{"id":"7510e3af-cec8-40e1-b3f3-3d883f10c267","type":"sensor"},{"id":"51667c26-2414-4106-b21d-08a5bce736dc","type":"sensor"}]},"element":{"data":[{"id":"e3b161ee-597c-4577-bac7-ec8ab8dc2ddb","type":"element"},{"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","type":"element"},{"id":"910c41d2-ec5e-4399-8748-7ab4e1bf6353","type":"element"},{"id":"d9c3494b-31d3-4cf6-aba7-6fa608a1d7e8","type":"element"},{"id":"6111a24d-73e5-4e94-9e43-468cc4cc2b5a","type":"element"},{"id":"4cf1f111-6bba-4bdf-af9d-3a1dffe8f644","type":"element"},{"id":"de693f7e-c398-4fee-9eda-08bd2c5911f4","type":"element"},{"id":"ca580bcc-5232-4dd4-bf48-fcb0a2009d51","type":"element"},{"id":"f628ea12-ae13-4857-9aaf-103fadb7b431","type":"element"},{"id":"8a7a92ea-f7c7-4d7f-ac7f-86803d3279f2","type":"element"},{"id":"a4834cdc-36f5-48aa-a781-ee866bca023c","type":"element"},{"id":"5132bc26-1686-414e-856e-ca4df1025349","type":"element"},{"id":"0bdde274-0f81-4a3b-8aea-78e4e60a7ec6","type":"element"},{"id":"c2ea34ec-3853-42ee-a504-ec0e98ba9370","type":"element"},{"id":"e1ce9f92-4ff2-4c9d-9836-b558b2ac6906","type":"element"},{"id":"81eebe36-d50c-471d-a53f-54d1c1260172","type":"element"},{"id":"ef701434-cd0a-400c-b0fd-64bf8209ad28","type":"element"},{"id":"c4e66787-5485-435d-a7e2-762539d63856","type":"element"},{"id":"aca58d2b-b0fa-41de-b269-f3176a3622cb","type":"element"},{"id":"56618098-5145-445c-a6db-805eaf37ff51","type":"element"},{"id":"acc6ea94-2f21-425a-a966-9aeba2f2bcf6","type":"element"},{"id":"66f09e7d-d994-401a-a882-a2728a4f7758","type":"element"}]},"label":{"data":[{"id":"d85ae875-1d02-4ed1-84f3-c5949bcda1d9","type":"label"},{"id":"d81df823-a7a9-4476-b624-888f9fc56390","type":"label"},{"id":"d1e5ee93-14fd-44de-8a0e-77e49f451c5a","type":"label"},{"id":"bfd8e8ff-e4b7-4561-ac7e-81178b9868d5","type":"label"},{"id":"22c53f67-2c60-41ba-b5b6-ec36362ed1a6","type":"label"},{"id":"968cc881-737e-4bff-bdd6-2af45992fe86","type":"label"},{"id":"415e6377-2bc1-46c6-a76c-782e5e7c652d","type":"label"},{"id":"b5315d04-7bae-4184-8a7a-4f324dd11c8f","type":"label"},{"id":"da7412f3-1493-4d35-9534-b49e48eb0fe7","type":"label"},{"id":"f048d5a2-418f-403f-9e5a-ae6a78c93d56","type":"label"}]}},"id":"dev-accounts","meta":{"created":"2015-09-10T20:50:18.183896Z","updated":"2016-09-20T23:12:01.551607Z"},"type":"organization"}}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/organization
-  recorded_at: Sat, 06 Aug 2016 16:38:02 GMT
+  recorded_at: Wed, 12 Oct 2016 17:30:32 GMT
 - request:
     method: get
     uri: https://api.helium.com/v1/organization/user
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: "{}"
     headers:
       User-Agent:
       - helium-ruby
@@ -67,28 +69,30 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Sat, 06 Aug 2016 16:37:59 GMT
-      Server:
-      - Warp/3.2.7
-      Access-Control-Allow-Origin:
-      - "*"
       Access-Control-Allow-Headers:
       - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - sharkfed
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
-      Airship-Quip:
-      - 'WARNING: ulimit -n is 1024'
       Content-Type:
       - application/json
+      Date:
+      - Wed, 12 Oct 2016 17:30:32 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '451'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":[{"attributes":{"name":"Tom Santero"},"id":"tom@helium.com","meta":{"email":"tom@helium.com","created":"2015-01-21T16:39:31.397048Z","updated":"2015-02-12T20:42:22.674452Z"},"type":"user"},{"attributes":{"name":"HeliumDevAccount
-        Demo"},"id":"dev-accounts@helium.co","meta":{"email":"dev-accounts@helium.co","created":"2014-10-29T21:38:52Z","updated":"2015-08-06T18:21:32.186374Z"},"type":"user"}]}'
+      string: '{"data":[{"attributes":{"name":"Tom Santero"},"id":"tom@helium.com","meta":{"email":"tom@helium.com","created":"2015-01-21T16:39:31.397048Z","pending_invite":false,"updated":"2015-02-12T20:42:22.674452Z"},"type":"user"},{"attributes":{"name":"HeliumDevAccount
+        Demo"},"id":"dev-accounts@helium.co","meta":{"email":"dev-accounts@helium.co","created":"2014-10-29T21:38:52Z","pending_invite":false,"updated":"2016-08-19T18:05:20.341439Z"},"type":"user"}]}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/organization/user
-  recorded_at: Sat, 06 Aug 2016 16:38:02 GMT
+  recorded_at: Wed, 12 Oct 2016 17:30:32 GMT
 recorded_with: VCR 3.0.3
