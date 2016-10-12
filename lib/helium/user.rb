@@ -15,7 +15,8 @@ module Helium
     def as_json
       super.merge({
         name: name,
-        email: email
+        email: email,
+        pending_invite: pending_invite
       })
     end
   end
