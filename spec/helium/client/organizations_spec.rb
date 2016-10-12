@@ -48,4 +48,9 @@ describe Helium::Organization, '#users' do
     expect(user.name).to eq("HeliumDevAccount Demo")
     expect(user.id).to eq('dev-accounts@helium.co')
   end
+
+  it 'returns pending_invite status' do
+    user = organization.users.last
+    expect(user.pending_invite).to eq(false)
+  end
 end
