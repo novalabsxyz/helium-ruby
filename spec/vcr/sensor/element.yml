@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor/5af6c914-4232-4fda-9e38-1e76597e539b
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - sharkfed
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 12 Oct 2016 23:11:57 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '582'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"DC Comm Production"},"relationships":{"metadata":{"data":{"id":"5af6c914-4232-4fda-9e38-1e76597e539b","type":"metadata"}},"element":{"data":{"id":"cb9f0005-5c63-4571-bc46-209f65de9a1c","type":"element"}},"label":{"data":[{"id":"fc92ced7-527b-4c4d-906f-7e421a71c015","type":"label"}]}},"id":"5af6c914-4232-4fda-9e38-1e76597e539b","meta":{"card":{"id":2},"mac":"6081f9fffe000758","created":"2016-05-02T20:40:29.273516Z","last-seen":"2016-10-12T23:08:53.309896Z","ports":["b","d","_se","_b","t"],"updated":"2016-05-04T18:13:19.648998Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/5af6c914-4232-4fda-9e38-1e76597e539b
+  recorded_at: Wed, 12 Oct 2016 23:11:57 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor/5af6c914-4232-4fda-9e38-1e76597e539b/element
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - blame me if inappropriate
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 12 Oct 2016 23:11:57 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '693'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Element 2"},"relationships":{"metadata":{"data":{"id":"cb9f0005-5c63-4571-bc46-209f65de9a1c","type":"metadata"}},"sensor":{"data":[{"id":"5af6c914-4232-4fda-9e38-1e76597e539b","type":"sensor"},{"id":"86c870a7-1a98-4674-82db-4c0c7f0754d9","type":"sensor"},{"id":"b6352700-d41a-4735-b644-a272c511baeb","type":"sensor"},{"id":"20c926f7-a0ad-4551-9a06-de7bc14eea4f","type":"sensor"},{"id":"d6116c24-d523-47e2-b752-38fd78ff5964","type":"sensor"}]}},"id":"cb9f0005-5c63-4571-bc46-209f65de9a1c","meta":{"mac":"6081f9fffe0002f5","created":"2016-05-02T20:33:43.705056Z","last-seen":"2016-10-12T01:14:43.302797Z","updated":"2016-05-02T20:33:43.705056Z"},"type":"element"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/5af6c914-4232-4fda-9e38-1e76597e539b/element
+  recorded_at: Wed, 12 Oct 2016 23:11:57 GMT
+recorded_with: VCR 3.0.3
