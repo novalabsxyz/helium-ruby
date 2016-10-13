@@ -14,6 +14,18 @@ module Helium
       @client.organization_users
     end
 
+    def labels
+      @client.organization_labels
+    end
+
+    def elements
+      @client.organization_elements
+    end
+
+    def sensors
+      @client.organization_sensors
+    end
+
     def as_json
       super.merge({
         name: name,

@@ -45,21 +45,21 @@ end
 
 describe Helium::Element, '#sensors' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
-  let(:element) { client.element("3482ce9f-599c-4982-bcb9-e94df65b1cb2") }
+  let(:element) { client.element("2c59f726-5316-49a7-857a-33ae63b126a4") }
   let(:sensors) { element.sensors }
 
   use_cassette 'elements/sensors'
 
   it 'returns all sensors attached to a element' do
-    expect(sensors.length).to eq(2)
+    expect(sensors.length).to eq(3)
   end
 
   it 'returns fully formed sensors' do
     sensor = sensors.first
-    expect(sensor.id).to eq("94683401-4959-42c7-a38a-92c39a25f34c")
-    expect(sensor.mac).to eq("6081f9fffe000665")
-    expect(sensor.name).to eq("Mobile Demo Green 3")
-    expect(sensor.ports).to eq(["_b", "_se", "b", "h", "l", "m", "p", "t"])
+    expect(sensor.id).to eq("47da7cef-f0c5-43fb-85e0-b4b23d3ddb05")
+    expect(sensor.mac).to eq("6081f9fffe00068d")
+    expect(sensor.name).to eq("TC Suite")
+    expect(sensor.ports).to eq(["_se","_b","b","m","l","p","h","t"])
   end
 end
 

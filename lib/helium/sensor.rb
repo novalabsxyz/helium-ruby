@@ -11,6 +11,10 @@ module Helium
       @last_seen = @params.dig('meta', 'last-seen')
     end
 
+    def element
+      @client.sensor_element(self)
+    end
+
     def self.all_path
       "/sensor?include=label"
     end

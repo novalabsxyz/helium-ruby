@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/organization
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - "$300,000 worth of cows"
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 13 Oct 2016 14:11:59 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '2254'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"demos@helium.com","timezone":"US/Pacific"},"relationships":{"user":{"data":[{"id":"restricted@helium.com","type":"user"},{"id":"demos@helium.com","type":"user"}]},"metadata":{"data":{"id":"demos@helium.com","type":"metadata"}},"sensor":{"data":[{"id":"6d3df343-6620-4e96-b1fc-5fd4141b0a8d","type":"sensor"},{"id":"9e88aab7-09c1-4a18-a9c1-6e91780d759e","type":"sensor"},{"id":"5be9b35b-6f94-4d9c-8d7a-cafa9b8b6dee","type":"sensor"},{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"3df4e2e0-0549-4a84-8fb6-442233ce8356","type":"sensor"},{"id":"32eedf4b-4c64-4708-a670-91af6080ede8","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"},{"id":"445d5235-646d-4dc9-9bb8-58e21d9ccc44","type":"sensor"},{"id":"33041ecd-5c5e-45aa-80c1-5fa3333ab21f","type":"sensor"},{"id":"cb396f82-50f8-4758-9c1f-6c441e3277df","type":"sensor"},{"id":"e64ac3b3-518d-4528-90ff-1a1a7ef7c41f","type":"sensor"},{"id":"9b8b3247-1d2e-41a6-9052-1feff28713d3","type":"sensor"}]},"element":{"data":[{"id":"483e3c7d-8f42-45bc-a21d-c45e02edc80d","type":"element"},{"id":"81c0b9b2-da81-4231-94e0-850948818efe","type":"element"},{"id":"1060cd07-fc94-4adb-a8e6-694032608139","type":"element"},{"id":"8e8c6060-266c-41b6-8c00-14f8d2d7520b","type":"element"},{"id":"74e42387-0941-4700-b961-d4a02225f55f","type":"element"},{"id":"e86a08a2-9c0c-432a-ba1f-7bc4aebf9d55","type":"element"},{"id":"43ad565d-6475-44a0-8752-c45c6de43e0f","type":"element"},{"id":"c0229362-846c-4e8d-8d0f-9575f09fbb58","type":"element"},{"id":"b9660760-03c2-451c-84f2-2a77f4f15d2e","type":"element"}]},"label":{"data":[{"id":"ce9aad92-70d0-44a3-9ba4-8bc834d71256","type":"label"},{"id":"4461ceeb-aec7-4ca3-968e-e4b07ae6a597","type":"label"},{"id":"65dc35c7-5c95-4e2d-a2e4-c72051ee1919","type":"label"},{"id":"d50305f2-f8e2-4552-8d2d-6318fbfc8f2c","type":"label"},{"id":"8c058249-ce71-47c5-aa97-282ee37d887e","type":"label"},{"id":"364779ed-a949-4456-ba2c-e7307427f147","type":"label"},{"id":"c76d961c-7dbf-46fb-afb9-4a83cf7dbc05","type":"label"},{"id":"91a080a5-d739-4460-a00a-79cd4ecde5a0","type":"label"}]}},"id":"demos@helium.com","meta":{"created":"2015-09-10T20:50:18.183896Z","updated":"2016-03-01T16:58:38.832646Z"},"type":"organization"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/organization
+  recorded_at: Thu, 13 Oct 2016 14:11:59 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/organization/label
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - javascript doesn't have integers
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 13 Oct 2016 14:11:59 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '1504'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"SF Office"},"id":"ce9aad92-70d0-44a3-9ba4-8bc834d71256","meta":{"created":"2015-07-21T19:48:25.335729Z","updated":"2015-07-21T19:48:25.335729Z"},"type":"label"},{"attributes":{"name":"Pediatric
+        Fridges"},"id":"4461ceeb-aec7-4ca3-968e-e4b07ae6a597","meta":{"created":"2015-11-13T15:49:05.946824Z","updated":"2016-04-13T21:10:32.089096Z"},"type":"label"},{"attributes":{"name":"Roamers"},"id":"65dc35c7-5c95-4e2d-a2e4-c72051ee1919","meta":{"created":"2016-03-14T23:49:28.171765Z","updated":"2016-04-13T21:10:21.311346Z"},"type":"label"},{"attributes":{"name":"Mini
+        Fridges"},"id":"d50305f2-f8e2-4552-8d2d-6318fbfc8f2c","meta":{"created":"2016-04-13T21:07:10.517247Z","updated":"2016-04-13T21:07:15.619866Z"},"type":"label"},{"attributes":{"name":"SF
+        Office Teal Room"},"id":"8c058249-ce71-47c5-aa97-282ee37d887e","meta":{"created":"2016-05-16T23:03:56.873626Z","updated":"2016-05-16T23:04:12.452239Z"},"type":"label"},{"attributes":{"name":"test
+        label 2"},"id":"364779ed-a949-4456-ba2c-e7307427f147","meta":{"created":"2016-06-29T17:36:33.59802Z","updated":"2016-06-29T17:36:39.643884Z"},"type":"label"},{"attributes":{"name":"5
+        Washington"},"id":"c76d961c-7dbf-46fb-afb9-4a83cf7dbc05","meta":{"created":"2016-06-29T19:30:03.498907Z","updated":"2016-06-29T19:30:13.010948Z"},"type":"label"},{"attributes":{"name":"New
+        Label"},"id":"91a080a5-d739-4460-a00a-79cd4ecde5a0","meta":{"created":"2016-07-27T18:45:54.20208Z","updated":"2016-07-27T18:45:54.20208Z"},"type":"label"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/organization/label
+  recorded_at: Thu, 13 Oct 2016 14:11:59 GMT
+recorded_with: VCR 3.0.3

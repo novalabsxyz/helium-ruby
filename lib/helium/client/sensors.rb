@@ -9,6 +9,15 @@ module Helium
         Sensor.find(id, client: self)
       end
 
+      def sensor_element(sensor)
+        path = "/sensor/#{sensor.id}/element"
+        response = get(path)
+        elementj = JSON.parse(response.body)["data"]
+        element = Element.new(client: self, params: elementj)
+
+        return element
+      end
+
       def sensor_timeseries(sensor, opts = {})
         path = "/sensor/#{sensor.id}/timeseries"
 
