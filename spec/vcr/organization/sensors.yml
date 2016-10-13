@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/organization
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - shut it down
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 13 Oct 2016 14:11:59 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '2254'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"demos@helium.com","timezone":"US/Pacific"},"relationships":{"user":{"data":[{"id":"restricted@helium.com","type":"user"},{"id":"demos@helium.com","type":"user"}]},"metadata":{"data":{"id":"demos@helium.com","type":"metadata"}},"sensor":{"data":[{"id":"6d3df343-6620-4e96-b1fc-5fd4141b0a8d","type":"sensor"},{"id":"9e88aab7-09c1-4a18-a9c1-6e91780d759e","type":"sensor"},{"id":"5be9b35b-6f94-4d9c-8d7a-cafa9b8b6dee","type":"sensor"},{"id":"94683401-4959-42c7-a38a-92c39a25f34c","type":"sensor"},{"id":"3df4e2e0-0549-4a84-8fb6-442233ce8356","type":"sensor"},{"id":"32eedf4b-4c64-4708-a670-91af6080ede8","type":"sensor"},{"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","type":"sensor"},{"id":"445d5235-646d-4dc9-9bb8-58e21d9ccc44","type":"sensor"},{"id":"33041ecd-5c5e-45aa-80c1-5fa3333ab21f","type":"sensor"},{"id":"cb396f82-50f8-4758-9c1f-6c441e3277df","type":"sensor"},{"id":"e64ac3b3-518d-4528-90ff-1a1a7ef7c41f","type":"sensor"},{"id":"9b8b3247-1d2e-41a6-9052-1feff28713d3","type":"sensor"}]},"element":{"data":[{"id":"483e3c7d-8f42-45bc-a21d-c45e02edc80d","type":"element"},{"id":"81c0b9b2-da81-4231-94e0-850948818efe","type":"element"},{"id":"1060cd07-fc94-4adb-a8e6-694032608139","type":"element"},{"id":"8e8c6060-266c-41b6-8c00-14f8d2d7520b","type":"element"},{"id":"74e42387-0941-4700-b961-d4a02225f55f","type":"element"},{"id":"e86a08a2-9c0c-432a-ba1f-7bc4aebf9d55","type":"element"},{"id":"43ad565d-6475-44a0-8752-c45c6de43e0f","type":"element"},{"id":"c0229362-846c-4e8d-8d0f-9575f09fbb58","type":"element"},{"id":"b9660760-03c2-451c-84f2-2a77f4f15d2e","type":"element"}]},"label":{"data":[{"id":"ce9aad92-70d0-44a3-9ba4-8bc834d71256","type":"label"},{"id":"4461ceeb-aec7-4ca3-968e-e4b07ae6a597","type":"label"},{"id":"65dc35c7-5c95-4e2d-a2e4-c72051ee1919","type":"label"},{"id":"d50305f2-f8e2-4552-8d2d-6318fbfc8f2c","type":"label"},{"id":"8c058249-ce71-47c5-aa97-282ee37d887e","type":"label"},{"id":"364779ed-a949-4456-ba2c-e7307427f147","type":"label"},{"id":"c76d961c-7dbf-46fb-afb9-4a83cf7dbc05","type":"label"},{"id":"91a080a5-d739-4460-a00a-79cd4ecde5a0","type":"label"}]}},"id":"demos@helium.com","meta":{"created":"2015-09-10T20:50:18.183896Z","updated":"2016-03-01T16:58:38.832646Z"},"type":"organization"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/organization
+  recorded_at: Thu, 13 Oct 2016 14:11:59 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/organization/sensor
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - blame me if inappropriate
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 13 Oct 2016 14:11:59 GMT
+      Server:
+      - Warp/3.2.7
+      transfer-encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"COS MiniDemo Sensor"},"id":"6d3df343-6620-4e96-b1fc-5fd4141b0a8d","meta":{"card":{"id":2},"mac":"6081f9fffe000777","created":"2016-03-01T20:47:19.197875Z","last-seen":"2016-10-13T14:06:47.892834Z","ports":["t","d","_se","b","_b"],"updated":"2016-08-03T11:10:33.3196Z"},"type":"sensor"},{"attributes":{"name":"White
+        Demo"},"id":"9e88aab7-09c1-4a18-a9c1-6e91780d759e","meta":{"card":null,"mac":"6081f9fffe0006d9","created":"2016-06-29T18:50:15.499201Z","last-seen":null,"ports":[],"updated":"2016-08-03T11:10:33.331989Z"},"type":"sensor"},{"attributes":{"name":"Mobile
+        Demo Green 1"},"id":"5be9b35b-6f94-4d9c-8d7a-cafa9b8b6dee","meta":{"card":{"id":5},"mac":"6081f9fffe0006db","created":"2016-04-29T00:04:22.03889Z","last-seen":"2016-06-20T22:56:42.477678Z","ports":["m","b","l","_se","p","t","h","_b"],"updated":"2016-04-29T00:04:22.039087Z"},"type":"sensor"},{"attributes":{"name":"Mobile
+        Demo Green 3"},"id":"94683401-4959-42c7-a38a-92c39a25f34c","meta":{"card":{"id":5},"mac":"6081f9fffe000665","created":"2016-05-25T00:03:38.059788Z","last-seen":"2016-06-24T00:07:02.391306Z","ports":["t","h","l","_se","p","m","b","_b"],"updated":"2016-05-25T00:03:38.059975Z"},"type":"sensor"},{"attributes":{"name":"Mobile
+        Demo Green 2"},"id":"3df4e2e0-0549-4a84-8fb6-442233ce8356","meta":{"card":{"id":5},"mac":"6081f9fffe000695","created":"2016-04-29T00:06:49.344165Z","last-seen":"2016-10-13T13:58:08.838109Z","ports":["h","_b","t","_se","l","p","b","m","Glowfish
+        Alert Level"],"updated":"2016-08-03T11:10:33.315054Z"},"type":"sensor"},{"attributes":{"name":"Helium
+        Green (line powered)"},"id":"32eedf4b-4c64-4708-a670-91af6080ede8","meta":{"card":{"id":5},"mac":"6081f9fffe000475","created":"2016-05-04T18:48:44.352276Z","last-seen":"2016-10-13T14:11:02.74003Z","ports":["t","h","m","b","_b","_e","l","p","_se"],"updated":"2016-08-03T11:10:33.336154Z"},"type":"sensor"},{"attributes":{"name":"Mini
+        Fridge 1.1"},"id":"ec76206d-4ad3-4a42-8fa5-93c1dd06681e","meta":{"card":{"id":2},"mac":"6081f9fffe0006aa","created":"2016-06-14T00:07:58.761507Z","last-seen":"2016-06-29T18:21:04.302722Z","ports":["Glowfish
+        Alert Level","_se","d","_b","b","t"],"updated":"2016-08-03T11:10:33.436857Z"},"type":"sensor"},{"attributes":{"name":"Mini
+        Fridge 4"},"id":"445d5235-646d-4dc9-9bb8-58e21d9ccc44","meta":{"card":{"id":2},"mac":"6081f9fffe000659","created":"2016-01-27T23:41:11.047445Z","last-seen":"2016-10-13T13:14:33.656997Z","ports":["b","d","_se","_b","t"],"updated":"2016-01-27T23:41:11.048766Z"},"type":"sensor"},{"attributes":{"name":"Roamer
+        Sensor"},"id":"33041ecd-5c5e-45aa-80c1-5fa3333ab21f","meta":{"card":null,"mac":"6081f9fffe00064f","created":"2016-03-14T23:48:27.870515Z","last-seen":"2016-03-22T04:56:02.744359Z","ports":["b","d","t"],"updated":"2016-08-03T11:10:33.324651Z"},"type":"sensor"},{"attributes":{"name":"Mini
+        Fridge 3"},"id":"cb396f82-50f8-4758-9c1f-6c441e3277df","meta":{"card":{"id":2},"mac":"6081f9fffe0007eb","created":"2016-01-27T23:24:53.863744Z","last-seen":"2016-10-13T13:58:09.345128Z","ports":["_se","d","t","b","_b","Glowfish
+        Alert Level"],"updated":"2016-08-03T11:10:33.319818Z"},"type":"sensor"},{"attributes":{"name":"test"},"id":"e64ac3b3-518d-4528-90ff-1a1a7ef7c41f","meta":{"card":null,"mac":null,"created":"2016-09-19T01:08:12.000178Z","last-seen":null,"ports":[],"updated":"2016-09-19T01:08:12.000178Z"},"type":"sensor"},{"attributes":{"name":"test"},"id":"9b8b3247-1d2e-41a6-9052-1feff28713d3","meta":{"card":null,"mac":null,"created":"2016-09-19T01:33:42.715958Z","last-seen":null,"ports":[],"updated":"2016-09-19T01:33:42.715958Z"},"type":"sensor"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/organization/sensor
+  recorded_at: Thu, 13 Oct 2016 14:11:59 GMT
+recorded_with: VCR 3.0.3

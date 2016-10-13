@@ -54,3 +54,62 @@ describe Helium::Organization, '#users' do
     expect(user.pending_invite).to eq(false)
   end
 end
+
+describe Helium::Organization, '#labels' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:organization) { client.organization }
+
+  use_cassette 'organization/labels'
+
+  it 'returns the Labels associated with the organization' do
+    labels = organization.labels
+    expect(labels).to be_an(Array)
+    expect(labels).to all( be_a(Helium::Label) )
+  end
+
+  it 'returns proper Labels' do
+    label = organization.labels.first
+    expect(label.name).to eq("SF Office")
+    expect(label.id).to eq("ce9aad92-70d0-44a3-9ba4-8bc834d71256")
+  end
+end
+
+describe Helium::Organization, '#elements' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:organization) { client.organization }
+
+  use_cassette 'organization/elements'
+
+  it 'returns the Elements associated with the organization' do
+    elements = organization.elements
+    expect(elements).to be_an(Array)
+    expect(elements).to all( be_a(Helium::Element) )
+  end
+
+  it 'returns proper Elements' do
+    element = organization.elements.first
+    expect(element.name).to eq("Coco's Element")
+    expect(element.id).to eq("483e3c7d-8f42-45bc-a21d-c45e02edc80d")
+    expect(element.mac).to eq("6081f9fffe0002f0")
+  end
+end
+
+describe Helium::Organization, '#sensors' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:organization) { client.organization }
+
+  use_cassette 'organization/sensors'
+
+  it 'returns the Sensors associated with the organization' do
+    sensors = organization.sensors
+    expect(sensors).to be_an(Array)
+    expect(sensors).to all( be_a(Helium::Sensor) )
+  end
+
+  it 'returns proper Sensors' do
+    sensor = organization.sensors.first
+    expect(sensor.name).to eq("COS MiniDemo Sensor")
+    expect(sensor.id).to eq("6d3df343-6620-4e96-b1fc-5fd4141b0a8d")
+    expect(sensor.mac).to eq("6081f9fffe000777")
+  end
+end
