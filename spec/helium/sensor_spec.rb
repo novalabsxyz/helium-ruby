@@ -28,12 +28,18 @@ end
 describe Helium::Sensor, '#labels' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:sensor) { client.sensor("01d53511-228d-4530-8eaf-74d43c17baa8") }
+  let(:labels) { sensor.labels }
 
   use_cassette 'sensor/labels'
 
-  # NOTE: labels returned currently just have id populated
-  it 'shows labels associated with the sensor' do
-    a_label_id = "f4b9f955-8032-4a03-9c20-10b940137158"
-    expect(sensor.labels.map(&:id)).to include(a_label_id)
+  it 'returns all labels assigned to a sensor' do
+    expect(labels.length).to eq(2)
+  end
+
+  it 'returns fully formed labels' do
+    label = labels.first
+    expect(label.id).to eq("273dc59b-5a69-4247-8675-2970f1f095c6")
+    expect(label.type).to eq("label")
+    expect(label.name).to eq("Label Ladel")
   end
 end

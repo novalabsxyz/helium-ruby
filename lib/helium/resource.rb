@@ -15,7 +15,7 @@ module Helium
 
     class << self
       # NOTE seems a bit out of place to be doing client work here, but it
-      # makes sense for the Eigenclass to be responsable for constructing
+      # makes sense for the Eigenclass to be responsible for constructing
       # instances of its inheriting class.
 
       # Returns all resources

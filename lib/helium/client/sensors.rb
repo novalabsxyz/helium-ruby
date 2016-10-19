@@ -18,6 +18,18 @@ module Helium
         return element
       end
 
+      def sensor_labels(sensor)
+        path = "/sensor/#{sensor.id}/label"
+        response = get(path)
+        labels_data = JSON.parse(response.body)["data"]
+
+        labels = labels_data.map do |label|
+          Label.new(client: self, params: label)
+        end
+
+        return labels
+      end
+
       def sensor_timeseries(sensor, opts = {})
         path = "/sensor/#{sensor.id}/timeseries"
 
