@@ -22,6 +22,21 @@ describe Helium::Client do
     end
   end
 
+  context 'when no api version is provided' do
+    let(:client) { Helium::Client.new(api_key: API_KEY) }
+    it 'uses the default api version in the base_url' do
+      expect(client.base_url).to eq("https://api.helium.com/v1")
+    end
+  end
+
+  context 'when api version is false' do
+    let(:client) { Helium::Client.new(api_key: API_KEY, api_version: false) }
+    it 'does not include a version in the base_url' do
+      expect(client.base_url).to eq("https://api.helium.com")
+    end
+
+  end
+
   context 'when api key is invalid' do
     let(:client) { Helium::Client.new(api_key: 'an invalid key') }
 
