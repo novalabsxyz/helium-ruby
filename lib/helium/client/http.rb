@@ -33,7 +33,9 @@ module Helium
       end
 
       def base_url
-        "#{PROTOCOL}://#{@api_host}/v#{API_VERSION}"
+        url = "#{PROTOCOL}://#{@api_host}"
+        url += "/v#{@api_version}" if @api_version
+        url
       end
 
       # Contructs a proper url given a path. If the path is already a full url

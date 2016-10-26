@@ -24,6 +24,7 @@ module Helium
     def initialize(opts = {})
       @api_key     = opts.fetch(:api_key)
       @api_host    = opts.fetch(:host, HOST)
+      @api_version = opts.fetch(:api_version, API_VERSION)
       @verify_peer = opts.fetch(:verify_peer, true)
       @debug       = opts.fetch(:debug, false)
     end
