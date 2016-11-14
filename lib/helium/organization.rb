@@ -9,6 +9,10 @@ module Helium
       @timezone = @params.dig('attributes', 'timezone')
     end
 
+    def resource_path
+      "/organization"
+    end
+
     # TODO refactor into relationships
     def users
       @client.organization_users

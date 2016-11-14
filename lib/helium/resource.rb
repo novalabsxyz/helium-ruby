@@ -80,12 +80,17 @@ module Helium
       end
     end # << self
 
+    # Returns a path identifying the current resource. Can be overridden
+    # in child classes to handle non-standard resources (e.g. Organization)
+    # @return [String] path to resource
+    def resource_path
+      "/#{resource_name}/#{self.id}"
+    end
+
     # Updates a Resource
     # @param attributes [Hash] The attributes to update
     # @return [Resource] The updated resource
     def update(attributes)
-      path = "/#{resource_name}/#{self.id}"
-
       body = {
         data: {
           attributes: attributes,
@@ -94,7 +99,7 @@ module Helium
         }
       }
 
-      response = @client.patch(path, body: body)
+      response = @client.patch(resource_path, body: body)
       resource_data = JSON.parse(response.body)["data"]
 
       return self.class.new(client: self, params: resource_data)
