@@ -113,3 +113,15 @@ describe Helium::Organization, '#sensors' do
     expect(sensor.mac).to eq("6081f9fffe000777")
   end
 end
+
+describe Helium::Organization, '#update' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:organization) { client.organization }
+
+  use_cassette 'organization/update'
+
+  it 'returns an updated org' do
+    updated_org = organization.update(timezone: 'US/Pacific')
+    expect(updated_org.timezone).to eq('US/Pacific')
+  end
+end
