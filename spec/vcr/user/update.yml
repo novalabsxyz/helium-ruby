@@ -1,0 +1,144 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/user
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - "$300,000 worth of cows"
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Nov 2016 18:53:05 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '235'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Helium Dev Account"},"id":"dev-accounts@helium.co","meta":{"email":"dev-accounts@helium.co","created":"2014-10-29T21:38:52Z","pending_invite":false,"updated":"2016-11-04T23:53:12.065874Z"},"type":"user"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/user
+  recorded_at: Tue, 15 Nov 2016 18:53:05 GMT
+- request:
+    method: patch
+    uri: https://api.helium.com/v1/user
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Ruby Test Name"},"id":"dev-accounts@helium.co","type":"user"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - "$300,000 worth of cows"
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o20,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Nov 2016 18:53:05 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '231'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Ruby Test Name"},"id":"dev-accounts@helium.co","meta":{"email":"dev-accounts@helium.co","created":"2014-10-29T21:38:52Z","pending_invite":false,"updated":"2016-11-15T18:53:05.978371Z"},"type":"user"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/user
+  recorded_at: Tue, 15 Nov 2016 18:53:06 GMT
+- request:
+    method: patch
+    uri: https://api.helium.com/v1/user
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Helium Dev Account"},"id":"dev-accounts@helium.co","type":"user"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - firm pat on the back
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o20,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 15 Nov 2016 18:53:05 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '234'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Helium Dev Account"},"id":"dev-accounts@helium.co","meta":{"email":"dev-accounts@helium.co","created":"2014-10-29T21:38:52Z","pending_invite":false,"updated":"2016-11-15T18:53:06.06262Z"},"type":"user"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/user
+  recorded_at: Tue, 15 Nov 2016 18:53:06 GMT
+recorded_with: VCR 3.0.3

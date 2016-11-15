@@ -11,6 +11,10 @@ module Helium
       @pending_invite = @params.dig('meta', 'pending_invite')
     end
 
+    def resource_path
+      "/user"
+    end
+
     # TODO can probably generalize this a bit more
     def as_json
       super.merge({
