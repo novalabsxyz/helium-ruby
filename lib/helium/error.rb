@@ -10,8 +10,11 @@ module Helium
     def self.from_response(response)
       status  = response.code
       # Default the error message in the case of no error body
-      message = "Unknown error with code: #{response.code.to_s}"
-      message = JSON.parse(response.body)["errors"].first["detail"] if response.body && response.body.length >= 2
+      message = if response.body && response.body.length >= 2
+                  "Unknown error with code: #{response.code}"
+                else
+                  JSON.parse(response.body)["errors"].first["detail"]
+                end
 
       klass =  case status
                when 401   then Helium::InvalidApiKey
