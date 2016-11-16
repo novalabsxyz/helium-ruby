@@ -9,7 +9,12 @@ module Helium
     # @return [Helium::Error]
     def self.from_response(response)
       status  = response.code
-      message = JSON.parse(response.body)["errors"].first["detail"]
+      # Default the error message in the case of no error body
+      message = if response.body && response.body.length >= 2
+                  JSON.parse(response.body)["errors"].first["detail"]
+                else
+                  "Unknown error with code: #{response.code}"
+                end
 
       klass =  case status
                when 401   then Helium::InvalidApiKey
