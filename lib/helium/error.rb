@@ -11,9 +11,9 @@ module Helium
       status  = response.code
       # Default the error message in the case of no error body
       message = if response.body && response.body.length >= 2
-                  "Unknown error with code: #{response.code}"
-                else
                   JSON.parse(response.body)["errors"].first["detail"]
+                else
+                  "Unknown error with code: #{response.code}"
                 end
 
       klass =  case status
