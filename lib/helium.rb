@@ -15,6 +15,8 @@ require "helium/label"
 require "helium/timeseries"
 require "helium/data_point"
 require "helium/element"
+require "helium/configuration"
+require "helium/device_configuration"
 
 module Helium
 end

@@ -4,6 +4,8 @@ require 'helium/client/organizations'
 require 'helium/client/sensors'
 require 'helium/client/labels'
 require 'helium/client/elements'
+require 'helium/client/configurations'
+require 'helium/client/device_configurations'
 
 module Helium
   class Client
@@ -14,6 +16,9 @@ module Helium
     include Helium::Client::Sensors
     include Helium::Client::Labels
     include Helium::Client::Elements
+    include Helium::Client::Configurations
+    include Helium::Client::DeviceConfigurations
+
 
     API_VERSION = 1
     HOST        = 'api.helium.com'

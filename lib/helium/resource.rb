@@ -73,7 +73,7 @@ module Helium
         return self.new(client: client, params: resource_data)
       end
 
-      private
+      #private
 
       def resource_name
         self.name.split('::').last.downcase
@@ -158,7 +158,7 @@ module Helium
       as_json.to_json(*options)
     end
 
-    private
+    # private
 
     def resource_name
       self.class.name.split('::').last.downcase
