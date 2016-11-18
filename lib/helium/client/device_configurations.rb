@@ -22,7 +22,7 @@ module Helium
         path = "/device-configuration/#{device_config.id}/device"
         response = get(path)
         configj = JSON.parse(response.body)["data"]
-        puts "config is: #{configj}"
+
         if configj.dig("type") == "sensor"
           device = Sensor.new(client: self, params: configj)
         elsif configj.dig("type") == "element"
