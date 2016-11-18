@@ -7,6 +7,9 @@ module Helium
       @settings = @params.dig('attributes')
     end
 
+    def device_configurations
+      @client.config_device_configurations(self.id)
+    end
 
   end
 end

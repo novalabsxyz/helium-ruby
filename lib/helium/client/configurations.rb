@@ -21,6 +21,11 @@ module Helium
 
         return device_confs
       end
+
+      # Configurations are immutable, so no updates are available
+      def create_configuration(attributes)
+        Configuration.create(attributes, client: self)
+      end
     end
   end
 end

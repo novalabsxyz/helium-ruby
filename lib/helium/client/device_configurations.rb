@@ -22,13 +22,42 @@ module Helium
         path = "/device-configuration/#{device_config.id}/device"
         response = get(path)
         configj = JSON.parse(response.body)["data"]
-        if configj.type == "sensor"
+        puts "config is: #{configj}"
+        if configj.dig("type") == "sensor"
           device = Sensor.new(client: self, params: configj)
-        elsif configj.type == "element"
+        elsif configj.dig("type") == "element"
           device = Element.new(client: self, params: configj)
         end
 
         return device
+      end
+
+      def create_device_configuration(device, configuration)
+        path = "/device-configuration"
+
+        body = {
+          data: {
+            type: "device-configuration",
+            relationships: {
+              configuration: {
+                data: {
+                  id: configuration.id,
+                  type: configuration.type
+                }
+              },
+              device: {
+                data: {
+                  id: device.id,
+                  type: device.type
+                }
+              }
+            }
+          }
+        }
+
+        response = post(path, body: body)
+        dc = JSON.parse(response.body)["data"]
+        return DeviceConfiguration.new(client: self, params: dc)
       end
 
     end

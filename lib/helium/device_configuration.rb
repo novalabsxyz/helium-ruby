@@ -16,9 +16,7 @@ module Helium
     end
 
     def as_json
-      super.merge({
-                    loaded: loaded
-                  })
+      super.merge({ loaded: loaded })
     end
 
   end
