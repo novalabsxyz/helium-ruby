@@ -7,10 +7,6 @@ module Helium
       @loaded = @params.dig('meta', 'loaded')
     end
 
-    def resource_name
-      "device-configuration"
-    end
-
     def device
       @client.device_configuration_device(self)
     end
