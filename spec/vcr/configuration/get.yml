@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/configuration/b9dc998e-1926-42ad-a3e0-ba36eea55b45
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - 'WARNING: ulimit -n is 1024'
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 19 Nov 2016 00:17:04 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '327'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"somenumber":10,"wifipasswd":"123456789","jaredtest":true},"relationships":{"device-configuration":{"data":[{"id":"605f7acd-ca93-42e1-8041-eff548db5116","type":"device-configuration"}]}},"id":"b9dc998e-1926-42ad-a3e0-ba36eea55b45","meta":{"created":"2016-11-09T20:53:51.186183Z"},"type":"configuration"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/configuration/b9dc998e-1926-42ad-a3e0-ba36eea55b45
+  recorded_at: Sat, 19 Nov 2016 00:17:04 GMT
+recorded_with: VCR 3.0.3
