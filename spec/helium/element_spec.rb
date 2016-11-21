@@ -63,6 +63,19 @@ describe Helium::Element, '#sensors' do
   end
 end
 
+describe Helium::Element, '#device_configuration' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:element) { client.element("56618098-5145-445c-a6db-805eaf37ff51") }
+
+  use_cassette 'element/device_configuration'
+
+  it 'gets a DeviceConfiguration for a Element' do
+    dc = element.device_configuration
+    expect(dc.id).to eq("85a9bbf9-0ff7-4678-b071-03342b6c7f91")
+    expect(dc).to be_a(Helium::DeviceConfiguration)
+  end
+end
+
 describe Helium::Element, '#to_json' do
   let(:client) { instance_double(Helium::Client) }
   let(:element) { described_class.new(client: client, params: ELEMENT_PARAMS) }

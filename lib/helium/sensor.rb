@@ -23,6 +23,10 @@ module Helium
       @client.sensor_labels(self)
     end
 
+    def device_configuration
+      @client.sensor_device_configuration(self)
+    end
+
     def timeseries(opts = {})
       size        = opts.fetch(:size, 1000)
       port        = opts.fetch(:port, nil)

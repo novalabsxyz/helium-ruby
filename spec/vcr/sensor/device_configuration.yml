@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor/aba370be-837d-4b41-bee5-686b0069d874
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - firm pat on the back
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 16:54:50 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '1100'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"SF Office Brick1 (on Marc''s desk)"},"relationships":{"device-configuration":{"data":[{"id":"efb8b88b-0837-42e6-91ba-18ed38d16bbe","type":"device-configuration"}]},"metadata":{"data":{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"metadata"}},"element":{"data":{"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","type":"element"}},"label":{"data":[{"id":"d81df823-a7a9-4476-b624-888f9fc56390","type":"label"},{"id":"968cc881-737e-4bff-bdd6-2af45992fe86","type":"label"},{"id":"f0008606-e12e-4a67-af95-bff56ba42eb9","type":"label"},{"id":"f17dee16-df80-4b0a-84bb-3d8969747dbe","type":"label"},{"id":"198d0e28-82e1-4954-a5fc-7b0326a23c6f","type":"label"},{"id":"415e6377-2bc1-46c6-a76c-782e5e7c652d","type":"label"},{"id":"0c228a65-ea5e-4b0d-a321-61009f3647b7","type":"label"}]}},"id":"aba370be-837d-4b41-bee5-686b0069d874","meta":{"card":{"id":5},"mac":"6081f9fffe000478","created":"2016-03-30T20:52:26.314159Z","last-seen":"2016-11-21T02:04:27.307256Z","ports":["_e.info","m","h","t","b","_b","p","_se","l","lr"],"updated":"2016-11-18T00:02:47.354348Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/aba370be-837d-4b41-bee5-686b0069d874
+  recorded_at: Mon, 21 Nov 2016 16:54:50 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor/aba370be-837d-4b41-bee5-686b0069d874/device-configuration
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - "$300,000 worth of cows"
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 16:54:49 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '357'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{},"relationships":{"device":{"data":{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"sensor"}},"configuration":{"data":{"id":"461b1e38-6fc2-423b-974a-ae6f504c43a1","type":"configuration"}}},"id":"efb8b88b-0837-42e6-91ba-18ed38d16bbe","meta":{"loaded":null,"created":"2016-11-18T23:15:57.415719Z"},"type":"device-configuration"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/aba370be-837d-4b41-bee5-686b0069d874/device-configuration
+  recorded_at: Mon, 21 Nov 2016 16:54:50 GMT
+recorded_with: VCR 3.0.3

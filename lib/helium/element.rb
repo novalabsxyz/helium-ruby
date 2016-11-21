@@ -14,6 +14,10 @@ module Helium
       @client.element_sensors(self)
     end
 
+    def device_configuration
+      @client.element_device_configuration(self)
+    end
+
     # @return [DateTime, nil] when the resource was last seen
     def last_seen
       return nil if @last_seen.nil?
