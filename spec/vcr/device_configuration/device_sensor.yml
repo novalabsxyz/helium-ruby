@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/device-configuration/efb8b88b-0837-42e6-91ba-18ed38d16bbe
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - shut it down
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 16:29:06 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '355'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{},"relationships":{"device":{"data":{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"sensor"}},"configuration":{"data":{"id":"461b1e38-6fc2-423b-974a-ae6f504c43a1","type":"configuration"}}},"id":"efb8b88b-0837-42e6-91ba-18ed38d16bbe","meta":{"loaded":null,"created":"2016-11-18T23:15:57.415719Z"},"type":"device-configuration"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/device-configuration/efb8b88b-0837-42e6-91ba-18ed38d16bbe
+  recorded_at: Mon, 21 Nov 2016 16:29:06 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/device-configuration/efb8b88b-0837-42e6-91ba-18ed38d16bbe/device
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - never breaks eye contact
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 16:29:06 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '311'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"SF Office Brick1 (on Marc''s desk)"},"id":"aba370be-837d-4b41-bee5-686b0069d874","meta":{"card":{"id":5},"mac":"6081f9fffe000478","created":"2016-03-30T20:52:26.314159Z","last-seen":"2016-11-21T02:04:27.307256Z","ports":[],"updated":"2016-11-18T00:02:47.354348Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/device-configuration/efb8b88b-0837-42e6-91ba-18ed38d16bbe/device
+  recorded_at: Mon, 21 Nov 2016 16:29:06 GMT
+recorded_with: VCR 3.0.3
