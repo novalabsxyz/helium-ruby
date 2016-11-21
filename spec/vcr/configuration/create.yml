@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/configuration
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"rake_test":true,"a rather large number":983247381239812364819233123896123948},"type":"configuration"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - never breaks eye contact
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 19 Nov 2016 00:38:32 GMT
+      Location:
+      - "/v1/configuration/deb753c7-c7ff-4202-8426-a864d4bd9624"
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '272'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"rake_test":true,"a rather large number":983247381239812364819233123896123948},"relationships":{"device-configuration":{"data":[]}},"id":"deb753c7-c7ff-4202-8426-a864d4bd9624","meta":{"created":"2016-11-19T00:38:32.295595Z"},"type":"configuration"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/configuration
+  recorded_at: Sat, 19 Nov 2016 00:38:32 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/configuration
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - RB_GC_GUARD
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 19 Nov 2016 00:38:32 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '1710'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkYXRhIjpbeyJhdHRyaWJ1dGVzIjp7InNvbWVudW1iZXIiOiLDpCIsIndp
+        ZmlwYXNzd2QiOiIxMjM0NTY3ODkiLCJqYXJlZHRlc3QiOnRydWV9LCJyZWxh
+        dGlvbnNoaXBzIjp7ImRldmljZS1jb25maWd1cmF0aW9uIjp7ImRhdGEiOltd
+        fX0sImlkIjoiMTVjOTMxODktNTc1Yy00ZjI2LTk5YTUtYmQyOTkxZWM4OWVi
+        IiwibWV0YSI6eyJjcmVhdGVkIjoiMjAxNi0xMS0wOVQyMTo0NDo0MS4wNDEz
+        NjRaIn0sInR5cGUiOiJjb25maWd1cmF0aW9uIn0seyJhdHRyaWJ1dGVzIjp7
+        InNvbWVudW1iZXIiOjEwMDAxLCJzb21lbmV3c2V0dGluZyI6ImZvbyJ9LCJy
+        ZWxhdGlvbnNoaXBzIjp7ImRldmljZS1jb25maWd1cmF0aW9uIjp7ImRhdGEi
+        OltdfX0sImlkIjoiM2EyMjAzZGQtOWRjOS00MmVlLWIwMmMtNGM1YWFkNTYy
+        MDQyIiwibWV0YSI6eyJjcmVhdGVkIjoiMjAxNi0xMS0xOFQyMDowMTo1Ni41
+        MzI1OTJaIn0sInR5cGUiOiJjb25maWd1cmF0aW9uIn0seyJhdHRyaWJ1dGVz
+        Ijp7InNvbWVudW1iZXIiOiJmb28iLCJ3aWZpcGFzc3dkIjoiMTIzNDU2Nzg5
+        IiwiamFyZWR0ZXN0Ijp0cnVlfSwicmVsYXRpb25zaGlwcyI6eyJkZXZpY2Ut
+        Y29uZmlndXJhdGlvbiI6eyJkYXRhIjpbeyJpZCI6Ijg1YTliYmY5LTBmZjct
+        NDY3OC1iMDcxLTAzMzQyYjZjN2Y5MSIsInR5cGUiOiJkZXZpY2UtY29uZmln
+        dXJhdGlvbiJ9LHsiaWQiOiJlZmI4Yjg4Yi0wODM3LTQyZTYtOTFiYS0xOGVk
+        MzhkMTZiYmUiLCJ0eXBlIjoiZGV2aWNlLWNvbmZpZ3VyYXRpb24ifV19fSwi
+        aWQiOiI0NjFiMWUzOC02ZmMyLTQyM2ItOTc0YS1hZTZmNTA0YzQzYTEiLCJt
+        ZXRhIjp7ImNyZWF0ZWQiOiIyMDE2LTExLTA5VDIxOjQzOjAzLjQ3MTQ1NFoi
+        fSwidHlwZSI6ImNvbmZpZ3VyYXRpb24ifSx7ImF0dHJpYnV0ZXMiOnsic29t
+        ZW51bWJlciI6MTEsIndpZmlwYXNzd2QiOiIxMjM0NTY3ODkiLCJqYXJlZHRl
+        c3QiOmZhbHNlfSwicmVsYXRpb25zaGlwcyI6eyJkZXZpY2UtY29uZmlndXJh
+        dGlvbiI6eyJkYXRhIjpbXX19LCJpZCI6Ijk1M2Q2YThlLTg1MGQtNDJlOS04
+        YmEzLTk5NTZmNWYwOTA3YyIsIm1ldGEiOnsiY3JlYXRlZCI6IjIwMTYtMTEt
+        MDlUMjE6NDI6MzAuNjg0MzA3WiJ9LCJ0eXBlIjoiY29uZmlndXJhdGlvbiJ9
+        LHsiYXR0cmlidXRlcyI6eyJzb21lbnVtYmVyIjoxMCwid2lmaXBhc3N3ZCI6
+        IjEyMzQ1Njc4OSIsImphcmVkdGVzdCI6dHJ1ZX0sInJlbGF0aW9uc2hpcHMi
+        OnsiZGV2aWNlLWNvbmZpZ3VyYXRpb24iOnsiZGF0YSI6W3siaWQiOiI2MDVm
+        N2FjZC1jYTkzLTQyZTEtODA0MS1lZmY1NDhkYjUxMTYiLCJ0eXBlIjoiZGV2
+        aWNlLWNvbmZpZ3VyYXRpb24ifV19fSwiaWQiOiJiOWRjOTk4ZS0xOTI2LTQy
+        YWQtYTNlMC1iYTM2ZWVhNTViNDUiLCJtZXRhIjp7ImNyZWF0ZWQiOiIyMDE2
+        LTExLTA5VDIwOjUzOjUxLjE4NjE4M1oifSwidHlwZSI6ImNvbmZpZ3VyYXRp
+        b24ifSx7ImF0dHJpYnV0ZXMiOnsicmFrZV90ZXN0Ijp0cnVlLCJhIHJhdGhl
+        ciBsYXJnZSBudW1iZXIiOjk4MzI0NzM4MTIzOTgxMjM2NDgxOTIzMzEyMzg5
+        NjEyMzk0OH0sInJlbGF0aW9uc2hpcHMiOnsiZGV2aWNlLWNvbmZpZ3VyYXRp
+        b24iOnsiZGF0YSI6W119fSwiaWQiOiJkZWI3NTNjNy1jN2ZmLTQyMDItODQy
+        Ni1hODY0ZDRiZDk2MjQiLCJtZXRhIjp7ImNyZWF0ZWQiOiIyMDE2LTExLTE5
+        VDAwOjM4OjMyLjI5NTU5NVoifSwidHlwZSI6ImNvbmZpZ3VyYXRpb24ifV19
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/configuration
+  recorded_at: Sat, 19 Nov 2016 00:38:32 GMT
+recorded_with: VCR 3.0.3

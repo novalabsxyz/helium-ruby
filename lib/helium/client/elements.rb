@@ -21,6 +21,14 @@ module Helium
         return sensors
       end
 
+      def element_device_configuration(element)
+        path = "/element/#{element.id}/device-configuration"
+        response = get(path)
+        dc_data = JSON.parse(response.body)["data"]
+        # dc_data is an array, but there will only be one for one
+        return  DeviceConfiguration.new(client: self, params: dc_data[0])
+      end
+
       def element_timeseries(element, opts = {})
         path = "/element/#{element.id}/timeseries"
 

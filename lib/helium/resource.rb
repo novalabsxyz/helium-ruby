@@ -2,6 +2,7 @@ module Helium
   # Abstract base class for Helium Resources returned by the API
   class Resource
     attr_reader :id, :type, :params
+    include Helium::Utils
 
     def initialize(opts = {})
       @client = opts.fetch(:client)
@@ -14,6 +15,8 @@ module Helium
     end
 
     class << self
+      include Helium::Utils
+
       # NOTE seems a bit out of place to be doing client work here, but it
       # makes sense for the Eigenclass to be responsible for constructing
       # instances of its inheriting class.
@@ -76,7 +79,7 @@ module Helium
       private
 
       def resource_name
-        self.name.split('::').last.downcase
+        kebab_case(self.name.split('::').last)
       end
     end # << self
 
@@ -161,7 +164,7 @@ module Helium
     private
 
     def resource_name
-      self.class.name.split('::').last.downcase
+      kebab_case(self.class.name.split('::').last)
     end
   end
 end

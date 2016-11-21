@@ -43,3 +43,16 @@ describe Helium::Sensor, '#labels' do
     expect(label.name).to eq("Label Ladel")
   end
 end
+
+describe Helium::Sensor, '#device_configuration' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:sensor) { client.sensor("aba370be-837d-4b41-bee5-686b0069d874") }
+
+  use_cassette 'sensor/device_configuration'
+
+  it 'gets a DeviceConfiguration for a Sensor' do
+    dc = sensor.device_configuration
+    expect(dc.id).to eq("efb8b88b-0837-42e6-91ba-18ed38d16bbe")
+    expect(dc).to be_a(Helium::DeviceConfiguration)
+  end
+end

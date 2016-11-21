@@ -106,7 +106,7 @@ describe Helium::Client, '#delete_sensor' do
 
   it 'destroys a virtual sensor' do
     # create a new sensor to destroy
-    new_sensor = client.create_sensor(name: "A Test Sensor")
+    client.create_sensor(name: "A Test Sensor")
 
     # make sure it's in the org sensors first
     all_sensors = client.sensors
