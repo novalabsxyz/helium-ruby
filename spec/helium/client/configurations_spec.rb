@@ -40,7 +40,6 @@ describe Helium::Client, '#configuration' do
 
 end
 
-
 describe Helium::Client, '#configuration_device_configuration' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:configuration) { client.configuration("b9dc998e-1926-42ad-a3e0-ba36eea55b45") }
