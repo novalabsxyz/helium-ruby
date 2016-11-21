@@ -5,13 +5,13 @@ describe Helium::Client, '#device_configurations' do
 
   use_cassette 'device_configurations/list'
 
-  it 'is an array of Device Configurations' do
+  it 'is an array of device configurations' do
     device_configurations = client.device_configurations
     expect(device_configurations).to be_an(Array)
     expect(device_configurations.first).to be_a(Helium::DeviceConfiguration)
   end
 
-  it 'returns correctly instantiated device_configurations' do
+  it 'returns correctly instantiated device configurations' do
     sensor = client.device_configurations.first
     expect(sensor.id).to eq("605f7acd-ca93-42e1-8041-eff548db5116")
   end
@@ -78,7 +78,7 @@ describe Helium::Client, '#new_device_configuration' do
 
   use_cassette 'device_configuration/create'
 
-  it 'creates a new device_configuration' do
+  it 'creates a new device configuration' do
     new_device_configuration = client.create_device_configuration(device, configuration)
     expect(new_device_configuration).to be_a(Helium::DeviceConfiguration)
 
@@ -86,5 +86,29 @@ describe Helium::Client, '#new_device_configuration' do
     all_device_configurations = client.device_configurations
     new_device_configurations = all_device_configurations.select{ |s| s.id == new_device_configuration.id }
     expect(new_device_configurations.count).to eq(1)
+  end
+end
+
+describe Helium::Client, '#delete_device_configuration' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:configuration) { client.configuration("deb753c7-c7ff-4202-8426-a864d4bd9624")}
+  let(:device) { client.sensor("f928df8f-9cda-4313-9cf7-cffee5d57050") }
+
+  use_cassette 'device_configuration/delete'
+
+  it 'deletes a device configuration' do
+    new_dc = client.create_device_configuration(device, configuration)
+    # verify it's now in the org's device_configurations
+    all_dcs = client.device_configurations
+    new_dcs = all_dcs.select{ |s| s.id == new_dc.id }
+    expect(new_dcs.count).to eq(1)
+
+    # Now delete
+    expect(new_dc.destroy).to eq(true)
+
+    # verify it's no longer in the org's device_configurations
+    all_dcs = client.device_configurations
+    new_dcs = all_dcs.select{ |s| s.id == new_dc.id }
+    expect(new_dcs.count).to eq(0)
   end
 end

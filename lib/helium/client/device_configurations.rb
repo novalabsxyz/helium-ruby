@@ -59,7 +59,6 @@ module Helium
         dc = JSON.parse(response.body)["data"]
         return DeviceConfiguration.new(client: self, params: dc)
       end
-
     end
   end
 end

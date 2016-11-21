@@ -1,0 +1,283 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.helium.com/v1/sensor/f928df8f-9cda-4313-9cf7-cffee5d57050
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - firm pat on the back
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 17:46:45 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '944'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"Andrew''s Brick-1"},"relationships":{"device-configuration":{"data":[{"id":"df795291-ff4f-4598-a59b-e7f1489e7390","type":"device-configuration"}]},"metadata":{"data":{"id":"f928df8f-9cda-4313-9cf7-cffee5d57050","type":"metadata"}},"element":{"data":null},"label":{"data":[{"id":"968cc881-737e-4bff-bdd6-2af45992fe86","type":"label"},{"id":"f0008606-e12e-4a67-af95-bff56ba42eb9","type":"label"},{"id":"f17dee16-df80-4b0a-84bb-3d8969747dbe","type":"label"},{"id":"198d0e28-82e1-4954-a5fc-7b0326a23c6f","type":"label"},{"id":"415e6377-2bc1-46c6-a76c-782e5e7c652d","type":"label"},{"id":"0c228a65-ea5e-4b0d-a321-61009f3647b7","type":"label"}]}},"id":"f928df8f-9cda-4313-9cf7-cffee5d57050","meta":{"card":{"id":5},"mac":"6081f9fffe0007fa","created":"2016-03-30T21:13:50.785417Z","last-seen":"2016-10-04T15:09:56.412569Z","ports":["t","h","p","l","_se","b","m"],"updated":"2016-03-30T21:13:50.785624Z"},"type":"sensor"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/sensor/f928df8f-9cda-4313-9cf7-cffee5d57050
+  recorded_at: Mon, 21 Nov 2016 17:46:45 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/configuration/deb753c7-c7ff-4202-8426-a864d4bd9624
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - sharkfed
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 17:46:45 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '423'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"rake_test":true,"a rather large number":983247381239812364819233123896123948},"relationships":{"device-configuration":{"data":[{"id":"df795291-ff4f-4598-a59b-e7f1489e7390","type":"device-configuration"},{"id":"7923f5ff-f1f2-4f46-ac3f-846bc08defa1","type":"device-configuration"}]}},"id":"deb753c7-c7ff-4202-8426-a864d4bd9624","meta":{"created":"2016-11-19T00:38:32.295595Z"},"type":"configuration"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/configuration/deb753c7-c7ff-4202-8426-a864d4bd9624
+  recorded_at: Mon, 21 Nov 2016 17:46:45 GMT
+- request:
+    method: post
+    uri: https://api.helium.com/v1/device-configuration
+    body:
+      encoding: UTF-8
+      string: '{"data":{"type":"device-configuration","relationships":{"configuration":{"data":{"id":"deb753c7-c7ff-4202-8426-a864d4bd9624","type":"configuration"}},"device":{"data":{"id":"f928df8f-9cda-4313-9cf7-cffee5d57050","type":"sensor"}}}}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - firm pat on the back
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 17:46:45 GMT
+      Location:
+      - "/v1/device-configuration/9830618e-74b3-4591-b388-ef3d8799b3e6"
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '355'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{},"relationships":{"device":{"data":{"id":"f928df8f-9cda-4313-9cf7-cffee5d57050","type":"sensor"}},"configuration":{"data":{"id":"deb753c7-c7ff-4202-8426-a864d4bd9624","type":"configuration"}}},"id":"9830618e-74b3-4591-b388-ef3d8799b3e6","meta":{"loaded":null,"created":"2016-11-21T17:46:45.766465Z"},"type":"device-configuration"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/device-configuration
+  recorded_at: Mon, 21 Nov 2016 17:46:45 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/device-configuration
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - "$300,000 worth of cows"
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 17:46:45 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '1400'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{},"relationships":{"device":{"data":{"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","type":"element"}},"configuration":{"data":{"id":"b9dc998e-1926-42ad-a3e0-ba36eea55b45","type":"configuration"}}},"id":"605f7acd-ca93-42e1-8041-eff548db5116","meta":{"loaded":null,"created":"2016-11-09T21:37:31.377437Z"},"type":"device-configuration"},{"attributes":{},"relationships":{"device":{"data":{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"sensor"}},"configuration":{"data":{"id":"deb753c7-c7ff-4202-8426-a864d4bd9624","type":"configuration"}}},"id":"7923f5ff-f1f2-4f46-ac3f-846bc08defa1","meta":{"loaded":null,"created":"2016-11-21T17:10:57.107772Z"},"type":"device-configuration"},{"attributes":{},"relationships":{"device":{"data":{"id":"56618098-5145-445c-a6db-805eaf37ff51","type":"element"}},"configuration":{"data":{"id":"461b1e38-6fc2-423b-974a-ae6f504c43a1","type":"configuration"}}},"id":"85a9bbf9-0ff7-4678-b071-03342b6c7f91","meta":{"loaded":null,"created":"2016-11-18T23:18:43.576921Z"},"type":"device-configuration"},{"attributes":{},"relationships":{"device":{"data":{"id":"f928df8f-9cda-4313-9cf7-cffee5d57050","type":"sensor"}},"configuration":{"data":{"id":"deb753c7-c7ff-4202-8426-a864d4bd9624","type":"configuration"}}},"id":"9830618e-74b3-4591-b388-ef3d8799b3e6","meta":{"loaded":null,"created":"2016-11-21T17:46:45.766465Z"},"type":"device-configuration"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/device-configuration
+  recorded_at: Mon, 21 Nov 2016 17:46:45 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/device-configuration/9830618e-74b3-4591-b388-ef3d8799b3e6
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - javascript doesn't have integers
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Date:
+      - Mon, 21 Nov 2016 17:46:45 GMT
+      Server:
+      - Warp/3.2.7
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/device-configuration/9830618e-74b3-4591-b388-ef3d8799b3e6
+  recorded_at: Mon, 21 Nov 2016 17:46:45 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/device-configuration
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Authorization:
+      - "<API KEY>"
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - firm pat on the back
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Nov 2016 17:46:45 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '1053'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{},"relationships":{"device":{"data":{"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","type":"element"}},"configuration":{"data":{"id":"b9dc998e-1926-42ad-a3e0-ba36eea55b45","type":"configuration"}}},"id":"605f7acd-ca93-42e1-8041-eff548db5116","meta":{"loaded":null,"created":"2016-11-09T21:37:31.377437Z"},"type":"device-configuration"},{"attributes":{},"relationships":{"device":{"data":{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"sensor"}},"configuration":{"data":{"id":"deb753c7-c7ff-4202-8426-a864d4bd9624","type":"configuration"}}},"id":"7923f5ff-f1f2-4f46-ac3f-846bc08defa1","meta":{"loaded":null,"created":"2016-11-21T17:10:57.107772Z"},"type":"device-configuration"},{"attributes":{},"relationships":{"device":{"data":{"id":"56618098-5145-445c-a6db-805eaf37ff51","type":"element"}},"configuration":{"data":{"id":"461b1e38-6fc2-423b-974a-ae6f504c43a1","type":"configuration"}}},"id":"85a9bbf9-0ff7-4678-b071-03342b6c7f91","meta":{"loaded":null,"created":"2016-11-18T23:18:43.576921Z"},"type":"device-configuration"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/device-configuration
+  recorded_at: Mon, 21 Nov 2016 17:46:46 GMT
+recorded_with: VCR 3.0.3
