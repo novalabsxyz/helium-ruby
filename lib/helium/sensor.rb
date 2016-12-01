@@ -27,6 +27,10 @@ module Helium
       @client.sensor_device_configuration(self)
     end
 
+    def virtual?
+      mac.nil?
+    end
+
     def timeseries(opts = {})
       size        = opts.fetch(:size, 1000)
       port        = opts.fetch(:port, nil)
@@ -57,7 +61,8 @@ module Helium
         name: name,
         mac: mac,
         ports: ports,
-        last_seen: last_seen
+        last_seen: last_seen,
+        virtual: virtual?
       })
     end
   end
