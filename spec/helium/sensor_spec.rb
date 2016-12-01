@@ -56,3 +56,28 @@ describe Helium::Sensor, '#device_configuration' do
     expect(dc).to be_a(Helium::DeviceConfiguration)
   end
 end
+
+describe Helium::Sensor, '#virtual?' do
+  subject { sensor.virtual? }
+
+  let(:sensor) {
+    Helium::Sensor.new(client: nil, params: {
+      'meta' => {
+        'mac' => mac
+      }
+    })
+  }
+
+  context 'when mac is present' do
+    let(:mac) { A_MAC_ADDRESS }
+
+    it { is_expected.to eq(false) }
+  end
+
+  context 'when mac is not present' do
+    let(:mac) { nil }
+
+    it { is_expected.to eq(true) }
+  end
+
+end
