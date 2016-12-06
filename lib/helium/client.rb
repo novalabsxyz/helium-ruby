@@ -20,7 +20,7 @@ module Helium
     include Helium::Client::DeviceConfigurations
 
 
-    API_VERSION = 1
+    API_VERSION = 'v1'
     HOST        = 'api.helium.com'
     PROTOCOL    = 'https'
 
@@ -32,6 +32,7 @@ module Helium
       @api_version = opts.fetch(:api_version, API_VERSION)
       @verify_peer = opts.fetch(:verify_peer, true)
       @debug       = opts.fetch(:debug, false)
+      @headers     = opts.fetch(:headers, {})
     end
 
     def inspect

@@ -63,3 +63,19 @@ describe Helium::Client do
     end
   end
 end
+
+describe Helium::Client, '#put' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:request) { instance_double(Typhoeus::Request, response: response) }
+  let(:response) { instance_double(Typhoeus::Response, code: 200) }
+
+  before do
+    allow(Typhoeus::Request).to receive(:new) { request }
+    allow(request).to receive(:run)
+  end
+
+  it 'generates a PUT request' do
+    expect(Typhoeus::Request).to receive(:new)
+    client.put('/a-path')
+  end
+end
