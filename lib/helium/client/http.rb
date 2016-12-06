@@ -27,6 +27,10 @@ module Helium
         run(path, :patch, opts)
       end
 
+      def put(path, opts = {})
+        run(path, :put, opts)
+      end
+
       def delete(path)
         response = run(path, :delete)
         response.code == 204
@@ -34,7 +38,7 @@ module Helium
 
       def base_url
         url = "#{PROTOCOL}://#{@api_host}"
-        url += "/v#{@api_version}" if @api_version
+        url += "/#{@api_version}" if @api_version
         url
       end
 
@@ -50,9 +54,11 @@ module Helium
       private
 
       def http_headers
-        BASE_HTTP_HEADERS.merge({
-          'Authorization' => api_key
-        })
+        BASE_HTTP_HEADERS
+          .merge(@headers)
+          .merge({
+            'Authorization' => api_key
+          })
       end
 
       def run(path, method, opts = {})
