@@ -48,7 +48,7 @@ describe Helium::Client, '#configuration_device_configuration' do
 
   it 'has device_configurations attached' do
     dc = configuration.device_configurations
-    expect(dc).to be_an(Array)
+    expect(dc).to be_a(Helium::Collection)
     expect(dc.first.id).to eq("605f7acd-ca93-42e1-8041-eff548db5116")
   end
 end

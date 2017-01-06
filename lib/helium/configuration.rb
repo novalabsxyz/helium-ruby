@@ -8,7 +8,11 @@ module Helium
     end
 
     def device_configurations
-      @client.config_device_configurations(self.id)
+      Collection.new(
+        klass: DeviceConfiguration,
+        client: @client,
+        belongs_to: self
+      )
     end
 
   end

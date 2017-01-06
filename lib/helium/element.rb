@@ -11,7 +11,7 @@ module Helium
     end
 
     def sensors
-      @client.element_sensors(self)
+      Collection.new(klass: Sensor, client: @client, belongs_to: self)
     end
 
     def device_configuration

@@ -39,7 +39,6 @@ describe Helium::Organization, '#users' do
 
   it 'returns the Users associated with the organization' do
     users = organization.users
-    expect(users).to be_an(Array)
     expect(users).to all( be_a(Helium::User) )
   end
 
@@ -63,7 +62,6 @@ describe Helium::Organization, '#labels' do
 
   it 'returns the Labels associated with the organization' do
     labels = organization.labels
-    expect(labels).to be_an(Array)
     expect(labels).to all( be_a(Helium::Label) )
   end
 
@@ -82,7 +80,6 @@ describe Helium::Organization, '#elements' do
 
   it 'returns the Elements associated with the organization' do
     elements = organization.elements
-    expect(elements).to be_an(Array)
     expect(elements).to all( be_a(Helium::Element) )
   end
 
@@ -102,7 +99,6 @@ describe Helium::Organization, '#sensors' do
 
   it 'returns the Sensors associated with the organization' do
     sensors = organization.sensors
-    expect(sensors).to be_an(Array)
     expect(sensors).to all( be_a(Helium::Sensor) )
   end
 

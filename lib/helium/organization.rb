@@ -15,19 +15,19 @@ module Helium
 
     # TODO refactor into relationships
     def users
-      @client.organization_users
+      Collection.new(klass: User, client: @client, belongs_to: self)
     end
 
     def labels
-      @client.organization_labels
+      Collection.new(klass: Label, client: @client, belongs_to: self)
     end
 
     def elements
-      @client.organization_elements
+      Collection.new(klass: Element, client: @client, belongs_to: self)
     end
 
     def sensors
-      @client.organization_sensors
+      Collection.new(klass: Sensor, client: @client, belongs_to: self)
     end
 
     def as_json

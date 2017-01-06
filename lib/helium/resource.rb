@@ -63,8 +63,6 @@ module Helium
         return self.new(client: client, params: resource_data)
       end
 
-      private
-
       def resource_name
         kebab_case(self.name.split('::').last)
       end
@@ -150,8 +148,6 @@ module Helium
     def to_json(*options)
       as_json.to_json(*options)
     end
-
-    private
 
     def resource_name
       kebab_case(self.class.name.split('::').last)

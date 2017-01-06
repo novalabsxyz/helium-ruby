@@ -35,7 +35,7 @@ describe Helium::Label, '#sensors' do
   use_cassette 'labels/sensors'
 
   it 'returns all sensors associated with a label' do
-    expect(sensors.length).to eq(3)
+    expect(sensors.count).to eq(3)
   end
 
   it 'returns fully formed sensors' do

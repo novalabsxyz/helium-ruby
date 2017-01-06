@@ -3,8 +3,9 @@ module Helium
     include Enumerable
 
     def initialize(opts)
-      @client = opts.fetch(:client)
-      @klass  = opts.fetch(:klass)
+      @client     = opts.fetch(:client)
+      @klass      = opts.fetch(:klass)
+      @belongs_to = opts.fetch(:belongs_to, nil)
 
       @filter_criteria = {}
     end
@@ -52,6 +53,21 @@ module Helium
       collection.to_json(*options)
     end
 
+    # TODO: could support something like label.sensors << new_sensor
+    # see Label#add_sensors for where it would be applied
+    def +(other)
+      collection + other
+    end
+
+    def -(other)
+      collection - other
+    end
+
+    # NOTE: if we implement pagination, we'll need to rethink this
+    def last
+      collection.last
+    end
+
     protected
 
     def fetch_collection
@@ -64,10 +80,16 @@ module Helium
     end
 
     def resource_path
-      uri = URI.parse(@klass.all_path)
+      uri = if @belongs_to
+              URI.parse("#{@belongs_to.resource_path}/#{@klass.resource_name}")
+            else
+              URI.parse(@klass.all_path)
+            end
+
       if @filter_criteria.any?
         uri.query = [uri.query, filter_param].compact.join('&')
       end
+
       uri.to_s
     end
 
