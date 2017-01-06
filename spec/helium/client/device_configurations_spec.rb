@@ -5,9 +5,9 @@ describe Helium::Client, '#device_configurations' do
 
   use_cassette 'device_configurations/list'
 
-  it 'is an array of device configurations' do
+  it 'is a Collection of device configurations' do
     device_configurations = client.device_configurations
-    expect(device_configurations).to be_an(Array)
+    expect(device_configurations).to be_a(Helium::Collection)
     expect(device_configurations.first).to be_a(Helium::DeviceConfiguration)
   end
 

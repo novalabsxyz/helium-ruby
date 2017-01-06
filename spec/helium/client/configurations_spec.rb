@@ -5,9 +5,9 @@ describe Helium::Client, '#configurations' do
 
   use_cassette 'configurations/list'
 
-  it 'is an array of Configurations' do
+  it 'is a Collection of Configurations' do
     configurations = client.configurations
-    expect(configurations).to be_an(Array)
+    expect(configurations).to be_an(Helium::Collection)
     expect(configurations.first).to be_a(Helium::Configuration)
   end
 

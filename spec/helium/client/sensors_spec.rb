@@ -5,9 +5,9 @@ describe Helium::Client, '#sensors' do
 
   use_cassette 'sensor/list'
 
-  it 'is an array of Sensors' do
+  it 'is a Collection of Sensors' do
     sensors = client.sensors
-    expect(sensors).to be_an(Array)
+    expect(sensors).to be_a(Helium::Collection)
     expect(sensors.first).to be_a(Helium::Sensor)
   end
 

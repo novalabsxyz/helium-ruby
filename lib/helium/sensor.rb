@@ -20,6 +20,7 @@ module Helium
     end
 
     def labels
+      # Collection.new(klass: Label, client: @client, belongs_to: self)
       @client.sensor_labels(self)
     end
 

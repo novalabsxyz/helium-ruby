@@ -18,7 +18,7 @@ describe Helium::Client do
 
     it 'prints all external api calls' do
       expect(STDOUT).to receive(:puts).with("GET https://api.helium.com/v1/sensor?include=label 200 ")
-      client.sensors
+      client.sensors.first
     end
   end
 
@@ -44,7 +44,7 @@ describe Helium::Client do
 
     it 'raises an InvalidApiKey error' do
       expect {
-        client.sensors
+        client.sensors.first
       }.to raise_error(Helium::InvalidApiKey)
 
     end

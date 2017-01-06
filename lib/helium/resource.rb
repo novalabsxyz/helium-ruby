@@ -17,28 +17,15 @@ module Helium
     class << self
       include Helium::Utils
 
-      # NOTE seems a bit out of place to be doing client work here, but it
-      # makes sense for the Eigenclass to be responsible for constructing
-      # instances of its inheriting class.
-
-      # Returns all resources
-      # @option opts [Client] :client A Helium::Client
-      # @return [Array<Resource>] an Array of all of the inheriting Resource
-      def all(opts = {})
-        client = opts.fetch(:client)
-
-        response = client.get(all_path)
-        resources_data = JSON.parse(response.body)["data"]
-
-        resources = resources_data.map do |resource_data|
-          self.new(client: client, params: resource_data)
-        end
-
-        return resources
-      end
-
+      # The resource's index API route
+      # @return [String] path to resource's index
       def all_path
         "/#{resource_name}"
+      end
+
+      def all(opts = {})
+        client = opts.fetch(:client)
+        Collection.new(klass: self, client: client).all
       end
 
       # Finds a single Resource by id
@@ -111,8 +98,11 @@ module Helium
     # Deletes the Resource
     # @return [Boolean] Whether the operation was successful
     def destroy
-      path = "/#{resource_name}/#{self.id}"
-      @client.delete(path)
+      @client.delete(resource_path)
+    end
+
+    def metadata
+      Metadata.new(client: @client, klass: self)
     end
 
     # Override equality to use id for comparisons
