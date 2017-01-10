@@ -44,7 +44,7 @@ module Helium
       return self
     end
 
-    # protected
+    protected
 
     def path
       "#{@klass.resource_path}/metadata"
