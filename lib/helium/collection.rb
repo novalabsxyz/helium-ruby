@@ -2,6 +2,8 @@ module Helium
   class Collection
     include Enumerable
 
+    attr_reader :filter_criteria
+
     def initialize(opts)
       @client     = opts.fetch(:client)
       @klass      = opts.fetch(:klass)
@@ -31,7 +33,7 @@ module Helium
     #
     # @return [Collection] a Collection of resources matching the provided search criteria
     def where(criteria)
-      @filter_criteria.merge!(criteria)
+      add_filter_criteria(criteria)
       self
     end
 
@@ -69,6 +71,16 @@ module Helium
     end
 
     protected
+
+    def add_filter_criteria(criteria)
+      criteria.each do |key, value|
+        if existing_value = @filter_criteria[key]
+          @filter_criteria[key] = (Array(existing_value) + Array(value)).uniq
+        else
+          @filter_criteria[key] = value
+        end
+      end
+    end
 
     def fetch_collection
       response = @client.get(resource_path)
