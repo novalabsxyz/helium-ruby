@@ -32,10 +32,10 @@ module Helium
 
     def update(attributes = {})
       body = {
-        "data": {
-          "attributes": attributes,
-          "id": id,
-          "type": "metadata"
+        data: {
+          attributes: attributes,
+          id: id,
+          type: "metadata"
         }
       }
 

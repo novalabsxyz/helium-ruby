@@ -34,11 +34,15 @@ module Helium
       # @return [Resource]
       def find(id, opts = {})
         client = opts.fetch(:client)
+        initialize_from_path(path: "/#{resource_name}/#{id}", client: client)
+      end
 
-        response = client.get("/#{resource_name}/#{id}")
-        resource_data = JSON.parse(response.body)["data"]
-
-        return self.new(client: client, params: resource_data)
+      # Fetches a singleton resource (e.g. organization, user)
+      # @option opts [Client] :client A Helium::Client
+      # @return [Resource] A singleton resource
+      def singleton(opts = {})
+        client = opts.fetch(:client)
+        initialize_from_path(path: all_path, client: client)
       end
 
       # Creates a new resource with given attributes
@@ -65,6 +69,15 @@ module Helium
 
       def resource_name
         kebab_case(self.name.split('::').last)
+      end
+
+      def initialize_from_path(opts = {})
+        client = opts.fetch(:client)
+        path = opts.fetch(:path)
+
+        response = client.get(path)
+        resource_data = JSON.parse(response.body)["data"]
+        return self.new(client: client, params: resource_data)
       end
     end # << self
 
