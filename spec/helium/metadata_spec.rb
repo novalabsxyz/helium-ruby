@@ -55,6 +55,41 @@ describe Helium::Metadata, 'filtering' do
   end
 end
 
+describe Helium::Metadata, 'subset filtering' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  use_cassette 'metadata/array_query'
+
+  it 'returns a matching subset of sensors' do
+    # Create some virtual sensors with metadata
+    new_sensor_1 = client.create_sensor(name: "A Test Sensor")
+    new_sensor_1.metadata.update(departments: ['facilities'])
+
+    new_sensor_2 = client.create_sensor(name: "a test sensor")
+    new_sensor_2.metadata.update(departments: ['facilities', 'it'])
+
+    new_sensor_3 = client.create_sensor(name: "a test sensor")
+    new_sensor_3.metadata.update(departments: ['facilities', 'it', 'engineering'])
+
+    # Fetch sensors matching criteria
+    matching_sensors = client.sensors.where(departments: ['facilities'])
+    expect(matching_sensors).to eq([new_sensor_1, new_sensor_2, new_sensor_3])
+
+    # Fetch sensors matching criteria
+    matching_sensors = client.sensors.where(departments: ['facilities', 'it'])
+    expect(matching_sensors).to eq([new_sensor_2, new_sensor_3])
+
+    # Fetch sensors matching criteria
+    matching_sensors = client.sensors.where(departments: ['facilities', 'it', 'engineering'])
+    expect(matching_sensors).to eq([new_sensor_3])
+
+    # clean up
+    new_sensor_1.destroy
+    new_sensor_2.destroy
+    new_sensor_3.destroy
+  end
+end
+
 describe Helium::Metadata, 'inspect' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
 

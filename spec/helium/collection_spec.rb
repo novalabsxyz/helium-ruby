@@ -1,5 +1,16 @@
 require 'spec_helper'
 
+describe Helium::Collection do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:collection) { client.sensors }
+
+  use_cassette 'collection/sensors'
+
+  it 'can use [] to access elements of the collection' do
+    expect(collection[0]).to eq(collection.first)
+  end
+end
+
 describe Helium::Collection, 'inspect' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:collection) { client.sensors }
@@ -63,5 +74,4 @@ describe Helium::Collection, 'array queries' do
 
     expect(new_collection.filter_criteria).to eq(expected_criteria)
   end
-
 end

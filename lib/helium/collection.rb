@@ -65,6 +65,16 @@ module Helium
       collection - other
     end
 
+    def [](index)
+      collection[index]
+    end
+
+    # Collections are considered equal if they contain the same resources
+    # as determined by the resources' ids
+    def ==(other)
+      self.map(&:id).sort == other.map(&:id).sort
+    end
+
     # NOTE: if we implement pagination, we'll need to rethink this
     def last
       collection.last
