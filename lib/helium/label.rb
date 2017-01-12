@@ -8,10 +8,8 @@ module Helium
       @name = @params.dig("attributes", "name")
     end
 
-    # TODO: would be nice to wrap this in a proxy collection, that way
-    # we could do something like label.sensors << new_sensor
     def sensors
-      @client.label_sensors(self)
+      Collection.new(klass: Sensor, client: @client, belongs_to: self)
     end
 
     def add_sensors(sensors_to_add = [])

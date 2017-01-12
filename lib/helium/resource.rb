@@ -17,28 +17,15 @@ module Helium
     class << self
       include Helium::Utils
 
-      # NOTE seems a bit out of place to be doing client work here, but it
-      # makes sense for the Eigenclass to be responsible for constructing
-      # instances of its inheriting class.
-
-      # Returns all resources
-      # @option opts [Client] :client A Helium::Client
-      # @return [Array<Resource>] an Array of all of the inheriting Resource
-      def all(opts = {})
-        client = opts.fetch(:client)
-
-        response = client.get(all_path)
-        resources_data = JSON.parse(response.body)["data"]
-
-        resources = resources_data.map do |resource_data|
-          self.new(client: client, params: resource_data)
-        end
-
-        return resources
-      end
-
+      # The resource's index API route
+      # @return [String] path to resource's index
       def all_path
         "/#{resource_name}"
+      end
+
+      def all(opts = {})
+        client = opts.fetch(:client)
+        Collection.new(klass: self, client: client).all
       end
 
       # Finds a single Resource by id
@@ -47,11 +34,15 @@ module Helium
       # @return [Resource]
       def find(id, opts = {})
         client = opts.fetch(:client)
+        initialize_from_path(path: "/#{resource_name}/#{id}", client: client)
+      end
 
-        response = client.get("/#{resource_name}/#{id}")
-        resource_data = JSON.parse(response.body)["data"]
-
-        return self.new(client: client, params: resource_data)
+      # Fetches a singleton resource (e.g. organization, user)
+      # @option opts [Client] :client A Helium::Client
+      # @return [Resource] A singleton resource
+      def singleton(opts = {})
+        client = opts.fetch(:client)
+        initialize_from_path(path: all_path, client: client)
       end
 
       # Creates a new resource with given attributes
@@ -76,10 +67,17 @@ module Helium
         return self.new(client: client, params: resource_data)
       end
 
-      private
-
       def resource_name
         kebab_case(self.name.split('::').last)
+      end
+
+      def initialize_from_path(opts = {})
+        client = opts.fetch(:client)
+        path = opts.fetch(:path)
+
+        response = client.get(path)
+        resource_data = JSON.parse(response.body)["data"]
+        return self.new(client: client, params: resource_data)
       end
     end # << self
 
@@ -111,8 +109,11 @@ module Helium
     # Deletes the Resource
     # @return [Boolean] Whether the operation was successful
     def destroy
-      path = "/#{resource_name}/#{self.id}"
-      @client.delete(path)
+      @client.delete(resource_path)
+    end
+
+    def metadata
+      Metadata.new(client: @client, klass: self)
     end
 
     # Override equality to use id for comparisons
@@ -160,8 +161,6 @@ module Helium
     def to_json(*options)
       as_json.to_json(*options)
     end
-
-    private
 
     def resource_name
       kebab_case(self.class.name.split('::').last)

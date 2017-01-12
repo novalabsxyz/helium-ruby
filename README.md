@@ -288,6 +288,53 @@ client.sensors.first.to_json
 # => "{\"id\":\"08bab58b-d095-4c7c-912c-1f8024d91d95\",\"created_at\":\"2015-08-06T17:28:11+00:00\",\"updated_at\":\"2016-05-30T22:36:50+00:00\",\"name\":\"Marc's Isotope\",\"mac\":\"6081f9fffe00019b\",\"ports\":[\"b\",\"t\"]}"
 ```
 
+### Metadata
+Metadata is a set of user-definable properties associated with a particular resource. These properties are declared as keys and values in the JSONAPI attributes object.
+
+Metadata is always represented as a JSON object (hash) that maps string properties to any valid JSON type (strings, numbers, or further nested objects). Metadata can be used to store application preferences, user-defined properties, or additional details associated with a resource.
+
+#### Accessing Metadata
+
+A resource's metadata object can be accessed by calling `.metadata` on it. For example:
+
+
+``` ruby
+client.sensors.first.metadata
+# => <Helium::Metadata properties={"location"=>"Building B"}>
+
+client.sensors.first.metadata.properties
+# => {
+#   "location" => "Building B"
+# }
+
+client.sensors.first.metadata.location
+# => "Building B"
+```
+
+#### Updating Metadata
+
+A resource's metadata can be updating by using the `.update` method:
+
+```ruby
+client.sensors.first.metadata.update(location: 'Building A')
+# => <Helium::Metadata properties={"location"=>"Building A"}>
+```
+
+#### Filtering by Metadata
+
+Resources can be filtered based on their metadata properties. The following would perform a search and return only the sensors that have a `location` metadata property equal to 'Building A':
+
+```ruby
+client.sensors.where(location: 'Building A')
+# => [#<Helium::Sensor ...>]
+```
+
+The `where` filter also accepts arrays and will match metadata properties when the array in the filter forms a subset of the corresponding array value in the metadata object.
+
+```ruby
+client.sensors.where(departments: ['facilities', 'it'])
+# => [#<Helium::Sensor ...>]
+```
 
 ## Development
 

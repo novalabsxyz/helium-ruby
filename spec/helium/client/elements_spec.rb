@@ -6,8 +6,8 @@ describe Helium::Client, '#elements' do
 
   use_cassette 'elements/index'
 
-  it 'is an array' do
-    expect(elements).to be_an(Array)
+  it 'is a collection' do
+    expect(elements).to be_a(Helium::Collection)
   end
 
   it 'returns all elements associated with the current org' do

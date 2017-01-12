@@ -51,7 +51,7 @@ describe Helium::Element, '#sensors' do
   use_cassette 'elements/sensors'
 
   it 'returns all sensors attached to a element' do
-    expect(sensors.length).to eq(3)
+    expect(sensors.count).to eq(3)
   end
 
   it 'returns fully formed sensors' do

@@ -6,8 +6,8 @@ describe Helium::Client, '#labels' do
 
   use_cassette 'labels/index'
 
-  it 'is an Array' do
-    expect(labels).to be_an(Array)
+  it 'is a Collection' do
+    expect(labels).to be_a(Helium::Collection)
   end
 
   it 'returns all labels associated with the current org' do
