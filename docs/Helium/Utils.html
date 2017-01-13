@@ -6,7 +6,7 @@
 <title>
   Module: Helium::Utils
   
-    &mdash; Documentation by YARD 0.9.3
+    &mdash; Documentation by YARD 0.9.5
   
 </title>
 
@@ -78,7 +78,7 @@
   
   <dl>
     <dt>Included in:</dt>
-    <dd><span class='object_link'><a href="Client.html" title="Helium::Client (class)">Client</a></span></dd>
+    <dd><span class='object_link'><a href="Client.html" title="Helium::Client (class)">Client</a></span>, <span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span>, <span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span>, <span class='object_link'><a href="Timeseries.html" title="Helium::Timeseries (class)">Timeseries</a></span></dd>
   </dl>
   
 
@@ -109,6 +109,28 @@
   <span class="summary_signature">
     
       <a href="#datetime_to_iso-instance_method" title="#datetime_to_iso (instance method)">#<strong>datetime_to_iso</strong>(datetime)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kebab_case-instance_method" title="#kebab_case (instance method)">#<strong>kebab_case</strong>(string)  &#x21d2; Object </a>
     
 
     
@@ -168,14 +190,44 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="kebab_case-instance_method">
+  
+    #<strong>kebab_case</strong>(string)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/utils.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_kebab_case'>kebab_case</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(.)([A-Z])</span><span class='regexp_end'>/</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1-\2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Thu Sep  1 16:28:30 2016 by
+  Generated on Thu Jan 12 15:58:34 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.3 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.1).
 </div>
 
     </div>

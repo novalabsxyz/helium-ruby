@@ -6,7 +6,7 @@
 <title>
   Class: Helium::User
   
-    &mdash; Documentation by YARD 0.9.3
+    &mdash; Documentation by YARD 0.9.5
   
 </title>
 
@@ -166,6 +166,36 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending_invite-instance_method" title="#pending_invite (instance method)">#<strong>pending_invite</strong>  &#x21d2; Object </a>
+    
+
+    
+      (also: #pending_invite?)
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute pending_invite.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -173,7 +203,7 @@
   
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Resource.html#id-instance_method" title="Helium::Resource#id (method)">#id</a></span>, <span class='object_link'><a href="Resource.html#type-instance_method" title="Helium::Resource#type (method)">#type</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Resource.html#id-instance_method" title="Helium::Resource#id (method)">#id</a></span>, <span class='object_link'><a href="Resource.html#params-instance_method" title="Helium::Resource#params (method)">#params</a></span>, <span class='object_link'><a href="Resource.html#type-instance_method" title="Helium::Resource#type (method)">#type</a></span></p>
 
 
   
@@ -232,6 +262,28 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resource_path-instance_method" title="#resource_path (instance method)">#<strong>resource_path</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -245,7 +297,18 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Resource.html" title="Helium::Resource (class)">Resource</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Resource.html#%3D%3D-instance_method" title="Helium::Resource#== (method)">#==</a></span>, <span class='object_link'><a href="Resource.html#all-class_method" title="Helium::Resource.all (method)">all</a></span>, <span class='object_link'><a href="Resource.html#create-class_method" title="Helium::Resource.create (method)">create</a></span>, <span class='object_link'><a href="Resource.html#created_at-instance_method" title="Helium::Resource#created_at (method)">#created_at</a></span>, <span class='object_link'><a href="Resource.html#destroy-instance_method" title="Helium::Resource#destroy (method)">#destroy</a></span>, <span class='object_link'><a href="Resource.html#eql%3F-instance_method" title="Helium::Resource#eql? (method)">#eql?</a></span>, <span class='object_link'><a href="Resource.html#find-class_method" title="Helium::Resource.find (method)">find</a></span>, <span class='object_link'><a href="Resource.html#hash-instance_method" title="Helium::Resource#hash (method)">#hash</a></span>, <span class='object_link'><a href="Resource.html#to_json-instance_method" title="Helium::Resource#to_json (method)">#to_json</a></span>, <span class='object_link'><a href="Resource.html#update-instance_method" title="Helium::Resource#update (method)">#update</a></span>, <span class='object_link'><a href="Resource.html#updated_at-instance_method" title="Helium::Resource#updated_at (method)">#updated_at</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Resource.html#%3D%3D-instance_method" title="Helium::Resource#== (method)">#==</a></span>, <span class='object_link'><a href="Resource.html#all-class_method" title="Helium::Resource.all (method)">all</a></span>, <span class='object_link'><a href="Resource.html#all_path-class_method" title="Helium::Resource.all_path (method)">all_path</a></span>, <span class='object_link'><a href="Resource.html#create-class_method" title="Helium::Resource.create (method)">create</a></span>, <span class='object_link'><a href="Resource.html#created_at-instance_method" title="Helium::Resource#created_at (method)">#created_at</a></span>, <span class='object_link'><a href="Resource.html#destroy-instance_method" title="Helium::Resource#destroy (method)">#destroy</a></span>, <span class='object_link'><a href="Resource.html#eql%3F-instance_method" title="Helium::Resource#eql? (method)">#eql?</a></span>, <span class='object_link'><a href="Resource.html#find-class_method" title="Helium::Resource.find (method)">find</a></span>, <span class='object_link'><a href="Resource.html#hash-instance_method" title="Helium::Resource#hash (method)">#hash</a></span>, <span class='object_link'><a href="Resource.html#initialize_from_path-class_method" title="Helium::Resource.initialize_from_path (method)">initialize_from_path</a></span>, <span class='object_link'><a href="Resource.html#metadata-instance_method" title="Helium::Resource#metadata (method)">#metadata</a></span>, <span class='object_link'><a href="Resource.html#resource_name-class_method" title="Helium::Resource.resource_name (method)">resource_name</a></span>, <span class='object_link'><a href="Resource.html#resource_name-instance_method" title="Helium::Resource#resource_name (method)">#resource_name</a></span>, <span class='object_link'><a href="Resource.html#singleton-class_method" title="Helium::Resource.singleton (method)">singleton</a></span>, <span class='object_link'><a href="Resource.html#to_json-instance_method" title="Helium::Resource#to_json (method)">#to_json</a></span>, <span class='object_link'><a href="Resource.html#update-instance_method" title="Helium::Resource#update (method)">#update</a></span>, <span class='object_link'><a href="Resource.html#updated_at-instance_method" title="Helium::Resource#updated_at (method)">#updated_at</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Utils.html" title="Helium::Utils (module)">Utils</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Utils.html#datetime_to_iso-instance_method" title="Helium::Utils#datetime_to_iso (method)">#datetime_to_iso</a></span>, <span class='object_link'><a href="Utils.html#kebab_case-instance_method" title="Helium::Utils#kebab_case (method)">#kebab_case</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -274,21 +337,23 @@
       <pre class="lines">
 
 
-5
 6
 7
 8
 9
-10</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/user.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/user.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
 
-  <span class='ivar'>@name</span>  <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@email</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>email</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@name</span>           <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@email</span>          <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>email</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@pending_invite</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pending_invite</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -384,6 +449,52 @@
 </table>
 </div>
     
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pending_invite-instance_method">
+  
+    #<strong>pending_invite</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='pending_invite?-instance_method'>pending_invite?</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute pending_invite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3
+4
+5</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/user.rb', line 3</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pending_invite'>pending_invite</span>
+  <span class='ivar'>@pending_invite</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
@@ -416,21 +527,53 @@
       <pre class="lines">
 
 
-13
-14
-15
-16
-17
-18</pre>
+19
+20
+21
+22
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/user.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/user.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
     <span class='label'>name:</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
-    <span class='label'>email:</span> <span class='id identifier rubyid_email'>email</span>
+    <span class='label'>email:</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
+    <span class='label'>pending_invite:</span> <span class='id identifier rubyid_pending_invite'>pending_invite</span>
   <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="resource_path-instance_method">
+  
+    #<strong>resource_path</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/user.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resource_path'>resource_path</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/user</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -442,9 +585,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Sep  1 16:28:30 2016 by
+  Generated on Thu Jan 12 15:58:34 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.3 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.1).
 </div>
 
     </div>

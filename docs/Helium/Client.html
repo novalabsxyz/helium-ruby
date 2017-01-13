@@ -6,7 +6,7 @@
 <title>
   Class: Helium::Client
   
-    &mdash; Documentation by YARD 0.9.3
+    &mdash; Documentation by YARD 0.9.5
   
 </title>
 
@@ -91,7 +91,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="Client/Elements.html" title="Helium::Client::Elements (module)">Elements</a></span>, <span class='object_link'><a href="Client/Http.html" title="Helium::Client::Http (module)">Http</a></span>, <span class='object_link'><a href="Client/Labels.html" title="Helium::Client::Labels (module)">Labels</a></span>, <span class='object_link'><a href="Client/Organizations.html" title="Helium::Client::Organizations (module)">Organizations</a></span>, <span class='object_link'><a href="Client/Sensors.html" title="Helium::Client::Sensors (module)">Sensors</a></span>, <span class='object_link'><a href="Client/Users.html" title="Helium::Client::Users (module)">Users</a></span>, <span class='object_link'><a href="Utils.html" title="Helium::Utils (module)">Utils</a></span></dd>
+      <dd><span class='object_link'><a href="Client/Configurations.html" title="Helium::Client::Configurations (module)">Configurations</a></span>, <span class='object_link'><a href="Client/DeviceConfigurations.html" title="Helium::Client::DeviceConfigurations (module)">DeviceConfigurations</a></span>, <span class='object_link'><a href="Client/Elements.html" title="Helium::Client::Elements (module)">Elements</a></span>, <span class='object_link'><a href="Client/Http.html" title="Helium::Client::Http (module)">Http</a></span>, <span class='object_link'><a href="Client/Labels.html" title="Helium::Client::Labels (module)">Labels</a></span>, <span class='object_link'><a href="Client/Organizations.html" title="Helium::Client::Organizations (module)">Organizations</a></span>, <span class='object_link'><a href="Client/Sensors.html" title="Helium::Client::Sensors (module)">Sensors</a></span>, <span class='object_link'><a href="Client/Users.html" title="Helium::Client::Users (module)">Users</a></span>, <span class='object_link'><a href="Utils.html" title="Helium::Utils (module)">Utils</a></span></dd>
   </dl>
   
   
@@ -102,7 +102,7 @@
   <dl>
     <dt>Defined in:</dt>
     <dd>lib/helium/client.rb<span class="defines">,<br />
-  lib/helium/client/http.rb,<br /> lib/helium/client/users.rb,<br /> lib/helium/client/labels.rb,<br /> lib/helium/client/sensors.rb,<br /> lib/helium/client/elements.rb,<br /> lib/helium/client/organizations.rb</span>
+  lib/helium/client/http.rb,<br /> lib/helium/client/users.rb,<br /> lib/helium/client/labels.rb,<br /> lib/helium/client/sensors.rb,<br /> lib/helium/client/elements.rb,<br /> lib/helium/client/organizations.rb,<br /> lib/helium/client/configurations.rb,<br /> lib/helium/client/device_configurations.rb</span>
 </dd>
   </dl>
   
@@ -112,7 +112,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Client/Elements.html" title="Helium::Client::Elements (module)">Elements</a></span>, <span class='object_link'><a href="Client/Http.html" title="Helium::Client::Http (module)">Http</a></span>, <span class='object_link'><a href="Client/Labels.html" title="Helium::Client::Labels (module)">Labels</a></span>, <span class='object_link'><a href="Client/Organizations.html" title="Helium::Client::Organizations (module)">Organizations</a></span>, <span class='object_link'><a href="Client/Sensors.html" title="Helium::Client::Sensors (module)">Sensors</a></span>, <span class='object_link'><a href="Client/Users.html" title="Helium::Client::Users (module)">Users</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Client/Configurations.html" title="Helium::Client::Configurations (module)">Configurations</a></span>, <span class='object_link'><a href="Client/DeviceConfigurations.html" title="Helium::Client::DeviceConfigurations (module)">DeviceConfigurations</a></span>, <span class='object_link'><a href="Client/Elements.html" title="Helium::Client::Elements (module)">Elements</a></span>, <span class='object_link'><a href="Client/Http.html" title="Helium::Client::Http (module)">Http</a></span>, <span class='object_link'><a href="Client/Labels.html" title="Helium::Client::Labels (module)">Labels</a></span>, <span class='object_link'><a href="Client/Organizations.html" title="Helium::Client::Organizations (module)">Organizations</a></span>, <span class='object_link'><a href="Client/Sensors.html" title="Helium::Client::Sensors (module)">Sensors</a></span>, <span class='object_link'><a href="Client/Users.html" title="Helium::Client::Users (module)">Users</a></span>
     
   
     
@@ -125,7 +125,7 @@
       <dt id="API_VERSION-constant" class="">API_VERSION =
         
       </dt>
-      <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>v1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
     
       <dt id="HOST-constant" class="">HOST =
         
@@ -271,8 +271,30 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Client/DeviceConfigurations.html" title="Helium::Client::DeviceConfigurations (module)">DeviceConfigurations</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Client/DeviceConfigurations.html#create_device_configuration-instance_method" title="Helium::Client::DeviceConfigurations#create_device_configuration (method)">#create_device_configuration</a></span>, <span class='object_link'><a href="Client/DeviceConfigurations.html#device_configuration-instance_method" title="Helium::Client::DeviceConfigurations#device_configuration (method)">#device_configuration</a></span>, <span class='object_link'><a href="Client/DeviceConfigurations.html#device_configuration_configuration-instance_method" title="Helium::Client::DeviceConfigurations#device_configuration_configuration (method)">#device_configuration_configuration</a></span>, <span class='object_link'><a href="Client/DeviceConfigurations.html#device_configuration_device-instance_method" title="Helium::Client::DeviceConfigurations#device_configuration_device (method)">#device_configuration_device</a></span>, <span class='object_link'><a href="Client/DeviceConfigurations.html#device_configurations-instance_method" title="Helium::Client::DeviceConfigurations#device_configurations (method)">#device_configurations</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Client/Configurations.html" title="Helium::Client::Configurations (module)">Configurations</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Client/Configurations.html#configuration-instance_method" title="Helium::Client::Configurations#configuration (method)">#configuration</a></span>, <span class='object_link'><a href="Client/Configurations.html#configurations-instance_method" title="Helium::Client::Configurations#configurations (method)">#configurations</a></span>, <span class='object_link'><a href="Client/Configurations.html#create_configuration-instance_method" title="Helium::Client::Configurations#create_configuration (method)">#create_configuration</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Client/Elements.html" title="Helium::Client::Elements (module)">Elements</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Client/Elements.html#element-instance_method" title="Helium::Client::Elements#element (method)">#element</a></span>, <span class='object_link'><a href="Client/Elements.html#element_sensors-instance_method" title="Helium::Client::Elements#element_sensors (method)">#element_sensors</a></span>, <span class='object_link'><a href="Client/Elements.html#elements-instance_method" title="Helium::Client::Elements#elements (method)">#elements</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Client/Elements.html#element-instance_method" title="Helium::Client::Elements#element (method)">#element</a></span>, <span class='object_link'><a href="Client/Elements.html#element_device_configuration-instance_method" title="Helium::Client::Elements#element_device_configuration (method)">#element_device_configuration</a></span>, <span class='object_link'><a href="Client/Elements.html#element_timeseries-instance_method" title="Helium::Client::Elements#element_timeseries (method)">#element_timeseries</a></span>, <span class='object_link'><a href="Client/Elements.html#elements-instance_method" title="Helium::Client::Elements#elements (method)">#elements</a></span></p>
 
   
   
@@ -283,7 +305,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Client/Labels.html" title="Helium::Client::Labels (module)">Labels</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Client/Labels.html#create_label-instance_method" title="Helium::Client::Labels#create_label (method)">#create_label</a></span>, <span class='object_link'><a href="Client/Labels.html#label-instance_method" title="Helium::Client::Labels#label (method)">#label</a></span>, <span class='object_link'><a href="Client/Labels.html#label_sensors-instance_method" title="Helium::Client::Labels#label_sensors (method)">#label_sensors</a></span>, <span class='object_link'><a href="Client/Labels.html#labels-instance_method" title="Helium::Client::Labels#labels (method)">#labels</a></span>, <span class='object_link'><a href="Client/Labels.html#update_label_sensors-instance_method" title="Helium::Client::Labels#update_label_sensors (method)">#update_label_sensors</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Client/Labels.html#create_label-instance_method" title="Helium::Client::Labels#create_label (method)">#create_label</a></span>, <span class='object_link'><a href="Client/Labels.html#label-instance_method" title="Helium::Client::Labels#label (method)">#label</a></span>, <span class='object_link'><a href="Client/Labels.html#labels-instance_method" title="Helium::Client::Labels#labels (method)">#labels</a></span>, <span class='object_link'><a href="Client/Labels.html#update_label_sensors-instance_method" title="Helium::Client::Labels#update_label_sensors (method)">#update_label_sensors</a></span></p>
 
   
   
@@ -294,7 +316,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Client/Sensors.html" title="Helium::Client::Sensors (module)">Sensors</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Client/Sensors.html#create_sensor-instance_method" title="Helium::Client::Sensors#create_sensor (method)">#create_sensor</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensor-instance_method" title="Helium::Client::Sensors#sensor (method)">#sensor</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensor_timeseries-instance_method" title="Helium::Client::Sensors#sensor_timeseries (method)">#sensor_timeseries</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensors-instance_method" title="Helium::Client::Sensors#sensors (method)">#sensors</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Client/Sensors.html#create_sensor-instance_method" title="Helium::Client::Sensors#create_sensor (method)">#create_sensor</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensor-instance_method" title="Helium::Client::Sensors#sensor (method)">#sensor</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensor_device_configuration-instance_method" title="Helium::Client::Sensors#sensor_device_configuration (method)">#sensor_device_configuration</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensor_element-instance_method" title="Helium::Client::Sensors#sensor_element (method)">#sensor_element</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensor_timeseries-instance_method" title="Helium::Client::Sensors#sensor_timeseries (method)">#sensor_timeseries</a></span>, <span class='object_link'><a href="Client/Sensors.html#sensors-instance_method" title="Helium::Client::Sensors#sensors (method)">#sensors</a></span></p>
 
   
   
@@ -305,7 +327,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Client/Organizations.html" title="Helium::Client::Organizations (module)">Organizations</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Client/Organizations.html#organization-instance_method" title="Helium::Client::Organizations#organization (method)">#organization</a></span>, <span class='object_link'><a href="Client/Organizations.html#organization_users-instance_method" title="Helium::Client::Organizations#organization_users (method)">#organization_users</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Client/Organizations.html#organization-instance_method" title="Helium::Client::Organizations#organization (method)">#organization</a></span></p>
 
   
   
@@ -327,7 +349,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Client/Http.html" title="Helium::Client::Http (module)">Http</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Client/Http.html#base_url-instance_method" title="Helium::Client::Http#base_url (method)">#base_url</a></span>, <span class='object_link'><a href="Client/Http.html#delete-instance_method" title="Helium::Client::Http#delete (method)">#delete</a></span>, <span class='object_link'><a href="Client/Http.html#get-instance_method" title="Helium::Client::Http#get (method)">#get</a></span>, <span class='object_link'><a href="Client/Http.html#paginated_get-instance_method" title="Helium::Client::Http#paginated_get (method)">#paginated_get</a></span>, <span class='object_link'><a href="Client/Http.html#patch-instance_method" title="Helium::Client::Http#patch (method)">#patch</a></span>, <span class='object_link'><a href="Client/Http.html#post-instance_method" title="Helium::Client::Http#post (method)">#post</a></span>, <span class='object_link'><a href="Client/Http.html#url_for-instance_method" title="Helium::Client::Http#url_for (method)">#url_for</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Client/Http.html#base_url-instance_method" title="Helium::Client::Http#base_url (method)">#base_url</a></span>, <span class='object_link'><a href="Client/Http.html#delete-instance_method" title="Helium::Client::Http#delete (method)">#delete</a></span>, <span class='object_link'><a href="Client/Http.html#get-instance_method" title="Helium::Client::Http#get (method)">#get</a></span>, <span class='object_link'><a href="Client/Http.html#paginated_get-instance_method" title="Helium::Client::Http#paginated_get (method)">#paginated_get</a></span>, <span class='object_link'><a href="Client/Http.html#patch-instance_method" title="Helium::Client::Http#patch (method)">#patch</a></span>, <span class='object_link'><a href="Client/Http.html#post-instance_method" title="Helium::Client::Http#post (method)">#post</a></span>, <span class='object_link'><a href="Client/Http.html#put-instance_method" title="Helium::Client::Http#put (method)">#put</a></span>, <span class='object_link'><a href="Client/Http.html#url_for-instance_method" title="Helium::Client::Http#url_for (method)">#url_for</a></span></p>
 
   
   
@@ -338,7 +360,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="Utils.html" title="Helium::Utils (module)">Utils</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Utils.html#datetime_to_iso-instance_method" title="Helium::Utils#datetime_to_iso (method)">#datetime_to_iso</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Utils.html#datetime_to_iso-instance_method" title="Helium::Utils#datetime_to_iso (method)">#datetime_to_iso</a></span>, <span class='object_link'><a href="Utils.html#kebab_case-instance_method" title="Helium::Utils#kebab_case (method)">#kebab_case</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -367,19 +389,25 @@
       <pre class="lines">
 
 
-24
-25
-26
-27
-28</pre>
+29
+30
+31
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='ivar'>@api_key</span>  <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:api_key</span><span class='rparen'>)</span>
-  <span class='ivar'>@api_host</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:host</span><span class='comma'>,</span> <span class='const'>HOST</span><span class='rparen'>)</span>
-  <span class='ivar'>@debug</span>    <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:debug</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@api_key</span>     <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:api_key</span><span class='rparen'>)</span>
+  <span class='ivar'>@api_host</span>    <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:host</span><span class='comma'>,</span> <span class='const'>HOST</span><span class='rparen'>)</span>
+  <span class='ivar'>@api_version</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:api_version</span><span class='comma'>,</span> <span class='const'>API_VERSION</span><span class='rparen'>)</span>
+  <span class='ivar'>@verify_peer</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:verify_peer</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='ivar'>@debug</span>       <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:debug</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='ivar'>@headers</span>     <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:headers</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -418,12 +446,12 @@
       <pre class="lines">
 
 
-22
-23
-24</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_api_key'>api_key</span>
   <span class='ivar'>@api_key</span>
@@ -477,12 +505,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_debug?'>debug?</span>
   <span class='ivar'>@debug</span> <span class='op'>==</span> <span class='kw'>true</span>
@@ -507,12 +535,12 @@
       <pre class="lines">
 
 
-30
-31
-32</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/client.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;Helium::Client @debug=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@debug</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
@@ -527,9 +555,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Sep  1 16:28:30 2016 by
+  Generated on Thu Jan 12 15:58:34 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.3 (ruby-2.3.1).
+  0.9.5 (ruby-2.3.1).
 </div>
 
     </div>
