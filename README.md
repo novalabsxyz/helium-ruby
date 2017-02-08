@@ -8,14 +8,15 @@
 A Ruby gem for building applications with the Helium API. [Helium](https://www.helium.com/) is an integrated platform of smart sensors, communication, edge and cloud compute that enables numerous sensing applications. For more information about the underlying REST API, check out [the Helium docs](https://docs.helium.com/).
 
 
-##  Helium Documentation and Community Support
+## Developer and Community Support
 
-
-* **helium-ruby docs** - Documentation for the gem's source can be found [here](https://helium.github.io/helium-ruby/):
-
-* **Helium Docs** Complete documenation for all parts of Helium can be found at [docs.helium.com](https://docs/helium.com).
+* **Helium Developer** Complete Helium developer resources can be found at [dev.helium.com](https://dev.helium.com).
 
 * **chat.helium.com** - If you have questions or ideas about how to use this code - or any part of Helium - head over the [chat.helium.com](http://chat.helium.com). We're standing by to help.
+
+* **helium-ruby docs** - Documentation for the gem's source can be found [here](https://helium.github.io/helium-ruby/).
+
+
 
 
 ## Installation
