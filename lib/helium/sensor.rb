@@ -49,6 +49,22 @@ module Helium
       )
     end
 
+    def live_timeseries(opts = {}, &block)
+      port        = opts.fetch(:port, nil)
+      start_time  = opts.fetch(:start_time, nil)
+      end_time    = opts.fetch(:end_time, nil)
+      aggtype     = opts.fetch(:aggtype, nil)
+      aggsize     = opts.fetch(:aggsize, nil)
+
+      @client.sensor_live_timeseries(self, {
+        port:       port,
+        start_time: start_time,
+        end_time:   end_time,
+        aggtype:    aggtype,
+        aggsize:    aggsize
+      }, &block)
+    end
+
     # @return [DateTime, nil] when the resource was last seen
     def last_seen
       return nil if @last_seen.nil?

@@ -186,6 +186,40 @@ data_points.first.avg
 
 A full list of aggregation types and sizes can be found here: https://docs.helium.com/docs/timeseries#aggregations.
 
+#### Live Timeseries data
+
+If you're building a real-time application with Helium's API, you can stream live timeseries data from a sesnor.
+
+```ruby
+sensor.live_timeseries do |data_point|
+  puts "timestamp: #{data_point.timestamp}"
+  puts "port: #{data_point.port}"
+  puts "value: #{data_point.value}"}
+end
+# => timestamp: 2017-02-09T23:29:42+00:00
+#    port: t
+#    value: 14.17
+#    timestamp: 2017-02-09T23:29:42+00:00
+#    port: h
+#    value: 93.0
+#    timestamp: 2017-02-09T23:29:42+00:00
+#    port: p
+#    value: 101173.0
+```
+
+You can also filter live timeseries data by port, same as demonstrated above.
+
+```ruby
+sensor.live_timeseries(port: 't') do |data_point|
+  puts "timestamp: #{data_point.timestamp}"
+  puts "port: #{data_point.port}"
+  puts "value: #{data_point.value}"}
+end
+# => timestamp: 2017-02-09T23:24:41+00:00
+#    port: t
+#    value: 14.19
+```
+
 #### Creating Timeseries data
 
 Data points can be written to a sensor's timeseries data.
