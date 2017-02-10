@@ -135,3 +135,26 @@ describe 'Timeseries#create' do
   end
 
 end
+
+describe 'Sensor#live_timeseries' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let!(:sensor) { client.create_sensor(name: "A Test Sensor") }
+  use_cassette 'sensor/live_timeseries'
+
+  # after { sensor.destroy }
+
+  it 'streams live timeseries data from a sensor' do
+    response = double(:response, code: 200)
+    request = double(:request, response: response)
+    allow(request).to receive(:on_body) { |&block| @on_body = block }
+    allow(request).to receive(:run) do
+      @on_body.call "event: sensor\ndata: {\"data\":{\"attributes\":{\"value\":93.0,\"timestamp\":\"2017-02-09T22:39:41Z\",\"port\":\"h\"},\"relationships\":{\"sensor\":{\"data\":{\"id\":\"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa\",\"type\":\"sensor\"}}},\"id\":\"d5ebee85-398a-4efb-903a-e4bbe9d4bded\",\"meta\":{\"created\":\"2017-02-09T22:39:41.574898Z\"},\"type\":\"data-point\"}}"
+    end
+    allow(Typhoeus::Request).to receive(:new).and_return(request)
+
+    sensor.live_timeseries do |data_point|
+      expect(data_point.value).to eq(93.0)
+      :abort
+    end
+  end
+end

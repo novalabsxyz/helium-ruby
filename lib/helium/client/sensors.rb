@@ -45,6 +45,20 @@ module Helium
         )
       end
 
+      def sensor_live_timeseries(sensor, opts = {}, &block)
+        path = "/sensor/#{sensor.id}/timeseries/live"
+
+        params = {
+          "filter[port]"  => opts.fetch(:port, nil),
+          "filter[start]" => datetime_to_iso(opts.fetch(:start_time, nil)),
+          "filter[end]"   => datetime_to_iso(opts.fetch(:end_time, nil)),
+          "agg[type]"     => opts.fetch(:aggtype),
+          "agg[size]"     => opts.fetch(:aggsize)
+        }.delete_if { |_key, value| value.to_s.empty? }
+
+        stream_from(path, klass: Helium::DataPoint, params: params, &block)
+      end
+
       def create_sensor(attributes)
         Sensor.create(attributes, client: self)
       end

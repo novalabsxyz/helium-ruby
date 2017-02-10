@@ -2,8 +2,6 @@ module Helium
   class Client
     module Http
       BASE_HTTP_HEADERS = {
-        'Accept'        => 'application/json',
-        'Content-Type'  => 'application/json',
         'User-Agent'    => 'helium-ruby'
       }
 
@@ -36,6 +34,32 @@ module Helium
         response.code == 204
       end
 
+      # Stream data from the provided path
+      # @param [String] path a relative path
+      # @option opts [Class] :klass a class to be initialized with received data
+      # @option opts [Hash] :params a hash of params to be used as query params
+      # @block
+      def stream_from(path, opts = {}, &block)
+        klass = opts.fetch(:klass)
+        params = opts.fetch(:params, {})
+        request = generate_request(path, {
+          method: :get,
+          content_type: :stream,
+          params: params
+        })
+
+        request.on_body do |chunk|
+          if chunk =~ /data:/
+            json_string = chunk[chunk.index('{')..chunk.rindex('}')]
+            json_data = JSON.parse(json_string)["data"]
+            object = klass.new(client: self, params: json_data)
+            yield object
+          end
+        end
+
+        run_request(request)
+      end
+
       def base_url
         url = "#{PROTOCOL}://#{@api_host}"
         url += "/#{@api_version}" if @api_version
@@ -53,12 +77,29 @@ module Helium
 
       private
 
-      def http_headers
-        BASE_HTTP_HEADERS
+      def http_headers(opts = {})
+        content_type = opts.fetch(:content_type, :json)
+
+        http_headers = BASE_HTTP_HEADERS
           .merge(@headers)
           .merge({
             'Authorization' => api_key
           })
+
+        case content_type
+        when :json
+          http_headers.merge!({
+            'Accept'        => 'application/json',
+            'Content-Type'  => 'application/json'
+          })
+        when :stream
+          http_headers.merge!({
+            'Accept'        => 'text/event-stream',
+            'Content-Type'  => 'text/event-stream'
+          })
+        end
+
+        return http_headers
       end
 
       def run(path, method, opts = {})
@@ -68,15 +109,16 @@ module Helium
       end
 
       def generate_request(path, opts = {})
-        method = opts.fetch(:method)
-        params = opts.fetch(:params, {})
-        body   = opts.fetch(:body, {})
-        url    = url_for(path)
+        method       = opts.fetch(:method)
+        content_type = opts.fetch(:content_type, :json)
+        params       = opts.fetch(:params, {})
+        body         = opts.fetch(:body, {})
+        url          = url_for(path)
 
         Typhoeus::Request.new(url, {
           method:         method,
           params:         params,
-          headers:        http_headers,
+          headers:        http_headers(content_type: content_type),
           ssl_verifypeer: @verify_peer,
           body:           JSON.generate(body)
         })
