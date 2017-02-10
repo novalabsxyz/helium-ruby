@@ -97,11 +97,6 @@ module Helium
             'Accept'        => 'text/event-stream',
             'Content-Type'  => 'text/event-stream'
           })
-        else
-          http_headers.merge!({
-            'Accept'        => '*/*',
-            'Content-Type'  => '*/*'
-          })
         end
 
         return http_headers
