@@ -23,7 +23,7 @@ module Helium
     # Uses metadata filtering
     # (https://docs.helium.com/api/v1/metadata/index.html#filtering)
     # to search for a collection of resources matching the search parameters
-    # @param [Hash] a set of search criteria
+    # @param [Hash] criteria a set of search criteria
     #
     # @example Search for sensors by location
     #   client.sensors.where(location: 'Building B') #=> [Sensor, Sensor]
@@ -31,7 +31,7 @@ module Helium
     # @example Search for multiple matching search parameters
     #   client.sensors.where(departments: ['it', 'engineering']) #=> [Sensor, Sensor]
     #
-    # @return [Collection] a Collection of resources matching the provided search criteria
+    # @return [Collection] a collection of resources matching the provided search criteria
     def where(criteria)
       add_filter_criteria(criteria)
       self

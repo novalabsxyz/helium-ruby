@@ -38,7 +38,7 @@ module Helium
       # @param [String] path a relative path
       # @option opts [Class] :klass a class to be initialized with received data
       # @option opts [Hash] :params a hash of params to be used as query params
-      # @block
+      # @yield [Helium::Resource] accepts logic to perform on the initialized Helium::Resource class
       def stream_from(path, opts = {}, &block)
         klass = opts.fetch(:klass)
         params = opts.fetch(:params, {})

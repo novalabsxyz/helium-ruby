@@ -388,6 +388,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#live_timeseries-instance_method" title="#live_timeseries (instance method)">#<strong>live_timeseries</strong>(opts = {}, &amp;block)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#timeseries-instance_method" title="#timeseries (instance method)">#<strong>timeseries</strong>(opts = {})  &#x21d2; Object </a>
     
 
@@ -556,12 +578,12 @@
       <pre class="lines">
 
 
-53
-54
-55</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_seen'>last_seen</span>
   <span class='ivar'>@last_seen</span>
@@ -765,18 +787,18 @@
       <pre class="lines">
 
 
-59
-60
-61
-62
-63
-64
-65
-66
-67</pre>
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
@@ -876,6 +898,60 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
   <span class='const'>Collection</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>klass:</span> <span class='const'>Label</span><span class='comma'>,</span> <span class='label'>client:</span> <span class='ivar'>@client</span><span class='comma'>,</span> <span class='label'>belongs_to:</span> <span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="live_timeseries-instance_method">
+  
+    #<strong>live_timeseries</strong>(opts = {}, &amp;block)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_live_timeseries'>live_timeseries</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_port'>port</span>        <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:port</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_start_time'>start_time</span>  <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:start_time</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_end_time'>end_time</span>    <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:end_time</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_aggtype'>aggtype</span>     <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:aggtype</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_aggsize'>aggsize</span>     <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:aggsize</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sensor_live_timeseries'>sensor_live_timeseries</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='lbrace'>{</span>
+    <span class='label'>port:</span>       <span class='id identifier rubyid_port'>port</span><span class='comma'>,</span>
+    <span class='label'>start_time:</span> <span class='id identifier rubyid_start_time'>start_time</span><span class='comma'>,</span>
+    <span class='label'>end_time:</span>   <span class='id identifier rubyid_end_time'>end_time</span><span class='comma'>,</span>
+    <span class='label'>aggtype:</span>    <span class='id identifier rubyid_aggtype'>aggtype</span><span class='comma'>,</span>
+    <span class='label'>aggsize:</span>    <span class='id identifier rubyid_aggsize'>aggsize</span>
+  <span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -997,7 +1073,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan 12 15:58:34 2017 by
+  Generated on Mon Feb 13 09:17:41 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

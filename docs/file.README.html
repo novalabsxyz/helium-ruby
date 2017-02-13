@@ -68,12 +68,12 @@
 
 <p>A Ruby gem for building applications with the Helium API. <a href="https://www.helium.com/">Helium</a> is an integrated platform of smart sensors, communication, edge and cloud compute that enables numerous sensing applications. For more information about the underlying REST API, check out <a href="https://docs.helium.com/">the Helium docs</a>.</p>
 
-<h2>Helium Documentation and Community Support</h2>
+<h2>Developer and Community Support</h2>
 
 <ul>
-<li><p><strong>helium-ruby docs</strong> - Documentation for the gem&#39;s source can be found <a href="https://helium.github.io/helium-ruby/">here</a>:</p></li>
-<li><p><strong>Helium Docs</strong> Complete documenation for all parts of Helium can be found at <a href="https://docs/helium.com">docs.helium.com</a>.</p></li>
+<li><p><strong>Helium Developer</strong> Complete Helium developer resources can be found at <a href="https://dev.helium.com">dev.helium.com</a>.</p></li>
 <li><p><strong>chat.helium.com</strong> - If you have questions or ideas about how to use this code - or any part of Helium - head over the <a href="http://chat.helium.com">chat.helium.com</a>. We&#39;re standing by to help.</p></li>
+<li><p><strong>helium-ruby docs</strong> - Documentation for the gem&#39;s source can be found <a href="https://helium.github.io/helium-ruby/">here</a>.</p></li>
 </ul>
 
 <h2>Installation</h2>
@@ -236,6 +236,38 @@
 </span></code></pre>
 
 <p>A full list of aggregation types and sizes can be found here: <a href="https://docs.helium.com/docs/timeseries#aggregations">https://docs.helium.com/docs/timeseries#aggregations</a>.</p>
+
+<h4>Live Timeseries data</h4>
+
+<p>If you&#39;re building a real-time application with Helium&#39;s API, you can stream live timeseries data from a sesnor.</p>
+
+<pre class="code ruby"><code class="ruby">sensor.live_timeseries do |data_point|
+  puts &quot;timestamp: #{data_point.timestamp}&quot;
+  puts &quot;port: #{data_point.port}&quot;
+  puts &quot;value: #{data_point.value}&quot;}
+end
+# =&gt; timestamp: 2017-02-09T23:29:42+00:00
+#    port: t
+#    value: 14.17
+#    timestamp: 2017-02-09T23:29:42+00:00
+#    port: h
+#    value: 93.0
+#    timestamp: 2017-02-09T23:29:42+00:00
+#    port: p
+#    value: 101173.0
+</code></pre>
+
+<p>You can also filter live timeseries data by port, same as demonstrated above.</p>
+
+<pre class="code ruby"><code class="ruby">sensor.live_timeseries(port: &#39;t&#39;) do |data_point|
+  puts &quot;timestamp: #{data_point.timestamp}&quot;
+  puts &quot;port: #{data_point.port}&quot;
+  puts &quot;value: #{data_point.value}&quot;}
+end
+# =&gt; timestamp: 2017-02-09T23:24:41+00:00
+#    port: t
+#    value: 14.19
+</code></pre>
 
 <h4>Creating Timeseries data</h4>
 
@@ -409,7 +441,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Thu Jan 12 15:58:34 2017 by
+  Generated on Mon Feb 13 09:17:41 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>
