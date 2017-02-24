@@ -1,13 +1,14 @@
 module Helium
   class Element < Resource
-    attr_reader :name, :mac, :last_seen
+    attr_reader :name, :mac, :last_seen, :device_type
 
     def initialize(opts = {})
       super(opts)
 
-      @name      = @params.dig("attributes", "name")
-      @mac       = @params.dig("meta", "mac")
-      @last_seen = @params.dig('meta', 'last-seen')
+      @name        = @params.dig("attributes", "name")
+      @mac         = @params.dig("meta", "mac")
+      @last_seen   = @params.dig('meta', 'last-seen')
+      @device_type = @params.dig('meta', 'device-type')
     end
 
     def sensors
@@ -22,15 +23,6 @@ module Helium
     def last_seen
       return nil if @last_seen.nil?
       @_last_seen ||= DateTime.parse(@last_seen)
-    end
-
-    # TODO can probably generalize this a bit more
-    def as_json
-      super.merge({
-        name: name,
-        mac: mac,
-        last_seen: last_seen
-      })
     end
 
     def timeseries(opts = {})
@@ -49,6 +41,16 @@ module Helium
         aggtype:    aggtype,
         aggsize:    aggsize
       )
+    end
+
+    # TODO can probably generalize this a bit more
+    def as_json
+      super.merge({
+        name: name,
+        mac: mac,
+        last_seen: last_seen,
+        device_type: device_type
+      })
     end
   end
 end
