@@ -1,14 +1,15 @@
 module Helium
   class Sensor < Resource
-    attr_reader :name, :mac, :ports, :last_seen
+    attr_reader :name, :mac, :ports, :last_seen, :device_type
 
     def initialize(opts = {})
       super(opts)
 
-      @name      = @params.dig('attributes', 'name')
-      @mac       = @params.dig('meta', 'mac')
-      @ports     = @params.dig('meta', 'ports')
-      @last_seen = @params.dig('meta', 'last-seen')
+      @name        = @params.dig('attributes', 'name')
+      @mac         = @params.dig('meta', 'mac')
+      @ports       = @params.dig('meta', 'ports')
+      @last_seen   = @params.dig('meta', 'last-seen')
+      @device_type = @params.dig('meta', 'device-type')
     end
 
     def element
@@ -78,7 +79,8 @@ module Helium
         mac: mac,
         ports: ports,
         last_seen: last_seen,
-        virtual: virtual?
+        virtual: virtual?,
+        device_type: device_type
       })
     end
   end
