@@ -80,6 +80,36 @@ module Helium
       collection.last
     end
 
+    # Adds resources of the same type to the collection related to the
+    # '@belongs_to' resource
+    def add_relationships(items)
+      body = relationship_request_body(items)
+
+      @client.post(relationship_path, body: body) if relationship_path
+
+      self
+    end
+
+    # Replaces resources of the same type to the collection related to the
+    # '@belongs_to' resource. An empty array removes all resources.
+    def replace_relationships(items)
+      body = relationship_request_body(items)
+
+      @client.patch(relationship_path, body: body) if relationship_path
+
+      self
+    end
+
+    # Removes resources of the same type to the collection related to the
+    # '@belongs_to' resource. An empty array removes all resources.
+    def remove_relationships(items)
+      body = relationship_request_body(items)
+
+      @client.delete(relationship_path, body: body) if relationship_path
+
+      self
+    end
+
     protected
 
     def add_filter_criteria(criteria)
@@ -115,6 +145,10 @@ module Helium
       uri.to_s
     end
 
+    def relationship_path
+      URI.parse("#{@belongs_to.resource_path}/relationships/#{@klass.resource_name}").to_s if @belongs_to
+    end
+
     def collection_from_response(response)
       resources_data = JSON.parse(response.body)["data"]
 
@@ -123,6 +157,17 @@ module Helium
       end
 
       return resources
+    end
+
+    def relationship_request_body(items)
+      new_items_data = Array(items).map do |item|
+        {
+          id: item.id,
+          type: "#{@klass.resource_name}"
+        }
+      end
+
+      { data: new_items_data }
     end
 
   end

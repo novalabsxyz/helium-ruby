@@ -91,30 +91,3 @@ describe Helium::Client, '#delete_label' do
     expect(new_labels.count).to eq(0)
   end
 end
-
-describe Helium::Client, '#update_label_sensors' do
-  let(:client) { Helium::Client.new(api_key: API_KEY) }
-
-  use_cassette 'labels/sensors_update'
-
-  it "updates the label's sensor relationship" do
-    # create a new label
-    new_label = client.create_label(name: "A Test Label")
-
-    # create a new sensor
-    new_sensor = client.create_sensor(name: "A Test Sensor")
-
-    # add sensor to label
-    response = client.update_label_sensors(new_label, sensors: new_sensor)
-
-    # response should include new sensor
-    expect(response.map(&:id)).to include(new_sensor.id)
-
-    # verify sensor is present in label's relationships
-    expect(new_label.sensors.map(&:id)).to include(new_sensor.id)
-
-    # clean up
-    new_label.destroy
-    new_sensor.destroy
-  end
-end

@@ -29,8 +29,8 @@ module Helium
         run(path, :put, opts)
       end
 
-      def delete(path)
-        response = run(path, :delete)
+      def delete(path, opts = {})
+        response = run(path, :delete, opts)
         response.code == 204
       end
 
