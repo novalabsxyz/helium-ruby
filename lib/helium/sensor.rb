@@ -93,6 +93,7 @@ module Helium
       labels_to_add.each do |label|
         label.add_sensors(self)
       end
+      self
     end
 
     def replace_labels(labels_to_replace = [])
@@ -105,6 +106,7 @@ module Helium
       labels_to_replace.each do |label|
         label.add_sensors(self)
       end
+      self
     end
 
     def remove_labels(labels_to_remove = [])
@@ -112,6 +114,7 @@ module Helium
       labels_to_remove.each do |label|
         label.remove_sensors(self)
       end
+      self
     end
   end
 end
