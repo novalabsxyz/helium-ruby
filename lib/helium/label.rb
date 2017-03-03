@@ -13,17 +13,14 @@ module Helium
     end
 
     def add_sensors(sensors_to_add = [])
-      sensors_to_add = Array(sensors_to_add)
       sensors.add_relationships(sensors_to_add)
     end
 
     def replace_sensors(sensors_to_replace = [])
-      sensors_to_replace = Array(sensors_to_replace)
       sensors.replace_relationships(sensors_to_replace)
     end
 
     def remove_sensors(sensors_to_remove = [])
-      sensors_to_remove = Array(sensors_to_remove)
       sensors.remove_relationships(sensors_to_remove )
     end
 

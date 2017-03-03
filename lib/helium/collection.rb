@@ -84,9 +84,7 @@ module Helium
     # '@belongs_to' resource
     def add_relationships(items)
       body = relationship_request_body(items)
-
-      @client.post(relationship_path, body: body) if relationship_path
-
+      @client.post(relationship_path, body: body)
       self
     end
 
@@ -94,9 +92,7 @@ module Helium
     # '@belongs_to' resource. An empty array removes all resources.
     def replace_relationships(items)
       body = relationship_request_body(items)
-
-      @client.patch(relationship_path, body: body) if relationship_path
-
+      @client.patch(relationship_path, body: body)
       self
     end
 
@@ -104,9 +100,7 @@ module Helium
     # '@belongs_to' resource. An empty array removes all resources.
     def remove_relationships(items)
       body = relationship_request_body(items)
-
-      @client.delete(relationship_path, body: body) if relationship_path
-
+      @client.delete(relationship_path, body: body)
       self
     end
 
@@ -166,8 +160,9 @@ module Helium
     end
 
     def relationship_request_body(items)
+      items = Array(items)
       if items.all? {|item| item.is_a? @klass }
-        new_items_data = Array(items).map do |item|
+        new_items_data = items.map do |item|
           {
             id: item.id,
             type: "#{@klass.resource_name}"
