@@ -80,6 +80,27 @@ module Helium
       collection.last
     end
 
+    # Adds resources of the same type to the collection related to the
+    # '@belongs_to' resource
+    def add_relationships(items)
+      body = relationship_request_body(items)
+      @client.post(relationship_path, body: body)
+    end
+
+    # Replaces resources of the same type to the collection related to the
+    # '@belongs_to' resource. An empty array removes all resources.
+    def replace_relationships(items)
+      body = relationship_request_body(items)
+      @client.patch(relationship_path, body: body)
+    end
+
+    # Removes resources of the same type to the collection related to the
+    # '@belongs_to' resource. An empty array removes all resources.
+    def remove_relationships(items)
+      body = relationship_request_body(items)
+      @client.delete(relationship_path, body: body)
+    end
+
     protected
 
     def add_filter_criteria(criteria)
@@ -115,6 +136,16 @@ module Helium
       uri.to_s
     end
 
+    def relationship_path
+      if @belongs_to
+        URI.parse("#{@belongs_to.resource_path}/relationships/#{@klass.resource_name}").to_s
+      else
+        raise Helium::Error.new(
+          "The collection must be associated with a resource to modify the
+          relationship")
+      end
+    end
+
     def collection_from_response(response)
       resources_data = JSON.parse(response.body)["data"]
 
@@ -123,6 +154,23 @@ module Helium
       end
 
       return resources
+    end
+
+    def relationship_request_body(items)
+      items = Array(items)
+      if items.all? {|item| item.is_a? @klass }
+        new_items_data = items.map do |item|
+          {
+            id: item.id,
+            type: "#{@klass.resource_name}"
+          }
+        end
+        { data: new_items_data }
+      else
+        raise Helium::Error.new(
+          "All items added to the collection must be of type " + @klass.to_s)
+      end
+
     end
 
   end

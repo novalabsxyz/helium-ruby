@@ -13,15 +13,18 @@ module Helium
     end
 
     def add_sensors(sensors_to_add = [])
-      sensors_to_add = Array(sensors_to_add)
+      sensors.add_relationships(sensors_to_add)
+      self
+    end
 
-      @client.update_label_sensors(self, sensors: sensors + sensors_to_add)
+    def replace_sensors(sensors_to_replace = [])
+      sensors.replace_relationships(sensors_to_replace)
+      self
     end
 
     def remove_sensors(sensors_to_remove = [])
-      sensors_to_remove = Array(sensors_to_remove)
-
-      @client.update_label_sensors(self, sensors: sensors - sensors_to_remove)
+      sensors.remove_relationships(sensors_to_remove)
+      self
     end
 
     # TODO can probably generalize this a bit more

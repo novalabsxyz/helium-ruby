@@ -2,3 +2,4 @@
 
 - Andrew "Bones" Allen
 - Jared Morrow (of the Canadian Morrows)
+- Lane Seppala
