@@ -83,5 +83,35 @@ module Helium
         device_type: device_type
       })
     end
+
+    def add_labels(labels_to_add = [])
+      # There's no first-class support for modifying the labels of a sensor in
+      # the API yet, so we modify each label's relationship to the sensor. Once
+      # this is supported in the API, this can use #add_relationships instead.
+      # Same comment applies for the following 3 functions
+      labels_to_add = Array(labels_to_add)
+      labels_to_add.each do |label|
+        label.add_sensors(self)
+      end
+    end
+
+    def replace_labels(labels_to_replace = [])
+      # To support replacement, we remove this sensor from each label, and then
+      # add it to the specified set
+      labels_to_replace = Array(labels_to_replace)
+      labels.each do |label|
+        label.remove_sensors(self)
+      end
+      labels_to_replace.each do |label|
+        label.add_sensors(self)
+      end
+    end
+
+    def remove_labels(labels_to_remove = [])
+      labels_to_remove = Array(labels_to_remove)
+      labels_to_remove.each do |label|
+        label.remove_sensors(self)
+      end
+    end
   end
 end
