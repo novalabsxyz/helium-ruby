@@ -85,7 +85,6 @@ module Helium
     def add_relationships(items)
       body = relationship_request_body(items)
       @client.post(relationship_path, body: body)
-      self
     end
 
     # Replaces resources of the same type to the collection related to the
@@ -93,7 +92,6 @@ module Helium
     def replace_relationships(items)
       body = relationship_request_body(items)
       @client.patch(relationship_path, body: body)
-      self
     end
 
     # Removes resources of the same type to the collection related to the
@@ -101,7 +99,6 @@ module Helium
     def remove_relationships(items)
       body = relationship_request_body(items)
       @client.delete(relationship_path, body: body)
-      self
     end
 
     protected

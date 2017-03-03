@@ -14,14 +14,17 @@ module Helium
 
     def add_sensors(sensors_to_add = [])
       sensors.add_relationships(sensors_to_add)
+      self
     end
 
     def replace_sensors(sensors_to_replace = [])
       sensors.replace_relationships(sensors_to_replace)
+      self
     end
 
     def remove_sensors(sensors_to_remove = [])
-      sensors.remove_relationships(sensors_to_remove )
+      sensors.remove_relationships(sensors_to_remove)
+      self
     end
 
     # TODO can probably generalize this a bit more
