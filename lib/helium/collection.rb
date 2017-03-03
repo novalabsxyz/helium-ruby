@@ -146,7 +146,13 @@ module Helium
     end
 
     def relationship_path
-      URI.parse("#{@belongs_to.resource_path}/relationships/#{@klass.resource_name}").to_s if @belongs_to
+      if @belongs_to
+        URI.parse("#{@belongs_to.resource_path}/relationships/#{@klass.resource_name}").to_s
+      else
+        raise Helium::Error.new(
+          "The collection must be associated with a resource to modify the
+          relationship")
+      end
     end
 
     def collection_from_response(response)
@@ -160,14 +166,19 @@ module Helium
     end
 
     def relationship_request_body(items)
-      new_items_data = Array(items).map do |item|
-        {
-          id: item.id,
-          type: "#{@klass.resource_name}"
-        }
+      if items.all? {|item| item.is_a? @klass }
+        new_items_data = Array(items).map do |item|
+          {
+            id: item.id,
+            type: "#{@klass.resource_name}"
+          }
+        end
+        { data: new_items_data }
+      else
+        raise Helium::Error.new(
+          "All items added to the collection must be of type " + @klass.to_s)
       end
 
-      { data: new_items_data }
     end
 
   end
