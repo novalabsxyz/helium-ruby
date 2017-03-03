@@ -102,6 +102,64 @@ describe Helium::Label, '#add_sensors' do
   end
 end
 
+describe Helium::Label, '#replace_sensors' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  context 'with a single sensor' do
+    use_cassette 'labels/replace_sensors_individually'
+
+    it "replaces a sensor to a label overriding existing relationships" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # create some sensors
+      new_sensor_a = client.create_sensor(name: "Test Sensor A")
+      new_sensor_b = client.create_sensor(name: "Test Sensor B")
+
+      # add one sensors to label
+      new_label.add_sensors(new_sensor_a)
+
+      # replace the sensor with the other
+      new_label.replace_sensors(new_sensor_b)
+
+      # expect the second sensor to be in the label
+      all_sensor_ids = [new_sensor_b.id]
+      expect(new_label.sensors.map(&:id)).to contain_exactly(*all_sensor_ids)
+
+      # clean up
+      [new_label, new_sensor_a, new_sensor_b].each(&:destroy)
+    end
+  end
+
+  context 'with multiple sensors' do
+    use_cassette 'labels/replace_sensors_multiple'
+
+    it "replaces mulitple sensors in a label" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # create some sensors
+      new_sensor_a = client.create_sensor(name: "Test Sensor A")
+      new_sensor_b = client.create_sensor(name: "Test Sensor B")
+      new_sensor_c = client.create_sensor(name: "Test Sensor C")
+
+      # add one sensor to label
+      new_label.add_sensors(new_sensor_a)
+
+      # replace the sensor with the other
+      new_label.replace_sensors([new_sensor_b, new_sensor_c])
+
+      # expect the latter sensors to be in the label
+      all_sensor_ids = [new_sensor_b.id, new_sensor_c.id]
+      expect(new_label.sensors.map(&:id)).to contain_exactly(*all_sensor_ids)
+
+      # clean up
+      [new_label, new_sensor_a, new_sensor_b, new_sensor_c].each(&:destroy)
+    end
+  end
+end
+
+
 describe Helium::Label, '#remove_sensors' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
 
