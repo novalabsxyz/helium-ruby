@@ -103,7 +103,7 @@ module Helium
       response = @client.patch(resource_path, body: body)
       resource_data = JSON.parse(response.body)["data"]
 
-      return self.class.new(client: self, params: resource_data)
+      return self.class.new(client: @client, params: resource_data)
     end
 
     # Deletes the Resource
