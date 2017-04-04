@@ -1,0 +1,393 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/label
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Label"},"type":"label"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - blame me if inappropriate
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 04 Apr 2017 19:38:19 GMT
+      Location:
+      - "/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd"
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '340'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"A Test Label"},"relationships":{"metadata":{"data":{"id":"dd703279-8057-4a5f-b318-4c999b108bdd","type":"metadata"}},"sensor":{"data":[]},"element":{"data":[]}},"id":"dd703279-8057-4a5f-b318-4c999b108bdd","meta":{"created":"2017-04-04T19:38:19.611149Z","updated":"2017-04-04T19:38:19.611149Z"},"type":"label"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label
+  recorded_at: Tue, 04 Apr 2017 19:38:19 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/element
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - blame me if inappropriate
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 04 Apr 2017 19:38:18 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '4950'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"Eric Compound"},"relationships":{"device-configuration":{"data":[{"id":"03e00386-1099-44c2-977a-7220f71638e5","type":"device-configuration"}]},"metadata":{"data":{"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"c2941848-346b-48d8-a3eb-4271dedb42bd","type":"label"},{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"2844d419-2b41-4146-883e-b74cb7bf8e19","type":"label"},{"id":"d4cea726-bc4a-4d9e-bccb-fe16048475f3","type":"label"},{"id":"4d712b91-5056-4975-8ed5-25ec7377e3d2","type":"label"},{"id":"76e9f77e-3202-48e6-bd4b-1202b6973aa7","type":"label"},{"id":"efdd124b-b45c-41c2-8f18-240866e03ef2","type":"label"},{"id":"4dfa334e-93e3-4ea2-a003-a4ef89f0d14d","type":"label"},{"id":"488fd9b8-cc2c-41c7-9b70-c8d895dad73d","type":"label"},{"id":"1d4051ef-93d9-4a86-96ee-5ea254127273","type":"label"},{"id":"5587edb5-1b2a-4a58-a9a5-46e750d3c731","type":"label"},{"id":"7cd3cfc0-053a-4923-9aaf-d220f818af5a","type":"label"},{"id":"f45d81d7-da6f-41c3-aa1e-9b05a4634628","type":"label"},{"id":"a0155f49-9df5-4a63-a967-47df8902d413","type":"label"},{"id":"3c9e0e1e-3286-4683-98dd-4e85cc08d881","type":"label"},{"id":"ae0da464-83d7-4a79-9baf-789a4ad4832a","type":"label"},{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","meta":{"connected":true,"mac":"6081f9fffe000e59","created":"2016-12-23T21:55:12.967624Z","sim":null,"last-seen":"2016-12-26T02:43:09.409224Z","device-type":null,"updated":"2017-03-22T12:03:44.89603Z"},"type":"element"},{"attributes":{"name":"Marc
+        Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"9277cbad-c1b6-40fc-baee-68ca1abeeda9","type":"label"},{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"2844d419-2b41-4146-883e-b74cb7bf8e19","type":"label"},{"id":"d4cea726-bc4a-4d9e-bccb-fe16048475f3","type":"label"},{"id":"4d712b91-5056-4975-8ed5-25ec7377e3d2","type":"label"},{"id":"801891e3-551b-4e78-852f-bef5a2618d3d","type":"label"}]}},"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","meta":{"connected":false,"mac":"6081f9fffe000b01","created":"2016-12-23T01:09:40.394896Z","sim":null,"last-seen":"2017-04-04T02:54:40.733029Z","device-type":"ap-e","updated":"2017-03-04T00:47:43.759442Z"},"type":"element"},{"attributes":{"name":"Andrew
+        Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","meta":{"connected":false,"mac":"6081f9fffe000b76","created":"2016-07-26T21:25:00.635041Z","sim":null,"last-seen":"2017-04-01T20:20:51.100583Z","device-type":null,"updated":"2017-03-04T00:47:43.763334Z"},"type":"element"},{"attributes":{"name":"IoTMANUS
+        Elementg"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"975b986d-f73f-4d3b-bab6-368795d7f136","type":"metadata"}},"sensor":{"data":[{"id":"7132021b-d7ff-4a61-a014-c99b77810ff4","type":"sensor"},{"id":"f92258f1-80f8-45b3-9741-5d55fb207823","type":"sensor"},{"id":"a1d18f88-819b-4044-9cdd-2a9278d5ed65","type":"sensor"}]},"label":{"data":[{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"975b986d-f73f-4d3b-bab6-368795d7f136","meta":{"connected":false,"mac":"6081f9fffe000b50","created":"2016-07-26T21:25:01.73107Z","sim":null,"last-seen":"2017-03-22T19:34:09.068904Z","device-type":"ap-prof","updated":"2017-03-23T10:22:58.434617Z"},"type":"element"},{"attributes":{"name":"Element
+        6"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[]}},"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","meta":{"connected":true,"mac":"6081f9fffe000608","created":"2016-05-24T20:38:53.220166Z","sim":null,"last-seen":"2016-12-20T00:51:42.550419Z","device-type":null,"updated":"2017-03-04T00:47:43.764348Z"},"type":"element"},{"attributes":{"name":"Mark
+        Primary Element"},"relationships":{"device-configuration":{"data":[{"id":"4e49de18-1f5d-4268-a2bf-a30571412c5d","type":"device-configuration"}]},"metadata":{"data":{"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","type":"metadata"}},"sensor":{"data":[{"id":"3f37b3ad-e299-4e32-8db1-45787ce341f2","type":"sensor"}]},"label":{"data":[{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","meta":{"connected":false,"mac":"6081f9fffe0001a9","created":"2016-04-27T18:19:06.520815Z","sim":null,"last-seen":"2017-03-20T19:36:06.763381Z","device-type":null,"updated":"2017-03-04T00:47:43.765453Z"},"type":"element"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/element
+  recorded_at: Tue, 04 Apr 2017 19:38:19 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/element
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - sharkfed
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 04 Apr 2017 19:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '4950'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"Eric Compound"},"relationships":{"device-configuration":{"data":[{"id":"03e00386-1099-44c2-977a-7220f71638e5","type":"device-configuration"}]},"metadata":{"data":{"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"c2941848-346b-48d8-a3eb-4271dedb42bd","type":"label"},{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"2844d419-2b41-4146-883e-b74cb7bf8e19","type":"label"},{"id":"d4cea726-bc4a-4d9e-bccb-fe16048475f3","type":"label"},{"id":"4d712b91-5056-4975-8ed5-25ec7377e3d2","type":"label"},{"id":"76e9f77e-3202-48e6-bd4b-1202b6973aa7","type":"label"},{"id":"efdd124b-b45c-41c2-8f18-240866e03ef2","type":"label"},{"id":"4dfa334e-93e3-4ea2-a003-a4ef89f0d14d","type":"label"},{"id":"488fd9b8-cc2c-41c7-9b70-c8d895dad73d","type":"label"},{"id":"1d4051ef-93d9-4a86-96ee-5ea254127273","type":"label"},{"id":"5587edb5-1b2a-4a58-a9a5-46e750d3c731","type":"label"},{"id":"7cd3cfc0-053a-4923-9aaf-d220f818af5a","type":"label"},{"id":"f45d81d7-da6f-41c3-aa1e-9b05a4634628","type":"label"},{"id":"a0155f49-9df5-4a63-a967-47df8902d413","type":"label"},{"id":"3c9e0e1e-3286-4683-98dd-4e85cc08d881","type":"label"},{"id":"ae0da464-83d7-4a79-9baf-789a4ad4832a","type":"label"},{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","meta":{"connected":true,"mac":"6081f9fffe000e59","created":"2016-12-23T21:55:12.967624Z","sim":null,"last-seen":"2016-12-26T02:43:09.409224Z","device-type":null,"updated":"2017-03-22T12:03:44.89603Z"},"type":"element"},{"attributes":{"name":"Marc
+        Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"9277cbad-c1b6-40fc-baee-68ca1abeeda9","type":"label"},{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"2844d419-2b41-4146-883e-b74cb7bf8e19","type":"label"},{"id":"d4cea726-bc4a-4d9e-bccb-fe16048475f3","type":"label"},{"id":"4d712b91-5056-4975-8ed5-25ec7377e3d2","type":"label"},{"id":"801891e3-551b-4e78-852f-bef5a2618d3d","type":"label"}]}},"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","meta":{"connected":false,"mac":"6081f9fffe000b01","created":"2016-12-23T01:09:40.394896Z","sim":null,"last-seen":"2017-04-04T02:54:40.733029Z","device-type":"ap-e","updated":"2017-03-04T00:47:43.759442Z"},"type":"element"},{"attributes":{"name":"Andrew
+        Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","meta":{"connected":false,"mac":"6081f9fffe000b76","created":"2016-07-26T21:25:00.635041Z","sim":null,"last-seen":"2017-04-01T20:20:51.100583Z","device-type":null,"updated":"2017-03-04T00:47:43.763334Z"},"type":"element"},{"attributes":{"name":"IoTMANUS
+        Elementg"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"975b986d-f73f-4d3b-bab6-368795d7f136","type":"metadata"}},"sensor":{"data":[{"id":"7132021b-d7ff-4a61-a014-c99b77810ff4","type":"sensor"},{"id":"f92258f1-80f8-45b3-9741-5d55fb207823","type":"sensor"},{"id":"a1d18f88-819b-4044-9cdd-2a9278d5ed65","type":"sensor"}]},"label":{"data":[{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"975b986d-f73f-4d3b-bab6-368795d7f136","meta":{"connected":false,"mac":"6081f9fffe000b50","created":"2016-07-26T21:25:01.73107Z","sim":null,"last-seen":"2017-03-22T19:34:09.068904Z","device-type":"ap-prof","updated":"2017-03-23T10:22:58.434617Z"},"type":"element"},{"attributes":{"name":"Element
+        6"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[]}},"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","meta":{"connected":true,"mac":"6081f9fffe000608","created":"2016-05-24T20:38:53.220166Z","sim":null,"last-seen":"2016-12-20T00:51:42.550419Z","device-type":null,"updated":"2017-03-04T00:47:43.764348Z"},"type":"element"},{"attributes":{"name":"Mark
+        Primary Element"},"relationships":{"device-configuration":{"data":[{"id":"4e49de18-1f5d-4268-a2bf-a30571412c5d","type":"device-configuration"}]},"metadata":{"data":{"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","type":"metadata"}},"sensor":{"data":[{"id":"3f37b3ad-e299-4e32-8db1-45787ce341f2","type":"sensor"}]},"label":{"data":[{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","meta":{"connected":false,"mac":"6081f9fffe0001a9","created":"2016-04-27T18:19:06.520815Z","sim":null,"last-seen":"2017-03-20T19:36:06.763381Z","device-type":null,"updated":"2017-03-04T00:47:43.765453Z"},"type":"element"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/element
+  recorded_at: Tue, 04 Apr 2017 19:38:19 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/element
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - blame me if inappropriate
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 04 Apr 2017 19:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '4950'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"Eric Compound"},"relationships":{"device-configuration":{"data":[{"id":"03e00386-1099-44c2-977a-7220f71638e5","type":"device-configuration"}]},"metadata":{"data":{"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"c2941848-346b-48d8-a3eb-4271dedb42bd","type":"label"},{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"2844d419-2b41-4146-883e-b74cb7bf8e19","type":"label"},{"id":"d4cea726-bc4a-4d9e-bccb-fe16048475f3","type":"label"},{"id":"4d712b91-5056-4975-8ed5-25ec7377e3d2","type":"label"},{"id":"76e9f77e-3202-48e6-bd4b-1202b6973aa7","type":"label"},{"id":"efdd124b-b45c-41c2-8f18-240866e03ef2","type":"label"},{"id":"4dfa334e-93e3-4ea2-a003-a4ef89f0d14d","type":"label"},{"id":"488fd9b8-cc2c-41c7-9b70-c8d895dad73d","type":"label"},{"id":"1d4051ef-93d9-4a86-96ee-5ea254127273","type":"label"},{"id":"5587edb5-1b2a-4a58-a9a5-46e750d3c731","type":"label"},{"id":"7cd3cfc0-053a-4923-9aaf-d220f818af5a","type":"label"},{"id":"f45d81d7-da6f-41c3-aa1e-9b05a4634628","type":"label"},{"id":"a0155f49-9df5-4a63-a967-47df8902d413","type":"label"},{"id":"3c9e0e1e-3286-4683-98dd-4e85cc08d881","type":"label"},{"id":"ae0da464-83d7-4a79-9baf-789a4ad4832a","type":"label"},{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","meta":{"connected":true,"mac":"6081f9fffe000e59","created":"2016-12-23T21:55:12.967624Z","sim":null,"last-seen":"2016-12-26T02:43:09.409224Z","device-type":null,"updated":"2017-03-22T12:03:44.89603Z"},"type":"element"},{"attributes":{"name":"Marc
+        Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"9277cbad-c1b6-40fc-baee-68ca1abeeda9","type":"label"},{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"2844d419-2b41-4146-883e-b74cb7bf8e19","type":"label"},{"id":"d4cea726-bc4a-4d9e-bccb-fe16048475f3","type":"label"},{"id":"4d712b91-5056-4975-8ed5-25ec7377e3d2","type":"label"},{"id":"801891e3-551b-4e78-852f-bef5a2618d3d","type":"label"}]}},"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","meta":{"connected":false,"mac":"6081f9fffe000b01","created":"2016-12-23T01:09:40.394896Z","sim":null,"last-seen":"2017-04-04T02:54:40.733029Z","device-type":"ap-e","updated":"2017-03-04T00:47:43.759442Z"},"type":"element"},{"attributes":{"name":"Andrew
+        Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","meta":{"connected":false,"mac":"6081f9fffe000b76","created":"2016-07-26T21:25:00.635041Z","sim":null,"last-seen":"2017-04-01T20:20:51.100583Z","device-type":null,"updated":"2017-03-04T00:47:43.763334Z"},"type":"element"},{"attributes":{"name":"IoTMANUS
+        Elementg"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"975b986d-f73f-4d3b-bab6-368795d7f136","type":"metadata"}},"sensor":{"data":[{"id":"7132021b-d7ff-4a61-a014-c99b77810ff4","type":"sensor"},{"id":"f92258f1-80f8-45b3-9741-5d55fb207823","type":"sensor"},{"id":"a1d18f88-819b-4044-9cdd-2a9278d5ed65","type":"sensor"}]},"label":{"data":[{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"975b986d-f73f-4d3b-bab6-368795d7f136","meta":{"connected":false,"mac":"6081f9fffe000b50","created":"2016-07-26T21:25:01.73107Z","sim":null,"last-seen":"2017-03-22T19:34:09.068904Z","device-type":"ap-prof","updated":"2017-03-23T10:22:58.434617Z"},"type":"element"},{"attributes":{"name":"Element
+        6"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[]}},"id":"a56ef1d0-61b9-4bfc-9371-d5349a1270c1","meta":{"connected":true,"mac":"6081f9fffe000608","created":"2016-05-24T20:38:53.220166Z","sim":null,"last-seen":"2016-12-20T00:51:42.550419Z","device-type":null,"updated":"2017-03-04T00:47:43.764348Z"},"type":"element"},{"attributes":{"name":"Mark
+        Primary Element"},"relationships":{"device-configuration":{"data":[{"id":"4e49de18-1f5d-4268-a2bf-a30571412c5d","type":"device-configuration"}]},"metadata":{"data":{"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","type":"metadata"}},"sensor":{"data":[{"id":"3f37b3ad-e299-4e32-8db1-45787ce341f2","type":"sensor"}]},"label":{"data":[{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"}]}},"id":"d89ed12c-c7bb-4205-a48a-9fe59c96c459","meta":{"connected":false,"mac":"6081f9fffe0001a9","created":"2016-04-27T18:19:06.520815Z","sim":null,"last-seen":"2017-03-20T19:36:06.763381Z","device-type":null,"updated":"2017-03-04T00:47:43.765453Z"},"type":"element"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/element
+  recorded_at: Tue, 04 Apr 2017 19:38:20 GMT
+- request:
+    method: post
+    uri: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd/relationships/element
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","type":"element"}]}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - sharkfed
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11,o20,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 04 Apr 2017 19:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '73'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"69f353f0-7c3d-4e7f-ad81-201f8ff8d810","type":"element"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd/relationships/element
+  recorded_at: Tue, 04 Apr 2017 19:38:20 GMT
+- request:
+    method: patch
+    uri: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd/relationships/element
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","type":"element"},{"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","type":"element"}]}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - never breaks eye contact
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o20,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 04 Apr 2017 19:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '136'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","type":"element"},{"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","type":"element"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd/relationships/element
+  recorded_at: Tue, 04 Apr 2017 19:38:20 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd/element
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - evacuation not done in time
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 04 Apr 2017 19:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '1580'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"Marc Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"2844d419-2b41-4146-883e-b74cb7bf8e19","type":"label"},{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"4d712b91-5056-4975-8ed5-25ec7377e3d2","type":"label"},{"id":"801891e3-551b-4e78-852f-bef5a2618d3d","type":"label"},{"id":"9277cbad-c1b6-40fc-baee-68ca1abeeda9","type":"label"},{"id":"d4cea726-bc4a-4d9e-bccb-fe16048475f3","type":"label"},{"id":"dd703279-8057-4a5f-b318-4c999b108bdd","type":"label"}]}},"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","meta":{"connected":false,"mac":"6081f9fffe000b01","created":"2016-12-23T01:09:40.394896Z","sim":null,"last-seen":"2017-04-04T02:54:40.733029Z","device-type":"ap-e","updated":"2017-03-04T00:47:43.759442Z"},"type":"element"},{"attributes":{"name":"Andrew
+        Home"},"relationships":{"device-configuration":{"data":[]},"metadata":{"data":{"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","type":"metadata"}},"sensor":{"data":[]},"label":{"data":[{"id":"4b8bbb4c-4a35-4a3e-8f49-7df6be9b7368","type":"label"},{"id":"84371177-a06f-4ae7-91ae-77929e8fb213","type":"label"},{"id":"dd703279-8057-4a5f-b318-4c999b108bdd","type":"label"}]}},"id":"76c35027-9f4f-4eeb-8f6a-548c7caddb53","meta":{"connected":false,"mac":"6081f9fffe000b76","created":"2016-07-26T21:25:00.635041Z","sim":null,"last-seen":"2017-04-01T20:20:51.100583Z","device-type":null,"updated":"2017-03-04T00:47:43.763334Z"},"type":"element"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd/element
+  recorded_at: Tue, 04 Apr 2017 19:38:20 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - firm pat on the back
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Date:
+      - Tue, 04 Apr 2017 19:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/label/dd703279-8057-4a5f-b318-4c999b108bdd
+  recorded_at: Tue, 04 Apr 2017 19:38:20 GMT
+recorded_with: VCR 3.0.3

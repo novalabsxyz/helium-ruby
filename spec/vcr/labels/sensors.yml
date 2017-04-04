@@ -9,12 +9,12 @@ http_interactions:
     headers:
       User-Agent:
       - helium-ruby
+      Authorization:
+      - "<API KEY>"
       Accept:
       - application/json
       Content-Type:
       - application/json
-      Authorization:
-      - "<API KEY>"
       Expect:
       - ''
   response:
@@ -22,51 +22,52 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Mon, 22 Aug 2016 17:21:23 GMT
-      Server:
-      - Warp/3.2.7
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
       Access-Control-Allow-Origin:
       - "*"
-      Access-Control-Allow-Headers:
-      - Origin, Content-Type, Accept, Authorization
+      Airship-Quip:
+      - RB_GC_GUARD
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
-      Airship-Quip:
-      - "$300,000 worth of cows"
       Content-Type:
-      - application/json
+      - application/json;charset=utf8
+      Date:
+      - Mon, 03 Apr 2017 21:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '5679'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":[{"attributes":{"name":"The Isotopes"},"id":"d85ae875-1d02-4ed1-84f3-c5949bcda1d9","meta":{"created":"2016-03-04T16:14:16.090864Z","updated":"2016-03-04T16:14:16.090864Z"},"type":"label"},{"attributes":{"name":"SF
-        Sensors"},"id":"d81df823-a7a9-4476-b624-888f9fc56390","meta":{"created":"2016-03-04T17:45:08.084425Z","updated":"2016-06-20T15:14:29.327186Z"},"type":"label"},{"attributes":{"name":"SF
-        Freezer"},"id":"d1e5ee93-14fd-44de-8a0e-77e49f451c5a","meta":{"created":"2016-03-24T23:45:04.049993Z","updated":"2016-06-20T15:15:55.980414Z"},"type":"label"},{"attributes":{"name":"C''mon
-        in."},"id":"bfd8e8ff-e4b7-4561-ac7e-81178b9868d5","meta":{"created":"2016-03-25T18:26:01.066572Z","updated":"2016-03-25T18:26:11.618124Z"},"type":"label"},{"attributes":{"name":"New
-        Label"},"id":"22c53f67-2c60-41ba-b5b6-ec36362ed1a6","meta":{"created":"2016-03-28T22:37:54.143687Z","updated":"2016-06-20T15:15:39.432433Z"},"type":"label"},{"attributes":{"name":"Bricks"},"id":"968cc881-737e-4bff-bdd6-2af45992fe86","meta":{"created":"2016-03-30T21:42:22.654635Z","updated":"2016-03-30T21:42:24.772556Z"},"type":"label"},{"attributes":{"name":"Andrew''s
-        stuff"},"id":"415e6377-2bc1-46c6-a76c-782e5e7c652d","meta":{"created":"2016-04-11T15:40:33.011466Z","updated":"2016-06-28T13:49:14.065837Z"},"type":"label"},{"attributes":{"name":"Weather
-        Label"},"id":"b5315d04-7bae-4184-8a7a-4f324dd11c8f","meta":{"created":"2016-04-20T17:12:27.433813Z","updated":"2016-06-20T15:14:07.393642Z"},"type":"label"},{"attributes":{"name":"Jared
-        Testing #435"},"id":"da7412f3-1493-4d35-9534-b49e48eb0fe7","meta":{"created":"2016-07-14T21:53:51.269855Z","updated":"2016-07-14T21:54:12.57611Z"},"type":"label"}]}'
+      string: '{"data":[{"attributes":{"name":"Amir''s Sensors"},"relationships":{"metadata":{"data":{"id":"27d45c9a-a800-4123-abb0-b03ad7241ccf","type":"metadata"}},"sensor":{"data":[{"id":"a1d18f88-819b-4044-9cdd-2a9278d5ed65","type":"sensor"},{"id":"28ea925a-c7d1-43c1-993c-50b9a4c86d0a","type":"sensor"}]},"element":{"data":[]}},"id":"27d45c9a-a800-4123-abb0-b03ad7241ccf","meta":{"created":"2017-03-14T17:25:56.426201Z","updated":"2017-03-14T17:25:56.426201Z"},"type":"label"},{"attributes":{"name":"A
+        really really long label name to test with"},"relationships":{"metadata":{"data":{"id":"5265064b-1296-41a0-9ba9-be07b1d22855","type":"metadata"}},"sensor":{"data":[{"id":"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa","type":"sensor"}]},"element":{"data":[]}},"id":"5265064b-1296-41a0-9ba9-be07b1d22855","meta":{"created":"2017-03-22T17:08:10.807794Z","updated":"2017-03-22T17:08:10.807794Z"},"type":"label"},{"attributes":{"name":"virt"},"relationships":{"metadata":{"data":{"id":"5b87ecee-b6d6-44dc-99f4-d0e3d533a3eb","type":"metadata"}},"sensor":{"data":[]},"element":{"data":[]}},"id":"5b87ecee-b6d6-44dc-99f4-d0e3d533a3eb","meta":{"created":"2017-03-20T21:00:18.376085Z","updated":"2017-03-20T21:00:18.376085Z"},"type":"label"},{"attributes":{"name":"test"},"relationships":{"metadata":{"data":{"id":"801891e3-551b-4e78-852f-bef5a2618d3d","type":"metadata"}},"sensor":{"data":[{"id":"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa","type":"sensor"}]},"element":{"data":[{"id":"6fa2f914-450e-447a-8aa3-0e277cda9690","type":"element"}]}},"id":"801891e3-551b-4e78-852f-bef5a2618d3d","meta":{"created":"2017-03-08T21:05:06.251642Z","updated":"2017-03-08T21:05:06.251642Z"},"type":"label"},{"attributes":{"name":"Weather
+        in SF"},"relationships":{"metadata":{"data":{"id":"8dbd8a0f-fe9b-4a1c-9341-bd0d681f2bb0","type":"metadata"}},"sensor":{"data":[]},"element":{"data":[]}},"id":"8dbd8a0f-fe9b-4a1c-9341-bd0d681f2bb0","meta":{"created":"2017-03-14T21:40:22.261235Z","updated":"2017-03-14T21:40:32.690924Z"},"type":"label"},{"attributes":{"name":"NEW"},"relationships":{"metadata":{"data":{"id":"9dbbad16-27af-42b8-80e2-c76129901f96","type":"metadata"}},"sensor":{"data":[{"id":"28ea925a-c7d1-43c1-993c-50b9a4c86d0a","type":"sensor"},{"id":"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa","type":"sensor"}]},"element":{"data":[]}},"id":"9dbbad16-27af-42b8-80e2-c76129901f96","meta":{"created":"2017-03-15T17:31:37.170429Z","updated":"2017-03-15T17:31:37.170429Z"},"type":"label"},{"attributes":{"name":"bug"},"relationships":{"metadata":{"data":{"id":"a7340502-9c8e-4132-83b1-6f114e4fa08d","type":"metadata"}},"sensor":{"data":[{"id":"f92258f1-80f8-45b3-9741-5d55fb207823","type":"sensor"}]},"element":{"data":[]}},"id":"a7340502-9c8e-4132-83b1-6f114e4fa08d","meta":{"created":"2017-03-17T20:16:00.326096Z","updated":"2017-03-17T20:16:00.326096Z"},"type":"label"},{"attributes":{"name":"IoTMANUS"},"relationships":{"metadata":{"data":{"id":"b5a56e8a-fe08-44c5-8d55-8029c81cb8eb","type":"metadata"}},"sensor":{"data":[{"id":"7755426d-8be5-4b4a-87e2-b602d9bb95d9","type":"sensor"},{"id":"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa","type":"sensor"}]},"element":{"data":[]}},"id":"b5a56e8a-fe08-44c5-8d55-8029c81cb8eb","meta":{"created":"2017-03-08T15:18:53.161359Z","updated":"2017-03-08T15:18:53.161359Z"},"type":"label"},{"attributes":{"name":"SF
+        Sensors"},"relationships":{"metadata":{"data":{"id":"d81df823-a7a9-4476-b624-888f9fc56390","type":"metadata"}},"sensor":{"data":[{"id":"fd56a7e7-ccc7-4263-9a89-05a9cc0eed6f","type":"sensor"},{"id":"efdea376-d80b-4ca4-af04-0fba62c183f3","type":"sensor"},{"id":"aba370be-837d-4b41-bee5-686b0069d874","type":"sensor"},{"id":"85fc3b72-5a3a-471d-9bda-d18e29a42d24","type":"sensor"},{"id":"63c4911c-330c-405c-afed-1e3daf3e7c57","type":"sensor"},{"id":"492759da-afb0-4d66-a83c-bb001d20c280","type":"sensor"},{"id":"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa","type":"sensor"}]},"element":{"data":[]}},"id":"d81df823-a7a9-4476-b624-888f9fc56390","meta":{"created":"2016-03-04T17:45:08.084425Z","updated":"2016-06-20T15:14:29.327186Z"},"type":"label"},{"attributes":{"name":"Weather
+        Label"},"relationships":{"metadata":{"data":{"id":"e0192913-b1e5-49ae-b2da-8049eed90d9d","type":"metadata"}},"sensor":{"data":[{"id":"b61c08c2-98ec-4800-8e59-1b24e844132c","type":"sensor"},{"id":"3ad9123f-0f93-48cb-a67c-205d448f56df","type":"sensor"},{"id":"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa","type":"sensor"}]},"element":{"data":[]}},"id":"e0192913-b1e5-49ae-b2da-8049eed90d9d","meta":{"created":"2017-01-25T03:34:19.7863Z","updated":"2017-01-25T03:34:19.7863Z"},"type":"label"},{"attributes":{"name":"virs"},"relationships":{"metadata":{"data":{"id":"e2435131-68a5-4a79-8945-738900c65689","type":"metadata"}},"sensor":{"data":[]},"element":{"data":[]}},"id":"e2435131-68a5-4a79-8945-738900c65689","meta":{"created":"2017-03-20T21:00:59.154918Z","updated":"2017-03-22T14:57:11.451519Z"},"type":"label"},{"attributes":{"name":"Copy
+        of Weather Label"},"relationships":{"metadata":{"data":{"id":"ec2b4ffb-ce77-455e-a3b3-cc2d99c2f843","type":"metadata"}},"sensor":{"data":[{"id":"b61c08c2-98ec-4800-8e59-1b24e844132c","type":"sensor"},{"id":"3ad9123f-0f93-48cb-a67c-205d448f56df","type":"sensor"}]},"element":{"data":[]}},"id":"ec2b4ffb-ce77-455e-a3b3-cc2d99c2f843","meta":{"created":"2017-02-22T22:50:53.358555Z","updated":"2017-02-22T22:50:53.358555Z"},"type":"label"},{"attributes":{"name":"weather
+        in SF label"},"relationships":{"metadata":{"data":{"id":"f1bb2e76-3a91-4533-abeb-659070120ca6","type":"metadata"}},"sensor":{"data":[]},"element":{"data":[]}},"id":"f1bb2e76-3a91-4533-abeb-659070120ca6","meta":{"created":"2017-03-14T21:41:19.43456Z","updated":"2017-03-14T21:41:19.43456Z"},"type":"label"}]}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/label
-  recorded_at: Mon, 22 Aug 2016 17:21:24 GMT
+  recorded_at: Mon, 03 Apr 2017 21:38:20 GMT
 - request:
     method: get
-    uri: https://api.helium.com/v1/label/d85ae875-1d02-4ed1-84f3-c5949bcda1d9/sensor
+    uri: https://api.helium.com/v1/label/801891e3-551b-4e78-852f-bef5a2618d3d/sensor
     body:
       encoding: UTF-8
       string: "{}"
     headers:
       User-Agent:
       - helium-ruby
+      Authorization:
+      - "<API KEY>"
       Accept:
       - application/json
       Content-Type:
       - application/json
-      Authorization:
-      - "<API KEY>"
       Expect:
       - ''
   response:
@@ -74,29 +75,29 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Mon, 22 Aug 2016 17:21:23 GMT
-      Server:
-      - Warp/3.2.7
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
       Access-Control-Allow-Origin:
       - "*"
-      Access-Control-Allow-Headers:
-      - Origin, Content-Type, Accept, Authorization
+      Airship-Quip:
+      - shut it down
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
-      Airship-Quip:
-      - sharkfed
       Content-Type:
-      - application/json
+      - application/json;charset=utf8
+      Date:
+      - Mon, 03 Apr 2017 21:38:19 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '316'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":[{"attributes":{"name":"Marc''s Isotope"},"id":"08bab58b-d095-4c7c-912c-1f8024d91d95","meta":{"card":null,"mac":"6081f9fffe00019b","created":"2015-08-06T17:28:11.614107Z","versions":null,"last-seen":"2015-08-11T18:50:04Z","ports":["b","t"],"updated":"2016-05-30T22:36:50.810716Z"},"type":"sensor"},{"attributes":{"name":"John
-        Isotope"},"id":"51f3564d-bfb9-4b77-b868-fa83f1de2f39","meta":{"card":null,"mac":"6081f9fffe000177","created":"2015-08-06T23:39:35.05194Z","versions":null,"last-seen":"2015-10-07T17:15:04Z","ports":["b","t"],"updated":"2015-08-06T23:39:35.05201Z"},"type":"sensor"},{"attributes":{"name":"RF''s
-        Isotope"},"id":"66ae4160-64a2-41d9-bbe0-891b70e71b1e","meta":{"card":{"id":255},"mac":"6081f9fffe000675","created":"2015-11-03T17:00:10.135173Z","versions":{"sensor-script":[{"version":"37d26a13e081ace2"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"},{"version":"ffffffffffffffff"}],"atom":"2050b00","sensor-config":"a01bd416372f4982","sensor-library":"5deb1dc079f5e352","sensor":"4020200"},"last-seen":"2016-06-01T16:56:17.297082Z","ports":["_se","b","d","t"],"updated":"2015-11-03T17:00:10.114371Z"},"type":"sensor"}]}'
+      string: '{"data":[{"attributes":{"name":"weather-94945"},"id":"11b5a9e9-e098-4d57-9c10-ddb08f81ecfa","meta":{"card":null,"mac":null,"created":"2016-12-14T22:13:48.883309Z","last-seen":"2017-04-03T21:37:15.538126Z","ports":["t","h","p","test","X"],"device-type":null,"updated":"2017-03-22T09:47:54.490799Z"},"type":"sensor"}]}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/label/d85ae875-1d02-4ed1-84f3-c5949bcda1d9/sensor
-  recorded_at: Mon, 22 Aug 2016 17:21:24 GMT
+      effective_url: https://api.helium.com/v1/label/801891e3-551b-4e78-852f-bef5a2618d3d/sensor
+  recorded_at: Mon, 03 Apr 2017 21:38:20 GMT
 recorded_with: VCR 3.0.3

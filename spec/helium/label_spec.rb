@@ -29,21 +29,191 @@ end
 
 describe Helium::Label, '#sensors' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
-  let(:label) { client.labels.first }
+  let(:label) { client.labels[3] }
   let(:sensors) { label.sensors }
 
   use_cassette 'labels/sensors'
 
   it 'returns all sensors associated with a label' do
-    expect(sensors.count).to eq(3)
+    expect(sensors.count).to eq(1)
   end
 
   it 'returns fully formed sensors' do
     sensor = sensors.first
-    expect(sensor.id).to eq("08bab58b-d095-4c7c-912c-1f8024d91d95")
-    expect(sensor.name).to eq("Marc's Isotope")
-    expect(sensor.mac).to eq("6081f9fffe00019b")
-    expect(sensor.ports).to eq(["b", "t"])
+    expect(sensor.id).to eq("11b5a9e9-e098-4d57-9c10-ddb08f81ecfa")
+    expect(sensor.name).to eq("weather-94945")
+    expect(sensor.mac).to eq(nil)
+    expect(sensor.ports).to eq(["t", "h", "p", "test", "X"])
+  end
+end
+
+
+describe Helium::Label, '#add_elements' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  context 'with a single element' do
+    use_cassette 'labels/add_elements_individually'
+
+    it "adds a element to a label without overriding existing relationships" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # grab some elements
+      element_a = client.elements[0]
+      element_b = client.elements[1]
+
+      # add both elements to label
+      new_label.add_elements(element_a)
+      new_label.add_elements(element_b)
+
+      # expect both elements to be in the label
+      all_element_ids = [element_a.id, element_b.id]
+      expect(new_label.elements.map(&:id)).to contain_exactly(*all_element_ids)
+
+      # clean up
+      [new_label].each(&:destroy)
+    end
+  end
+
+  context 'with multiple elements' do
+    use_cassette 'labels/add_elements_multiple'
+
+    it "adds mulitple elements to a label" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # grab some elements
+      element_a = client.elements[0]
+      element_b = client.elements[1]
+      element_c = client.elements[2]
+
+      # add one element to label
+      new_label.add_elements(element_a)
+
+      # add the other two at the same time
+      new_label.add_elements([element_c, element_b])
+
+      # expect all elements to be in the label
+      all_element_ids = [element_a.id, element_b.id, element_c.id] 
+      expect(new_label.elements.map(&:id)).to contain_exactly(*all_element_ids)
+
+      # clean up
+      [new_label].each(&:destroy)
+    end
+  end
+end
+
+describe Helium::Label, '#replace_elements' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  context 'with a single element' do
+    use_cassette 'labels/replace_elements_individually'
+
+    it "replaces a element to a label overriding existing relationships" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # grab some elements
+      element_a = client.elements[0]
+      element_b = client.elements[1]
+
+      # add one element to label
+      new_label.add_elements(element_a)
+
+      # replace the element with the other
+      new_label.replace_elements(element_b)
+
+      # expect the second element to be in the label
+      all_element_ids = [element_b.id]
+      expect(new_label.elements.map(&:id)).to contain_exactly(*all_element_ids)
+
+      # clean up
+      [new_label].each(&:destroy)
+    end
+  end
+
+  context 'with multiple elements' do
+    use_cassette 'labels/replace_elements_multiple'
+
+    it "replaces mulitple elements in a label" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # create some elements
+      element_a = client.elements[0]
+      element_b = client.elements[1]
+      element_c = client.elements[2]
+
+      # add one element to label
+      new_label.add_elements(element_a)
+
+      # replace the element with the other
+      new_label.replace_elements([element_b, element_c])
+
+      # expect the latter elements to be in the label
+      all_element_ids = [element_b.id, element_c.id]
+      expect(new_label.elements.map(&:id)).to contain_exactly(*all_element_ids)
+
+      # clean up
+      [new_label].each(&:destroy)
+    end
+  end
+end
+
+describe Helium::Label, '#remove_elements' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  context 'with a single element' do
+    use_cassette 'labels/remove_elements_individually'
+
+    it "removes a element from a label without overriding existing relationships" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # grab some elements
+      element_a = client.elements[0]
+      element_b = client.elements[1]
+
+      # add both elements to label
+      new_label.add_elements([element_a, element_b])
+
+      # remove one element from the label
+      new_label.remove_elements(element_b)
+
+      # expect the other element to be in the label
+      all_element_ids = [element_a.id]
+      expect(new_label.elements.map(&:id)).to contain_exactly(*all_element_ids)
+
+      # clean up
+      [new_label].each(&:destroy)
+    end
+  end
+
+  context 'with mulitple sensors' do
+    use_cassette 'labels/remove_elements_multiple'
+
+    it "removes elements from a label without overriding existing relationships" do
+      # create a new label
+      new_label = client.create_label(name: "A Test Label")
+
+      # create some sensors
+      element_a = client.elements[0]
+      element_b = client.elements[1]
+      element_c = client.elements[2]
+
+      # add all sensors to label
+      new_label.add_elements([element_a, element_b, element_c])
+
+      # remove two sensors from the label
+      new_label.remove_elements([element_b, element_c])
+
+      # expect the other sensor to be in the label
+      all_sensor_ids = [element_a.id]
+      expect(new_label.elements.map(&:id)).to contain_exactly(*all_sensor_ids)
+
+      # clean up
+      [new_label].each(&:destroy)
+    end
   end
 end
 
