@@ -15,6 +15,10 @@ module Helium
       Collection.new(klass: Sensor, client: @client, belongs_to: self)
     end
 
+    def labels
+      Collection.new(klass: Label, client: @client, belongs_to: self)
+    end
+
     def device_configuration
       @client.element_device_configuration(self)
     end

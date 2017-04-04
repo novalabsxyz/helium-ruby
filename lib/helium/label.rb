@@ -27,6 +27,25 @@ module Helium
       self
     end
 
+    def elements
+      Collection.new(klass: Element, client: @client, belongs_to: self)
+    end
+
+    def add_elements(elements_to_add = [])
+      elements.add_relationships(elements_to_add)
+      self
+    end
+
+    def replace_elements(elements_to_replace = [])
+      elements.replace_relationships(elements_to_replace)
+      self
+    end
+
+    def remove_elements(elements_to_remove = [])
+      elements.remove_relationships(elements_to_remove)
+      self
+    end
+
     # TODO can probably generalize this a bit more
     def as_json
       super.merge({

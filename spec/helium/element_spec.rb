@@ -43,6 +43,25 @@ describe Helium::Element, '#update' do
   end
 end
 
+describe Helium::Element, '#labels' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+  let(:element) { client.element("6fa2f914-450e-447a-8aa3-0e277cda9690") }
+
+  let(:labels) { element.labels }
+
+  use_cassette 'elements/labels'
+
+  it 'returns all labels attached to a element' do
+    expect(labels.count).to eq(1)
+  end
+
+  it 'returns fully formed labels' do
+    label = labels.first
+    expect(label.name).to eq("test")
+
+  end
+end
+
 describe Helium::Element, '#sensors' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:element) { client.element("2c59f726-5316-49a7-857a-33ae63b126a4") }
