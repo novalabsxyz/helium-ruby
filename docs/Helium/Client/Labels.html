@@ -171,29 +171,6 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#update_label_sensors-instance_method" title="#update_label_sensors (instance method)">#<strong>update_label_sensors</strong>(label, opts = {})  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>TODO incorporate this logic into Helium::Collection.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
@@ -293,104 +270,12 @@
 </table>
 </div>
     
-      <div class="method_details ">
-  <h3 class="signature " id="update_label_sensors-instance_method">
-  
-    #<strong>update_label_sensors</strong>(label, opts = {})  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>TODO incorporate this logic into Helium::Collection</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/client/labels.rb', line 17</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_update_label_sensors'>update_label_sensors</span><span class='lparen'>(</span><span class='id identifier rubyid_label'>label</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_sensors'>sensors</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:sensors</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/label/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_content'>/relationships/sensor</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_sensors'>sensors</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_sensors'>sensors</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_new_sensor_data'>new_sensor_data</span> <span class='op'>=</span> <span class='id identifier rubyid_sensors'>sensors</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_sensor'>sensor</span><span class='op'>|</span>
-    <span class='lbrace'>{</span>
-      <span class='label'>id:</span> <span class='id identifier rubyid_sensor'>sensor</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
-      <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sensor</span><span class='tstring_end'>&#39;</span></span>
-    <span class='rbrace'>}</span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='label'>data:</span> <span class='id identifier rubyid_new_sensor_data'>new_sensor_data</span>
-  <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>body:</span> <span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_sensors_data'>sensors_data</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-
-  <span class='comment'># TODO: these come back deflated. need to either inflate at this point or
-</span>  <span class='comment'># when needed
-</span>  <span class='id identifier rubyid_sensors'>sensors</span> <span class='op'>=</span> <span class='id identifier rubyid_sensors_data'>sensors_data</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_sensor_data'>sensor_data</span><span class='op'>|</span>
-    <span class='const'>Sensor</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>params:</span> <span class='id identifier rubyid_sensor_data'>sensor_data</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-
-  <span class='kw'>return</span> <span class='id identifier rubyid_sensors'>sensors</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Mon Feb 13 09:17:41 2017 by
+  Generated on Wed Apr  5 13:55:53 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

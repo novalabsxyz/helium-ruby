@@ -113,6 +113,34 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#device_type-instance_method" title="#device_type (instance method)">#<strong>device_type</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute device_type.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#last_seen-instance_method" title="#last_seen (instance method)">#<strong>last_seen</strong>  &#x21d2; DateTime<sup>?</sup> </a>
     
 
@@ -274,6 +302,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#add_labels-instance_method" title="#add_labels (instance method)">#<strong>add_labels</strong>(labels_to_add = [])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#as_json-instance_method" title="#as_json (instance method)">#<strong>as_json</strong>  &#x21d2; Object </a>
     
 
@@ -410,6 +460,50 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#remove_labels-instance_method" title="#remove_labels (instance method)">#<strong>remove_labels</strong>(labels_to_remove = [])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#replace_labels-instance_method" title="#replace_labels (instance method)">#<strong>replace_labels</strong>(labels_to_replace = [])  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#timeseries-instance_method" title="#timeseries (instance method)">#<strong>timeseries</strong>(opts = {})  &#x21d2; Object </a>
     
 
@@ -511,7 +605,8 @@
 9
 10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 5</span>
@@ -519,10 +614,11 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
 
-  <span class='ivar'>@name</span>      <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@mac</span>       <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mac</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@ports</span>     <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ports</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='ivar'>@last_seen</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>last-seen</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@name</span>        <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>attributes</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@mac</span>         <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mac</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@ports</span>       <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ports</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@last_seen</span>   <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>last-seen</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@device_type</span> <span class='op'>=</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>meta</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>device-type</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -537,7 +633,49 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="last_seen-instance_method">
+  <h3 class="signature first" id="device_type-instance_method">
+  
+    #<strong>device_type</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute device_type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3
+4
+5</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 3</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_device_type'>device_type</span>
+  <span class='ivar'>@device_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="last_seen-instance_method">
   
     #<strong>last_seen</strong>  &#x21d2; <tt>DateTime</tt><sup>?</sup>  <span class="extras">(readonly)</span>
   
@@ -578,12 +716,12 @@
       <pre class="lines">
 
 
-69
 70
-71</pre>
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_seen'>last_seen</span>
   <span class='ivar'>@last_seen</span>
@@ -741,12 +879,12 @@
       <pre class="lines">
 
 
-18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_all_path'>all_path</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/sensor?include=label</span><span class='tstring_end'>&quot;</span></span>
@@ -763,7 +901,53 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="as_json-instance_method">
+  <h3 class="signature first" id="add_labels-instance_method">
+  
+    #<strong>add_labels</strong>(labels_to_add = [])  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_labels'>add_labels</span><span class='lparen'>(</span><span class='id identifier rubyid_labels_to_add'>labels_to_add</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='comment'># There&#39;s no first-class support for modifying the labels of a sensor in
+</span>  <span class='comment'># the API yet, so we modify each label&#39;s relationship to the sensor. Once
+</span>  <span class='comment'># this is supported in the API, this can use #add_relationships instead.
+</span>  <span class='comment'># Same comment applies for the following 3 functions
+</span>  <span class='id identifier rubyid_labels_to_add'>labels_to_add</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_labels_to_add'>labels_to_add</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_labels_to_add'>labels_to_add</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='op'>|</span>
+    <span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_add_sensors'>add_sensors</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="as_json-instance_method">
   
     #<strong>as_json</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -787,7 +971,6 @@
       <pre class="lines">
 
 
-75
 76
 77
 78
@@ -795,10 +978,12 @@
 80
 81
 82
-83</pre>
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span>
   <span class='kw'>super</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
@@ -806,7 +991,8 @@
     <span class='label'>mac:</span> <span class='id identifier rubyid_mac'>mac</span><span class='comma'>,</span>
     <span class='label'>ports:</span> <span class='id identifier rubyid_ports'>ports</span><span class='comma'>,</span>
     <span class='label'>last_seen:</span> <span class='id identifier rubyid_last_seen'>last_seen</span><span class='comma'>,</span>
-    <span class='label'>virtual:</span> <span class='id identifier rubyid_virtual?'>virtual?</span>
+    <span class='label'>virtual:</span> <span class='id identifier rubyid_virtual?'>virtual?</span><span class='comma'>,</span>
+    <span class='label'>device_type:</span> <span class='id identifier rubyid_device_type'>device_type</span>
   <span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -829,12 +1015,12 @@
       <pre class="lines">
 
 
-26
 27
-28</pre>
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device_configuration'>device_configuration</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sensor_device_configuration'>sensor_device_configuration</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -859,12 +1045,12 @@
       <pre class="lines">
 
 
-14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_element'>element</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_sensor_element'>sensor_element</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -889,12 +1075,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labels'>labels</span>
   <span class='const'>Collection</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>klass:</span> <span class='const'>Label</span><span class='comma'>,</span> <span class='label'>client:</span> <span class='ivar'>@client</span><span class='comma'>,</span> <span class='label'>belongs_to:</span> <span class='kw'>self</span><span class='rparen'>)</span>
@@ -919,7 +1105,6 @@
       <pre class="lines">
 
 
-52
 53
 54
 55
@@ -933,10 +1118,11 @@
 63
 64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_live_timeseries'>live_timeseries</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_port'>port</span>        <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:port</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -959,6 +1145,92 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="remove_labels-instance_method">
+  
+    #<strong>remove_labels</strong>(labels_to_remove = [])  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 112</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_remove_labels'>remove_labels</span><span class='lparen'>(</span><span class='id identifier rubyid_labels_to_remove'>labels_to_remove</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_labels_to_remove'>labels_to_remove</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_labels_to_remove'>labels_to_remove</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_labels_to_remove'>labels_to_remove</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='op'>|</span>
+    <span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_remove_sensors'>remove_sensors</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="replace_labels-instance_method">
+  
+    #<strong>replace_labels</strong>(labels_to_replace = [])  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 99</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_replace_labels'>replace_labels</span><span class='lparen'>(</span><span class='id identifier rubyid_labels_to_replace'>labels_to_replace</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='comment'># To support replacement, we remove this sensor from each label, and then
+</span>  <span class='comment'># add it to the specified set
+</span>  <span class='id identifier rubyid_labels_to_replace'>labels_to_replace</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_labels_to_replace'>labels_to_replace</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_labels'>labels</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='op'>|</span>
+    <span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_remove_sensors'>remove_sensors</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_labels_to_replace'>labels_to_replace</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_label'>label</span><span class='op'>|</span>
+    <span class='id identifier rubyid_label'>label</span><span class='period'>.</span><span class='id identifier rubyid_add_sensors'>add_sensors</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="timeseries-instance_method">
   
     #<strong>timeseries</strong>(opts = {})  &#x21d2; <tt>Object</tt> 
@@ -973,7 +1245,6 @@
       <pre class="lines">
 
 
-34
 35
 36
 37
@@ -989,10 +1260,11 @@
 47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timeseries'>timeseries</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_size'>size</span>        <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:size</span><span class='comma'>,</span> <span class='int'>1000</span><span class='rparen'>)</span>
@@ -1053,12 +1325,12 @@
       <pre class="lines">
 
 
-30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/helium/sensor.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_virtual?'>virtual?</span>
   <span class='id identifier rubyid_mac'>mac</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1073,7 +1345,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Feb 13 09:17:41 2017 by
+  Generated on Wed Apr  5 13:55:53 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>

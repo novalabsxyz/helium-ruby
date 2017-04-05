@@ -142,7 +142,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(path)  &#x21d2; Object </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(path, opts = {})  &#x21d2; Object </a>
     
 
     
@@ -363,7 +363,7 @@
       <div class="method_details ">
   <h3 class="signature " id="delete-instance_method">
   
-    #<strong>delete</strong>(path)  &#x21d2; <tt>Object</tt> 
+    #<strong>delete</strong>(path, opts = {})  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -383,8 +383,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/helium/client/http.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='symbol'>:delete</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='symbol'>:delete</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -764,7 +764,7 @@ it will simply pass through</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Feb 13 09:17:41 2017 by
+  Generated on Wed Apr  5 13:55:53 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.3.1).
 </div>
