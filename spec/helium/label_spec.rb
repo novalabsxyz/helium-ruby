@@ -196,18 +196,18 @@ describe Helium::Label, '#remove_elements' do
       # create a new label
       new_label = client.create_label(name: "A Test Label")
 
-      # create some sensors
+      # create some elements
       element_a = client.elements[0]
       element_b = client.elements[1]
       element_c = client.elements[2]
 
-      # add all sensors to label
+      # add all elements to label
       new_label.add_elements([element_a, element_b, element_c])
 
-      # remove two sensors from the label
+      # remove two elements from the label
       new_label.remove_elements([element_b, element_c])
 
-      # expect the other sensor to be in the label
+      # expect the other element to be in the label
       all_sensor_ids = [element_a.id]
       expect(new_label.elements.map(&:id)).to contain_exactly(*all_sensor_ids)
 
