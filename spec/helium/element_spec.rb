@@ -62,6 +62,168 @@ describe Helium::Element, '#labels' do
   end
 end
 
+describe Helium::Element, '#add_labels' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  context "with a single label" do
+    use_cassette 'elements/add_single_label'
+    it 'adds a single label to a element' do
+
+      # create a element
+      element = client.elements[0]
+      puts element.inspect
+
+      # create a new label
+      new_label_a = client.create_label(name: "A Test Label")
+
+      # add one label to element
+      element.add_labels(new_label_a)
+
+      # expect the label to be assigned to the label
+      all_label_ids = [new_label_a.id]
+      expect(element.labels.map(&:id)).to contain_exactly(*all_label_ids)
+
+      # clean up
+      [new_label_a].each(&:destroy)
+    end
+  end
+
+  context "with multiple labels" do
+    use_cassette 'elements/add_multiple_labels'
+    it 'adds multiple labels to a element' do
+
+      # create a element
+      element = client.elements[0]
+
+      # create new labels
+      new_label_a = client.create_label(name: "A Test Label")
+      new_label_b = client.create_label(name: "B Test Label")
+
+      # add labels to element
+      element.add_labels([new_label_a, new_label_b])
+
+      # expect the label to be assigned to the label
+      all_label_ids = [new_label_a.id, new_label_b.id]
+      expect(element.labels.map(&:id)).to contain_exactly(*all_label_ids)
+
+      # clean up
+      [new_label_a, new_label_b].each(&:destroy)
+    end
+  end
+end
+
+describe Helium::Element, '#replace_labels' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  context "with a single label" do
+    use_cassette 'elements/replace_single_label'
+    it 'replaces a single label associated with a element' do
+
+      # create a element
+      element = client.elements[0]
+
+      # create new labels
+      new_label_a = client.create_label(name: "A Test Label")
+      new_label_b = client.create_label(name: "B Test Label")
+
+      # add one label to element
+      element.add_labels(new_label_a)
+
+      # replace the element's label
+      element.replace_labels(new_label_b)
+
+      # expect the label to be assigned to the label
+      all_label_ids = [new_label_b.id]
+      expect(element.labels.map(&:id)).to contain_exactly(*all_label_ids)
+
+      # clean up
+      [new_label_a, new_label_b].each(&:destroy)
+    end
+  end
+
+  context "with multiple labels" do
+    use_cassette 'elements/replace_multiple_labels'
+    it 'replaces multiple labels associated with a element' do
+
+      # create a element
+      element = client.elements[0]
+
+      # create new labels
+      new_label_a = client.create_label(name: "A Test Label")
+      new_label_b = client.create_label(name: "B Test Label")
+      new_label_c = client.create_label(name: "C Test Label")
+
+      # add label to element
+      element.add_labels(new_label_a)
+      # Replace with labels
+      element.replace_labels([new_label_b, new_label_c])
+
+      # expect the labels to be assigned to the label
+      all_label_ids = [new_label_b.id, new_label_c.id]
+      expect(element.labels.map(&:id)).to contain_exactly(*all_label_ids)
+
+      # clean up
+      [new_label_a, new_label_b, new_label_c].each(&:destroy)
+    end
+  end
+end
+
+describe Helium::Element, '#remove_labels' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  context "with a single label" do
+    use_cassette 'elements/remove_single_label'
+    it 'removes a single label to a element' do
+
+      # create a element
+      element = client.elements[0]
+
+      # create new labels
+      new_label_a = client.create_label(name: "A Test Label")
+      new_label_b = client.create_label(name: "B Test Label")
+
+      # add labels to element
+      element.add_labels([new_label_a, new_label_b])
+
+      # delete one of the element's label
+      element.remove_labels(new_label_a)
+
+      # expect the label to be assigned to the label
+      all_label_ids = [new_label_b.id]
+      expect(element.labels.map(&:id)).to contain_exactly(*all_label_ids)
+
+      # clean up
+      [new_label_a, new_label_b].each(&:destroy)
+    end
+  end
+
+  context "with multiple labels" do
+    use_cassette 'elements/remove_multiple_labels'
+    it 'removes multiple labels associated with a element' do
+
+      # create a element
+      element = client.elements[0]
+
+      # create new labels
+      new_label_a = client.create_label(name: "A Test Label")
+      new_label_b = client.create_label(name: "B Test Label")
+      new_label_c = client.create_label(name: "C Test Label")
+
+      # add label to element
+      element.add_labels([new_label_a, new_label_b, new_label_c])
+      # Remove labels
+      element.remove_labels([new_label_b, new_label_c])
+
+      # expect the labels to be assigned to the label
+      all_label_ids = [new_label_a.id]
+      expect(element.labels.map(&:id)).to contain_exactly(*all_label_ids)
+
+      # clean up
+      [new_label_a, new_label_b, new_label_c].each(&:destroy)
+    end
+  end
+end
+
 describe Helium::Element, '#sensors' do
   let(:client) { Helium::Client.new(api_key: API_KEY) }
   let(:element) { client.element("2c59f726-5316-49a7-857a-33ae63b126a4") }

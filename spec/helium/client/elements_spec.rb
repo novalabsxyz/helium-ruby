@@ -11,7 +11,7 @@ describe Helium::Client, '#elements' do
   end
 
   it 'returns all elements associated with the current org' do
-    expect(elements.count).to eq(18)
+    expect(elements.count).to eq(6)
   end
 end
 
