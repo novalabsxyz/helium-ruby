@@ -116,5 +116,11 @@ module Helium
       end
       self
     end
+
+    # A sensor can be associated with at most 2 sensor-packages: the loaded
+    # package and package being loaded
+    def sensor_packages
+      Collection.new(klass: SensorPackage, client: @client, belongs_to: self)
+    end
   end
 end

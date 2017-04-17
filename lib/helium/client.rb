@@ -1,23 +1,25 @@
-require 'helium/client/http'
-require 'helium/client/users'
-require 'helium/client/organizations'
-require 'helium/client/sensors'
-require 'helium/client/labels'
-require 'helium/client/elements'
 require 'helium/client/configurations'
 require 'helium/client/device_configurations'
+require 'helium/client/elements'
+require 'helium/client/helium_scripts'
+require 'helium/client/http'
+require 'helium/client/labels'
+require 'helium/client/organizations'
+require 'helium/client/sensors'
+require 'helium/client/users'
 
 module Helium
   class Client
     include Helium::Utils
-    include Helium::Client::Http
-    include Helium::Client::Users
-    include Helium::Client::Organizations
-    include Helium::Client::Sensors
-    include Helium::Client::Labels
-    include Helium::Client::Elements
     include Helium::Client::Configurations
     include Helium::Client::DeviceConfigurations
+    include Helium::Client::Elements
+    include Helium::Client::HeliumScripts
+    include Helium::Client::Http
+    include Helium::Client::Labels
+    include Helium::Client::Organizations
+    include Helium::Client::Sensors
+    include Helium::Client::Users
 
 
     API_VERSION = 'v1'
