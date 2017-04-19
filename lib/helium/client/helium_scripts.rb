@@ -38,12 +38,15 @@ module Helium
         Package.find(id, client: self)
       end
 
-      def create_package(script, libraries)
-        library_rels = libraries.map do |lib|
+      def create_package(script, libraries = [], name = nil)
+        library_rels = Array(libraries).map do |lib|
           { id: lib.id, type: 'library' }
         end
         body = {
           data: {
+            attributes: {
+              name: name
+            },
             type: 'package',
             relationships: {
               script: {
@@ -61,7 +64,7 @@ module Helium
 
         response = post('/package', body: body)
         resource_data = JSON.parse(response.body)["data"]
-        Package.new(client: client, params: resource_data)
+        Package.new(client: self, params: resource_data)
       end
 
       def sensor_packages
