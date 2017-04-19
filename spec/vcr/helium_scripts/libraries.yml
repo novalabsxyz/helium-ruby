@@ -1,0 +1,142 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/library
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test.lua","contents":"LS0gVGVzdCBMaWJyYXJ5"},"type":"library"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - RB_GC_GUARD
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Location:
+      - "/v1/library/79558150-0fe7-4682-9ad0-31953ed86dd2"
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '353'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"79558150-0fe7-4682-9ad0-31953ed86dd2","type":"metadata"}}},"id":"79558150-0fe7-4682-9ad0-31953ed86dd2","meta":{"created":"2017-04-19T19:47:28.756281Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/library
+  recorded_at: Wed, 19 Apr 2017 19:47:28 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/library
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - shut it down
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '5228'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"2d60b481-6ec5-40b1-9914-3ef6895f5774","type":"package"}]},"metadata":{"data":{"id":"491b5f7d-bcfa-4e58-a45f-d0cba3571950","type":"metadata"}}},"id":"491b5f7d-bcfa-4e58-a45f-d0cba3571950","meta":{"created":"2017-04-19T19:40:58.123417Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"71573036-88e4-49d0-b503-92ab91daf09f","type":"package"}]},"metadata":{"data":{"id":"5093e421-fee1-4e54-b4e6-48eb3544e5c8","type":"metadata"}}},"id":"5093e421-fee1-4e54-b4e6-48eb3544e5c8","meta":{"created":"2017-04-19T16:16:32.63902Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"fb4c2c42-b764-45e9-9c38-f9677b87efae","type":"package"}]},"metadata":{"data":{"id":"6ba73292-de43-4a7e-a96e-323ce64cfe5e","type":"metadata"}}},"id":"6ba73292-de43-4a7e-a96e-323ce64cfe5e","meta":{"created":"2017-04-19T19:41:19.029398Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"79558150-0fe7-4682-9ad0-31953ed86dd2","type":"metadata"}}},"id":"79558150-0fe7-4682-9ad0-31953ed86dd2","meta":{"created":"2017-04-19T19:47:28.756281Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"5684fa96-4721-4af2-acb0-dae8954be194","type":"package"}]},"metadata":{"data":{"id":"8f193fbb-6a43-42f4-a11e-34ec9937a73f","type":"metadata"}}},"id":"8f193fbb-6a43-42f4-a11e-34ec9937a73f","meta":{"created":"2017-04-19T16:17:29.358404Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"4ef0f0ad-75dd-40fe-b954-7e80bccb8096","type":"package"}]},"metadata":{"data":{"id":"9b9f34d4-dc16-43f9-b8c9-e8952aa56264","type":"metadata"}}},"id":"9b9f34d4-dc16-43f9-b8c9-e8952aa56264","meta":{"created":"2017-04-19T16:16:32.354654Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"800d2506-59f6-4e9a-bb2d-755e20da444b","type":"package"}]},"metadata":{"data":{"id":"c03a9947-65f6-4960-9a73-3ee84a732b02","type":"metadata"}}},"id":"c03a9947-65f6-4960-9a73-3ee84a732b02","meta":{"created":"2017-04-19T16:17:29.073649Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"a2ee156b-391b-4a6e-aefe-eb88b5af785f","type":"package"}]},"metadata":{"data":{"id":"c266a7a0-ee54-41da-945c-350c0ceb0066","type":"metadata"}}},"id":"c266a7a0-ee54-41da-945c-350c0ceb0066","meta":{"created":"2017-04-19T16:16:33.010747Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"73b0c0c4-dae6-4e43-bdb8-c11d0be52119","type":"package"}]},"metadata":{"data":{"id":"c7aae1d5-6391-4ec5-b530-3add6da0d7e6","type":"metadata"}}},"id":"c7aae1d5-6391-4ec5-b530-3add6da0d7e6","meta":{"created":"2017-04-19T16:17:29.638535Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"dd4874c5-4cec-4b15-8141-ca3fb1207d6b","type":"package"}]},"metadata":{"data":{"id":"ceef2012-e899-4ea4-8565-23035463c5f2","type":"metadata"}}},"id":"ceef2012-e899-4ea4-8565-23035463c5f2","meta":{"created":"2017-04-19T16:18:04.57735Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"a0bb2d9a-7f79-4e53-a872-013dc934e86c","type":"package"}]},"metadata":{"data":{"id":"de9f6085-39eb-448d-be68-df35a922ca2f","type":"metadata"}}},"id":"de9f6085-39eb-448d-be68-df35a922ca2f","meta":{"created":"2017-04-19T16:18:03.837633Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"9dc4cea3-5f8a-4081-91a2-5f3f0034e09a","type":"package"}]},"metadata":{"data":{"id":"df34900d-f97f-4c70-886b-9e0f012f2c9f","type":"metadata"}}},"id":"df34900d-f97f-4c70-886b-9e0f012f2c9f","meta":{"created":"2017-04-19T19:42:04.373518Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"},{"attributes":{"name":"lib.lua"},"relationships":{"package":{"data":[{"id":"672a3cc1-20ba-4e00-93ec-a5dfe74ffe4d","type":"package"}]},"metadata":{"data":{"id":"e01cc39d-010b-4b37-8344-ae80156991a9","type":"metadata"}}},"id":"e01cc39d-010b-4b37-8344-ae80156991a9","meta":{"created":"2017-04-19T16:18:04.208856Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/library
+  recorded_at: Wed, 19 Apr 2017 19:47:28 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/library/79558150-0fe7-4682-9ad0-31953ed86dd2
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - blame me if inappropriate
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Server:
+      - Warp/3.2.7
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/library/79558150-0fe7-4682-9ad0-31953ed86dd2
+  recorded_at: Wed, 19 Apr 2017 19:47:28 GMT
+recorded_with: VCR 3.0.3
