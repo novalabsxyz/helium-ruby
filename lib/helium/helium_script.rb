@@ -10,13 +10,8 @@ module Helium
     end
 
     def content
-      if @content
-        @content
-      else
-        response = @client.get(resource_path+'/content',
-                               content_type: 'application/octet-stream')
-        @content = response.body
-      end
+      @content ||= @client.get(resource_path+'/content',
+                               content_type: 'application/octet-stream').body
     end
   end
 
@@ -30,13 +25,8 @@ module Helium
     end
 
     def content
-      if @content
-        @content
-      else
-        response = @client.get(resource_path+'/content',
-                               content_type: 'application/octet-stream')
-        @content = response.body
-      end
+      @content ||= @client.get(resource_path+'/content',
+                               content_type: 'application/octet-stream').body
     end
   end
 
@@ -48,12 +38,16 @@ module Helium
       @name = @params.dig('attributes', 'name')
     end
 
+    # Script is immutable and can be cached
     def script
-      Script.initialize_from_path(path: "#{resource_path}/script", client: @client)
+      @script ||= Script.initialize_from_path(path: "#{resource_path}/script",
+                                               client: @client)
     end
 
+    # Libraries are immutable and can be cached
     def libraries
-      Collection.new(klass: Library, client: @client, belongs_to: self)
+      @libs ||= Collection.new(klass: Library, client: @client,
+                               belongs_to: self)
     end
   end
 
@@ -65,12 +59,15 @@ module Helium
       @loaded = @params.dig('meta', 'loaded')
     end
 
+    # Sensor is not immutable (name can change), and should not be cached
     def sensor
       Sensor.initialize_from_path(path: "#{resource_path}/sensor", client: @client)
     end
 
+    # Package is immutable and can be cached
     def package
-      Package.initialize_from_path(path: "#{resource_path}/package", client: @client)
+      @package ||= Package.initialize_from_path(path: "#{resource_path}/package",
+                                                client: @client)
     end
   end
 end

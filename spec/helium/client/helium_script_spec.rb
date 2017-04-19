@@ -134,9 +134,10 @@ describe Helium::Client, '#create_package' do
 
   it 'creates a new Package' do
     expect(@package).to be_a(Helium::Package)
-    # [2017-05-18] Bug in the API currently prevents setting name
-    #expect(@package.name).to eq('test package')
     expect(@package).to respond_to(:id)
+    # [2017-05-18] Bug in the API currently prevents setting name
+    pending("API bug prevents setting name")
+    expect(@package.name).to eq('test package')
   end
 
 end
@@ -185,5 +186,85 @@ describe Helium::Client, '#package' do
   it 'finds a Package by ID' do
     package = client.package(@package.id)
     expect(package).to eq(@package)
+  end
+end
+
+describe Helium::Client, '#create_sensor_package' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  use_cassette 'helium_scripts/create_sensor_package'
+
+  before(:each) do
+    @script = client.create_script('script.lua', '-- Test Script')
+    @lib = client.create_library('lib.lua', '-- Test Library')
+    @package = client.create_package(@script, [@lib], 'test package')
+    @sensor = client.sensor('7132021b-d7ff-4a61-a014-c99b77810ff4')
+    @sensor_package = client.create_sensor_package(@sensor, @package)
+  end
+
+  after(:each) do
+    @sensor_package.destroy
+    @package.destroy
+    @script.destroy
+    @lib.destroy
+  end
+
+  it 'creates a new Sensor Package' do
+    expect(@sensor_package).to be_a(Helium::SensorPackage)
+    expect(@sensor_package).to respond_to(:id)
+  end
+
+end
+
+describe Helium::Client, '#sensor_packages' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  use_cassette 'helium_scripts/sensor_packages'
+
+  before(:each) do
+    @script = client.create_script('script.lua', '-- Test Script')
+    @lib = client.create_library('lib.lua', '-- Test Library')
+    @package = client.create_package(@script, [@lib], 'test package')
+    @sensor = client.sensor('7132021b-d7ff-4a61-a014-c99b77810ff4')
+    @sensor_package = client.create_sensor_package(@sensor, @package)
+  end
+
+  after(:each) do
+    @sensor_package.destroy
+    @package.destroy
+    @script.destroy
+    @lib.destroy
+  end
+
+  it 'is a Collection of Sensor Packages' do
+    sensor_packages = client.sensor_packages
+    expect(sensor_packages).to be_a(Helium::Collection)
+    expect(sensor_packages.first).to be_a(Helium::SensorPackage)
+  end
+end
+
+describe Helium::Client, '#sensor_package' do
+  let(:client) { Helium::Client.new(api_key: API_KEY) }
+
+  use_cassette 'helium_scripts/sensor_package'
+
+  before(:each) do
+    @script = client.create_script('script.lua', '-- Test Script')
+    @lib = client.create_library('lib.lua', '-- Test Library')
+    @package = client.create_package(@script, [@lib], 'test package')
+    @sensor = client.sensor('7132021b-d7ff-4a61-a014-c99b77810ff4')
+    @sensor_package = client.create_sensor_package(@sensor, @package)
+  end
+
+  after(:each) do
+    @sensor_package.destroy
+    @package.destroy
+    @script.destroy
+    @lib.destroy
+  end
+
+  it 'finds a Sensor Package by ID' do
+    sensor_package = client.sensor_package(@sensor_package.id)
+    expect(sensor_package).to eq(@sensor_package)
   end
 end
