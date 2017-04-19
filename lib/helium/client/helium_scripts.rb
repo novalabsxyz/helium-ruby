@@ -75,7 +75,7 @@ module Helium
         SensorPackage.find(id, client: self)
       end
 
-      def create_sensor_package(package, sensor)
+      def create_sensor_package(sensor, package)
         body = {
           data: {
             type: 'sensor-package',
@@ -98,7 +98,7 @@ module Helium
 
         response = post('/sensor-package', body: body)
         resource_data = JSON.parse(response.body)["data"]
-        SensorPackage.new(client: client, params: resource_data)
+        SensorPackage.new(client: self, params: resource_data)
       end
     end
   end
