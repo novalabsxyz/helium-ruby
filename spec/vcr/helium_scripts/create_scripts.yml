@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/script
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test.lua","contents":"LS0gVGVzdCBTY3JpcHQ="},"type":"script"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - shut it down
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Location:
+      - "/v1/script/97931d35-23da-4381-9717-9069194773a0"
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '352'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"97931d35-23da-4381-9717-9069194773a0","type":"metadata"}}},"id":"97931d35-23da-4381-9717-9069194773a0","meta":{"created":"2017-04-19T19:47:27.938832Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/script
+  recorded_at: Wed, 19 Apr 2017 19:47:27 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/script/97931d35-23da-4381-9717-9069194773a0
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - javascript doesn't have integers
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Server:
+      - Warp/3.2.7
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/script/97931d35-23da-4381-9717-9069194773a0
+  recorded_at: Wed, 19 Apr 2017 19:47:28 GMT
+recorded_with: VCR 3.0.3

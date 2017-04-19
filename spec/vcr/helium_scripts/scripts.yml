@@ -1,0 +1,142 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.helium.com/v1/script
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test.lua","contents":"LS0gVGVzdCBTY3JpcHQ="},"type":"script"}}'
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - RB_GC_GUARD
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Location:
+      - "/v1/script/6efdd15d-a981-43af-ba31-860009b8706c"
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '352'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"6efdd15d-a981-43af-ba31-860009b8706c","type":"metadata"}}},"id":"6efdd15d-a981-43af-ba31-860009b8706c","meta":{"created":"2017-04-19T19:47:28.085304Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/script
+  recorded_at: Wed, 19 Apr 2017 19:47:28 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/script
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - firm pat on the back
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '5931'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"672a3cc1-20ba-4e00-93ec-a5dfe74ffe4d","type":"package"}]},"metadata":{"data":{"id":"0146fee3-0566-4305-b9e8-85ffe0ce908a","type":"metadata"}}},"id":"0146fee3-0566-4305-b9e8-85ffe0ce908a","meta":{"created":"2017-04-19T16:18:04.141887Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"a2ee156b-391b-4a6e-aefe-eb88b5af785f","type":"package"}]},"metadata":{"data":{"id":"04751b79-83f5-4e1f-a0de-fddaf5815a71","type":"metadata"}}},"id":"04751b79-83f5-4e1f-a0de-fddaf5815a71","meta":{"created":"2017-04-19T16:16:32.854779Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"2d60b481-6ec5-40b1-9914-3ef6895f5774","type":"package"}]},"metadata":{"data":{"id":"0ab4a64a-a59b-4eb8-9998-1e4de2ccae75","type":"metadata"}}},"id":"0ab4a64a-a59b-4eb8-9998-1e4de2ccae75","meta":{"created":"2017-04-19T19:40:58.053128Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"9dc4cea3-5f8a-4081-91a2-5f3f0034e09a","type":"package"}]},"metadata":{"data":{"id":"14b12d78-3835-47da-b2e4-bf33ede5117d","type":"metadata"}}},"id":"14b12d78-3835-47da-b2e4-bf33ede5117d","meta":{"created":"2017-04-19T19:42:04.308638Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"155f5d2c-351e-4515-aa5a-89d08d019bbd","type":"metadata"}}},"id":"155f5d2c-351e-4515-aa5a-89d08d019bbd","meta":{"created":"2017-04-19T16:21:35.973837Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"73b0c0c4-dae6-4e43-bdb8-c11d0be52119","type":"package"}]},"metadata":{"data":{"id":"31e53f30-5f1b-4880-8256-5e11bef6845d","type":"metadata"}}},"id":"31e53f30-5f1b-4880-8256-5e11bef6845d","meta":{"created":"2017-04-19T16:17:29.574596Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"fb4c2c42-b764-45e9-9c38-f9677b87efae","type":"package"}]},"metadata":{"data":{"id":"40b1ee09-266f-4af2-9a31-4df1d6aec528","type":"metadata"}}},"id":"40b1ee09-266f-4af2-9a31-4df1d6aec528","meta":{"created":"2017-04-19T19:41:18.965414Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"71573036-88e4-49d0-b503-92ab91daf09f","type":"package"}]},"metadata":{"data":{"id":"5a6fe9f2-b524-47c8-adc3-2cb5a9f2fecd","type":"metadata"}}},"id":"5a6fe9f2-b524-47c8-adc3-2cb5a9f2fecd","meta":{"created":"2017-04-19T16:16:32.572887Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"6efdd15d-a981-43af-ba31-860009b8706c","type":"metadata"}}},"id":"6efdd15d-a981-43af-ba31-860009b8706c","meta":{"created":"2017-04-19T19:47:28.085304Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"4ef0f0ad-75dd-40fe-b954-7e80bccb8096","type":"package"}]},"metadata":{"data":{"id":"8d657763-e7db-4ccc-9eff-782e1e90b677","type":"metadata"}}},"id":"8d657763-e7db-4ccc-9eff-782e1e90b677","meta":{"created":"2017-04-19T16:16:32.285201Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"a0bb2d9a-7f79-4e53-a872-013dc934e86c","type":"package"}]},"metadata":{"data":{"id":"b364e74e-0714-4afe-abbc-e2f9a14661c3","type":"metadata"}}},"id":"b364e74e-0714-4afe-abbc-e2f9a14661c3","meta":{"created":"2017-04-19T16:18:03.642402Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"800d2506-59f6-4e9a-bb2d-755e20da444b","type":"package"}]},"metadata":{"data":{"id":"b42037ae-eb57-490a-9d1b-c70c17e80e10","type":"metadata"}}},"id":"b42037ae-eb57-490a-9d1b-c70c17e80e10","meta":{"created":"2017-04-19T16:17:29.001975Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"bc6b93b5-3f92-4ac1-8083-41d10732549c","type":"metadata"}}},"id":"bc6b93b5-3f92-4ac1-8083-41d10732549c","meta":{"created":"2017-04-19T16:21:54.897622Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"dd4874c5-4cec-4b15-8141-ca3fb1207d6b","type":"package"}]},"metadata":{"data":{"id":"c8424cb7-3f4d-49cd-883c-9b018f586f49","type":"metadata"}}},"id":"c8424cb7-3f4d-49cd-883c-9b018f586f49","meta":{"created":"2017-04-19T16:18:04.511239Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"},{"attributes":{"name":"script.lua"},"relationships":{"package":{"data":[{"id":"5684fa96-4721-4af2-acb0-dae8954be194","type":"package"}]},"metadata":{"data":{"id":"d322b1d2-4626-4f1a-8c7a-8e13ede66bde","type":"metadata"}}},"id":"d322b1d2-4626-4f1a-8c7a-8e13ede66bde","meta":{"created":"2017-04-19T16:17:29.29415Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"}]}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/script
+  recorded_at: Wed, 19 Apr 2017 19:47:28 GMT
+- request:
+    method: delete
+    uri: https://api.helium.com/v1/script/6efdd15d-a981-43af-ba31-860009b8706c
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - never breaks eye contact
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
+      Date:
+      - Wed, 19 Apr 2017 19:47:27 GMT
+      Server:
+      - Warp/3.2.7
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/script/6efdd15d-a981-43af-ba31-860009b8706c
+  recorded_at: Wed, 19 Apr 2017 19:47:28 GMT
+recorded_with: VCR 3.0.3
