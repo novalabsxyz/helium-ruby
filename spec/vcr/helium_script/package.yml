@@ -27,15 +27,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Airship-Quip:
-      - evacuation not done in time
+      - shut it down
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
       Content-Type:
       - application/json;charset=utf8
       Date:
-      - Wed, 19 Apr 2017 19:47:33 GMT
+      - Tue, 25 Apr 2017 22:25:35 GMT
       Location:
-      - "/v1/script/7026db5a-669a-4433-b44b-48fd0092d93d"
+      - "/v1/script/3a6ce3bf-8600-4791-87cb-5a8491bd8fa0"
       Server:
       - Warp/3.2.7
       Content-Length:
@@ -44,11 +44,11 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"7026db5a-669a-4433-b44b-48fd0092d93d","type":"metadata"}}},"id":"7026db5a-669a-4433-b44b-48fd0092d93d","meta":{"created":"2017-04-19T19:47:34.016069Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"}}'
+      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"3a6ce3bf-8600-4791-87cb-5a8491bd8fa0","type":"metadata"}}},"id":"3a6ce3bf-8600-4791-87cb-5a8491bd8fa0","meta":{"created":"2017-04-25T22:25:36.629284Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"}}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/script
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
+  recorded_at: Tue, 25 Apr 2017 22:25:36 GMT
 - request:
     method: post
     uri: https://api.helium.com/v1/library
@@ -76,15 +76,15 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Airship-Quip:
-      - blame me if inappropriate
+      - firm pat on the back
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
       Content-Type:
       - application/json;charset=utf8
       Date:
-      - Wed, 19 Apr 2017 19:47:33 GMT
+      - Tue, 25 Apr 2017 22:25:35 GMT
       Location:
-      - "/v1/library/16ba438f-6853-4870-8a92-2699b82c76f9"
+      - "/v1/library/3d1bcfaa-c882-46e4-9812-6900f5871073"
       Server:
       - Warp/3.2.7
       Content-Length:
@@ -93,17 +93,17 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"16ba438f-6853-4870-8a92-2699b82c76f9","type":"metadata"}}},"id":"16ba438f-6853-4870-8a92-2699b82c76f9","meta":{"created":"2017-04-19T19:47:34.160265Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"}}'
+      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[]},"metadata":{"data":{"id":"3d1bcfaa-c882-46e4-9812-6900f5871073","type":"metadata"}}},"id":"3d1bcfaa-c882-46e4-9812-6900f5871073","meta":{"created":"2017-04-25T22:25:36.704877Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"}}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/library
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
+  recorded_at: Tue, 25 Apr 2017 22:25:36 GMT
 - request:
     method: post
     uri: https://api.helium.com/v1/package
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"Test Package"},"type":"package","relationships":{"script":{"data":{"id":"7026db5a-669a-4433-b44b-48fd0092d93d","type":"script"}},"library":{"data":[{"id":"16ba438f-6853-4870-8a92-2699b82c76f9","type":"library"}]}}}}'
+      string: '{"data":{"attributes":{"name":"Test Package"},"type":"package","relationships":{"script":{"data":{"id":"3a6ce3bf-8600-4791-87cb-5a8491bd8fa0","type":"script"}},"library":{"data":[{"id":"3d1bcfaa-c882-46e4-9812-6900f5871073","type":"library"}]}}}}'
     headers:
       User-Agent:
       - helium-ruby
@@ -125,31 +125,78 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Airship-Quip:
-      - 'WARNING: ulimit -n is 1024'
+      - RB_GC_GUARD
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,n11,p11
       Content-Type:
       - application/json;charset=utf8
       Date:
-      - Wed, 19 Apr 2017 19:47:34 GMT
+      - Tue, 25 Apr 2017 22:25:35 GMT
       Location:
-      - "/v1/package/56d79191-6505-4732-875a-86c981040868"
+      - "/v1/package/23496d06-d5e5-435c-8192-a9ccb192c7ed"
       Server:
       - Warp/3.2.7
       Content-Length:
-      - '442'
+      - '452'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"attributes":{"name":null},"relationships":{"script":{"data":{"id":"7026db5a-669a-4433-b44b-48fd0092d93d","type":"script"}},"library":{"data":[{"id":"16ba438f-6853-4870-8a92-2699b82c76f9","type":"library"}]},"sensor-package":{"data":[]},"metadata":{"data":{"id":"56d79191-6505-4732-875a-86c981040868","type":"metadata"}}},"id":"56d79191-6505-4732-875a-86c981040868","meta":{"created":"2017-04-19T19:47:34.233521Z"},"type":"package"}}'
+      string: '{"data":{"attributes":{"name":"Test Package"},"relationships":{"script":{"data":{"id":"3a6ce3bf-8600-4791-87cb-5a8491bd8fa0","type":"script"}},"library":{"data":[{"id":"3d1bcfaa-c882-46e4-9812-6900f5871073","type":"library"}]},"sensor-package":{"data":[]},"metadata":{"data":{"id":"23496d06-d5e5-435c-8192-a9ccb192c7ed","type":"metadata"}}},"id":"23496d06-d5e5-435c-8192-a9ccb192c7ed","meta":{"created":"2017-04-25T22:25:36.775372Z"},"type":"package"}}'
     http_version: '1.1'
     adapter_metadata:
       effective_url: https://api.helium.com/v1/package
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
+  recorded_at: Tue, 25 Apr 2017 22:25:36 GMT
 - request:
     method: get
-    uri: https://api.helium.com/v1/package/56d79191-6505-4732-875a-86c981040868/script
+    uri: https://api.helium.com/v1/package/23496d06-d5e5-435c-8192-a9ccb192c7ed/script
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - helium-ruby
+      Authorization:
+      - "<API KEY>"
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
+      Access-Control-Allow-Origin:
+      - "*"
+      Airship-Quip:
+      - sharkfed
+      Airship-Trace:
+      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
+      Content-Type:
+      - application/json;charset=utf8
+      Date:
+      - Tue, 25 Apr 2017 22:25:36 GMT
+      Server:
+      - Warp/3.2.7
+      Content-Length:
+      - '414'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"23496d06-d5e5-435c-8192-a9ccb192c7ed","type":"package"}]},"metadata":{"data":{"id":"3a6ce3bf-8600-4791-87cb-5a8491bd8fa0","type":"metadata"}}},"id":"3a6ce3bf-8600-4791-87cb-5a8491bd8fa0","meta":{"created":"2017-04-25T22:25:36.629284Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"}}'
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://api.helium.com/v1/package/23496d06-d5e5-435c-8192-a9ccb192c7ed/script
+  recorded_at: Tue, 25 Apr 2017 22:25:36 GMT
+- request:
+    method: get
+    uri: https://api.helium.com/v1/package/23496d06-d5e5-435c-8192-a9ccb192c7ed/library
     body:
       encoding: UTF-8
       string: "{}"
@@ -180,54 +227,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf8
       Date:
-      - Wed, 19 Apr 2017 19:47:34 GMT
-      Server:
-      - Warp/3.2.7
-      Content-Length:
-      - '414'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: '{"data":{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"56d79191-6505-4732-875a-86c981040868","type":"package"}]},"metadata":{"data":{"id":"7026db5a-669a-4433-b44b-48fd0092d93d","type":"metadata"}}},"id":"7026db5a-669a-4433-b44b-48fd0092d93d","meta":{"created":"2017-04-19T19:47:34.016069Z","digest":"106505101da9e8d279dc688ec1a2cda647debda8d0112553885add44ba039391"},"type":"script"}}'
-    http_version: '1.1'
-    adapter_metadata:
-      effective_url: https://api.helium.com/v1/package/56d79191-6505-4732-875a-86c981040868/script
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
-- request:
-    method: get
-    uri: https://api.helium.com/v1/package/56d79191-6505-4732-875a-86c981040868/library
-    body:
-      encoding: UTF-8
-      string: "{}"
-    headers:
-      User-Agent:
-      - helium-ruby
-      Authorization:
-      - "<API KEY>"
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Access-Control-Allow-Headers:
-      - Origin, Content-Type, Accept, Authorization, Cache-Control, Last-Event-ID
-      Access-Control-Allow-Origin:
-      - "*"
-      Airship-Quip:
-      - evacuation not done in time
-      Airship-Trace:
-      - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,n16,o16,o17,o18
-      Content-Type:
-      - application/json;charset=utf8
-      Date:
-      - Wed, 19 Apr 2017 19:47:34 GMT
+      - Tue, 25 Apr 2017 22:25:36 GMT
       Server:
       - Warp/3.2.7
       Content-Length:
@@ -236,14 +236,14 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":[{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"56d79191-6505-4732-875a-86c981040868","type":"package"}]},"metadata":{"data":{"id":"16ba438f-6853-4870-8a92-2699b82c76f9","type":"metadata"}}},"id":"16ba438f-6853-4870-8a92-2699b82c76f9","meta":{"created":"2017-04-19T19:47:34.160265Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"}]}'
+      string: '{"data":[{"attributes":{"name":"test.lua"},"relationships":{"package":{"data":[{"id":"23496d06-d5e5-435c-8192-a9ccb192c7ed","type":"package"}]},"metadata":{"data":{"id":"3d1bcfaa-c882-46e4-9812-6900f5871073","type":"metadata"}}},"id":"3d1bcfaa-c882-46e4-9812-6900f5871073","meta":{"created":"2017-04-25T22:25:36.704877Z","digest":"500800f8193f61c59a5e1a085971a23a7bc2473529fddf9cdd46b48096f387f3"},"type":"library"}]}'
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/package/56d79191-6505-4732-875a-86c981040868/library
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
+      effective_url: https://api.helium.com/v1/package/23496d06-d5e5-435c-8192-a9ccb192c7ed/library
+  recorded_at: Tue, 25 Apr 2017 22:25:36 GMT
 - request:
     method: delete
-    uri: https://api.helium.com/v1/package/56d79191-6505-4732-875a-86c981040868
+    uri: https://api.helium.com/v1/package/23496d06-d5e5-435c-8192-a9ccb192c7ed
     body:
       encoding: UTF-8
       string: "{}"
@@ -268,11 +268,11 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Airship-Quip:
-      - blame me if inappropriate
+      - "$300,000 worth of cows"
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
       Date:
-      - Wed, 19 Apr 2017 19:47:34 GMT
+      - Tue, 25 Apr 2017 22:25:36 GMT
       Server:
       - Warp/3.2.7
       Connection:
@@ -282,11 +282,11 @@ http_interactions:
       string: ''
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/package/56d79191-6505-4732-875a-86c981040868
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
+      effective_url: https://api.helium.com/v1/package/23496d06-d5e5-435c-8192-a9ccb192c7ed
+  recorded_at: Tue, 25 Apr 2017 22:25:37 GMT
 - request:
     method: delete
-    uri: https://api.helium.com/v1/library/16ba438f-6853-4870-8a92-2699b82c76f9
+    uri: https://api.helium.com/v1/library/3d1bcfaa-c882-46e4-9812-6900f5871073
     body:
       encoding: UTF-8
       string: "{}"
@@ -311,11 +311,11 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Airship-Quip:
-      - evacuation not done in time
+      - sharkfed
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
       Date:
-      - Wed, 19 Apr 2017 19:47:34 GMT
+      - Tue, 25 Apr 2017 22:25:36 GMT
       Server:
       - Warp/3.2.7
       Connection:
@@ -325,11 +325,11 @@ http_interactions:
       string: ''
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/library/16ba438f-6853-4870-8a92-2699b82c76f9
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
+      effective_url: https://api.helium.com/v1/library/3d1bcfaa-c882-46e4-9812-6900f5871073
+  recorded_at: Tue, 25 Apr 2017 22:25:37 GMT
 - request:
     method: delete
-    uri: https://api.helium.com/v1/script/7026db5a-669a-4433-b44b-48fd0092d93d
+    uri: https://api.helium.com/v1/script/3a6ce3bf-8600-4791-87cb-5a8491bd8fa0
     body:
       encoding: UTF-8
       string: "{}"
@@ -354,11 +354,11 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       Airship-Quip:
-      - shut it down
+      - sharkfed
       Airship-Trace:
       - b13,b12,b11,b10,b09,b08,b07,b06,b05,b04,b03,c03,c04,d04,e05,f06,g07,g08,h10,i12,l13,m16,m20,o20
       Date:
-      - Wed, 19 Apr 2017 19:47:34 GMT
+      - Tue, 25 Apr 2017 22:25:36 GMT
       Server:
       - Warp/3.2.7
       Connection:
@@ -368,6 +368,6 @@ http_interactions:
       string: ''
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://api.helium.com/v1/script/7026db5a-669a-4433-b44b-48fd0092d93d
-  recorded_at: Wed, 19 Apr 2017 19:47:34 GMT
+      effective_url: https://api.helium.com/v1/script/3a6ce3bf-8600-4791-87cb-5a8491bd8fa0
+  recorded_at: Tue, 25 Apr 2017 22:25:37 GMT
 recorded_with: VCR 3.0.3
