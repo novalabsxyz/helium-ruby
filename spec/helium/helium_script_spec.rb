@@ -93,7 +93,6 @@ describe Helium::Package do
   end
 
   it 'has a name' do
-    pending("API bug prevents setting name")
     expect(@package.name).to eq('Test Package')
   end
 

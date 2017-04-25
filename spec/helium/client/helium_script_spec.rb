@@ -135,8 +135,6 @@ describe Helium::Client, '#create_package' do
   it 'creates a new Package' do
     expect(@package).to be_a(Helium::Package)
     expect(@package).to respond_to(:id)
-    # [2017-05-18] Bug in the API currently prevents setting name
-    pending("API bug prevents setting name")
     expect(@package.name).to eq('test package')
   end
 
